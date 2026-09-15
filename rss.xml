@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog ePerformance — Acquisition rentable &amp; création de sites web</title>
+    <link>https://blog.eperformance.pro/</link>
+    <atom:link href="https://blog.eperformance.pro/rss.xml" rel="self" type="application/rss+xml" />
+    <description>Stratégie d'acquisition rentable, création de sites web professionnels et SEO local en Côte d'Ivoire. Par K. STEPHANE, ePerformance.</description>
+    <language>fr-ci</language>
+    <lastBuildDate>Mon, 15 Sep 2026 09:00:00 +0000</lastBuildDate>
+    <ttl>1440</ttl>
+    <image>
+      <url>https://blog.eperformance.pro/assets/img/logo-ep-noir.png</url>
+      <title>Blog ePerformance</title>
+      <link>https://blog.eperformance.pro/</link>
+    </image>
+
+    <item>
+      <title>Calculer son vrai CAC en Côte d'Ivoire : le guide complet pour entrepreneurs</title>
+      <link>https://blog.eperformance.pro/articles/calculer-cac-cote-ivoire/</link>
+      <guid isPermaLink="true">https://blog.eperformance.pro/articles/calculer-cac-cote-ivoire/</guid>
+      <pubDate>Tue, 16 Sep 2026 09:00:00 +0000</pubDate>
+      <description>Le CAC, c'est ce que vous coûte vraiment chaque nouveau client. Pub, temps, outils, frais de transaction inclus. Voici comment le calculer en Côte d'Ivoire, étape par étape, sans rien oublier.</description>
+      <category>Acquisition</category>
+    </item>
+
+    <item>
+      <title>Site web professionnel à Abidjan : 7 critères SEO pour bien choisir le sien</title>
+      <link>https://blog.eperformance.pro/articles/site-web-professionnel-abidjan-guide/</link>
+      <guid isPermaLink="true">https://blog.eperformance.pro/articles/site-web-professionnel-abidjan-guide/</guid>
+      <pubDate>Tue, 23 Sep 2026 09:00:00 +0000</pubDate>
+      <description>Vous voulez un site web professionnel à Abidjan ? Voici les 7 critères SEO et conversion à vérifier avant de signer, pour ne pas jeter votre budget par les fenêtres.</description>
+      <category>Site Web</category>
+    </item>
+
+    <item>
+      <title>SEO local à Abidjan : apparaître sur Google quand vos clients vous cherchent</title>
+      <link>https://blog.eperformance.pro/articles/seo-local-abidjan-guide/</link>
+      <guid isPermaLink="true">https://blog.eperformance.pro/articles/seo-local-abidjan-guide/</guid>
+      <pubDate>Tue, 30 Sep 2026 09:00:00 +0000</pubDate>
+      <description>Le SEO local à Abidjan n'est pas optionnel : 46 % des recherches Google ont une intention locale. Voici comment apparaître dans le pack local et capter les clients autour de vous.</description>
+      <category>SEO</category>
+    </item>
+
+  </channel>
+</rss>

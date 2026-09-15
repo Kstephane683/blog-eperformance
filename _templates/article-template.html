@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <!-- ⚠️ MODÈLE À COPIER POUR CHAQUE NOUVEL ARTICLE — voir GUIDE-AJOUT-ARTICLES.md -->
+  <!-- 🔁 Remplacer : {TITRE}, {DESCRIPTION}, {SLUG}, {CATEGORIE}, {CATEGORIE_PATH}, {DATE_ISO}, {DATE_LISIBLE}, {TEMPS_LECTURE}, {OG_IMAGE}, {MOTS_CLES} -->
+
+  <title>{TITRE} — Blog ePerformance</title>
+  <meta name="description" content="{DESCRIPTION}" />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://blog.eperformance.pro/articles/{SLUG}/" />
+  <meta property="og:title" content="{TITRE}" />
+  <meta property="og:description" content="{DESCRIPTION}" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://blog.eperformance.pro/articles/{SLUG}/" />
+  <meta property="og:image" content="https://blog.eperformance.pro/assets/img/{OG_IMAGE}" />
+  <meta property="og:locale" content="fr_CI" />
+  <meta property="og:site_name" content="Blog ePerformance" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{TITRE}" />
+  <meta name="twitter:description" content="{DESCRIPTION}" />
+  <meta name="twitter:image" content="https://blog.eperformance.pro/assets/img/{OG_IMAGE}" />
+  <meta name="theme-color" content="#08080c" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="alternate" type="application/rss+xml" title="Blog ePerformance" href="https://blog.eperformance.pro/rss.xml" />
+
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z7QW8BCYQ1"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z7QW8BCYQ1',{'anonymize_ip':true});</script>
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "w2e89n0biv");
+  </script>
+
+  <!-- Meta Pixel -->
+  <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1592627695615531');fbq('track','PageView');</script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1592627695615531&ev=PageView&noscript=1"/></noscript>
+
+  <!-- ✅ JSON-LD Article — à remplir -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"{TITRE}",
+    "description":"{DESCRIPTION}",
+    "image":"https://blog.eperformance.pro/assets/img/{OG_IMAGE}",
+    "datePublished":"{DATE_ISO}",
+    "dateModified":"{DATE_ISO}",
+    "inLanguage":"fr-CI",
+    "wordCount":1500,
+    "articleSection":"{CATEGORIE}",
+    "keywords":{MOTS_CLES},
+    "author":{"@type":"Person","name":"K. STEPHANE","jobTitle":"Fondateur ePerformance","url":"https://blog.eperformance.pro/a-propos/"},
+    "publisher":{"@type":"Organization","name":"ePerformance","logo":{"@type":"ImageObject","url":"https://eperformance.pro/logo-ep-noir.png"}},
+    "mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.eperformance.pro/articles/{SLUG}/"}
+  }
+  </script>
+
+  <!-- ✅ JSON-LD BreadcrumbList — à remplir -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Blog","item":"https://blog.eperformance.pro/"},
+      {"@type":"ListItem","position":2,"name":"{CATEGORIE}","item":"https://blog.eperformance.pro/{CATEGORIE_PATH}/"},
+      {"@type":"ListItem","position":3,"name":"{TITRE}","item":"https://blog.eperformance.pro/articles/{SLUG}/"}
+    ]
+  }
+  </script>
+
+  <!-- ✅ JSON-LD FAQPage — optionnel, à remplir si l'article contient une FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Question 1 ?","acceptedAnswer":{"@type":"Answer","text":"Réponse 1 (40-60 mots pour AEO)."}},
+      {"@type":"Question","name":"Question 2 ?","acceptedAnswer":{"@type":"Answer","text":"Réponse 2."}}
+    ]
+  }
+  </script>
+</head>
+<body>
+<a href="#main" class="skip-link">Aller au contenu principal</a>
+
+<!-- TOP BAR PROMO -->
+<div class="top-bar">
+  📊 Vous voulez structurer votre acquisition ? <a href="https://eperformance.pro/diagnostic_eperformance.html" target="_blank" rel="noopener">Faire le diagnostic gratuit →</a>
+</div>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="container header-inner">
+    <a href="../../" class="logo" aria-label="Blog ePerformance - Accueil">
+      <span class="logo-mark">eP</span>
+      <span class="logo-text">Blog ePerformance<span class="logo-sub">par K. STEPHANE</span></span>
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="../../acquisition/">Acquisition</a>
+      <a href="../../site-web/">Site Web</a>
+      <a href="../../seo/">SEO</a>
+      <a href="../../business/">Business</a>
+      <a href="../../a-propos/">À propos</a>
+    </nav>
+    <div class="header-cta">
+      <a href="https://eperformance.pro" class="btn btn-ghost" style="padding:.55rem 1.1rem;font-size:.85rem" target="_blank" rel="noopener">Site principal</a>
+      <a href="https://api.whatsapp.com/send?phone=2250151170666&text=Bonjour%2C%20je%20viens%20du%20blog%20ePerformance" class="btn btn-gold" style="padding:.55rem 1.1rem;font-size:.85rem" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+      <button class="burger" id="burgerBtn" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="overlay" id="overlay" aria-hidden="true">
+  <div class="panel" role="dialog">
+    <div class="panel-top">
+      <div class="logo"><span class="logo-mark">eP</span><span class="logo-text">Blog ePerformance</span></div>
+      <button class="close-btn" id="closeBtn"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <a class="mLink" href="../../">Accueil</a>
+    <a class="mLink" href="../../acquisition/">Acquisition</a>
+    <a class="mLink" href="../../site-web/">Site Web</a>
+    <a class="mLink" href="../../seo/">SEO</a>
+    <a class="mLink" href="../../business/">Business</a>
+    <a class="mLink" href="../../a-propos/">À propos</a>
+    <a class="btn btn-gold mLink" href="https://api.whatsapp.com/send?phone=2250151170666&text=Bonjour%2C%20je%20viens%20du%20blog%20ePerformance" target="_blank" rel="noopener" style="margin-top:.3rem;justify-content:center"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- HERO ARTICLE -->
+<section class="article-hero">
+  <div class="container-reading">
+
+    <nav class="article-breadcrumb" aria-label="Fil d'Ariane">
+      <a href="../../">Blog</a>
+      <span class="sep">/</span>
+      <a href="../../{CATEGORIE_PATH}/">{CATEGORIE}</a>
+      <span class="sep">/</span>
+      <span>{TITRE_COURT}</span>
+    </nav>
+
+    <span class="article-category">{CATEGORIE}</span>
+    <h1>{TITRE}</h1>
+    <p class="lead">{CHAPÔ — 1 à 2 phrases, avec mot-clé principal dans les 100 premiers mots}</p>
+
+    <div class="article-meta">
+      <div class="author">
+        <div class="author-avatar">KS</div>
+        <div>
+          <div style="color:var(--text); font-weight:600">K. STEPHANE</div>
+          <div class="small">Fondateur ePerformance</div>
+        </div>
+      </div>
+      <span class="meta-sep">·</span>
+      <span><i class="fa-regular fa-calendar"></i> {DATE_LISIBLE}</span>
+      <span class="meta-sep">·</span>
+      <span><i class="fa-regular fa-clock"></i> {TEMPS_LECTURE} min de lecture</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- CORPS ARTICLE -->
+<section class="section" style="padding-top:0">
+  <div class="container-reading">
+    <div class="article-body">
+
+      <!-- 📝 INTRO — mot-clé principal dans les 100 premiers mots -->
+      <p>Premier paragraphe d'intro. Mot-clé principal dès la première phrase. Annonce le problème, la promesse et la structure de l'article. 3 à 5 phrases minimum.</p>
+
+      <p>Deuxième paragraphe qui pose le contexte et donne envie de lire la suite.</p>
+
+      <!-- 💡 CALLOUT — définition clé en début d'article (bon pour AEO) -->
+      <div class="callout">
+        <div class="callout-icon"><i class="fa-solid fa-circle-info"></i></div>
+        <div class="callout-content">
+          <h4>En une phrase</h4>
+          <p>Résumé de l'article en une phrase claire. Les moteurs IA récupèrent souvent cette structure pour leurs citations.</p>
+        </div>
+      </div>
+
+      <!-- H2 — au moins 5 H2, mot-clé principal dans 1 H2 sur 3 -->
+      <h2>Premier H2 — Section 1</h2>
+      <p>Contenu de la section. 150 à 200 mots minimum. Phrases concrètes, exemples chiffrés, références locales (Abidjan, FCFA, Orange Money…).</p>
+
+      <h3>H3 — sous-section</h3>
+      <p>Détail de la sous-section.</p>
+
+      <!-- 📊 TABLEAU — très apprécié par les moteurs IA -->
+      <table>
+        <thead>
+          <tr><th>Colonne 1</th><th>Colonne 2</th><th>Colonne 3</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Ligne 1</td><td>Valeur</td><td>Valeur</td></tr>
+          <tr><td>Ligne 2</td><td>Valeur</td><td>Valeur</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Deuxième H2 — Section 2</h2>
+      <p>Contenu de la section 2. Lien interne vers <a href="../../articles/{AUTRE_ARTICLE}/">un autre article du blog</a> et éventuellement lien externe vers une source autoritaire (Google Search Central, Meta for Business…).</p>
+
+      <!-- 🔗 LIEN INTERNE OBLIGATOIRE : vers une page de conversion du site principal -->
+      <p>Lien vers <a href="https://eperformance.pro/diagnostic_eperformance.html" target="_blank" rel="noopener">le diagnostic gratuit</a> ou <a href="https://eperformance.pro/site-web.html" target="_blank" rel="noopener">la création de site web</a>.</p>
+
+      <blockquote>
+        <p><strong>Citation ou formule clé en gras.</strong></p>
+      </blockquote>
+
+      <!-- ❓ FAQ — 4 à 6 questions minimum, format Q/R court en début pour AEO -->
+      <h2>FAQ — Tout ce que vous demandez sur {SUJET}</h2>
+      <div class="faq-section">
+        <details class="faq-item">
+          <summary>Question 1 formulée comme un utilisateur la poserait à ChatGPT ?</summary>
+          <div class="faq-answer">Réponse courte (40-60 mots) en premier, puis développement si nécessaire. Les moteurs IA extraient souvent ces réponses telles quelles.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Question 2 ?</summary>
+          <div class="faq-answer">Réponse 2.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Question 3 ?</summary>
+          <div class="faq-answer">Réponse 3.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Question 4 ?</summary>
+          <div class="faq-answer">Réponse 4.</div>
+        </details>
+      </div>
+
+      <h2>Conclusion</h2>
+      <p>Résumé de l'article. 1 à 2 paragraphes. Pas de phrase de fin type « En espérant que cet article vous a plu ».</p>
+
+      <!-- 🚀 CTA — toujours en fin d'article -->
+      <div class="cta-block">
+        <h3>{PROMESSE CTA}</h3>
+        <p>{Description CTA}</p>
+        <a href="https://eperformance.pro/diagnostic_eperformance.html" class="btn btn-gold btn-lg" target="_blank" rel="noopener"><i class="fa-solid fa-magnifying-glass"></i> Faire mon diagnostic gratuit</a>
+        <a href="https://api.whatsapp.com/send?phone=2250151170666&text=Bonjour%2C%20je%20viens%20du%20blog%20ePerformance" class="btn btn-outline btn-lg" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+      </div>
+
+      <!-- 🏷️ TAGS + PARTAGE -->
+      <div class="article-footer">
+        <div class="tags-row">
+          <a href="../../{CATEGORIE_PATH}/" class="tag">{CATEGORIE}</a>
+          <span class="tag">{TAG_1}</span>
+          <span class="tag">{TAG_2}</span>
+          <span class="tag">{TAG_3}</span>
+        </div>
+        <div class="share-row">
+          <span>Partager :</span>
+          <a href="#" class="share-btn" onclick="return sharePage('whatsapp')" data-share="whatsapp" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="#" class="share-btn" onclick="return sharePage('linkedin')" data-share="linkedin" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" class="share-btn" onclick="return sharePage('facebook')" data-share="facebook" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="share-btn" onclick="return sharePage('twitter')" data-share="twitter" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="share-btn" onclick="return sharePage('copy')" data-share="copy" aria-label="Copier le lien"><i class="fa-solid fa-link"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 🔗 ARTICLES LIÉS — 2 articles minimum -->
+<section class="related">
+  <div class="container">
+    <h2>Articles <span class="gold-text">à lire ensuite</span></h2>
+    <div class="articles-grid">
+      <a href="../{ARTICLE_LIE_1}/" class="article-card" style="color:inherit">
+        <div class="article-card-thumb">
+          <span class="thumb-cat">{CAT_LIE_1}</span>
+          <i class="fa-solid {ICON_LIE_1} thumb-icon"></i>
+        </div>
+        <div class="article-card-body">
+          <h3>{TITRE_LIE_1}</h3>
+          <p>{EXCERPT_LIE_1}</p>
+          <div class="article-card-meta">
+            <span><i class="fa-regular fa-calendar"></i> {DATE_LIE_1}</span>
+            <span class="read-time"><i class="fa-regular fa-clock"></i> {TEMPS_LIE_1} min</span>
+          </div>
+        </div>
+      </a>
+      <a href="../{ARTICLE_LIE_2}/" class="article-card" style="color:inherit">
+        <div class="article-card-thumb">
+          <span class="thumb-cat">{CAT_LIE_2}</span>
+          <i class="fa-solid {ICON_LIE_2} thumb-icon"></i>
+        </div>
+        <div class="article-card-body">
+          <h3>{TITRE_LIE_2}</h3>
+          <p>{EXCERPT_LIE_2}</p>
+          <div class="article-card-meta">
+            <span><i class="fa-regular fa-calendar"></i> {DATE_LIE_2}</span>
+            <span class="read-time"><i class="fa-regular fa-clock"></i> {TEMPS_LIE_2} min</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-brand">
+          <span style="display:inline-flex;align-items:center;gap:10px">
+            <span class="logo-mark">eP</span> Blog ePerformance
+          </span>
+          <span class="logo-sub">par K. STEPHANE</span>
+        </div>
+        <p class="footer-desc">Stratégie d'acquisition rentable, création de sites web professionnels et SEO local en Côte d'Ivoire. Articles concrets, sans blabla, par K. STEPHANE.</p>
+        <p class="small muted">📞 +225 01 51 17 06 66 · Abidjan, Côte d'Ivoire</p>
+      </div>
+      <div class="footer-col">
+        <h4>Piliers</h4>
+        <a href="../../acquisition/">Acquisition</a>
+        <a href="../../site-web/">Site Web</a>
+        <a href="../../seo/">SEO</a>
+        <a href="../../business/">Business</a>
+      </div>
+      <div class="footer-col">
+        <h4>Site principal</h4>
+        <a href="https://eperformance.pro" target="_blank" rel="noopener">Accueil</a>
+        <a href="https://eperformance.pro/diagnostic_eperformance.html" target="_blank" rel="noopener">Diagnostic gratuit</a>
+        <a href="https://eperformance.pro/site-web.html" target="_blank" rel="noopener">Création site web</a>
+        <a href="https://eperformance.pro/formation.html" target="_blank" rel="noopener">Formation</a>
+        <a href="https://eperformance.pro/ebook.html" target="_blank" rel="noopener">Ebook</a>
+      </div>
+      <div class="footer-col">
+        <h4>Suivre</h4>
+        <a href="../../rss.xml">Flux RSS</a>
+        <a href="https://api.whatsapp.com/send?phone=2250151170666" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="../../a-propos/">À propos</a>
+        <a href="../../contact/">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 ePerformance — K. STEPHANE. Tous droits réservés.</span>
+      <span>
+        <a href="https://eperformance.pro/mentions-legales/" target="_blank" rel="noopener">Mentions légales</a> ·
+        <a href="https://eperformance.pro/politique-confidentialite/" target="_blank" rel="noopener">Confidentialité</a> ·
+        <a href="https://eperformance.pro/cookies/" target="_blank" rel="noopener">Cookies</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>
