@@ -2,6 +2,8 @@ User-agent: *
 Allow: /
 Disallow: /extras/
 Disallow: /_templates/
+Disallow: /_build/
+Disallow: /_content/
 
 # Moteurs IA — autorisation explicite (AEO / GEO)
 User-agent: GPTBot
