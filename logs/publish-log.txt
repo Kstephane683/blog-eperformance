@@ -1,0 +1,8 @@
+# Journal de publication — blog ePerformance
+# Format : date ISO | commit | périmètre | résultat
+
+2026-09-17T04:30Z | — | Infrastructure : CONVENTIONS.md, script de vérification, analyse GSC | OK
+2026-09-17T12:00Z | 556a2c8 | Pilote : 1 article (IA générative pour une PME africaine) | OK — 2391 mots, 14 H2, 6 FAQ, 0 échec
+
+# État : 1 article produit sur 78.
+# Prochain lot : articles 2 à 10 (fin du cluster IA générative, début Automatisation).
