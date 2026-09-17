@@ -92,6 +92,106 @@
     targets.forEach(function (el) { observer.observe(el); });
   }
 
+
+
+  /* ----------------------------------------------------------------------
+     RÉVÉLATION MOT PAR MOT DES TITRES
+
+     Chaque mot est enveloppé dans un masque (overflow:hidden) et décalé
+     vers le bas ; le passage de .words-in le fait remonter.
+
+     Deux précautions qui ne sont pas négociables :
+
+     1. On ne touche JAMAIS à l'opacité. Un élément à opacity:0 n'est pas
+        candidat au LCP — c'est le défaut qui a coûté 0,65 s au LCP de la
+        page d'accueil à la phase 2. Un élément simplement décalé, lui,
+        reste peint et reste candidat.
+
+     2. Un vrai nœud texte sépare les mots dans le DOM. Un margin-left
+        donnerait le même rendu mais ferait lire « Lesprix » aux lecteurs
+        d'écran, et un copier-coller perdrait les espaces.
+
+     Si le mouvement est réduit ou si le JS échoue, le titre reste intact :
+     on ne découpe que lorsque l'animation peut réellement se jouer.
+     ---------------------------------------------------------------------- */
+  function initWordReveal() {
+    if (reduceMotion.matches) return;
+
+    var titres = document.querySelectorAll('h1, h2');
+    if (!titres.length) return;
+
+    // Découpe récursivement, pour préserver <em>, <strong>, <a> dans les titres
+    function decouper(noeud) {
+      var enfants = Array.prototype.slice.call(noeud.childNodes);
+      enfants.forEach(function (enfant) {
+        if (enfant.nodeType === 3) {
+          var mots = enfant.nodeValue.split(/(\s+)/);
+          var fragment = document.createDocumentFragment();
+          mots.forEach(function (morceau) {
+            if (morceau === '') return;
+            if (/^\s+$/.test(morceau)) {
+              fragment.appendChild(document.createTextNode(' '));
+              return;
+            }
+            var masque = document.createElement('span');
+            masque.className = 'word-mask';
+            var mot = document.createElement('span');
+            mot.className = 'word';
+            mot.textContent = morceau;
+            masque.appendChild(mot);
+            fragment.appendChild(masque);
+          });
+          noeud.replaceChild(fragment, enfant);
+        } else if (enfant.nodeType === 1 && enfant.tagName !== 'BR') {
+          decouper(enfant);
+        }
+      });
+    }
+
+    var aObserver = [];
+
+    titres.forEach(function (titre) {
+      // Un titre déjà dans le viewport au chargement (le h1 du hero) est
+      // révélé sans attendre : l'animer depuis le bas au premier rendu
+      // serait perçu comme un sursaut, et retarderait la lecture.
+      var dejaVisible = titre.getBoundingClientRect().top < window.innerHeight * 0.9;
+
+      decouper(titre);
+
+      var mots = titre.querySelectorAll('.word');
+      if (!mots.length) return;
+
+      Array.prototype.forEach.call(mots, function (mot, i) {
+        // Cascade plafonnée : au-delà de 12 mots, un délai croissant
+        // rendrait la fin de la phrase pénible à attendre.
+        mot.style.transitionDelay = Math.min(i, 12) * 42 + 'ms';
+      });
+
+      if (dejaVisible) {
+        // Rendu au frame suivant, pour que la transition ait un état de départ
+        window.requestAnimationFrame(function () {
+          window.requestAnimationFrame(function () {
+            titre.classList.add('words-in');
+          });
+        });
+      } else {
+        aObserver.push(titre);
+      }
+    });
+
+    if (!aObserver.length) return;
+
+    var observateur = new IntersectionObserver(function (entrees) {
+      entrees.forEach(function (entree) {
+        if (!entree.isIntersecting) return;
+        entree.target.classList.add('words-in');
+        observateur.unobserve(entree.target);
+      });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.15 });
+
+    aObserver.forEach(function (t) { observateur.observe(t); });
+  }
+
   /* ----------------------------------------------------------------------
      EN-TÊTE CONDENSÉ
      Un seul écouteur, passif, qui ne touche au DOM que sur changement d'état.
@@ -232,6 +332,7 @@
     root.classList.remove('no-js');
     initTheme();
     initReveal();
+    initWordReveal();
     initHeader();
     initNav();
     initCounters();

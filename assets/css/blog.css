@@ -767,3 +767,110 @@
    n'existent pas sur eperformance.pro. Ne pas le copier vers le site
    principal — le site ne doit dépendre que d'assets/css/eperf.css.
    ========================================================================== */
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   FINITIONS DE LECTURE — propres au blog
+   Ces deux composants n'ont pas d'équivalent sur le site, qui ne publie pas
+   de textes longs. Ils consomment les jetons d'eperf.css et n'introduisent
+   aucune couleur propre.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* --- Barre de progression de lecture --------------------------------- */
+/* Fixée sous l'en-tête (72 px), animée par transform:scaleX — une
+   propriété composée, donc aucun recalcul de mise en page au défilement.
+   La largeur du trait est volontairement discrète : elle informe sans
+   réclamer l'attention. */
+.reading-progress {
+  position: fixed;
+  top: 72px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 99;
+  pointer-events: none;
+  background: transparent;
+}
+
+.reading-progress span {
+  display: block;
+  height: 100%;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  background: var(--grad-gold, var(--gold));
+  opacity: 0.9;
+  transition: opacity var(--t) var(--ease-out);
+}
+
+/* Au repos en haut de page, la barre s'efface : elle n'a rien à dire */
+.reading-progress.is-idle span { opacity: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reading-progress span { transition: none; }
+}
+
+/* --- Sommaire de l'article ------------------------------------------- */
+/* Colonne flottante à droite, hors du flux : le corps de l'article garde
+   sa largeur de lecture (760 px) et n'est jamais comprimé.
+   Il n'apparaît que si l'écran peut l'accueillir sans gêner la lecture. */
+.article-toc {
+  display: none;
+}
+
+@media (min-width: 1280px) {
+  .article-toc {
+    display: block;
+    position: fixed;
+    top: 108px;
+    left: calc(50% + 400px);
+    width: 232px;
+    max-height: calc(100vh - 160px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}
+
+.article-toc h2 {
+  font-family: var(--police-corps);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+.article-toc ol {
+  list-style: none;
+  border-left: 1px solid var(--border);
+}
+
+.article-toc a {
+  display: block;
+  padding: 7px 0 7px 14px;
+  margin-left: -1px;
+  border-left: 2px solid transparent;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--muted);
+  transition: color var(--t) var(--ease-out),
+              border-color var(--t) var(--ease-out);
+}
+
+.article-toc a:hover { color: var(--text); }
+
+/* La section en cours de lecture. Le contraste est porté par la couleur
+   ET par la bordure, pour ne pas dépendre de la seule teinte. */
+.article-toc a[aria-current="true"] {
+  color: var(--gold);
+  border-left-color: var(--gold);
+  font-weight: 600;
+}
+
+/* Les sous-sections sont légèrement en retrait, sans occuper la colonne */
+.article-toc li.is-sub a { padding-left: 26px; font-size: 0.78rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  .article-toc a { transition: none; }
+}

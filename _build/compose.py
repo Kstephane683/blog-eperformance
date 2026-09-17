@@ -246,9 +246,9 @@ def head(page_key, meta):
         f'<meta name="author" content="K. Stéphane">',
         "",
         '<!-- Icônes -->',
-        '<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">',
-        '<link rel="icon" href="assets/img/favicon-16.png" sizes="16x16">',
-        '<link rel="apple-touch-icon" href="assets/img/icon-192.png">',
+        '<link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">',
+        '<link rel="icon" href="/assets/img/favicon-16.png" sizes="16x16">',
+        '<link rel="apple-touch-icon" href="/assets/img/icon-192.png">',
         "",
         '<!-- Open Graph -->',
         f'<meta property="og:type" content="{og_type}">',
@@ -275,16 +275,16 @@ def head(page_key, meta):
         '     On précharge les deux graisses du premier écran pour que le',
         '     texte soit peint dans la bonne police dès le premier rendu. -->',
     ] + [
-        f'<link rel="preload" as="font" type="font/woff2" crossorigin href="{u}">'
+        f'<link rel="preload" as="font" type="font/woff2" crossorigin href="/{u}">'
         for u in FONT_PRELOADS
     ] + [
         '',
         "<!-- Design system : la MEME feuille que le site, a l'identique. -->",
-        '<link rel="stylesheet" href="assets/css/eperf.css">',
+        '<link rel="stylesheet" href="/assets/css/eperf.css">',
         "<!-- Composants editoriaux du blog : corps d'article, largeur de",
         "     lecture, cartes d'article. Ils consomment les jetons d'eperf.css",
         "     et ne redefinissent aucune couleur. -->",
-        '<link rel="stylesheet" href="assets/css/blog.css">',
+        '<link rel="stylesheet" href="/assets/css/blog.css">',
     ]
 
     return "\n".join("  " + p if p else "" for p in parts)
@@ -314,10 +314,10 @@ def header(active=""):
   <div class="container header-inner">
 
     <a class="logo" href="index.html" aria-label="ePerformance — accueil">
-      <img class="logo-img-light" src="assets/img/logo-light.webp"
+      <img class="logo-img-light" src="/assets/img/logo-light.webp"
            srcset="assets/img/logo-light.webp 1x, assets/img/logo-light@2x.webp 2x"
            width="182" height="30" alt="ePerformance" fetchpriority="high">
-      <img class="logo-img-dark" src="assets/img/logo-dark.webp"
+      <img class="logo-img-dark" src="/assets/img/logo-dark.webp"
            srcset="assets/img/logo-dark.webp 1x, assets/img/logo-dark@2x.webp 2x"
            width="188" height="30" alt="" aria-hidden="true">
     </a>
@@ -381,10 +381,10 @@ def footer():
     <div class="footer-grid">
 
       <div class="footer-col">
-        <img class="footer-logo logo-img-light" src="assets/img/logo-light.webp"
+        <img class="footer-logo logo-img-light" src="/assets/img/logo-light.webp"
              srcset="assets/img/logo-light.webp 1x, assets/img/logo-light@2x.webp 2x"
              width="152" height="25" alt="ePerformance" loading="lazy">
-        <img class="footer-logo logo-img-dark" src="assets/img/logo-dark.webp"
+        <img class="footer-logo logo-img-dark" src="/assets/img/logo-dark.webp"
              srcset="assets/img/logo-dark.webp 1x, assets/img/logo-dark@2x.webp 2x"
              width="157" height="25" alt="" aria-hidden="true" loading="lazy">
         <p class="card-text mt-3" style="max-width:34ch">{html.escape(SITE_DESC)}</p>
@@ -682,9 +682,9 @@ def compose_page(page_key, meta):
 
 {CONSENT_BANNER}
 
-<script src="assets/js/consent.js" defer></script>
-<script src="assets/js/eperf.js" defer></script>
-<script src="assets/js/blog.js" defer></script>
+<script src="/assets/js/consent.js" defer></script>
+<script src="/assets/js/eperf.js" defer></script>
+<script src="/assets/js/blog.js" defer></script>
 </body>
 </html>
 """
@@ -694,7 +694,7 @@ def compose_page(page_key, meta):
 # ---------------------------------------------------------------------------
 # CONTRÔLE DE COMPOSITION
 #   Ce contrôle existe à cause d'un bug réel : la balise
-#   <link rel="stylesheet" href="assets/css/eperf.css"> a disparu du gabarit
+#   <link rel="stylesheet" href="/assets/css/eperf.css"> a disparu du gabarit
 #   lors d'une réécriture du <head>, et les 14 pages ont été régénérées sans
 #   design system. Aucun test ne l'a vu, parce qu'aucun test ne vérifiait que
 #   la page produite contenait réellement ses ressources.
@@ -705,14 +705,14 @@ def compose_page(page_key, meta):
 RESSOURCES_CRITIQUES = [
     ('assets/css/eperf.css',
      'la feuille du design system — sans elle la page n\'est pas stylée',
-     '<link rel="stylesheet" href="assets/css/eperf.css">'),
-    ('assets/js/consent.js',
+     '<link rel="stylesheet" href="/assets/css/eperf.css">'),
+    ('/assets/js/consent.js',
      'le consentement — sans lui les traceurs ne se chargent pas du tout',
-     'assets/js/consent.js'),
-    ('assets/js/eperf.js',
+     '/assets/js/consent.js'),
+    ('/assets/js/eperf.js',
      'le thème et les interactions',
-     'assets/js/eperf.js'),
-    ('assets/css/blog.css',
+     '/assets/js/eperf.js'),
+    ('/assets/css/blog.css',
      "les composants éditoriaux du blog",
      'assets/css/blog.css'),
     ('assets/js/blog.js',
@@ -728,7 +728,7 @@ def controler(page_key, html_produit):
     for chemin, role, motif in RESSOURCES_CRITIQUES:
         if motif not in html_produit:
             problemes.append(f"balise absente du HTML : {role}")
-        if not os.path.exists(os.path.join(PREVIEW, chemin)):
+        if not os.path.exists(os.path.join(PREVIEW, chemin.lstrip("/"))):
             problemes.append(f"fichier introuvable sur disque : {chemin}")
     for police in FONT_PRELOADS:
         if police not in html_produit:

@@ -1186,6 +1186,92 @@
     .consent-actions .btn { flex: 1; }
   }
 
+  /* --- Révélation mot par mot des titres ------------------------------ */
+  /* Le découpage est fait par eperf.js, uniquement si le mouvement est
+     autorisé : sans JS ou en mouvement réduit, le titre reste intact. */
+
+  .split-line { display: block; }
+
+  /* Le masque. Le padding-bottom compense la coupe des descendantes ;
+     la marge négative annule son effet sur la hauteur de ligne. */
+  .word-mask {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom;
+    padding-bottom: 0.14em;
+    margin-bottom: -0.14em;
+  }
+
+  .word {
+    display: inline-block;
+    transform: translateY(115%);
+    transition: transform 780ms var(--ease-out);
+    /* Sans ceci, un mot long peut dépasser du masque pendant la transition */
+    will-change: transform;
+  }
+
+  .words-in .word { transform: none; will-change: auto; }
+
+  /* L'espace entre les mots est un vrai nœud texte dans le DOM (voir
+     eperf.js) : un margin-left le rétablirait visuellement mais un lecteur
+     d'écran lirait « Lesprix » d'un seul mot, et un copier-coller perdrait
+     les espaces. On ne compense donc PAS en CSS. */
+
+  @media (prefers-reduced-motion: reduce) {
+    .word { transform: none !important; transition: none !important; }
+  }
+
+
+  /* --- Micro-interaction des cartes ----------------------------------- */
+  /* `hover: hover` exclut les écrans tactiles, où un :hover reste collé
+     après le tap. Sur mobile, aucune micro-interaction — le brief l'exige
+     et c'est aussi ce qui évite une interface qui paraît figée. */
+  @media (hover: hover) and (pointer: fine) {
+    .card,
+    .post,
+    .plan,
+    .quote {
+      transition: transform var(--t) var(--ease-out),
+                  box-shadow var(--t) var(--ease-out),
+                  border-color var(--t) var(--ease-out);
+    }
+
+    .card:not(.no-lift):hover,
+    .post:hover,
+    .plan:not(.no-lift):hover,
+    .quote:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold-border);
+      box-shadow: var(--shadow-md), 0 0 0 1px var(--gold-bg);
+    }
+
+    /* Les cartes de tarif ont déjà une ombre dorée : on la renforce
+       plutôt que de la remplacer, pour ne pas aplatir la hiérarchie. */
+    .plan.is-featured:hover {
+      box-shadow: var(--shadow-lg), var(--shadow-gold);
+    }
+  }
+
+  /* Un élément interactif au clavier doit signaler sa présence autant
+     qu'au survol : sans cela, la micro-interaction serait inaccessible. */
+  @media (hover: hover) and (pointer: fine) {
+    .card:focus-within,
+    .post:focus-within,
+    .plan:focus-within {
+      transform: translateY(-4px);
+      border-color: var(--gold-border);
+      box-shadow: var(--shadow-md), 0 0 0 1px var(--gold-bg);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .card:hover, .post:hover, .plan:hover, .quote:hover,
+    .card:focus-within, .post:focus-within, .plan:focus-within {
+      transform: none !important;
+    }
+  }
+
+
   /* --- Avertissements des documents légaux ---------------------------- */
   .legal-warning {
     border-color: var(--red-border);
