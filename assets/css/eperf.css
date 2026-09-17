@@ -468,20 +468,22 @@
   .skip-link:focus { left: 0; }
 
   /* --- Sur-titre ------------------------------------------------------- */
+  /* Sur-titre éditorial, pas badge marketing : un label espacé, sans fond
+     ni bordure. La marge basse espace le titre qui suit — un sur-titre ne
+     doit pas être une pastille collée au titre. */
   .eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.72rem;
+    display: block;
+    font-size: 0.7rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.2em;
     color: var(--gold);
-    background: var(--gold-bg);
-    border: 1px solid var(--gold-border);
-    border-radius: var(--r-pill);
-    padding: 7px 14px;
+    margin-bottom: 14px;
   }
+
+  /* Quand le sur-titre suit un titre (cartouche, fin de section), il se
+     place naturellement au-dessus sans marge parasite. */
+  .eyebrow:first-child { margin-top: 0; }
 
   /* --- Boutons --------------------------------------------------------- */
   .btn {
@@ -744,18 +746,20 @@
   .card-title { font-size: 1.1875rem; font-weight: 600; margin-bottom: 9px; }
   .card-text { font-size: 0.9375rem; color: var(--soft); line-height: 1.6; }
 
+  /* L'icône est seule, à même la carte : pas de pastille teintée. Une
+     icône or dans un carré or teinté se lit comme une icône dans une
+     teinte d'elle-même — le carré n'ajoute aucune information et affaiblit
+     le contraste de l'icône. */
   .card-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 46px; height: 46px;
-    margin-bottom: 18px;
-    background: var(--gold-bg);
-    border: 1px solid var(--gold-border);
-    border-radius: var(--r-sm);
+    margin-bottom: 16px;
     color: var(--gold);
   }
-  .card-icon svg { width: 21px; height: 21px; }
+  /* 28 px et non 21 : sans la pastille de 46 px qui la contenait,
+     l'icône doit être plus grande pour porter autant. */
+  .card-icon svg { width: 28px; height: 28px; }
 
   /* --- Illustration de carte ------------------------------------------- */
   /* Un instrument de mesure, pas un dessin : voir ADR-0003. Le conteneur

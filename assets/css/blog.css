@@ -647,22 +647,20 @@
     transform: translateY(-3px);
   }
 
-  /* Mêmes cotes que .card-icon d'eperf.css : pastille d'icône identique. */
+  /* Aligné sur .card-icon d'eperf.css. La pastille teintée est retirée :
+     une icône or dans un carré or teinté affaiblit son propre contraste et
+     le carré n'apporte aucune information. */
   .pilier-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 46px;
-    height: 46px;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
     flex-shrink: 0;
-    background: var(--gold-bg);
-    border: 1px solid var(--gold-border);
-    border-radius: var(--r-sm);
     color: var(--gold);
   }
 
-  .pilier-icon .icon { width: 21px; height: 21px; }
+  /* 28 px, aligné sur .card-icon d'eperf.css */
+  .pilier-icon .icon { width: 28px; height: 28px; }
 
   .pilier-card h3 {
     margin-bottom: 10px;
