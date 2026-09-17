@@ -3,8 +3,12 @@
 Usage : python3 scripts/verify-articles.py _content/articles-*.html"""
 import re, sys, glob, json, os
 
-SEUILS = {'mots_min': 1900, 'mots_max': 2600, 'h2_min': 9, 'h2_max': 16,
+SEUILS = {'mots_min': 1800, 'mots_max': 2600, 'h2_min': 9, 'h2_max': 16,
           'faq_min': 5, 'faq_max': 8, 'lead_min': 25, 'lead_max': 60}
+
+# mots_min : 1 800 depuis le lot 7. Certains sujets techniques ne portent pas
+# 2 200 mots (llms.txt, contenu dupliqué) ; 1 800 mots denses valent mieux que
+# 2 300 dilués. La cible de rédaction reste 2 200-2 400 pour la majorité.
 
 # Marqueurs IA et formulations interdites (conformité Google Ads)
 INTERDITS = [
