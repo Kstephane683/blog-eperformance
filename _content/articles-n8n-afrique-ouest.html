@@ -1,0 +1,249 @@
+<section class="article-hero">
+  <div class="container-reading">
+
+    <nav class="article-breadcrumb" aria-label="Fil d'Ariane">
+      <a href="/">Blog</a>
+      <span class="sep">/</span>
+      <span>Automatisation</span>
+    </nav>
+
+    <span class="article-category">Automatisation</span>
+    <h1>n8n : pourquoi cet outil plutôt qu'un autre en <span class="text-gold">Afrique de l'Ouest</span></h1>
+    <p class="lead">Trois raisons techniques décident de ce choix : l'auto-hébergement, l'absence de facture à l'exécution, et la réversibilité. Voici ce que cela change concrètement — et les cinq cas où n8n n'est pas le bon outil.</p>
+
+    <div class="article-meta">
+      <div class="author">
+        <div class="author-avatar">KS</div>
+        <div>
+          <div class="article-author-name">K. STEPHANE</div>
+          <div class="small">Fondateur ePerformance</div>
+        </div>
+      </div>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg> 28 octobre 2026</span>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.6 2.1"/></svg> 11 min de lecture</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section-flush-top">
+  <div class="article-body container-reading">
+
+    <p>Nous construisons nos automatisations avec n8n. Autant le dire d'entrée : cet article n'est pas neutre. Ce qu'il peut être, c'est précis : pourquoi ce choix plutôt qu'un autre, ce que cela change pour une entreprise en Afrique de l'Ouest, et dans quels cas nous conseillons autre chose.</p>
+
+    <p>Le point de départ n'est pas l'outil, c'est la contrainte. Quand vous automatisez depuis Abidjan ou Ouagadougou, trois éléments pèsent davantage qu'ailleurs : le coût d'exploitation, la facturation à l'exécution qui punit le volume, et l'hébergement des contacts clients chez un prestataire étranger. Si vous cherchez d'abord par où commencer, <a href="/articles/automatisation-marketing-debuter/">l'article sur la première automatisation</a> traite cette question avant celle de l'outil.</p>
+
+    <h2>Les cinq questions à poser à n'importe quel outil d'automatisation</h2>
+
+    <p>Le choix d'un outil se joue sur cinq questions, et aucune ne porte sur la liste des fonctionnalités. Elles se posent de la même façon à n8n et à ses concurrents.</p>
+
+    <p><strong>1. Où tournent les données ?</strong> Sur un serveur du prestataire, ou sur le vôtre. La réponse décide de qui peut consulter vos contacts, vos historiques et vos règles de relance.</p>
+
+    <p><strong>2. Comment payez-vous ?</strong> Un abonnement au mois, une facture à l'exécution, ou le coût d'un serveur. C'est la question qui pèse le plus sur la suite, parce qu'une facturation à la tâche revient à payer plus cher quand vous automatisez plus.</p>
+
+    <p><strong>3. À quoi se branche-t-il ?</strong> Pas à la liste des intégrations disponibles dans le monde : aux outils que vous utilisez réellement, WhatsApp Business en tête.</p>
+
+    <p><strong>4. Que devient le travail si vous partez ?</strong> Pouvez-vous exporter les automatisations, dans quel format, avec quelle documentation. Un outil dont on ne sort pas n'est pas un outil, c'est un abonnement à vie.</p>
+
+    <p><strong>5. Que se passe-t-il quand une étape échoue ?</strong> Alerte, journal, personne à prévenir. Une automatisation qui tombe en panne en silence est pire que pas d'automatisation.</p>
+
+    <h2>Auto-hébergé : ce que cela change, et ce que cela exige</h2>
+
+    <p>n8n peut être installé sur un serveur que vous contrôlez. L'instance, ses données d'exécution et ses journaux sont chez vous, pas dans le compte d'un prestataire. C'est un point de contrôle autant qu'un point de conformité : les relances qui partent de votre système ne nourrissent pas le produit d'un autre.</p>
+
+    <p>Ce que cela change, concrètement, tient en trois lignes. Vos contacts restent dans vos outils — WhatsApp Business, votre tableur, votre facturation — et les journaux d'exécution restent sur votre serveur. Vous fixez la durée de conservation. Et personne ne peut modifier vos règles de relance sans passer par vous.</p>
+
+    <h3>Ce que cela exige en retour</h3>
+
+    <p>Il faut être honnête sur la contrepartie. Une instance demande des mises à jour, des sauvegardes et une surveillance. Le serveur doit redémarrer tout seul après une coupure, sinon la panne silencieuse devient la règle. Et il faut une personne capable de lire un message d'erreur, même une fois par mois.</p>
+
+    <p>Cela ne veut pas dire que vous devez tout faire vous-même. Un accompagnement ponctuel suffit dans beaucoup de structures. Il existe aussi une version hébergée par l'éditeur de n8n : le même outil, l'endroit change. C'est la bonne option quand personne ne peut maintenir une instance — nous le disons pendant le diagnostic, avant toute mise en place.</p>
+
+    <h2>Le coût à la tâche, expliqué sur un exemple</h2>
+
+    <p>La plupart des plateformes d'automatisation facturent chaque exécution. Une exécution, c'est un déclenchement du workflow : un message reçu, une ligne ajoutée, une relance envoyée. Comptons sur un cas courant.</p>
+
+    <p>Une séquence de relance en trois étapes sur 400 contacts produit 1 200 exécutions pour une seule campagne. Un reporting quotidien en produit une trentaine par mois. Une synchronisation à chaque message reçu en produit autant que de messages : à 200 messages par semaine, cela fait environ 800 par mois, avant même les relances. Le total se compte en milliers d'exécutions mensuelles pour une activité ordinaire.</p>
+
+    <p>Sur une facturation à l'exécution, votre facture suit votre volume : plus vous automatisez, plus vous payez. C'est ce qui pousse beaucoup d'entreprises à limiter leurs automatisations, ce qui revient à payer un outil pour ne pas s'en servir. Avec une instance auto-hébergée, le coût d'exploitation est celui d'un serveur — de l'ordre de quelques milliers de francs par mois pour une instance légère — quel que soit le nombre d'exécutions.</p>
+
+    <p>Attention à ne pas transformer l'argument en slogan : « pas de coût à la tâche » ne veut pas dire « gratuit ». Il y a le serveur, les sauvegardes, les mises à jour et le temps de mise en place. Et si vos volumes restent faibles, quelques centaines d'exécutions par mois, une plateforme hébergée coûtera moins cher en temps qu'un serveur à administrer. Le calcul se fait sur vos volumes, pas sur le principe.</p>
+
+    <h2>Les connecteurs qui comptent en Afrique de l'Ouest</h2>
+
+    <p>La liste des intégrations d'un outil ne dit rien de son utilité locale. Quatre connexions décident de la plupart des projets ici.</p>
+
+    <p><strong>WhatsApp Business, via l'API Cloud.</strong> C'est le canal où la vente se fait. Une nuance qu'il faut connaître avant de promettre quoi que ce soit : l'application WhatsApp Business installée sur un téléphone n'expose pas d'API. Pour automatiser, il faut passer par l'API Cloud de Meta, avec un compte professionnel vérifié, et Meta facture les conversations selon leur catégorie. Ce n'est pas un détail de configuration, c'est la condition d'existence d'une relance automatique sur ce canal.</p>
+
+    <p><strong>Google Sheets.</strong> Dans beaucoup de structures, le tableur est le vrai suivi commercial. La connexion évite la double saisie et permet de garder la main sur les données.</p>
+
+    <p><strong>Gmail et Telegram.</strong> Le premier pour les accusés de réception et les notifications ; le second pour les alertes internes, légères et rapides à lire sur un téléphone.</p>
+
+    <p><strong>Les webhooks.</strong> C'est la porte de sortie : tout service capable d'envoyer une notification HTTP peut déclencher un workflow. C'est ainsi qu'on branche les passerelles mobile money, les logiciels de facturation locaux ou une plateforme d'envoi de SMS. À dire franchement : certains logiciels locaux n'ont ni connecteur natif ni API documentée. Dans ce cas, on passe par un export de fichier ou par un petit développement dédié, et il vaut mieux le savoir avant de commencer.</p>
+
+    <h2>La réversibilité : ce que vous devez exiger</h2>
+
+    <p>Un workflow n8n s'exporte en fichier. Vous conservez la copie de la mécanique, sa documentation et ses journaux d'exécution. Si vous changez de prestataire, ou si vous reprenez le sujet en interne, le travail se reprend au lieu de se refaire.</p>
+
+    <p>C'est un argument commercial, donc il faut le transformer en exigences écrites. Quatre points, à réclamer dès le premier workflow, quel que soit le prestataire.</p>
+
+    <p><strong>1. L'accès à l'instance.</strong> L'adresse du serveur, et un compte à votre nom. Pas un accès prêté, pas un accès partagé avec trois autres clients.</p>
+
+    <p><strong>2. L'export des workflows.</strong> Les fichiers, la documentation des déclencheurs et la liste des alertes, remis à la fin de la mission, sans condition.</p>
+
+    <p><strong>3. La propriété du serveur et du nom de domaine.</strong> Le domaine et l'hébergement doivent être à votre nom, avec les identifiants chez vous. C'est le même principe que pour un site web, et il s'oublie aussi souvent.</p>
+
+    <p><strong>4. La réponse à une question simple.</strong> « Si mon prestataire disparaît demain, qui redémarre l'instance, et avec quel document ? » Si la réponse dépend d'une seule personne, ce n'est pas réversible.</p>
+
+    <h2>Ce qu'une connexion irrégulière change, et ce qu'elle ne change pas</h2>
+
+    <p>Beaucoup d'entrepreneurs imaginent une automatisation qui tourne sur leur téléphone, donc qui s'arrête avec la connexion. Ce n'est pas le fonctionnement. Le workflow vit sur le serveur : il s'exécute à l'heure prévue, même si vous êtes hors ligne, dans une zone sans réseau, ou en déplacement. Vous consultez les résultats quand la connexion revient.</p>
+
+    <p>Ce que la connexion irrégulière change, c'est votre façon de piloter. Vous travaillez depuis le navigateur d'un téléphone : les écrans doivent rester légers, et il vaut mieux éviter les enchaînements longs qui manipulent des fichiers lourds. On privilégie des étapes courtes, un traitement différé plutôt qu'un enchaînement immédiat, et une reprise automatique en cas d'échec.</p>
+
+    <p>Ce qui compte davantage que la connexion, c'est l'électricité. Un serveur qui s'éteint ne redémarre pas seul s'il n'est pas configuré pour. Prévoyez le redémarrage automatique, une sauvegarde quotidienne, et un hébergement qui ne dépend pas du courant de votre bureau. C'est le point faible réel des projets d'automatisation ici, bien plus que le débit du réseau.</p>
+
+    <p>Reste une limite à connaître : tout ce qui dépend d'un service extérieur — Google, Meta, une passerelle mobile money — échoue si ce service est momentanément injoignable, ou si un jeton d'accès expire. D'où l'intérêt des tentatives automatiques, des alertes, et d'un traitement qui reprend là où il s'est arrêté plutôt que de tout recommencer.</p>
+
+    <h2>Pour qui n8n n'est pas le bon choix, et ce qu'il faut retenir</h2>
+
+    <h3>Cinq situations où ce n'est pas le bon outil</h3>
+
+    <p><strong>Personne ne peut maintenir une instance.</strong> Ni vous, ni un prestataire, ni un membre de l'équipe. Une plateforme hébergée, facturée à l'exécution, se vivra mieux qu'un serveur laissé à l'abandon.</p>
+
+    <p><strong>Vos volumes restent très faibles.</strong> Quelques dizaines d'exécutions par mois, une seule petite automatisation. L'offre gratuite d'une plateforme hébergée suffit, et un serveur serait un coût inutile.</p>
+
+    <p><strong>Vos outils principaux sont fermés.</strong> Un logiciel de gestion sans API ni export exploitable obligera à des contournements fragiles. Un développement dédié est parfois plus honnête que trois bricolages.</p>
+
+    <p><strong>Vous voulez envoyer des campagnes email ou SMS en volume.</strong> Un outil d'emailing ou de SMS spécialisé fera mieux : gestion des listes, statistiques, délivrabilité. L'automatisation ne remplace pas un outil de campagne.</p>
+
+    <p><strong>Votre équipe doit créer ses propres automatisations.</strong> Si des personnes non techniques doivent modifier les workflows au quotidien, un outil à blocs plus simple sera adopté plus vite, même s'il est moins puissant.</p>
+
+    <h3>Ce qu'il faut retenir</h3>
+
+    <p>n8n se choisit pour trois raisons techniques : il s'installe sur un serveur que vous contrôlez, il ne facture pas à l'exécution, et le travail se reprend parce que tout s'exporte. Ces trois raisons pèsent surtout quand vos volumes augmentent, quand vos contacts clients doivent rester chez vous, et quand vous refusez de dépendre d'un seul prestataire.</p>
+
+    <p>Ce n'est pas un choix de principe, et nous le disons aussi : si vous n'avez personne pour maintenir une instance et que vos volumes sont faibles, une plateforme hébergée est plus raisonnable. Le bon critère n'est jamais la popularité de l'outil, c'est le rapport entre ce qu'il coûte et ce qu'il vous rend. La méthode pour évaluer ce rapport est décrite dans <a href="/articles/automatisation-marketing-debuter/">par où commencer quand tout est manuel</a>, et le périmètre d'un projet se chiffre après le <a href="https://eperformance.pro/diagnostic_eperformance.html">diagnostic gratuit</a>, jamais avant.</p>
+
+    <div class="cta-block">
+      <h2>Quel outil pour vos automatisations ?</h2>
+      <p>Quatre cas d'usage détaillés, un chiffrage établi après diagnostic, et des workflows que vous pouvez reprendre. Voyez ce qui se branche sur vos outils actuels.</p>
+      <a class="btn btn-gold" href="https://eperformance.pro/automatisation.html">Voir l'automatisation
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <h2>FAQ — n8n et l'automatisation</h2>
+
+    <div class="faq-section">
+      <details>
+        <summary>n8n est-il gratuit ?</summary>
+        <p>L'outil s'installe sans licence sur un serveur que vous louez : ce que vous payez, c'est l'hébergement — de l'ordre de quelques milliers de francs par mois pour une instance légère — et le temps de mise en place. L'éditeur propose aussi une version qu'il héberge, facturée à l'abonnement. Dans les deux cas, gratuit ne veut pas dire sans coût.</p>
+      </details>
+
+      <details>
+        <summary>Faut-il être développeur pour utiliser n8n ?</summary>
+        <p>Non, mais il faut être à l'aise avec quelques notions : déclencheur, webhook, jeton d'accès. Un utilisateur méthodique construit des workflows simples. Le travail qui décide de la solidité du résultat reste le même que pour tout outil : décrire les étapes à la main, prévoir les cas tordus, définir ce qui arrête le processus.</p>
+      </details>
+
+      <details>
+        <summary>Peut-on automatiser WhatsApp avec n8n ?</summary>
+        <p>Oui, via l'API Cloud de WhatsApp Business. Attention à une confusion fréquente : l'application WhatsApp Business installée sur un téléphone n'expose pas d'API. Il faut un compte professionnel vérifié, et Meta facture les conversations selon leur catégorie. C'est la condition à remplir avant de parler de relance automatique sur ce canal.</p>
+      </details>
+
+      <details>
+        <summary>Que se passe-t-il si je change de prestataire ?</summary>
+        <p>Un workflow s'exporte en fichier : vous conservez la mécanique, sa documentation et ses journaux d'exécution, et le travail se reprend au lieu de se refaire. Encore faut-il l'avoir prévu par écrit dès le départ — accès à l'instance, export sans condition, propriété du serveur et du nom de domaine.</p>
+      </details>
+
+      <details>
+        <summary>La facturation à l'exécution est-elle vraiment un problème ?</summary>
+        <p>Elle le devient avec le volume. Une campagne de relance sur 400 contacts produit 1 200 exécutions, un reporting quotidien une trentaine par mois, et une synchronisation à chaque message en produit autant que de messages. Sur une instance auto-hébergée, ce volume ne change pas la facture ; sur une plateforme facturée à la tâche, il la détermine.</p>
+      </details>
+
+      <details>
+        <summary>Une automatisation fonctionne-t-elle avec une connexion instable ?</summary>
+        <p>Oui, parce qu'elle s'exécute sur un serveur, pas sur votre téléphone : les workflows partent à l'heure prévue même si vous êtes hors ligne, et vous consultez les résultats ensuite. Le point faible réel n'est pas le réseau mais l'électricité : prévoyez le redémarrage automatique, une sauvegarde quotidienne et un hébergement indépendant du courant de votre bureau.</p>
+      </details>
+    </div>
+
+    <div class="tags-row">
+      <a href="/articles/n8n-afrique-ouest/" class="tag">n8n</a>
+      <a href="https://eperformance.pro/automatisation.html" class="tag">Automatisation</a>
+      <a href="/articles/automatisation-marketing-debuter/" class="tag">Workflows</a>
+    </div>
+
+    <div class="share-row">
+      <span class="small">Partager</span>
+      <a href="#" class="share-btn" onclick="return sharePage('whatsapp')" data-share="whatsapp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.6-4.5A8.4 8.4 0 1 1 8 20.4z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('linkedin')" data-share="linkedin" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('facebook')" data-share="facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('copy')" data-share="copy" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></a>
+    </div>
+
+    <div class="related">
+      <h2>Articles à lire ensuite</h2>
+      <a href="/articles/automatisation-marketing-debuter/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">Automatisation</span>
+          <h3>Automatisation marketing : par où commencer quand tout est manuel</h3>
+          <p class="small">Repérer la tâche qui coûte le plus, la mesurer, la traiter.</p>
+        </div>
+      </a>
+      <a href="/articles/ia-generative-pme-africaine/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">IA générative</span>
+          <h3>Qu'est-ce que l'IA générative pour une PME africaine, concrètement</h3>
+          <p class="small">Trois tâches réelles, et trois qu'elle ne fera jamais.</p>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"n8n : pourquoi cet outil plutôt qu'un autre en Afrique de l'Ouest",
+  "description":"Auto-hébergement, absence de facture à l'exécution, réversibilité : ce que le choix de n8n change concrètement en Afrique de l'Ouest, et les cinq cas où ce n'est pas le bon outil.",
+  "image":"https://blog.eperformance.pro/assets/img/og-image.jpg",
+  "datePublished":"2026-10-28T09:00:00+00:00",
+  "dateModified":"2026-10-28T09:00:00+00:00",
+  "inLanguage":"fr-CI",
+  "wordCount":2243,
+  "articleSection":"Automatisation",
+  "keywords":["n8n","n8n côte d'ivoire","outil automatisation","workflow auto-hébergé","whatsapp business api","afrique de l'ouest","réversibilité"],
+  "author":{"@type":"Person","name":"K. STEPHANE","jobTitle":"Fondateur ePerformance","url":"https://blog.eperformance.pro/a-propos/"},
+  "publisher":{"@type":"Organization","name":"ePerformance","logo":{"@type":"ImageObject","url":"https://eperformance.pro/assets/img/logo-light.webp"}},
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.eperformance.pro/articles/n8n-afrique-ouest/"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Blog","item":"https://blog.eperformance.pro/"},
+    {"@type":"ListItem","position":2,"name":"Automatisation","item":"https://blog.eperformance.pro/"},
+    {"@type":"ListItem","position":3,"name":"n8n : pourquoi cet outil plutôt qu'un autre en Afrique de l'Ouest","item":"https://blog.eperformance.pro/articles/n8n-afrique-ouest/"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"n8n est-il gratuit ?","acceptedAnswer":{"@type":"Answer","text":"L'outil s'installe sans licence sur un serveur que vous louez : ce que vous payez, c'est l'hébergement — de l'ordre de quelques milliers de francs par mois pour une instance légère — et le temps de mise en place. L'éditeur propose aussi une version qu'il héberge, facturée à l'abonnement. Dans les deux cas, gratuit ne veut pas dire sans coût."}},
+    {"@type":"Question","name":"Faut-il être développeur pour utiliser n8n ?","acceptedAnswer":{"@type":"Answer","text":"Non, mais il faut être à l'aise avec quelques notions : déclencheur, webhook, jeton d'accès. Un utilisateur méthodique construit des workflows simples. Le travail qui décide de la solidité du résultat reste le même que pour tout outil : décrire les étapes à la main, prévoir les cas tordus, définir ce qui arrête le processus."}},
+    {"@type":"Question","name":"Peut-on automatiser WhatsApp avec n8n ?","acceptedAnswer":{"@type":"Answer","text":"Oui, via l'API Cloud de WhatsApp Business. Attention à une confusion fréquente : l'application WhatsApp Business installée sur un téléphone n'expose pas d'API. Il faut un compte professionnel vérifié, et Meta facture les conversations selon leur catégorie. C'est la condition à remplir avant de parler de relance automatique sur ce canal."}},
+    {"@type":"Question","name":"Que se passe-t-il si je change de prestataire ?","acceptedAnswer":{"@type":"Answer","text":"Un workflow s'exporte en fichier : vous conservez la mécanique, sa documentation et ses journaux d'exécution, et le travail se reprend au lieu de se refaire. Encore faut-il l'avoir prévu par écrit dès le départ — accès à l'instance, export sans condition, propriété du serveur et du nom de domaine."}},
+    {"@type":"Question","name":"La facturation à l'exécution est-elle vraiment un problème ?","acceptedAnswer":{"@type":"Answer","text":"Elle le devient avec le volume. Une campagne de relance sur 400 contacts produit 1 200 exécutions, un reporting quotidien une trentaine par mois, et une synchronisation à chaque message en produit autant que de messages. Sur une instance auto-hébergée, ce volume ne change pas la facture ; sur une plateforme facturée à la tâche, il la détermine."}},
+    {"@type":"Question","name":"Une automatisation fonctionne-t-elle avec une connexion instable ?","acceptedAnswer":{"@type":"Answer","text":"Oui, parce qu'elle s'exécute sur un serveur, pas sur votre téléphone : les workflows partent à l'heure prévue même si vous êtes hors ligne, et vous consultez les résultats ensuite. Le point faible réel n'est pas le réseau mais l'électricité : prévoyez le redémarrage automatique, une sauvegarde quotidienne et un hébergement indépendant du courant de votre bureau."}}
+  ]
+}
+</script>

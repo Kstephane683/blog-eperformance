@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+(function(){try{var t=localStorage.getItem('eperf-theme');
+if(t!=='dark'&&t!=='light'){t='light';}
+document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+  <title>Données structurées : ce que Google comprend de votre site</title>
+  <meta name="description" content="Données structurées : à quoi servent LocalBusiness, Organization, Product, Article, BreadcrumbList ou FAQPage, avec un exemple JSON-LD.">
+  <meta name="robots" content="noindex,follow">
+  <link rel="canonical" href="https://blog.eperformance.pro/articles/donnees-structurees-schema-org/index.html">
+  <meta name="theme-color" content="#fdfcfa">
+  <meta name="author" content="K. Stéphane">
+
+  <!-- Icônes -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="icon" href="/assets/img/favicon-16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ePerformance">
+  <meta property="og:locale" content="fr_CI">
+  <meta property="og:title" content="Données structurées : ce que Google comprend de votre site">
+  <meta property="og:description" content="Données structurées : à quoi servent LocalBusiness, Organization, Product, Article, BreadcrumbList ou FAQPage, avec un exemple JSON-LD.">
+  <meta property="og:url" content="https://blog.eperformance.pro/articles/donnees-structurees-schema-org/index.html">
+  <meta property="og:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ePerformance — ePerformance">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Données structurées : ce que Google comprend de votre site">
+  <meta name="twitter:description" content="Données structurées : à quoi servent LocalBusiness, Organization, Product, Article, BreadcrumbList ou FAQPage, avec un exemple JSON-LD.">
+  <meta name="twitter:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta name="twitter:creator" content="@eperformancepro">
+
+  <!-- Polices : préconnexion, préchargement des deux polices critiques,
+       puis chargement non bloquant de la feuille complète -->
+  <!-- Polices : auto-hébergées, déclarées dans eperf.css.
+       On précharge les deux graisses du premier écran pour que le
+       texte soit peint dans la bonne police dès le premier rendu. -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/cormorant-garamond-700.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/dm-sans-400.woff2">
+
+  <!-- Design system : la MEME feuille que le site, a l'identique. -->
+  <link rel="stylesheet" href="/assets/css/eperf.css">
+  <!-- Composants editoriaux du blog : corps d'article, largeur de
+       lecture, cartes d'article. Ils consomment les jetons d'eperf.css
+       et ne redefinissent aucune couleur. -->
+  <link rel="stylesheet" href="/assets/css/blog.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://blog.eperformance.pro/#organization",
+      "name": "ePerformance",
+      "alternateName": "ePerformance par K. Stéphane",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "founder": {
+        "@type": "Person",
+        "@id": "https://blog.eperformance.pro/#founder",
+        "name": "K. Stéphane",
+        "jobTitle": "Fondateur, stratège acquisition",
+        "url": "https://blog.eperformance.pro/kstephane.html"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Côte d'Ivoire"
+        },
+        {
+          "@type": "Country",
+          "name": "Burkina Faso"
+        },
+        {
+          "@type": "Place",
+          "name": "Afrique de l'Ouest"
+        }
+      ],
+      "knowsLanguage": "fr",
+      "sameAs": [
+        "https://blog.eperformance.pro/"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://blog.eperformance.pro/#localbusiness",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "parentOrganization": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Abidjan",
+        "addressCountry": "CI"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Côte d'Ivoire"
+      },
+      "priceRange": "100000-350000 XOF",
+      "currenciesAccepted": "XOF",
+      "paymentAccepted": "Orange Money, Wave, MTN MoMo, Moov Money, Visa, Mastercard",
+      "availableLanguage": "fr"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://blog.eperformance.pro/#website",
+      "url": "https://blog.eperformance.pro",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "publisher": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://blog.eperformance.pro/articles/donnees-structurees-schema-org/index.html#webpage",
+      "url": "https://blog.eperformance.pro/articles/donnees-structurees-schema-org/index.html",
+      "name": "Données structurées : ce que Google comprend de votre site",
+      "description": "Données structurées : à quoi servent LocalBusiness, Organization, Product, Article, BreadcrumbList ou FAQPage, avec un exemple JSON-LD.",
+      "isPartOf": {
+        "@id": "https://blog.eperformance.pro/#website"
+      },
+      "about": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://blog.eperformance.pro/articles/donnees-structurees-schema-org/index.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://blog.eperformance.pro/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "SEO",
+          "item": "https://blog.eperformance.pro/seo/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Données structurées : ce que Google comprend de votre site",
+          "item": "https://blog.eperformance.pro/articles/donnees-structurees-schema-org/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Données structurées : ce que Google comprend de votre site",
+  "description":"Données structurées : à quoi servent LocalBusiness, Organization, Product, Article, BreadcrumbList ou FAQPage, avec un exemple JSON-LD.",
+  "image":"https://blog.eperformance.pro/assets/img/og-seo-local.jpg",
+  "datePublished":"2027-02-09T09:00:00+00:00",
+  "dateModified":"2027-02-09T09:00:00+00:00",
+  "inLanguage":"fr-CI",
+  "wordCount":2414,
+  "articleSection":"SEO",
+  "keywords":["données structurées schema org","json-ld site","rich snippets","LocalBusiness","FAQPage","Abidjan"],
+  "author":{"@type":"Person","name":"K. STEPHANE","jobTitle":"Fondateur ePerformance","url":"https://blog.eperformance.pro/a-propos/"},
+  "publisher":{"@type":"Organization","name":"ePerformance","logo":{"@type":"ImageObject","url":"https://eperformance.pro/assets/img/logo-light.webp"}},
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.eperformance.pro/articles/donnees-structurees-schema-org/"}
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Blog","item":"https://blog.eperformance.pro/"},
+    {"@type":"ListItem","position":2,"name":"SEO","item":"https://blog.eperformance.pro/seo/"},
+    {"@type":"ListItem","position":3,"name":"Données structurées : ce que Google comprend de votre site","item":"https://blog.eperformance.pro/articles/donnees-structurees-schema-org/"}
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Les données structurées font-elles monter une page dans les résultats ?","acceptedAnswer":{"@type":"Answer","text":"Non, ce n'est pas un levier de classement : le balisage décrit la page, il ne la fait pas remonter. Il peut en revanche changer l'affichage du résultat quand Google choisit de s'en servir."}},
+    {"@type":"Question","name":"Quelle différence entre Organization et LocalBusiness ?","acceptedAnswer":{"@type":"Answer","text":"Organization décrit l'entreprise : son nom, son site, son logo, ses pages officielles. Il se pose une fois, sur l'accueil. LocalBusiness décrit un établissement et ses coordonnées : adresse, téléphone, horaires, zone desservie. Il se pose sur la page qui présente cet établissement, le plus souvent la page de contact. Sur un site d'une seule page, gardez un seul bloc, complet."}},
+    {"@type":"Question","name":"Peut-on baliser une FAQ qui n'est pas visible sur la page ?","acceptedAnswer":{"@type":"Answer","text":"Non, c'est une faute. Les questions et les réponses déclarées dans le bloc doivent être affichées sur la page, avec le même texte. Un bloc FAQPage posé sur une page sans FAQ, ou dont les questions ont été retirées à une refonte, décrit un contenu qui n'existe pas : Google l'ignore, et l'affichage enrichi disparaît."}},
+    {"@type":"Question","name":"Où placer le code dans la page ?","acceptedAnswer":{"@type":"Answer","text":"Dans une balise de script de type application/ld+json, placée dans l'en-tête ou dans le corps de la page. L'emplacement n'a pas d'importance pour la lecture : ce qui compte, c'est que le bloc soit présent sur la page qu'il décrit, et qu'il soit unique."}},
+    {"@type":"Question","name":"Le balisage suffit-il pour obtenir un affichage enrichi ?","acceptedAnswer":{"@type":"Answer","text":"Non. Le balisage rend la page éligible, il ne déclenche rien : c'est Google qui décide, requête par requête, d'afficher ou non un prix ou un fil d'Ariane. Le travail utile consiste à décrire correctement ce qui existe sur la page, puis à vérifier avec l'outil de test que tout est détecté sans erreur."}},
+    {"@type":"Question","name":"Que se passe-t-il si le bloc contient une erreur ?","acceptedAnswer":{"@type":"Answer","text":"Le bloc est ignoré en entier. Une virgule en trop, un guillemet oublié ou une accolade mal fermée suffisent, et rien ne s'affiche dans le navigateur pour vous prévenir. C'est pourquoi chaque bloc se vérifie avec l'outil de test des résultats enrichis avant publication, et à nouveau après chaque refonte."}}
+  ]
+}
+  </script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a class="logo" href="/" aria-label="ePerformance — accueil">
+      <img class="logo-img-light" src="/assets/img/logo-light.webp"
+           srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+           width="182" height="30" alt="ePerformance" fetchpriority="high">
+      <img class="logo-img-dark" src="/assets/img/logo-dark.webp"
+           srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+           width="188" height="30" alt="" aria-hidden="true">
+    </a>
+
+    <nav class="nav" id="primary-nav" aria-label="Navigation principale">
+      <a href="/">Accueil</a>
+      <a href="/acquisition/">Acquisition</a>
+      <a href="/site-web/">Site web</a>
+      <a href="/seo/" aria-current="page">SEO</a>
+      <a href="/business/">Business</a>
+      <a href="/articles/ia-generative-pme-africaine/">IA</a>
+      <a href="/articles/automatisation-marketing-debuter/">Automatisation</a>
+      <a href="/a-propos/">À propos</a>
+      <a href="https://eperformance.pro" rel="noopener">Site principal</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" data-theme-toggle
+              aria-pressed="false" aria-label="Activer le thème sombre">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+        </svg>
+      </button>
+
+      <a class="btn btn-gold btn-desktop" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false"
+              aria-controls="primary-nav" aria-label="Ouvrir le menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<nav class="breadcrumb container" aria-label="Fil d'Ariane">
+  <ol>
+    <li><a href="/">Accueil</a></li>
+    <li><a href="/seo/">SEO</a></li>
+    <li aria-current="page">Données structurées : ce que Google comprend de votre site</li>
+  </ol>
+</nav>
+
+<main id="main">
+
+
+<section class="article-hero">
+  <div class="container-reading">
+
+    <nav class="article-breadcrumb" aria-label="Fil d'Ariane">
+      <a href="/">Blog</a>
+      <span class="sep">/</span>
+      <a href="/seo/">SEO</a>
+      <span class="sep">/</span>
+      <span>Données structurées</span>
+    </nav>
+
+    <span class="article-category">SEO</span>
+    <h1>Données structurées : <span class="text-gold">ce que Google comprend de votre site</span></h1>
+    <p class="lead">Un bloc de code invisible dit à Google ce qu'est votre page : un commerce, un produit, un article, une question fréquente. Bien posé, il lève une ambiguïté. Mal posé, il décrit une page qui n'existe pas. Voici les six types utiles localement, et ceux qui ne servent à rien.</p>
+
+    <div class="article-meta">
+      <div class="author">
+        <div class="author-avatar">KS</div>
+        <div>
+          <div class="article-author-name">K. STEPHANE</div>
+          <div class="small">Fondateur ePerformance</div>
+        </div>
+      </div>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg> 9 février 2027</span>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.6 2.1"/></svg> 12 min de lecture</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section-flush-top">
+  <div class="article-body container-reading">
+
+    <p>Votre page affiche une adresse, un téléphone, des horaires, un prix. Le visiteur les lit. Google doit les déduire du texte et des liens, et il se trompe parfois. Les données structurées retirent ce doute : un bloc de code, invisible à l'écran, qui nomme ce qu'est la page et ce qu'elle décrit.</p>
+
+    <p>La décision qui compte n'est pas technique. Elle consiste à savoir quoi déclarer, sur quelle page, et quand s'abstenir. Six types suffisent pour un commerce local.</p>
+
+    <h2>Ce que « données structurées » veut dire</h2>
+
+    <p>Un bloc de données structurées est un texte au format JSON, posé dans la page entre deux balises de script. Vous y écrivez des paires nom-valeur : le type de la page, le nom de l'entreprise, le téléphone, la ville, les horaires. Ce format s'appelle JSON-LD, et c'est celui que Google lit aujourd'hui.</p>
+
+    <p>Le bloc ne s'affiche pas : il est lu par les robots qui parcourent la page. Deux effets en découlent.</p>
+
+    <p>Le premier est une compréhension plus sûre : au lieu de déduire votre activité d'un paragraphe, Google lit une déclaration explicite. Cette clarté sert aussi aux moteurs de réponse, qui citent plus volontiers une entreprise déclarée noir sur blanc.</p>
+
+    <p>Le second touche l'affichage dans les résultats : un fil d'Ariane à la place d'une adresse illisible, un prix, des questions dépliables. Rien n'est automatique : le balisage rend la page éligible, Google décide ensuite.</p>
+
+    <h2>Ce que le balisage ne fait pas</h2>
+
+    <p><strong>Ce n'est pas un levier de classement.</strong> Le balisage décrit une page, il ne la pousse pas. Une page mal placée reste mal placée : celle qui gagne des places est celle qui répond mieux à la recherche.</p>
+
+    <p><strong>Ce n'est pas un rattrapage.</strong> Un bloc propre ne crée pas l'information absente. Si votre page ne dit ni vos prix, ni votre zone, ni vos délais, le code n'a rien à décrire. Un bloc qui déclare ce que la page n'affiche pas est une faute, pas une optimisation.</p>
+
+    <p><strong>Ce n'est pas un remplacement de la fiche.</strong> Pour un commerce local, la fiche Google reste la source que les clients consultent. Le balisage du site la confirme : même nom, même adresse, même numéro. Deux sources qui se contredisent valent moins qu'une seule source juste.</p>
+
+    <div class="callout">
+      <p><strong>Le repère.</strong> Le balisage ne dit pas ce que vous aimeriez être. Il dit ce que la page affiche.</p>
+    </div>
+
+    <h2>Six types, six questions</h2>
+
+    <p>Chaque type répond à une question précise, dans l'ordre où on les rencontre sur un site.</p>
+
+    <p><strong>Organization</strong> : qui est cette entreprise ? <strong>LocalBusiness</strong> : où se trouve cet établissement, et comment le joindre ? <strong>Product</strong> : qu'est-ce que cet article vendu ? <strong>Article</strong> : qu'est-ce que ce texte ? <strong>BreadcrumbList</strong> : où suis-je dans ce site ? <strong>FAQPage</strong> : quelles questions reviennent sur ce sujet ?</p>
+
+    <p>D'autres types existent, mais ils concernent d'autres métiers.</p>
+
+    <h2>Organization : à déclarer une fois</h2>
+
+    <p>Organization décrit l'entreprise elle-même : son nom, l'adresse de son site, son logo, ses pages officielles. Il se pose une seule fois, sur la page d'accueil, et les autres pages s'y rattachent par un identifiant commun. Google relie alors votre nom, votre logo et vos pages à une seule entité, au lieu de traiter chaque page comme un site distinct.</p>
+
+    <p>Quand il ne sert à rien. Sur un site d'une seule page, il fait doublon avec LocalBusiness : un bloc complet vaut mieux que deux partiels. Et un nom différent de celui de votre fiche Google crée une contradiction que Google devra trancher.</p>
+
+    <h2>LocalBusiness : la page de contact, et pas ailleurs</h2>
+
+    <p>C'est le bloc le plus utile pour un commerce local, et celui qui se pose le plus mal. Il décrit un établissement : son nom, son adresse, son téléphone, ses horaires. Ces informations figurent déjà dans votre fiche Google Business Profile ; le balisage les confirme là où la page les affiche.</p>
+
+    <h3>Où il sert</h3>
+    <p>Sur la page qui présente l'établissement : la page de contact, la page « où nous trouver », ou l'accueil quand le commerce n'a que cette page. Les coordonnées sont visibles sur cette page, et le bloc reprend exactement les mêmes valeurs. Le détail des champs est traité dans <a href="/articles/fiche-google-business-profile/">la configuration de la fiche Google Business Profile</a>.</p>
+
+    <h3>Où il ne sert à rien</h3>
+    <p>Sur un article de blog, une page de service, une page de mentions légales, une page produit. Ces pages ne sont pas la page de votre établissement : y déclarer une adresse et des horaires n'aide personne, et multiplie les déclarations à réconcilier.</p>
+    <p>Le cas le plus courant est le bloc identique recopié partout : le jour où vous changez de numéro, il faut penser à chaque page, et un seul oubli crée la contradiction.</p>
+
+    <h2>Un exemple de LocalBusiness, court et correct</h2>
+
+    <p>Voici un bloc réel, pour une menuiserie installée à Cocody. Il tient en huit lignes et couvre l'essentiel : identité, contact, adresse, horaires, zone.</p>
+
+    <pre><code>&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Menuiserie Kouassi",
+  "url": "https://menuiserie-kouassi.ci/contact/",
+  "telephone": "+225 07 07 00 00 00",
+  "address": "Rue des Jardins, Cocody, Abidjan, Côte d'Ivoire",
+  "openingHours": "Mo-Sa 08:00-18:00",
+  "areaServed": "Abidjan",
+  "sameAs": "https://www.facebook.com/menuiseriekouassi"
+}
+&lt;/script&gt;</code></pre>
+
+    <p>Chaque ligne se relit avant publication. Le <code>name</code> est celui de l'enseigne, écrit comme sur la devanture. L'<code>url</code> pointe la page qui porte le bloc, pas l'accueil si le bloc est sur la page de contact. Le <code>telephone</code> s'écrit en entier, indicatif pays compris. L'<code>address</code> tient en une seule ligne de texte, ce qui suffit à décrire l'établissement.</p>
+
+    <p>Deux remarques. Ce bloc ne se recopie pas d'un site à l'autre : reprendre l'exemple d'un prestataire en laissant son nom ou son numéro décrit votre page avec l'identité de quelqu'un d'autre. Ensuite, le téléphone doit être identique dans le bloc, dans le pied de page, sur la page de contact et dans la fiche Google.</p>
+
+    <h2>Product : seulement là où un article est vendu</h2>
+
+    <p>Product décrit un article précis : son nom, son prix, sa disponibilité. Bien posé, il permet d'afficher le prix dans le résultat de recherche, et amène des visiteurs déjà informés.</p>
+
+    <p>Où il sert : sur la page du produit, celle où le client peut l'acheter ou le commander, avec un prix affiché et une disponibilité réelle. Le prix du bloc est celui de la page, dans la même monnaie.</p>
+
+    <p>Où il ne sert à rien : sur une page de catégorie, une page de tarifs, une page de service, ou un article qui parle d'un produit sans le vendre. Autre cas fréquent : beaucoup de modèles de boutique déclarent un Product sur toutes les pages, accueil et panier compris. Mieux vaut le désactiver. Le travail sur les fiches elles-mêmes est traité dans <a href="/articles/rediger-fiches-produits-ia/">la rédaction des fiches produits</a>.</p>
+
+    <h2>Article : pour le contenu éditorial</h2>
+
+    <p>Article décrit un texte : son titre, sa date de publication, son auteur. Il ne produit pas d'affichage spectaculaire, mais il lève une ambiguïté réelle : cette page est-elle un article d'information ou une page de vente ?</p>
+
+    <p>Ce blog s'en sert sur chacun de ses articles. La page que vous lisez porte trois blocs — Article, BreadcrumbList et FAQPage — visibles dans son code source, avec les trois niveaux de son fil d'Ariane. L'exemple est sous vos yeux.</p>
+
+    <p>Quand il ne sert à rien : sur une page de service, une page de contact, une page de tarifs. Une négligence revient aussi souvent : la date du bloc et la date affichée sur la page finissent par diverger.</p>
+
+    <h2>BreadcrumbList : le fil visible d'abord</h2>
+
+    <p>BreadcrumbList décrit le chemin parcouru dans le site : accueil, rubrique, page. Dans les résultats, ce chemin remplace parfois l'adresse de la page, souvent illisible.</p>
+
+    <p>La règle est simple : le fil déclaré doit être celui qui est affiché en haut de la page. Sans fil visible, le bloc n'a rien à décrire.</p>
+
+    <p>Il devient donc inutile sur un site d'une seule page, ou sur un site sans hiérarchie. Sur un blog ou une boutique à rubriques, il aide à la fois le visiteur et la lecture de vos adresses de page. Ce blog en pose un sur chaque article, à trois niveaux : Blog, SEO, puis le titre. La méthode d'ensemble est dans <a href="/articles/seo-local-abidjan-guide/">le guide du SEO local à Abidjan</a>.</p>
+
+    <h2>FAQPage : seulement s'il y a une FAQ visible</h2>
+
+    <p>FAQPage décrit une liste de questions et de réponses. Utilisé correctement, il peut afficher des questions dépliables dans le résultat de recherche : une place gagnée à côté du lien, et une réponse donnée avant le clic.</p>
+
+    <p>La condition est stricte : les questions et les réponses doivent être visibles sur la page, avec le même texte. Un bloc FAQPage posé sur une page qui n'affiche aucune FAQ est une faute, et c'est le cas le plus fréquent. Une extension ajoute le bloc, les questions sont retirées à la refonte suivante, et le code décrit un contenu disparu. Google l'ignore, et l'affichage enrichi s'éteint.</p>
+
+    <p>Trois règles pratiques. Un seul bloc FAQPage par page. Des réponses de deux ou trois phrases, formulées comme sur la page. Et une mise à jour des deux côtés : réponse visible modifiée, bloc modifié. Sur ce blog, chaque article porte une FAQ visible et un bloc qui reprend les mêmes questions.</p>
+
+    <h2>Où poser quoi, page par page</h2>
+
+    <p>La répartition qui tient sur la plupart des sites de commerce local se résume en cinq lignes, et c'est aussi l'ordre de travail.</p>
+
+    <p><strong>Page d'accueil</strong> : Organization, une seule fois. Si le commerce n'a qu'une page, c'est LocalBusiness qui vient à sa place, avec les coordonnées complètes.</p>
+
+    <p><strong>Page de contact</strong> : LocalBusiness, avec les mêmes coordonnées que la fiche Google et que le pied de page.</p>
+
+    <p><strong>Pages de service</strong> : rien de spécifique. Du texte clair, des liens, un fil d'Ariane.</p>
+
+    <p><strong>Pages produit</strong> : Product, sur chaque article réellement vendu.</p>
+
+    <p><strong>Articles et guides</strong> : Article, plus BreadcrumbList, plus FAQPage si une FAQ est affichée.</p>
+
+    <p>Un principe traverse cette liste : un type par page, déclaré une seule fois. Deux blocs qui décrivent la même chose avec des valeurs différentes se neutralisent. Et pour un commerce sans site, la fiche reste le levier principal, comme le montre <a href="/articles/seo-local-sans-site-web/">le SEO local sans site web</a>.</p>
+
+    <h2>Vérifier ce qui est posé</h2>
+
+    <h3>Les fautes qui reviennent</h3>
+    <p><strong>Le code recopié tel quel</strong>, avec le nom ou le numéro du prestataire. <strong>Une déclaration sans contenu visible</strong> : une FAQ absente, un prix qui n'est plus affiché, des horaires de l'an dernier. <strong>Des coordonnées contradictoires</strong> entre le bloc, le pied de page et la fiche. <strong>Des blocs en double</strong> : une extension en pose un, quelqu'un en ajoute un second à la main. <strong>Un bloc invalide</strong> : une virgule en trop, un guillemet oublié, et le bloc entier est ignoré sans que personne ne s'en aperçoive.</p>
+
+    <h3>Quatre vérifications</h3>
+    <p><strong>Un : compter les blocs.</strong> Ouvrez le code source de la page et cherchez « application/ld+json » : notez combien de blocs apparaissent et ce qu'ils déclarent. Sur dix pages, le tour se fait en une demi-heure.</p>
+    <p><strong>Deux : tester une page.</strong> L'outil de test des résultats enrichis de Google affiche les types détectés, les erreurs et les avertissements.</p>
+    <p><strong>Trois : relire les valeurs.</strong> L'outil dit que le code est valide ; il ne dit pas que l'adresse est la bonne. Comparez le bloc avec la page affichée et avec la fiche Google.</p>
+    <p><strong>Quatre : refaire le tour après chaque changement.</strong> Une refonte, une extension ajoutée, un modèle mis à jour : les blocs changent sans prévenir. Un contrôle par trimestre suffit, en regardant aussi le rapport de Search Console. Comptez plusieurs semaines entre la pose et un effet visible.</p>
+    <p>Et une page à la fois : mieux vaut trois blocs exacts que dix blocs approximatifs, et une déclaration qui reste vraie après le prochain changement de numéro.</p>
+
+    <div class="cta-block">
+      <h2>Votre site dit-il à Google ce qu'il est ?</h2>
+      <p>La page site web présente ce qui est remis avec un site : structure claire, balisage des pages essentielles, coordonnées identiques à celles de votre fiche.</p>
+      <a class="btn btn-gold" href="https://eperformance.pro/site-web.html">Voir la page site web
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <h2>FAQ — Les données structurées</h2>
+
+    <div class="faq-section">
+      <details>
+        <summary>Les données structurées font-elles monter une page dans les résultats ?</summary>
+        <p>Non, ce n'est pas un levier de classement : le balisage décrit la page, il ne la fait pas remonter. Il peut en revanche changer l'affichage du résultat quand Google choisit de s'en servir.</p>
+      </details>
+
+      <details>
+        <summary>Quelle différence entre Organization et LocalBusiness ?</summary>
+        <p>Organization décrit l'entreprise : son nom, son site, son logo, ses pages officielles. Il se pose une fois, sur l'accueil. LocalBusiness décrit un établissement et ses coordonnées : adresse, téléphone, horaires, zone desservie. Il se pose sur la page qui présente cet établissement, le plus souvent la page de contact. Sur un site d'une seule page, gardez un seul bloc, complet.</p>
+      </details>
+
+      <details>
+        <summary>Peut-on baliser une FAQ qui n'est pas visible sur la page ?</summary>
+        <p>Non, c'est une faute. Les questions et les réponses déclarées dans le bloc doivent être affichées sur la page, avec le même texte. Un bloc FAQPage posé sur une page sans FAQ, ou dont les questions ont été retirées à une refonte, décrit un contenu qui n'existe pas : Google l'ignore, et l'affichage enrichi disparaît.</p>
+      </details>
+
+      <details>
+        <summary>Où placer le code dans la page ?</summary>
+        <p>Dans une balise de script de type application/ld+json, placée dans l'en-tête ou dans le corps de la page. L'emplacement n'a pas d'importance pour la lecture : ce qui compte, c'est que le bloc soit présent sur la page qu'il décrit, et qu'il soit unique.</p>
+      </details>
+
+      <details>
+        <summary>Le balisage suffit-il pour obtenir un affichage enrichi ?</summary>
+        <p>Non. Le balisage rend la page éligible, il ne déclenche rien : c'est Google qui décide, requête par requête, d'afficher ou non un prix ou un fil d'Ariane. Le travail utile consiste à décrire correctement ce qui existe sur la page, puis à vérifier avec l'outil de test que tout est détecté sans erreur.</p>
+      </details>
+
+      <details>
+        <summary>Que se passe-t-il si le bloc contient une erreur ?</summary>
+        <p>Le bloc est ignoré en entier. Une virgule en trop, un guillemet oublié ou une accolade mal fermée suffisent, et rien ne s'affiche dans le navigateur pour vous prévenir. C'est pourquoi chaque bloc se vérifie avec l'outil de test des résultats enrichis avant publication, et à nouveau après chaque refonte.</p>
+      </details>
+    </div>
+
+    <div class="tags-row">
+      <a href="/seo/" class="tag">SEO</a>
+      <a href="/articles/fiche-google-business-profile/" class="tag">Fiche Google</a>
+      <a href="/articles/balises-title-description/" class="tag">Title et description</a>
+    </div>
+
+    <div class="share-row">
+      <span class="small">Partager</span>
+      <a href="#" class="share-btn" onclick="return sharePage('whatsapp')" data-share="whatsapp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.6-4.5A8.4 8.4 0 1 1 8 20.4z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('linkedin')" data-share="linkedin" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('facebook')" data-share="facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('copy')" data-share="copy" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></a>
+    </div>
+
+    <div class="related">
+      <h2>Articles à lire ensuite</h2>
+      <a href="/articles/balises-title-description/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">SEO</span>
+          <h3>Title et description : réécrire pour gagner des clics</h3>
+          <p class="small">Trois pages réécrites, avant et après, avec ce qui change dans chaque cas.</p>
+        </div>
+      </a>
+      <a href="/articles/seo-local-sans-site-web/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">SEO</span>
+          <h3>SEO local pour un commerce sans site web</h3>
+          <p class="small">Ce qu'une fiche Google permet seule, et le point exact où elle plafonne.</p>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-col">
+        <img class="footer-logo logo-img-light" src="/assets/img/logo-light.webp"
+             srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+             width="152" height="25" alt="ePerformance" loading="lazy">
+        <img class="footer-logo logo-img-dark" src="/assets/img/logo-dark.webp"
+             srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+             width="157" height="25" alt="" aria-hidden="true" loading="lazy">
+        <p class="card-text mt-3" style="max-width:34ch">Stratégie d&#x27;acquisition, IA générative, automatisation et développement web premium. Basé en Côte d&#x27;Ivoire, 100 % en ligne.</p>
+      </div>
+
+      <div class="footer-col">
+        <h2>Services</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/index.html#methode" rel="noopener">stratégie d&#x27;acquisition</a></li>
+          <li><a href="https://eperformance.pro/ia.html" rel="noopener">IA générative</a></li>
+          <li><a href="https://eperformance.pro/automatisation.html" rel="noopener">Automatisation</a></li>
+          <li><a href="https://eperformance.pro/site-web.html" rel="noopener">Création de site web</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Ressources</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/diagnostic_eperformance.html" rel="noopener">Diagnostic gratuit</a></li>
+          <li><a href="https://eperformance.pro/formation.html" rel="noopener">Formations</a></li>
+          <li><a href="https://eperformance.pro/ebook.html" rel="noopener">Ebooks</a></li>
+          <li><a href="https://blog.eperformance.pro/" rel="noopener">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="https://wa.me/2250151170666" rel="noopener">+225 01 51 17 06 66</a></li>
+          <li><a href="mailto:bonjour@eperformance.pro">bonjour@eperformance.pro</a></li>
+          <li><a href="https://api.eperformance.pro/connexion.php" rel="noopener">Espace client</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 ePerformance — par K. Stéphane. Tous droits réservés.</p>
+      <p><a href="https://eperformance.pro/mentions-legales.html">Mentions légales</a> · <a href="https://eperformance.pro/politique-confidentialite.html">Confidentialité</a> · <a href="https://eperformance.pro/cookies.html">Cookies</a> · <a href="https://eperformance.pro/cgv.html">CGV</a></p>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a class="btn btn-gold" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+  <a class="btn btn-wa" href="https://wa.me/2250151170666" style="flex:0 0 auto" rel="noopener">WhatsApp</a>
+</div>
+
+<div class="consent" id="consent-banner" hidden>
+  <div class="consent-inner">
+    <div class="consent-text">
+      <p><strong>Vous choisissez ce que nous mesurons.</strong></p>
+      <p>Nous utilisons des traceurs pour comprendre comment le site est utilisé et pour
+         mesurer nos campagnes. Aucun ne se déclenche avant votre accord.
+         <a href="https://eperformance.pro/politique-confidentialite.html">Politique de confidentialité</a> ·
+         <a href="https://eperformance.pro/cookies.html">En savoir plus</a></p>
+    </div>
+    <div class="consent-actions">
+      <button type="button" class="btn btn-ghost" data-consent="refuse">Tout refuser</button>
+      <button type="button" class="btn btn-outline" data-consent="customize">Paramétrer</button>
+      <button type="button" class="btn btn-gold" data-consent="accept">Tout accepter</button>
+    </div>
+  </div>
+
+  <div class="consent-detail" id="consent-detail" hidden>
+    <fieldset class="fieldset">
+      <legend>Vos préférences</legend>
+
+      <label class="consent-row consent-row-locked">
+        <input type="checkbox" checked disabled>
+        <span>
+          <strong>Nécessaires</strong>
+          <span class="field-hint">Mémorisation de votre choix de thème et de vos préférences.
+            Toujours actifs : le site ne peut pas fonctionner sans.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-analytics">
+        <span>
+          <strong>Mesure d'audience</strong>
+          <span class="field-hint">Google Analytics 4 et Microsoft Clarity. Nous aide à voir
+            quelles pages sont utiles et où les visiteurs abandonnent.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-ads">
+        <span>
+          <strong>Publicité</strong>
+          <span class="field-hint">Meta Pixel. Mesure l'efficacité de nos campagnes
+            Facebook et Instagram.</span>
+        </span>
+      </label>
+    </fieldset>
+
+    <div class="consent-actions">
+      <button type="button" class="btn btn-outline" data-consent="back">Retour</button>
+      <button type="button" class="btn btn-gold" data-consent="save">Enregistrer mes choix</button>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/js/consent.js" defer></script>
+<script src="/assets/js/eperf.js" defer></script>
+<script src="/assets/js/blog.js" defer></script>
+</body>
+</html>

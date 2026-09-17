@@ -1,0 +1,576 @@
+{
+  "timezone": "Africa/Abidjan",
+  "start": "2026-09-18",
+  "end": "2026-10-03",
+  "per_day": 5,
+  "note": "5 articles/jour du 18 septembre au 2 octobre, 3 le 3 octobre. Le rythme strict de 5/jour sur 16 jours donnerait 80 places pour 78 articles.",
+  "articles": [
+    {
+      "numero": 1,
+      "slug": "ia-generative-pme-africaine",
+      "date": "2026-09-18",
+      "heure": "10:00",
+      "published": false
+    },
+    {
+      "numero": 2,
+      "slug": "cinq-taches-ia-entreprise",
+      "date": "2026-09-18",
+      "heure": "10:30",
+      "published": false
+    },
+    {
+      "numero": 3,
+      "slug": "chatbot-ia-repondre-site",
+      "date": "2026-09-18",
+      "heure": "11:00",
+      "published": false
+    },
+    {
+      "numero": 4,
+      "slug": "rediger-fiches-produits-ia",
+      "date": "2026-09-18",
+      "heure": "11:30",
+      "published": false
+    },
+    {
+      "numero": 5,
+      "slug": "ia-service-client-nuit",
+      "date": "2026-09-18",
+      "heure": "12:00",
+      "published": false
+    },
+    {
+      "numero": 6,
+      "slug": "ia-analyse-rapports-publicitaires",
+      "date": "2026-09-19",
+      "heure": "10:00",
+      "published": false
+    },
+    {
+      "numero": 7,
+      "slug": "ia-preparation-commerciale",
+      "date": "2026-09-19",
+      "heure": "10:30",
+      "published": false
+    },
+    {
+      "numero": 8,
+      "slug": "ia-limites-business",
+      "date": "2026-09-19",
+      "heure": "11:00",
+      "published": false
+    },
+    {
+      "numero": 9,
+      "slug": "ia-donnees-confidentialite",
+      "date": "2026-09-19",
+      "heure": "11:30",
+      "published": false
+    },
+    {
+      "numero": 10,
+      "slug": "automatisation-marketing-debuter",
+      "date": "2026-09-19",
+      "heure": "12:00",
+      "published": false
+    },
+    {
+      "numero": 11,
+      "slug": "n8n-afrique-ouest",
+      "date": "2026-09-20",
+      "heure": "10:00",
+      "published": false
+    },
+    {
+      "numero": 12,
+      "slug": "capturer-qualifier-demandes",
+      "date": "2026-09-20",
+      "heure": "10:30",
+      "published": false
+    },
+    {
+      "numero": 13,
+      "slug": "relance-client-automatique",
+      "date": "2026-09-20",
+      "heure": "11:00",
+      "published": false
+    },
+    {
+      "numero": 14,
+      "slug": "reporting-automatise",
+      "date": "2026-09-20",
+      "heure": "11:30",
+      "published": false
+    },
+    {
+      "numero": 15,
+      "slug": "synchroniser-outils-commerciaux",
+      "date": "2026-09-20",
+      "heure": "12:00",
+      "published": false
+    },
+    {
+      "numero": 16,
+      "slug": "cout-automatisation",
+      "date": "2026-09-21",
+      "heure": "10:00",
+      "published": false
+    },
+    {
+      "numero": 17,
+      "slug": "automatisation-dependance",
+      "date": "2026-09-21",
+      "heure": "10:30",
+      "published": false
+    },
+    {
+      "numero": 18,
+      "slug": "erreurs-automatisation",
+      "date": "2026-09-21",
+      "heure": "11:00",
+      "published": false
+    },
+    {
+      "numero": 19,
+      "slug": "calculer-ltv",
+      "date": "2026-09-21",
+      "heure": "11:30",
+      "published": false
+    },
+    {
+      "numero": 20,
+      "slug": "payback-period",
+      "date": "2026-09-21",
+      "heure": "12:00",
+      "published": false
+    },
+    {
+      "numero": 21,
+      "slug": "ratio-ltv-cac",
+      "date": "2026-09-22",
+      "heure": "10:00",
+      "published": false
+    },
+    {
+      "numero": 22,
+      "slug": "marge-nette-acquisition",
+      "date": "2026-09-22",
+      "heure": "10:30",
+      "published": false
+    },
+    {
+      "numero": 23,
+      "slug": "cinq-couts-cac-oublies",
+      "date": "2026-09-22",
+      "heure": "11:00",
+      "published": false
+    },
+    {
+      "numero": 24,
+      "slug": "roas-trompeur",
+      "date": "2026-09-22",
+      "heure": "11:30",
+      "published": false
+    },
+    {
+      "numero": 25,
+      "slug": "lire-statistiques-meta-ads",
+      "date": "2026-09-22",
+      "heure": "12:00",
+      "published": false
+    },
+    {
+      "numero": 26,
+      "slug": "ciblage-meta-2026",
+      "date": "2026-09-23",
+      "heure": "10:00",
+      "published": false
+    },
+    {
+      "numero": 27,
+      "slug": "creas-publicitaires-afrique",
+      "date": "2026-09-23",
+      "heure": "10:30",
+      "published": false
+    },
+    {
+      "numero": 28,
+      "slug": "whatsapp-business-conversion",
+      "date": "2026-09-23",
+      "heure": "11:00",
+      "published": false
+    },
+    {
+      "numero": 29,
+      "slug": "pixel-meta-capi",
+      "date": "2026-09-23",
+      "heure": "11:30",
+      "published": false
+    },
+    {
+      "numero": 30,
+      "slug": "meta-ads-ou-google-ads",
+      "date": "2026-09-23",
+      "heure": "12:00",
+      "published": false
+    },
+    {
+      "numero": 31,
+      "slug": "google-ads-quand",
+      "date": "2026-09-24",
+      "heure": "10:00",
+      "published": false
+    },
+    {
+      "numero": 32,
+      "slug": "budget-publicitaire-debuter",
+      "date": "2026-09-24",
+      "heure": "10:30",
+      "published": false
+    },
+    {
+      "numero": 33,
+      "slug": "boost-publication",
+      "date": "2026-09-24",
+      "heure": "11:00",
+      "published": false
+    },
+    {
+      "numero": 34,
+      "slug": "ameliorer-taux-conversion",
+      "date": "2026-09-24",
+      "heure": "11:30",
+      "published": false
+    },
+    {
+      "numero": 35,
+      "slug": "cac-par-segment",
+      "date": "2026-09-24",
+      "heure": "12:00",
+      "published": false
+    },
+    {
+      "numero": 36,
+      "slug": "test-ab-methode",
+      "date": "2026-09-25",
+      "heure": "10:00",
+      "published": false
+    },
+    {
+      "numero": 37,
+      "slug": "fidelisation-ltv",
+      "date": "2026-09-25",
+      "heure": "10:30",
+      "published": false
+    },
+    {
+      "numero": 38,
+      "slug": "upsell-vente-complementaire",
+      "date": "2026-09-25",
+      "heure": "11:00",
+      "published": false
+    },
+    {
+      "numero": 39,
+      "slug": "prix-site-web-cote-ivoire",
+      "date": "2026-09-25",
+      "heure": "11:30",
+      "published": false
+    },
+    {
+      "numero": 40,
+      "slug": "vitrine-ou-ecommerce",
+      "date": "2026-09-25",
+      "heure": "12:00",
+      "published": false
+    },
+    {
+      "numero": 41,
+      "slug": "wordpress-shopify-sur-mesure",
+      "date": "2026-09-26",
+      "heure": "10:00",
+      "published": false
+    },
+    {
+      "numero": 42,
+      "slug": "questions-prestataire-site-web",
+      "date": "2026-09-26",
+      "heure": "10:30",
+      "published": false
+    },
+    {
+      "numero": 43,
+      "slug": "domaine-hebergement-propriete",
+      "date": "2026-09-26",
+      "heure": "11:00",
+      "published": false
+    },
+    {
+      "numero": 44,
+      "slug": "site-trop-lent",
+      "date": "2026-09-26",
+      "heure": "11:30",
+      "published": false
+    },
+    {
+      "numero": 45,
+      "slug": "images-site-webp",
+      "date": "2026-09-26",
+      "heure": "12:00",
+      "published": false
+    },
+    {
+      "numero": 46,
+      "slug": "site-mobile-entree-de-gamme",
+      "date": "2026-09-27",
+      "heure": "10:00",
+      "published": false
+    },
+    {
+      "numero": 47,
+      "slug": "formulaire-contact-efficace",
+      "date": "2026-09-27",
+      "heure": "10:30",
+      "published": false
+    },
+    {
+      "numero": 48,
+      "slug": "bouton-whatsapp-site",
+      "date": "2026-09-27",
+      "heure": "11:00",
+      "published": false
+    },
+    {
+      "numero": 49,
+      "slug": "erreurs-qui-font-fuir",
+      "date": "2026-09-27",
+      "heure": "11:30",
+      "published": false
+    },
+    {
+      "numero": 50,
+      "slug": "monetiser-sans-ecommerce",
+      "date": "2026-09-27",
+      "heure": "12:00",
+      "published": false
+    },
+    {
+      "numero": 51,
+      "slug": "refonte-site-quand",
+      "date": "2026-09-28",
+      "heure": "10:00",
+      "published": false
+    },
+    {
+      "numero": 52,
+      "slug": "reprendre-controle-site",
+      "date": "2026-09-28",
+      "heure": "10:30",
+      "published": false
+    },
+    {
+      "numero": 53,
+      "slug": "fiche-google-business-profile",
+      "date": "2026-09-28",
+      "heure": "11:00",
+      "published": false
+    },
+    {
+      "numero": 54,
+      "slug": "avis-google-sans-forcer",
+      "date": "2026-09-28",
+      "heure": "11:30",
+      "published": false
+    },
+    {
+      "numero": 55,
+      "slug": "pack-local-ouagadougou",
+      "date": "2026-09-28",
+      "heure": "12:00",
+      "published": false
+    },
+    {
+      "numero": 56,
+      "slug": "annuaires-citations-cote-ivoire",
+      "date": "2026-09-29",
+      "heure": "10:00",
+      "published": false
+    },
+    {
+      "numero": 57,
+      "slug": "seo-local-sans-site-web",
+      "date": "2026-09-29",
+      "heure": "10:30",
+      "published": false
+    },
+    {
+      "numero": 58,
+      "slug": "balises-title-description",
+      "date": "2026-09-29",
+      "heure": "11:00",
+      "published": false
+    },
+    {
+      "numero": 59,
+      "slug": "donnees-structurees-schema-org",
+      "date": "2026-09-29",
+      "heure": "11:30",
+      "published": false
+    },
+    {
+      "numero": 60,
+      "slug": "sitemap-robots-txt",
+      "date": "2026-09-29",
+      "heure": "12:00",
+      "published": false
+    },
+    {
+      "numero": 61,
+      "slug": "erreurs-indexation-google",
+      "date": "2026-09-30",
+      "heure": "10:00",
+      "published": false
+    },
+    {
+      "numero": 62,
+      "slug": "etre-cite-par-chatgpt",
+      "date": "2026-09-30",
+      "heure": "10:30",
+      "published": false
+    },
+    {
+      "numero": 63,
+      "slug": "llms-txt",
+      "date": "2026-09-30",
+      "heure": "11:00",
+      "published": false
+    },
+    {
+      "numero": 64,
+      "slug": "contenu-duplique",
+      "date": "2026-09-30",
+      "heure": "11:30",
+      "published": false
+    },
+    {
+      "numero": 65,
+      "slug": "netlinking-local",
+      "date": "2026-09-30",
+      "heure": "12:00",
+      "published": false
+    },
+    {
+      "numero": 66,
+      "slug": "mesurer-son-seo",
+      "date": "2026-10-01",
+      "heure": "10:00",
+      "published": false
+    },
+    {
+      "numero": 67,
+      "slug": "fixer-ses-prix",
+      "date": "2026-10-01",
+      "heure": "10:30",
+      "published": false
+    },
+    {
+      "numero": 68,
+      "slug": "vendre-a-la-diaspora",
+      "date": "2026-10-01",
+      "heure": "11:00",
+      "published": false
+    },
+    {
+      "numero": 69,
+      "slug": "paiement-mobile-money",
+      "date": "2026-10-01",
+      "heure": "11:30",
+      "published": false
+    },
+    {
+      "numero": 70,
+      "slug": "tableau-tresorerie",
+      "date": "2026-10-01",
+      "heure": "12:00",
+      "published": false
+    },
+    {
+      "numero": 71,
+      "slug": "delai-paiement-client",
+      "date": "2026-10-02",
+      "heure": "10:00",
+      "published": false
+    },
+    {
+      "numero": 72,
+      "slug": "emprunter-ou-autofinancer",
+      "date": "2026-10-02",
+      "heure": "10:30",
+      "published": false
+    },
+    {
+      "numero": 73,
+      "slug": "choisir-statut-entreprise",
+      "date": "2026-10-02",
+      "heure": "11:00",
+      "published": false
+    },
+    {
+      "numero": 74,
+      "slug": "se-lancer-au-burkina-faso",
+      "date": "2026-10-02",
+      "heure": "11:30",
+      "published": false
+    },
+    {
+      "numero": 75,
+      "slug": "structure-de-couts",
+      "date": "2026-10-02",
+      "heure": "12:00",
+      "published": false
+    },
+    {
+      "numero": 76,
+      "slug": "externaliser-ou-recruter",
+      "date": "2026-10-03",
+      "heure": "10:00",
+      "published": false
+    },
+    {
+      "numero": 77,
+      "slug": "deleguer-sans-perdre-le-controle",
+      "date": "2026-10-03",
+      "heure": "10:30",
+      "published": false
+    },
+    {
+      "numero": 78,
+      "slug": "decider-avec-des-chiffres",
+      "date": "2026-10-03",
+      "heure": "11:00",
+      "published": false
+    },
+    {
+      "numero": null,
+      "slug": "calculer-cac-cote-ivoire",
+      "date": "2026-09-16",
+      "heure": "09:00",
+      "published": true
+    },
+    {
+      "numero": null,
+      "slug": "site-web-professionnel-abidjan-guide",
+      "date": "2026-09-16",
+      "heure": "09:00",
+      "published": true
+    },
+    {
+      "numero": null,
+      "slug": "seo-local-abidjan-guide",
+      "date": "2026-09-16",
+      "heure": "09:00",
+      "published": true
+    }
+  ]
+}

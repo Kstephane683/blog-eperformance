@@ -1,0 +1,288 @@
+<section class="article-hero">
+  <div class="container-reading">
+
+    <nav class="article-breadcrumb" aria-label="Fil d'Ariane">
+      <a href="/">Blog</a>
+      <span class="sep">/</span>
+      <a href="/seo/">SEO</a>
+      <span class="sep">/</span>
+      <span>Données structurées</span>
+    </nav>
+
+    <span class="article-category">SEO</span>
+    <h1>Données structurées : <span class="text-gold">ce que Google comprend de votre site</span></h1>
+    <p class="lead">Un bloc de code invisible dit à Google ce qu'est votre page : un commerce, un produit, un article, une question fréquente. Bien posé, il lève une ambiguïté. Mal posé, il décrit une page qui n'existe pas. Voici les six types utiles localement, et ceux qui ne servent à rien.</p>
+
+    <div class="article-meta">
+      <div class="author">
+        <div class="author-avatar">KS</div>
+        <div>
+          <div class="article-author-name">K. STEPHANE</div>
+          <div class="small">Fondateur ePerformance</div>
+        </div>
+      </div>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg> 9 février 2027</span>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.6 2.1"/></svg> 12 min de lecture</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section-flush-top">
+  <div class="article-body container-reading">
+
+    <p>Votre page affiche une adresse, un téléphone, des horaires, un prix. Le visiteur les lit. Google doit les déduire du texte et des liens, et il se trompe parfois. Les données structurées retirent ce doute : un bloc de code, invisible à l'écran, qui nomme ce qu'est la page et ce qu'elle décrit.</p>
+
+    <p>La décision qui compte n'est pas technique. Elle consiste à savoir quoi déclarer, sur quelle page, et quand s'abstenir. Six types suffisent pour un commerce local.</p>
+
+    <h2>Ce que « données structurées » veut dire</h2>
+
+    <p>Un bloc de données structurées est un texte au format JSON, posé dans la page entre deux balises de script. Vous y écrivez des paires nom-valeur : le type de la page, le nom de l'entreprise, le téléphone, la ville, les horaires. Ce format s'appelle JSON-LD, et c'est celui que Google lit aujourd'hui.</p>
+
+    <p>Le bloc ne s'affiche pas : il est lu par les robots qui parcourent la page. Deux effets en découlent.</p>
+
+    <p>Le premier est une compréhension plus sûre : au lieu de déduire votre activité d'un paragraphe, Google lit une déclaration explicite. Cette clarté sert aussi aux moteurs de réponse, qui citent plus volontiers une entreprise déclarée noir sur blanc.</p>
+
+    <p>Le second touche l'affichage dans les résultats : un fil d'Ariane à la place d'une adresse illisible, un prix, des questions dépliables. Rien n'est automatique : le balisage rend la page éligible, Google décide ensuite.</p>
+
+    <h2>Ce que le balisage ne fait pas</h2>
+
+    <p><strong>Ce n'est pas un levier de classement.</strong> Le balisage décrit une page, il ne la pousse pas. Une page mal placée reste mal placée : celle qui gagne des places est celle qui répond mieux à la recherche.</p>
+
+    <p><strong>Ce n'est pas un rattrapage.</strong> Un bloc propre ne crée pas l'information absente. Si votre page ne dit ni vos prix, ni votre zone, ni vos délais, le code n'a rien à décrire. Un bloc qui déclare ce que la page n'affiche pas est une faute, pas une optimisation.</p>
+
+    <p><strong>Ce n'est pas un remplacement de la fiche.</strong> Pour un commerce local, la fiche Google reste la source que les clients consultent. Le balisage du site la confirme : même nom, même adresse, même numéro. Deux sources qui se contredisent valent moins qu'une seule source juste.</p>
+
+    <div class="callout">
+      <p><strong>Le repère.</strong> Le balisage ne dit pas ce que vous aimeriez être. Il dit ce que la page affiche.</p>
+    </div>
+
+    <h2>Six types, six questions</h2>
+
+    <p>Chaque type répond à une question précise, dans l'ordre où on les rencontre sur un site.</p>
+
+    <p><strong>Organization</strong> : qui est cette entreprise ? <strong>LocalBusiness</strong> : où se trouve cet établissement, et comment le joindre ? <strong>Product</strong> : qu'est-ce que cet article vendu ? <strong>Article</strong> : qu'est-ce que ce texte ? <strong>BreadcrumbList</strong> : où suis-je dans ce site ? <strong>FAQPage</strong> : quelles questions reviennent sur ce sujet ?</p>
+
+    <p>D'autres types existent, mais ils concernent d'autres métiers.</p>
+
+    <h2>Organization : à déclarer une fois</h2>
+
+    <p>Organization décrit l'entreprise elle-même : son nom, l'adresse de son site, son logo, ses pages officielles. Il se pose une seule fois, sur la page d'accueil, et les autres pages s'y rattachent par un identifiant commun. Google relie alors votre nom, votre logo et vos pages à une seule entité, au lieu de traiter chaque page comme un site distinct.</p>
+
+    <p>Quand il ne sert à rien. Sur un site d'une seule page, il fait doublon avec LocalBusiness : un bloc complet vaut mieux que deux partiels. Et un nom différent de celui de votre fiche Google crée une contradiction que Google devra trancher.</p>
+
+    <h2>LocalBusiness : la page de contact, et pas ailleurs</h2>
+
+    <p>C'est le bloc le plus utile pour un commerce local, et celui qui se pose le plus mal. Il décrit un établissement : son nom, son adresse, son téléphone, ses horaires. Ces informations figurent déjà dans votre fiche Google Business Profile ; le balisage les confirme là où la page les affiche.</p>
+
+    <h3>Où il sert</h3>
+    <p>Sur la page qui présente l'établissement : la page de contact, la page « où nous trouver », ou l'accueil quand le commerce n'a que cette page. Les coordonnées sont visibles sur cette page, et le bloc reprend exactement les mêmes valeurs. Le détail des champs est traité dans <a href="/articles/fiche-google-business-profile/">la configuration de la fiche Google Business Profile</a>.</p>
+
+    <h3>Où il ne sert à rien</h3>
+    <p>Sur un article de blog, une page de service, une page de mentions légales, une page produit. Ces pages ne sont pas la page de votre établissement : y déclarer une adresse et des horaires n'aide personne, et multiplie les déclarations à réconcilier.</p>
+    <p>Le cas le plus courant est le bloc identique recopié partout : le jour où vous changez de numéro, il faut penser à chaque page, et un seul oubli crée la contradiction.</p>
+
+    <h2>Un exemple de LocalBusiness, court et correct</h2>
+
+    <p>Voici un bloc réel, pour une menuiserie installée à Cocody. Il tient en huit lignes et couvre l'essentiel : identité, contact, adresse, horaires, zone.</p>
+
+    <pre><code>&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Menuiserie Kouassi",
+  "url": "https://menuiserie-kouassi.ci/contact/",
+  "telephone": "+225 07 07 00 00 00",
+  "address": "Rue des Jardins, Cocody, Abidjan, Côte d'Ivoire",
+  "openingHours": "Mo-Sa 08:00-18:00",
+  "areaServed": "Abidjan",
+  "sameAs": "https://www.facebook.com/menuiseriekouassi"
+}
+&lt;/script&gt;</code></pre>
+
+    <p>Chaque ligne se relit avant publication. Le <code>name</code> est celui de l'enseigne, écrit comme sur la devanture. L'<code>url</code> pointe la page qui porte le bloc, pas l'accueil si le bloc est sur la page de contact. Le <code>telephone</code> s'écrit en entier, indicatif pays compris. L'<code>address</code> tient en une seule ligne de texte, ce qui suffit à décrire l'établissement.</p>
+
+    <p>Deux remarques. Ce bloc ne se recopie pas d'un site à l'autre : reprendre l'exemple d'un prestataire en laissant son nom ou son numéro décrit votre page avec l'identité de quelqu'un d'autre. Ensuite, le téléphone doit être identique dans le bloc, dans le pied de page, sur la page de contact et dans la fiche Google.</p>
+
+    <h2>Product : seulement là où un article est vendu</h2>
+
+    <p>Product décrit un article précis : son nom, son prix, sa disponibilité. Bien posé, il permet d'afficher le prix dans le résultat de recherche, et amène des visiteurs déjà informés.</p>
+
+    <p>Où il sert : sur la page du produit, celle où le client peut l'acheter ou le commander, avec un prix affiché et une disponibilité réelle. Le prix du bloc est celui de la page, dans la même monnaie.</p>
+
+    <p>Où il ne sert à rien : sur une page de catégorie, une page de tarifs, une page de service, ou un article qui parle d'un produit sans le vendre. Autre cas fréquent : beaucoup de modèles de boutique déclarent un Product sur toutes les pages, accueil et panier compris. Mieux vaut le désactiver. Le travail sur les fiches elles-mêmes est traité dans <a href="/articles/rediger-fiches-produits-ia/">la rédaction des fiches produits</a>.</p>
+
+    <h2>Article : pour le contenu éditorial</h2>
+
+    <p>Article décrit un texte : son titre, sa date de publication, son auteur. Il ne produit pas d'affichage spectaculaire, mais il lève une ambiguïté réelle : cette page est-elle un article d'information ou une page de vente ?</p>
+
+    <p>Ce blog s'en sert sur chacun de ses articles. La page que vous lisez porte trois blocs — Article, BreadcrumbList et FAQPage — visibles dans son code source, avec les trois niveaux de son fil d'Ariane. L'exemple est sous vos yeux.</p>
+
+    <p>Quand il ne sert à rien : sur une page de service, une page de contact, une page de tarifs. Une négligence revient aussi souvent : la date du bloc et la date affichée sur la page finissent par diverger.</p>
+
+    <h2>BreadcrumbList : le fil visible d'abord</h2>
+
+    <p>BreadcrumbList décrit le chemin parcouru dans le site : accueil, rubrique, page. Dans les résultats, ce chemin remplace parfois l'adresse de la page, souvent illisible.</p>
+
+    <p>La règle est simple : le fil déclaré doit être celui qui est affiché en haut de la page. Sans fil visible, le bloc n'a rien à décrire.</p>
+
+    <p>Il devient donc inutile sur un site d'une seule page, ou sur un site sans hiérarchie. Sur un blog ou une boutique à rubriques, il aide à la fois le visiteur et la lecture de vos adresses de page. Ce blog en pose un sur chaque article, à trois niveaux : Blog, SEO, puis le titre. La méthode d'ensemble est dans <a href="/articles/seo-local-abidjan-guide/">le guide du SEO local à Abidjan</a>.</p>
+
+    <h2>FAQPage : seulement s'il y a une FAQ visible</h2>
+
+    <p>FAQPage décrit une liste de questions et de réponses. Utilisé correctement, il peut afficher des questions dépliables dans le résultat de recherche : une place gagnée à côté du lien, et une réponse donnée avant le clic.</p>
+
+    <p>La condition est stricte : les questions et les réponses doivent être visibles sur la page, avec le même texte. Un bloc FAQPage posé sur une page qui n'affiche aucune FAQ est une faute, et c'est le cas le plus fréquent. Une extension ajoute le bloc, les questions sont retirées à la refonte suivante, et le code décrit un contenu disparu. Google l'ignore, et l'affichage enrichi s'éteint.</p>
+
+    <p>Trois règles pratiques. Un seul bloc FAQPage par page. Des réponses de deux ou trois phrases, formulées comme sur la page. Et une mise à jour des deux côtés : réponse visible modifiée, bloc modifié. Sur ce blog, chaque article porte une FAQ visible et un bloc qui reprend les mêmes questions.</p>
+
+    <h2>Où poser quoi, page par page</h2>
+
+    <p>La répartition qui tient sur la plupart des sites de commerce local se résume en cinq lignes, et c'est aussi l'ordre de travail.</p>
+
+    <p><strong>Page d'accueil</strong> : Organization, une seule fois. Si le commerce n'a qu'une page, c'est LocalBusiness qui vient à sa place, avec les coordonnées complètes.</p>
+
+    <p><strong>Page de contact</strong> : LocalBusiness, avec les mêmes coordonnées que la fiche Google et que le pied de page.</p>
+
+    <p><strong>Pages de service</strong> : rien de spécifique. Du texte clair, des liens, un fil d'Ariane.</p>
+
+    <p><strong>Pages produit</strong> : Product, sur chaque article réellement vendu.</p>
+
+    <p><strong>Articles et guides</strong> : Article, plus BreadcrumbList, plus FAQPage si une FAQ est affichée.</p>
+
+    <p>Un principe traverse cette liste : un type par page, déclaré une seule fois. Deux blocs qui décrivent la même chose avec des valeurs différentes se neutralisent. Et pour un commerce sans site, la fiche reste le levier principal, comme le montre <a href="/articles/seo-local-sans-site-web/">le SEO local sans site web</a>.</p>
+
+    <h2>Vérifier ce qui est posé</h2>
+
+    <h3>Les fautes qui reviennent</h3>
+    <p><strong>Le code recopié tel quel</strong>, avec le nom ou le numéro du prestataire. <strong>Une déclaration sans contenu visible</strong> : une FAQ absente, un prix qui n'est plus affiché, des horaires de l'an dernier. <strong>Des coordonnées contradictoires</strong> entre le bloc, le pied de page et la fiche. <strong>Des blocs en double</strong> : une extension en pose un, quelqu'un en ajoute un second à la main. <strong>Un bloc invalide</strong> : une virgule en trop, un guillemet oublié, et le bloc entier est ignoré sans que personne ne s'en aperçoive.</p>
+
+    <h3>Quatre vérifications</h3>
+    <p><strong>Un : compter les blocs.</strong> Ouvrez le code source de la page et cherchez « application/ld+json » : notez combien de blocs apparaissent et ce qu'ils déclarent. Sur dix pages, le tour se fait en une demi-heure.</p>
+    <p><strong>Deux : tester une page.</strong> L'outil de test des résultats enrichis de Google affiche les types détectés, les erreurs et les avertissements.</p>
+    <p><strong>Trois : relire les valeurs.</strong> L'outil dit que le code est valide ; il ne dit pas que l'adresse est la bonne. Comparez le bloc avec la page affichée et avec la fiche Google.</p>
+    <p><strong>Quatre : refaire le tour après chaque changement.</strong> Une refonte, une extension ajoutée, un modèle mis à jour : les blocs changent sans prévenir. Un contrôle par trimestre suffit, en regardant aussi le rapport de Search Console. Comptez plusieurs semaines entre la pose et un effet visible.</p>
+    <p>Et une page à la fois : mieux vaut trois blocs exacts que dix blocs approximatifs, et une déclaration qui reste vraie après le prochain changement de numéro.</p>
+
+    <div class="cta-block">
+      <h2>Votre site dit-il à Google ce qu'il est ?</h2>
+      <p>La page site web présente ce qui est remis avec un site : structure claire, balisage des pages essentielles, coordonnées identiques à celles de votre fiche.</p>
+      <a class="btn btn-gold" href="https://eperformance.pro/site-web.html">Voir la page site web
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <h2>FAQ — Les données structurées</h2>
+
+    <div class="faq-section">
+      <details>
+        <summary>Les données structurées font-elles monter une page dans les résultats ?</summary>
+        <p>Non, ce n'est pas un levier de classement : le balisage décrit la page, il ne la fait pas remonter. Il peut en revanche changer l'affichage du résultat quand Google choisit de s'en servir.</p>
+      </details>
+
+      <details>
+        <summary>Quelle différence entre Organization et LocalBusiness ?</summary>
+        <p>Organization décrit l'entreprise : son nom, son site, son logo, ses pages officielles. Il se pose une fois, sur l'accueil. LocalBusiness décrit un établissement et ses coordonnées : adresse, téléphone, horaires, zone desservie. Il se pose sur la page qui présente cet établissement, le plus souvent la page de contact. Sur un site d'une seule page, gardez un seul bloc, complet.</p>
+      </details>
+
+      <details>
+        <summary>Peut-on baliser une FAQ qui n'est pas visible sur la page ?</summary>
+        <p>Non, c'est une faute. Les questions et les réponses déclarées dans le bloc doivent être affichées sur la page, avec le même texte. Un bloc FAQPage posé sur une page sans FAQ, ou dont les questions ont été retirées à une refonte, décrit un contenu qui n'existe pas : Google l'ignore, et l'affichage enrichi disparaît.</p>
+      </details>
+
+      <details>
+        <summary>Où placer le code dans la page ?</summary>
+        <p>Dans une balise de script de type application/ld+json, placée dans l'en-tête ou dans le corps de la page. L'emplacement n'a pas d'importance pour la lecture : ce qui compte, c'est que le bloc soit présent sur la page qu'il décrit, et qu'il soit unique.</p>
+      </details>
+
+      <details>
+        <summary>Le balisage suffit-il pour obtenir un affichage enrichi ?</summary>
+        <p>Non. Le balisage rend la page éligible, il ne déclenche rien : c'est Google qui décide, requête par requête, d'afficher ou non un prix ou un fil d'Ariane. Le travail utile consiste à décrire correctement ce qui existe sur la page, puis à vérifier avec l'outil de test que tout est détecté sans erreur.</p>
+      </details>
+
+      <details>
+        <summary>Que se passe-t-il si le bloc contient une erreur ?</summary>
+        <p>Le bloc est ignoré en entier. Une virgule en trop, un guillemet oublié ou une accolade mal fermée suffisent, et rien ne s'affiche dans le navigateur pour vous prévenir. C'est pourquoi chaque bloc se vérifie avec l'outil de test des résultats enrichis avant publication, et à nouveau après chaque refonte.</p>
+      </details>
+    </div>
+
+    <div class="tags-row">
+      <a href="/seo/" class="tag">SEO</a>
+      <a href="/articles/fiche-google-business-profile/" class="tag">Fiche Google</a>
+      <a href="/articles/balises-title-description/" class="tag">Title et description</a>
+    </div>
+
+    <div class="share-row">
+      <span class="small">Partager</span>
+      <a href="#" class="share-btn" onclick="return sharePage('whatsapp')" data-share="whatsapp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.6-4.5A8.4 8.4 0 1 1 8 20.4z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('linkedin')" data-share="linkedin" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('facebook')" data-share="facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('copy')" data-share="copy" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></a>
+    </div>
+
+    <div class="related">
+      <h2>Articles à lire ensuite</h2>
+      <a href="/articles/balises-title-description/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">SEO</span>
+          <h3>Title et description : réécrire pour gagner des clics</h3>
+          <p class="small">Trois pages réécrites, avant et après, avec ce qui change dans chaque cas.</p>
+        </div>
+      </a>
+      <a href="/articles/seo-local-sans-site-web/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">SEO</span>
+          <h3>SEO local pour un commerce sans site web</h3>
+          <p class="small">Ce qu'une fiche Google permet seule, et le point exact où elle plafonne.</p>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Données structurées : ce que Google comprend de votre site",
+  "description":"Données structurées : à quoi servent LocalBusiness, Organization, Product, Article, BreadcrumbList ou FAQPage, avec un exemple JSON-LD.",
+  "image":"https://blog.eperformance.pro/assets/img/og-seo-local.jpg",
+  "datePublished":"2027-02-09T09:00:00+00:00",
+  "dateModified":"2027-02-09T09:00:00+00:00",
+  "inLanguage":"fr-CI",
+  "wordCount":2414,
+  "articleSection":"SEO",
+  "keywords":["données structurées schema org","json-ld site","rich snippets","LocalBusiness","FAQPage","Abidjan"],
+  "author":{"@type":"Person","name":"K. STEPHANE","jobTitle":"Fondateur ePerformance","url":"https://blog.eperformance.pro/a-propos/"},
+  "publisher":{"@type":"Organization","name":"ePerformance","logo":{"@type":"ImageObject","url":"https://eperformance.pro/assets/img/logo-light.webp"}},
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.eperformance.pro/articles/donnees-structurees-schema-org/"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Blog","item":"https://blog.eperformance.pro/"},
+    {"@type":"ListItem","position":2,"name":"SEO","item":"https://blog.eperformance.pro/seo/"},
+    {"@type":"ListItem","position":3,"name":"Données structurées : ce que Google comprend de votre site","item":"https://blog.eperformance.pro/articles/donnees-structurees-schema-org/"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Les données structurées font-elles monter une page dans les résultats ?","acceptedAnswer":{"@type":"Answer","text":"Non, ce n'est pas un levier de classement : le balisage décrit la page, il ne la fait pas remonter. Il peut en revanche changer l'affichage du résultat quand Google choisit de s'en servir."}},
+    {"@type":"Question","name":"Quelle différence entre Organization et LocalBusiness ?","acceptedAnswer":{"@type":"Answer","text":"Organization décrit l'entreprise : son nom, son site, son logo, ses pages officielles. Il se pose une fois, sur l'accueil. LocalBusiness décrit un établissement et ses coordonnées : adresse, téléphone, horaires, zone desservie. Il se pose sur la page qui présente cet établissement, le plus souvent la page de contact. Sur un site d'une seule page, gardez un seul bloc, complet."}},
+    {"@type":"Question","name":"Peut-on baliser une FAQ qui n'est pas visible sur la page ?","acceptedAnswer":{"@type":"Answer","text":"Non, c'est une faute. Les questions et les réponses déclarées dans le bloc doivent être affichées sur la page, avec le même texte. Un bloc FAQPage posé sur une page sans FAQ, ou dont les questions ont été retirées à une refonte, décrit un contenu qui n'existe pas : Google l'ignore, et l'affichage enrichi disparaît."}},
+    {"@type":"Question","name":"Où placer le code dans la page ?","acceptedAnswer":{"@type":"Answer","text":"Dans une balise de script de type application/ld+json, placée dans l'en-tête ou dans le corps de la page. L'emplacement n'a pas d'importance pour la lecture : ce qui compte, c'est que le bloc soit présent sur la page qu'il décrit, et qu'il soit unique."}},
+    {"@type":"Question","name":"Le balisage suffit-il pour obtenir un affichage enrichi ?","acceptedAnswer":{"@type":"Answer","text":"Non. Le balisage rend la page éligible, il ne déclenche rien : c'est Google qui décide, requête par requête, d'afficher ou non un prix ou un fil d'Ariane. Le travail utile consiste à décrire correctement ce qui existe sur la page, puis à vérifier avec l'outil de test que tout est détecté sans erreur."}},
+    {"@type":"Question","name":"Que se passe-t-il si le bloc contient une erreur ?","acceptedAnswer":{"@type":"Answer","text":"Le bloc est ignoré en entier. Une virgule en trop, un guillemet oublié ou une accolade mal fermée suffisent, et rien ne s'affiche dans le navigateur pour vous prévenir. C'est pourquoi chaque bloc se vérifie avec l'outil de test des résultats enrichis avant publication, et à nouveau après chaque refonte."}}
+  ]
+}
+</script>

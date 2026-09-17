@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+(function(){try{var t=localStorage.getItem('eperf-theme');
+if(t!=='dark'&&t!=='light'){t='light';}
+document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+  <title>Capturer et qualifier ses demandes entrantes</title>
+  <meta name="description" content="Le parcours d&#x27;une demande entrante, étape par étape : accusé de réception, trois questions de qualification, fiche créée, bonne personne prévenue.">
+  <meta name="robots" content="noindex,follow">
+  <link rel="canonical" href="https://blog.eperformance.pro/articles/capturer-qualifier-demandes/index.html">
+  <meta name="theme-color" content="#fdfcfa">
+  <meta name="author" content="K. Stéphane">
+
+  <!-- Icônes -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="icon" href="/assets/img/favicon-16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ePerformance">
+  <meta property="og:locale" content="fr_CI">
+  <meta property="og:title" content="Capturer et qualifier ses demandes entrantes">
+  <meta property="og:description" content="Le parcours d&#x27;une demande entrante, étape par étape : accusé de réception, trois questions de qualification, fiche créée, bonne personne prévenue.">
+  <meta property="og:url" content="https://blog.eperformance.pro/articles/capturer-qualifier-demandes/index.html">
+  <meta property="og:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ePerformance — ePerformance">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Capturer et qualifier ses demandes entrantes">
+  <meta name="twitter:description" content="Le parcours d&#x27;une demande entrante, étape par étape : accusé de réception, trois questions de qualification, fiche créée, bonne personne prévenue.">
+  <meta name="twitter:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta name="twitter:creator" content="@eperformancepro">
+
+  <!-- Polices : préconnexion, préchargement des deux polices critiques,
+       puis chargement non bloquant de la feuille complète -->
+  <!-- Polices : auto-hébergées, déclarées dans eperf.css.
+       On précharge les deux graisses du premier écran pour que le
+       texte soit peint dans la bonne police dès le premier rendu. -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/cormorant-garamond-700.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/dm-sans-400.woff2">
+
+  <!-- Design system : la MEME feuille que le site, a l'identique. -->
+  <link rel="stylesheet" href="/assets/css/eperf.css">
+  <!-- Composants editoriaux du blog : corps d'article, largeur de
+       lecture, cartes d'article. Ils consomment les jetons d'eperf.css
+       et ne redefinissent aucune couleur. -->
+  <link rel="stylesheet" href="/assets/css/blog.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://blog.eperformance.pro/#organization",
+      "name": "ePerformance",
+      "alternateName": "ePerformance par K. Stéphane",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "founder": {
+        "@type": "Person",
+        "@id": "https://blog.eperformance.pro/#founder",
+        "name": "K. Stéphane",
+        "jobTitle": "Fondateur, stratège acquisition",
+        "url": "https://blog.eperformance.pro/kstephane.html"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Côte d'Ivoire"
+        },
+        {
+          "@type": "Country",
+          "name": "Burkina Faso"
+        },
+        {
+          "@type": "Place",
+          "name": "Afrique de l'Ouest"
+        }
+      ],
+      "knowsLanguage": "fr",
+      "sameAs": [
+        "https://blog.eperformance.pro/"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://blog.eperformance.pro/#localbusiness",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "parentOrganization": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Abidjan",
+        "addressCountry": "CI"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Côte d'Ivoire"
+      },
+      "priceRange": "100000-350000 XOF",
+      "currenciesAccepted": "XOF",
+      "paymentAccepted": "Orange Money, Wave, MTN MoMo, Moov Money, Visa, Mastercard",
+      "availableLanguage": "fr"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://blog.eperformance.pro/#website",
+      "url": "https://blog.eperformance.pro",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "publisher": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://blog.eperformance.pro/articles/capturer-qualifier-demandes/index.html#webpage",
+      "url": "https://blog.eperformance.pro/articles/capturer-qualifier-demandes/index.html",
+      "name": "Capturer et qualifier ses demandes entrantes",
+      "description": "Le parcours d'une demande entrante, étape par étape : accusé de réception, trois questions de qualification, fiche créée, bonne personne prévenue.",
+      "isPartOf": {
+        "@id": "https://blog.eperformance.pro/#website"
+      },
+      "about": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://blog.eperformance.pro/articles/capturer-qualifier-demandes/index.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://blog.eperformance.pro/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Automatisation",
+          "item": "https://blog.eperformance.pro/articles/automatisation-marketing-debuter/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Capturer ses demandes entrantes",
+          "item": "https://blog.eperformance.pro/articles/capturer-qualifier-demandes/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Capturer et qualifier ses demandes entrantes automatiquement",
+  "description":"Le parcours complet d'une demande entrante : accusé de réception en une minute, trois questions de qualification, fiche créée, doublon détecté et bonne personne prévenue.",
+  "image":"https://blog.eperformance.pro/assets/img/og-image.jpg",
+  "datePublished":"2026-10-29T09:00:00+00:00",
+  "dateModified":"2026-10-29T09:00:00+00:00",
+  "inLanguage":"fr-CI",
+  "wordCount":2250,
+  "articleSection":"Automatisation",
+  "keywords":["capture des demandes","qualification des prospects","whatsapp business api","workflow n8n","suivi commercial","côte d'ivoire","abidjan"],
+  "author":{"@type":"Person","name":"K. STEPHANE","jobTitle":"Fondateur ePerformance","url":"https://blog.eperformance.pro/a-propos/"},
+  "publisher":{"@type":"Organization","name":"ePerformance","logo":{"@type":"ImageObject","url":"https://eperformance.pro/assets/img/logo-light.webp"}},
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.eperformance.pro/articles/capturer-qualifier-demandes/"}
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Blog","item":"https://blog.eperformance.pro/"},
+    {"@type":"ListItem","position":2,"name":"Automatisation","item":"https://blog.eperformance.pro/"},
+    {"@type":"ListItem","position":3,"name":"Capturer et qualifier ses demandes entrantes automatiquement","item":"https://blog.eperformance.pro/articles/capturer-qualifier-demandes/"}
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Faut-il un CRM pour automatiser la capture des demandes ?","acceptedAnswer":{"@type":"Answer","text":"Non. Un tableur partagé suffit au départ, à condition que chaque demande devienne une ligne avec les mêmes colonnes : date, canal, contact, budget, délai, zone, statut, responsable. Le logiciel devient utile quand plusieurs personnes travaillent dessus en même temps et que l'historique des échanges doit être conservé."}},
+    {"@type":"Question","name":"Combien de temps prend la mise en place ?","acceptedAnswer":{"@type":"Answer","text":"De l'ordre de deux à trois jours de travail pour le premier canal, tests compris. Il faut écrire les étapes à la main, brancher le déclencheur, rédiger les messages et passer dix demandes réelles dans le circuit. Chaque canal supplémentaire se rajoute ensuite en une journée environ, parce que la fiche et les notifications existent déjà."}},
+    {"@type":"Question","name":"Peut-on automatiser les DM Instagram et Facebook ?","acceptedAnswer":{"@type":"Answer","text":"Oui, via les API de Meta, avec une page professionnelle reliée à un compte. Les messages entrent alors dans le même circuit que WhatsApp et le formulaire. Cela suppose un compte vérifié et le respect des règles de la plateforme, notamment sur les délais de réponse aux messages."}},
+    {"@type":"Question","name":"Que faire des demandes reçues la nuit ?","acceptedAnswer":{"@type":"Answer","text":"Elles suivent le circuit comme les autres : l'accusé de réception part dans la minute, la fiche se crée, et la notification peut attendre le matin si vous le décidez ainsi. Ce qui compte, c'est que la personne ait une réponse immédiate et que la demande ne soit pas oubliée au réveil."}},
+    {"@type":"Question","name":"Les données des contacts restent-elles chez nous ?","acceptedAnswer":{"@type":"Answer","text":"Avec une instance auto-hébergée, les fiches restent dans vos outils — tableur, WhatsApp Business, facturation — et les journaux d'exécution sur votre serveur. Vous fixez vous-même la durée de conservation. C'est un choix d'architecture, pas une conformité juridique automatique : les obligations qui vous concernent se vérifient au cas par cas."}},
+    {"@type":"Question","name":"Que se passe-t-il si le workflow tombe en panne ?","acceptedAnswer":{"@type":"Answer","text":"Une alerte part dès qu'une étape échoue, et un journal reste consultable. La procédure de repli doit être écrite à l'avance : pendant la panne, l'équipe ressaisit les demandes à la main dans le même formulaire. Sans alerte, vous croyez que les demandes sont traitées alors qu'elles dorment dans une file d'attente."}}
+  ]
+}
+  </script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a class="logo" href="/" aria-label="ePerformance — accueil">
+      <img class="logo-img-light" src="/assets/img/logo-light.webp"
+           srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+           width="182" height="30" alt="ePerformance" fetchpriority="high">
+      <img class="logo-img-dark" src="/assets/img/logo-dark.webp"
+           srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+           width="188" height="30" alt="" aria-hidden="true">
+    </a>
+
+    <nav class="nav" id="primary-nav" aria-label="Navigation principale">
+      <a href="/">Accueil</a>
+      <a href="/acquisition/">Acquisition</a>
+      <a href="/site-web/">Site web</a>
+      <a href="/seo/">SEO</a>
+      <a href="/business/">Business</a>
+      <a href="/articles/ia-generative-pme-africaine/">IA</a>
+      <a href="/articles/automatisation-marketing-debuter/" aria-current="page">Automatisation</a>
+      <a href="/a-propos/">À propos</a>
+      <a href="https://eperformance.pro" rel="noopener">Site principal</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" data-theme-toggle
+              aria-pressed="false" aria-label="Activer le thème sombre">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+        </svg>
+      </button>
+
+      <a class="btn btn-gold btn-desktop" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false"
+              aria-controls="primary-nav" aria-label="Ouvrir le menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<nav class="breadcrumb container" aria-label="Fil d'Ariane">
+  <ol>
+    <li><a href="/">Accueil</a></li>
+    <li><a href="/articles/automatisation-marketing-debuter/">Automatisation</a></li>
+    <li aria-current="page">Capturer ses demandes entrantes</li>
+  </ol>
+</nav>
+
+<main id="main">
+
+
+<section class="article-hero">
+  <div class="container-reading">
+
+    <nav class="article-breadcrumb" aria-label="Fil d'Ariane">
+      <a href="/">Blog</a>
+      <span class="sep">/</span>
+      <span>Automatisation</span>
+    </nav>
+
+    <span class="article-category">Automatisation</span>
+    <h1>Capturer et qualifier ses demandes entrantes <span class="text-gold">automatiquement</span></h1>
+    <p class="lead">Une demande arrivée le samedi soir et traitée le mardi a perdu trois jours, et souvent la vente. Voici le parcours complet d'une demande entrante : accusé de réception, questions de qualification, fiche créée, bonne personne prévenue.</p>
+
+    <div class="article-meta">
+      <div class="author">
+        <div class="author-avatar">KS</div>
+        <div>
+          <div class="article-author-name">K. STEPHANE</div>
+          <div class="small">Fondateur ePerformance</div>
+        </div>
+      </div>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg> 29 octobre 2026</span>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.6 2.1"/></svg> 11 min de lecture</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section-flush-top">
+  <div class="article-body container-reading">
+
+    <p>Vous connaissez la scène. Un message arrive sur WhatsApp le samedi soir. Le lundi, la boîte bonjour@ reçoit une demande venue du formulaire du site. Le mercredi, un DM Instagram attend encore une réponse. Trois demandes, trois endroits, et personne ne sait laquelle a déjà été traitée.</p>
+
+    <p>Ce n'est pas un problème de motivation, c'est un problème de circuit. Quand les demandes arrivent par quatre canaux et que le suivi tient dans un carnet, la perte ne se voit pas : elle se compte en demandes oubliées, jamais en réclamations. Voici le parcours complet, étape par étape, avec l'outil qui porte chaque étape et le temps qu'elle demande.</p>
+
+    <h2>Ce qui se perd avant la première réponse</h2>
+
+    <p><strong>La boîte mail partagée.</strong> Trois personnes ont le mot de passe, chacune suppose que l'autre a répondu. Le client, lui, attend. Le lundi matin, la demande du samedi est déjà en cinquième position, sous trois factures et deux notifications.</p>
+
+    <p><strong>Le message lu et non répondu.</strong> La notification s'efface et vous vous dites que vous répondrez ce soir. Le soir, une urgence de production passe par là. Le message revient le surlendemain sous la forme d'un « je n'ai pas eu de retour ».</p>
+
+    <p><strong>Le carnet de numéros.</strong> Un numéro écrit à la main, sans le besoin, sans la date, sans la zone. Un numéro seul ne se relance pas : au moment d'écrire, vous ne savez plus ce que la personne cherchait.</p>
+
+    <div class="callout">
+      <p><strong>Le point clé.</strong> Une demande non traitée ne se voit nulle part. Un devis mal rédigé se remarque tout de suite ; une demande oubliée ne se remarque jamais. C'est exactement pour cette raison qu'elle passe en premier dans un projet d'automatisation.</p>
+    </div>
+
+    <p>Pour fixer un ordre de grandeur : dans une structure de dix personnes, la ressaisie des demandes reçues sur WhatsApp occupe souvent de l'ordre de huit heures par mois. Le temps passé à chercher qui a répondu à quoi s'y ajoute, et celui-là ne se mesure pas.</p>
+
+    <h2>Le parcours d'une demande, en cinq étapes</h2>
+
+    <p>Cinq étapes séparent le message de l'appel. Dans cet ordre, et sans exception.</p>
+
+    <p><strong>1. La demande entre par un seul point de collecte.</strong> Formulaire du site, message WhatsApp Business via l'API Cloud, DM Instagram ou Facebook : chaque canal déclenche le même workflow, et chaque demande devient une ligne au même endroit. La règle à tenir : aucun canal ne reste dehors, y compris l'appel manqué, qui se saisit à la main dans le même formulaire.</p>
+
+    <p>Un point technique à connaître avant de promettre quoi que ce soit : l'application WhatsApp Business installée sur un téléphone n'expose aucune API. Pour brancher une capture automatique, il faut passer par l'API Cloud de Meta, avec un compte professionnel vérifié. C'est la condition d'existence du circuit sur ce canal, et c'est aussi la première question à poser au prestataire.</p>
+
+    <p><strong>2. L'accusé de réception part dans la minute.</strong> Le message dit trois choses : c'est bien reçu, voici ce qui va se passer, et voici quand vous répondez. Un texte qui fonctionne : « Bonjour, votre demande est enregistrée. Nous revenons vers vous aujourd'hui avant 17 h, sur ce même numéro. »</p>
+
+    <p><strong>3. Les questions de qualification partent dans la foulée.</strong> Budget, délai, zone. Trois questions, pas huit.</p>
+
+    <p><strong>4. La fiche se crée, le doublon est détecté.</strong> Le workflow cherche le numéro dans le suivi avant d'écrire. S'il existe déjà, il complète la ligne au lieu d'en ouvrir une deuxième.</p>
+
+    <p><strong>5. La bonne personne est prévenue.</strong> Une notification courte part vers la personne qui traite ce type de demande, avec l'essentiel et un lien vers la fiche. Une règle d'attribution écrite évite les deux erreurs classiques : personne ne prend la demande, ou deux personnes appellent le même client.</p>
+
+    <h2>Trois questions de qualification, pas huit</h2>
+
+    <p>Un formulaire de huit questions ne qualifie pas mieux : il fait fuir. Trois questions suffisent à trier, à condition de proposer des réponses à choisir plutôt qu'un champ libre.</p>
+
+    <p><strong>Le budget, par tranches.</strong> « Moins de 500 000 FCFA », « entre 500 000 et 1 500 000 FCFA », « plus de 1 500 000 FCFA », « je ne sais pas encore ». La dernière option est utile : c'est une réponse honnête, et elle désigne une demande à instruire, pas une demande à écarter.</p>
+
+    <p><strong>Le délai.</strong> « Cette semaine », « ce mois-ci », « dans les trois mois », « je me renseigne ». Le délai dit la température mieux que le budget : une demande urgente à petit budget mérite un appel, une demande curieuse à gros budget mérite une relance.</p>
+
+    <p><strong>La zone.</strong> Commune ou ville. Une intervention à Abidjan et une à Korhogo ne mobilisent pas la même journée : la question évite de promettre une date impossible.</p>
+
+    <p>Envoyez ces trois questions dans un seul message, pas dans trois messages séparés. Trois notifications d'affilée donnent l'impression d'un interrogatoire, et beaucoup de personnes répondent à la première puis abandonnent. Avec des réponses à choisir, l'ensemble se traite en trente secondes sur un téléphone.</p>
+
+    <p>Ajoutez une seule case libre : « votre besoin en une phrase ». C'est là que le client écrit ce qui compte, et que vous repérez les messages qui ne sont pas des demandes — un fournisseur, une candidature, un démarcheur.</p>
+
+    <h2>La fiche, le score, la notification interne</h2>
+
+    <p>La fiche n'exige pas un logiciel spécialisé. Six colonnes dans un tableur partagé suffisent au départ : date d'entrée, canal, nom et numéro, tranche de budget, délai, zone. Puis trois colonnes de travail : statut, responsable, prochaine action avec sa date.</p>
+
+    <p>Le score tient dans deux champs. Budget au-dessus de la tranche basse et délai dans le mois : demande chaude, appel dans la journée. Délai court mais budget flou : demande à instruire, appel de qualification. Délai long : demande à cultiver, elle part dans la séquence de relance. Ce calcul n'a rien de savant, et c'est ce qui le rend tenable : la règle doit s'énoncer en une phrase.</p>
+
+    <h3>La notification interne tient en cinq lignes</h3>
+
+    <p>Nom, numéro, canal, ce que la personne veut, lien vers la fiche. Pas de « nouvelle demande reçue » sans contenu : la personne doit pouvoir appeler sans ouvrir un autre outil. Un message Telegram ou WhatsApp interne suffit. Mieux vaut une notification par demande qualifiée qu'un résumé quotidien de dix lignes.</p>
+
+    <p>Prévoyez enfin la notification qui compte : celle qui ne se déclenche pas. Si aucune demande n'est entrée depuis vingt-quatre heures ouvrées, le workflow envoie une alerte. Une panne silencieuse se détecte en une journée au lieu de trois semaines.</p>
+
+    <h2>Ce que cela remplace, concrètement</h2>
+
+    <p>Trois habitudes disparaissent, et aucune ne laisse de regret.</p>
+
+    <p><strong>« Je croyais que tu avais répondu. »</strong> Chaque demande a un responsable écrit et un statut. La question ne se pose plus, et le suivi ne dépend plus de la mémoire de l'équipe.</p>
+
+    <p><strong>Les messages retrouvés trois jours plus tard.</strong> L'accusé de réception part le jour même, y compris le samedi soir et la nuit. Une demande reçue à 2 h du matin reçoit une réponse à 2 h du matin — pas la réponse complète, un accusé qui annonce quand elle viendra.</p>
+
+    <p><strong>Le carnet de numéros.</strong> Les numéros vivent dans le suivi, avec le besoin et la date. Une personne qui quitte la structure ne part plus avec la moitié du fichier clients dans son téléphone.</p>
+
+    <p><strong>La question « combien de demandes ce mois-ci ? »</strong> Vous ouvrez la fiche, vous filtrez sur le mois, et vous avez la réponse. Sans ce circuit, cette question se répond à l'estime, et l'estime est toujours trop haute : on se souvient des demandes signées, jamais de celles qui n'ont jamais eu de réponse.</p>
+
+    <p>Le changement profond se voit à la troisième semaine : vous ne décidez plus de répondre, vous constatez que c'est fait. C'est aussi ce qui rend la relance possible, puisque la séquence décrite dans <a href="/articles/relance-client-automatique/">la relance qui se déclenche seule</a> a besoin d'une fiche pour s'accrocher.</p>
+
+    <h2>Combien de temps, combien de francs</h2>
+
+    <p>Comptez de l'ordre de deux à trois jours de travail pour le premier canal, mise au point comprise : écrire les étapes, brancher le déclencheur, rédiger les messages, tester sur dix demandes réelles. Chaque canal suivant demande moins, souvent une journée, parce que la fiche et les notifications existent déjà.</p>
+
+    <p>Côté exploitation, une instance auto-hébergée se loue dans l'ordre de quelques milliers de francs par mois, et le nombre de messages ne change pas la facture. Deux coûts restent à prévoir, et il faut les dire. Le premier est côté Meta : un compte WhatsApp Business professionnel vérifié est nécessaire, et Meta facture les conversations selon leur catégorie et le pays. Le second est humain : quelqu'un doit lire les alertes et corriger les cas tordus, de l'ordre de vingt minutes par semaine.</p>
+
+    <p>Avant de lancer le chantier, réunissez trois choses : les accès au formulaire du site, le compte WhatsApp Business en cours de vérification chez Meta, et un tableur de suivi aux colonnes arrêtées. Ce sont les trois points qui font attendre un projet, et ils ne dépendent pas de la personne qui construit le workflow.</p>
+
+    <p>La comparaison utile n'est pas entre automatiser et ne rien faire, mais entre automatiser et continuer à ressaisir. Une précision avant de poursuivre : le chiffrage d'un projet se fait après avoir vu vos canaux, vos volumes et vos outils, pendant le <a href="https://eperformance.pro/diagnostic_eperformance.html">diagnostic gratuit</a>, jamais avant.</p>
+
+    <h2>Les cas tordus, et ce qui arrête le workflow</h2>
+
+    <p>Un workflow casse sur les cas particuliers, pas sur les cas normaux. Voici ceux qui reviennent, avec la règle à écrire pour chacun.</p>
+
+    <p><strong>Le doublon.</strong> La même personne écrit sur WhatsApp puis remplit le formulaire. Le workflow cherche le numéro, trouve la fiche et la complète. Sans cette vérification, vous appelez deux fois le même client et vous passez pour une structure désorganisée.</p>
+
+    <p><strong>Le numéro invalide.</strong> Six chiffres, indicatif étranger, numéro de fixe. La fiche se crée quand même, avec un statut « à vérifier », et la notification le signale. Perdre une demande parce que le numéro est mal saisi serait absurde.</p>
+
+    <p><strong>La demande qui n'en est pas une.</strong> Fournisseur, candidature, publicité. Une question de qualification suffit à les repérer, et le workflow les envoie vers une boîte dédiée plutôt que vers le commercial.</p>
+
+    <p><strong>La demande de suppression.</strong> Une personne demande à ne plus être contactée. C'est un arrêt immédiat, et une ligne à ne pas recréer au prochain import. Cette règle passe avant toutes les autres, y compris avant la relance.</p>
+
+    <p>Prévoyez enfin le repli : quand une alerte signale une panne, l'équipe revient à la saisie manuelle avec le même formulaire, et personne ne se demande quoi faire. C'est ce qui distingue un circuit solide d'un circuit fragile, et c'est le même principe que dans <a href="/articles/synchroniser-outils-commerciaux/">la synchronisation de vos outils commerciaux</a>.</p>
+
+    <div class="cta-block">
+      <h2>Par où entrent vos demandes aujourd'hui ?</h2>
+      <p>Un diagnostic gratuit pour lister vos canaux, vos volumes et l'endroit exact où les demandes se perdent. Le chiffrage vient après, jamais avant.</p>
+      <a class="btn btn-gold" href="https://eperformance.pro/automatisation.html">Voir l'automatisation
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <h2>FAQ — capturer et qualifier les demandes</h2>
+
+    <div class="faq-section">
+      <details>
+        <summary>Faut-il un CRM pour automatiser la capture des demandes ?</summary>
+        <p>Non. Un tableur partagé suffit au départ, à condition que chaque demande devienne une ligne avec les mêmes colonnes : date, canal, contact, budget, délai, zone, statut, responsable. Le logiciel devient utile quand plusieurs personnes travaillent dessus en même temps et que l'historique des échanges doit être conservé.</p>
+      </details>
+
+      <details>
+        <summary>Combien de temps prend la mise en place ?</summary>
+        <p>De l'ordre de deux à trois jours de travail pour le premier canal, tests compris. Il faut écrire les étapes à la main, brancher le déclencheur, rédiger les messages et passer dix demandes réelles dans le circuit. Chaque canal supplémentaire se rajoute ensuite en une journée environ, parce que la fiche et les notifications existent déjà.</p>
+      </details>
+
+      <details>
+        <summary>Peut-on automatiser les DM Instagram et Facebook ?</summary>
+        <p>Oui, via les API de Meta, avec une page professionnelle reliée à un compte. Les messages entrent alors dans le même circuit que WhatsApp et le formulaire. Cela suppose un compte vérifié et le respect des règles de la plateforme, notamment sur les délais de réponse aux messages.</p>
+      </details>
+
+      <details>
+        <summary>Que faire des demandes reçues la nuit ?</summary>
+        <p>Elles suivent le circuit comme les autres : l'accusé de réception part dans la minute, la fiche se crée, et la notification peut attendre le matin si vous le décidez ainsi. Ce qui compte, c'est que la personne ait une réponse immédiate et que la demande ne soit pas oubliée au réveil.</p>
+      </details>
+
+      <details>
+        <summary>Les données des contacts restent-elles chez nous ?</summary>
+        <p>Avec une instance auto-hébergée, les fiches restent dans vos outils — tableur, WhatsApp Business, facturation — et les journaux d'exécution sur votre serveur. Vous fixez vous-même la durée de conservation. C'est un choix d'architecture, pas une conformité juridique automatique : les obligations qui vous concernent se vérifient au cas par cas.</p>
+      </details>
+
+      <details>
+        <summary>Que se passe-t-il si le workflow tombe en panne ?</summary>
+        <p>Une alerte part dès qu'une étape échoue, et un journal reste consultable. La procédure de repli doit être écrite à l'avance : pendant la panne, l'équipe ressaisit les demandes à la main dans le même formulaire. Sans alerte, vous croyez que les demandes sont traitées alors qu'elles dorment dans une file d'attente.</p>
+      </details>
+    </div>
+
+    <div class="tags-row">
+      <a href="https://eperformance.pro/automatisation.html" class="tag">Workflows n8n</a>
+      <a href="/articles/relance-client-automatique/" class="tag">Relance</a>
+      <a href="/articles/automatisation-marketing-debuter/" class="tag">Automatisation</a>
+    </div>
+
+    <div class="share-row">
+      <span class="small">Partager</span>
+      <a href="#" class="share-btn" onclick="return sharePage('whatsapp')" data-share="whatsapp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.6-4.5A8.4 8.4 0 1 1 8 20.4z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('linkedin')" data-share="linkedin" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('facebook')" data-share="facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('copy')" data-share="copy" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></a>
+    </div>
+
+    <div class="related">
+      <h2>Articles à lire ensuite</h2>
+      <a href="/articles/relance-client-automatique/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">Automatisation</span>
+          <h3>Relancer un prospect sans y penser : la séquence qui se déclenche seule</h3>
+          <p class="small">J+1, J+3, J+7 — et l'arrêt immédiat dès que la personne répond.</p>
+        </div>
+      </a>
+      <a href="/articles/synchroniser-outils-commerciaux/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">Automatisation</span>
+          <h3>Synchroniser ses outils commerciaux</h3>
+          <p class="small">Site, WhatsApp et suivi commercial : une seule vérité par client.</p>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-col">
+        <img class="footer-logo logo-img-light" src="/assets/img/logo-light.webp"
+             srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+             width="152" height="25" alt="ePerformance" loading="lazy">
+        <img class="footer-logo logo-img-dark" src="/assets/img/logo-dark.webp"
+             srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+             width="157" height="25" alt="" aria-hidden="true" loading="lazy">
+        <p class="card-text mt-3" style="max-width:34ch">Stratégie d&#x27;acquisition, IA générative, automatisation et développement web premium. Basé en Côte d&#x27;Ivoire, 100 % en ligne.</p>
+      </div>
+
+      <div class="footer-col">
+        <h2>Services</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/index.html#methode" rel="noopener">stratégie d&#x27;acquisition</a></li>
+          <li><a href="https://eperformance.pro/ia.html" rel="noopener">IA générative</a></li>
+          <li><a href="https://eperformance.pro/automatisation.html" rel="noopener">Automatisation</a></li>
+          <li><a href="https://eperformance.pro/site-web.html" rel="noopener">Création de site web</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Ressources</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/diagnostic_eperformance.html" rel="noopener">Diagnostic gratuit</a></li>
+          <li><a href="https://eperformance.pro/formation.html" rel="noopener">Formations</a></li>
+          <li><a href="https://eperformance.pro/ebook.html" rel="noopener">Ebooks</a></li>
+          <li><a href="https://blog.eperformance.pro/" rel="noopener">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="https://wa.me/2250151170666" rel="noopener">+225 01 51 17 06 66</a></li>
+          <li><a href="mailto:bonjour@eperformance.pro">bonjour@eperformance.pro</a></li>
+          <li><a href="https://api.eperformance.pro/connexion.php" rel="noopener">Espace client</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 ePerformance — par K. Stéphane. Tous droits réservés.</p>
+      <p><a href="https://eperformance.pro/mentions-legales.html">Mentions légales</a> · <a href="https://eperformance.pro/politique-confidentialite.html">Confidentialité</a> · <a href="https://eperformance.pro/cookies.html">Cookies</a> · <a href="https://eperformance.pro/cgv.html">CGV</a></p>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a class="btn btn-gold" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+  <a class="btn btn-wa" href="https://wa.me/2250151170666" style="flex:0 0 auto" rel="noopener">WhatsApp</a>
+</div>
+
+<div class="consent" id="consent-banner" hidden>
+  <div class="consent-inner">
+    <div class="consent-text">
+      <p><strong>Vous choisissez ce que nous mesurons.</strong></p>
+      <p>Nous utilisons des traceurs pour comprendre comment le site est utilisé et pour
+         mesurer nos campagnes. Aucun ne se déclenche avant votre accord.
+         <a href="https://eperformance.pro/politique-confidentialite.html">Politique de confidentialité</a> ·
+         <a href="https://eperformance.pro/cookies.html">En savoir plus</a></p>
+    </div>
+    <div class="consent-actions">
+      <button type="button" class="btn btn-ghost" data-consent="refuse">Tout refuser</button>
+      <button type="button" class="btn btn-outline" data-consent="customize">Paramétrer</button>
+      <button type="button" class="btn btn-gold" data-consent="accept">Tout accepter</button>
+    </div>
+  </div>
+
+  <div class="consent-detail" id="consent-detail" hidden>
+    <fieldset class="fieldset">
+      <legend>Vos préférences</legend>
+
+      <label class="consent-row consent-row-locked">
+        <input type="checkbox" checked disabled>
+        <span>
+          <strong>Nécessaires</strong>
+          <span class="field-hint">Mémorisation de votre choix de thème et de vos préférences.
+            Toujours actifs : le site ne peut pas fonctionner sans.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-analytics">
+        <span>
+          <strong>Mesure d'audience</strong>
+          <span class="field-hint">Google Analytics 4 et Microsoft Clarity. Nous aide à voir
+            quelles pages sont utiles et où les visiteurs abandonnent.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-ads">
+        <span>
+          <strong>Publicité</strong>
+          <span class="field-hint">Meta Pixel. Mesure l'efficacité de nos campagnes
+            Facebook et Instagram.</span>
+        </span>
+      </label>
+    </fieldset>
+
+    <div class="consent-actions">
+      <button type="button" class="btn btn-outline" data-consent="back">Retour</button>
+      <button type="button" class="btn btn-gold" data-consent="save">Enregistrer mes choix</button>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/js/consent.js" defer></script>
+<script src="/assets/js/eperf.js" defer></script>
+<script src="/assets/js/blog.js" defer></script>
+</body>
+</html>

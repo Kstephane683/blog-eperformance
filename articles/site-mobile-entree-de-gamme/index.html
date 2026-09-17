@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+(function(){try{var t=localStorage.getItem('eperf-theme');
+if(t!=='dark'&&t!=='light'){t='light';}
+document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+  <title>Rendre son site utilisable sur un téléphone modeste</title>
+  <meta name="description" content="Polices lourdes, animations, formulaires, images, menus : ce qui casse en premier sur un appareil modeste, et comment tester son site sur un vrai téléphone.">
+  <meta name="robots" content="noindex,follow">
+  <link rel="canonical" href="https://blog.eperformance.pro/articles/site-mobile-entree-de-gamme/index.html">
+  <meta name="theme-color" content="#fdfcfa">
+  <meta name="author" content="K. Stéphane">
+
+  <!-- Icônes -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="icon" href="/assets/img/favicon-16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ePerformance">
+  <meta property="og:locale" content="fr_CI">
+  <meta property="og:title" content="Rendre son site utilisable sur un téléphone modeste">
+  <meta property="og:description" content="Polices lourdes, animations, formulaires, images, menus : ce qui casse en premier sur un appareil modeste, et comment tester son site sur un vrai téléphone.">
+  <meta property="og:url" content="https://blog.eperformance.pro/articles/site-mobile-entree-de-gamme/index.html">
+  <meta property="og:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ePerformance — ePerformance">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Rendre son site utilisable sur un téléphone modeste">
+  <meta name="twitter:description" content="Polices lourdes, animations, formulaires, images, menus : ce qui casse en premier sur un appareil modeste, et comment tester son site sur un vrai téléphone.">
+  <meta name="twitter:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta name="twitter:creator" content="@eperformancepro">
+
+  <!-- Polices : préconnexion, préchargement des deux polices critiques,
+       puis chargement non bloquant de la feuille complète -->
+  <!-- Polices : auto-hébergées, déclarées dans eperf.css.
+       On précharge les deux graisses du premier écran pour que le
+       texte soit peint dans la bonne police dès le premier rendu. -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/cormorant-garamond-700.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/dm-sans-400.woff2">
+
+  <!-- Design system : la MEME feuille que le site, a l'identique. -->
+  <link rel="stylesheet" href="/assets/css/eperf.css">
+  <!-- Composants editoriaux du blog : corps d'article, largeur de
+       lecture, cartes d'article. Ils consomment les jetons d'eperf.css
+       et ne redefinissent aucune couleur. -->
+  <link rel="stylesheet" href="/assets/css/blog.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://blog.eperformance.pro/#organization",
+      "name": "ePerformance",
+      "alternateName": "ePerformance par K. Stéphane",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "founder": {
+        "@type": "Person",
+        "@id": "https://blog.eperformance.pro/#founder",
+        "name": "K. Stéphane",
+        "jobTitle": "Fondateur, stratège acquisition",
+        "url": "https://blog.eperformance.pro/kstephane.html"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Côte d'Ivoire"
+        },
+        {
+          "@type": "Country",
+          "name": "Burkina Faso"
+        },
+        {
+          "@type": "Place",
+          "name": "Afrique de l'Ouest"
+        }
+      ],
+      "knowsLanguage": "fr",
+      "sameAs": [
+        "https://blog.eperformance.pro/"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://blog.eperformance.pro/#localbusiness",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "parentOrganization": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Abidjan",
+        "addressCountry": "CI"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Côte d'Ivoire"
+      },
+      "priceRange": "100000-350000 XOF",
+      "currenciesAccepted": "XOF",
+      "paymentAccepted": "Orange Money, Wave, MTN MoMo, Moov Money, Visa, Mastercard",
+      "availableLanguage": "fr"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://blog.eperformance.pro/#website",
+      "url": "https://blog.eperformance.pro",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "publisher": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://blog.eperformance.pro/articles/site-mobile-entree-de-gamme/index.html#webpage",
+      "url": "https://blog.eperformance.pro/articles/site-mobile-entree-de-gamme/index.html",
+      "name": "Rendre son site utilisable sur un téléphone modeste",
+      "description": "Polices lourdes, animations, formulaires, images, menus : ce qui casse en premier sur un appareil modeste, et comment tester son site sur un vrai téléphone.",
+      "isPartOf": {
+        "@id": "https://blog.eperformance.pro/#website"
+      },
+      "about": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://blog.eperformance.pro/articles/site-mobile-entree-de-gamme/index.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://blog.eperformance.pro/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Site web",
+          "item": "https://blog.eperformance.pro/site-web/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Site sur mobile",
+          "item": "https://blog.eperformance.pro/articles/site-mobile-entree-de-gamme/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Rendre son site utilisable sur un téléphone d'entrée de gamme",
+  "description":"Polices lourdes, animations, formulaires, images, menus : ce qui casse en premier sur un appareil modeste, et comment tester son site sur un vrai téléphone.",
+  "image":"https://blog.eperformance.pro/assets/img/og-image.jpg",
+  "datePublished":"2027-01-13T09:00:00+00:00",
+  "dateModified":"2027-01-13T09:00:00+00:00",
+  "inLanguage":"fr-CI",
+  "wordCount":2306,
+  "articleSection":"Site Web",
+  "keywords":["site mobile","téléphone entrée de gamme","responsive","mobile first","test mobile","formulaire mobile","Abidjan","Côte d'Ivoire"],
+  "author":{"@type":"Person","name":"K. STEPHANE","jobTitle":"Fondateur ePerformance","url":"https://blog.eperformance.pro/a-propos/"},
+  "publisher":{"@type":"Organization","name":"ePerformance","logo":{"@type":"ImageObject","url":"https://eperformance.pro/assets/img/logo-light.webp"}},
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.eperformance.pro/articles/site-mobile-entree-de-gamme/"}
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Blog","item":"https://blog.eperformance.pro/"},
+    {"@type":"ListItem","position":2,"name":"Site Web","item":"https://blog.eperformance.pro/site-web/"},
+    {"@type":"ListItem","position":3,"name":"Rendre son site utilisable sur un téléphone d'entrée de gamme","item":"https://blog.eperformance.pro/articles/site-mobile-entree-de-gamme/"}
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Faut-il une version mobile séparée de mon site ?","acceptedAnswer":{"@type":"Answer","text":"Non. Un site unique qui s'adapte à la taille de l'écran évite d'entretenir deux versions, avec les oublis que cela suppose : un prix corrigé d'un côté et pas de l'autre, une page ajoutée seulement sur l'ordinateur. Les moteurs de recherche explorent d'ailleurs vos pages en priorité avec un agent mobile. Une seule version responsive, testée sur un appareil modeste, couvre le besoin."}},
+    {"@type":"Question","name":"Comment savoir quels téléphones utilisent mes visiteurs ?","acceptedAnswer":{"@type":"Answer","text":"Les outils de mesure d'audience donnent un rapport par appareil, par système et parfois par modèle. Ces chiffres restent partiels, parce qu'une partie des visiteurs est bloquée par le bandeau de consentement. Le test le plus fiable ne demande aucune donnée : prenez l'appareil le plus faible disponible autour de vous et utilisez votre site avec. Si cela tient sur celui-là, cela tiendra sur les autres."}},
+    {"@type":"Question","name":"Mon site est fluide sur mon téléphone, pourquoi pas sur le leur ?","acceptedAnswer":{"@type":"Answer","text":"Parce que les conditions ne sont pas les mêmes. Votre appareil est récent, il est souvent en wifi, son cache contient déjà vos images, et peu d'applications tournent en arrière-plan. Le leur a une mémoire occupée, une connexion partagée, un système plus ancien et une page qu'il découvre pour la première fois. C'est la première visite qui compte, pas la troisième."}},
+    {"@type":"Question","name":"Faut-il supprimer toutes les animations du site ?","acceptedAnswer":{"@type":"Answer","text":"Non. Une animation qui informe a sa place : l'ouverture d'un menu, la confirmation qu'un message est parti, l'indication qu'un chargement est en cours. Ce qui se retire, ce sont les animations décoratives qui tournent en continu et consomment le processeur pendant que le visiteur essaie de lire ou de faire défiler. La règle est simple : si l'animation n'apporte aucune information, elle coûte sans rien rendre."}},
+    {"@type":"Question","name":"Le mode économie de données change-t-il quelque chose pour mon site ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Activé sur un téléphone, ce mode limite l'usage des données en arrière-plan et peut compresser les images reçues. Un site lourd reste pénalisé, parce que le poids à télécharger ne change pas, mais les éléments qui se chargent sans que le visiteur l'ait demandé passent souvent à la trappe. C'est une raison de plus de ne rien lancer automatiquement et de laisser le visiteur décider de ce qu'il ouvre."}},
+    {"@type":"Question","name":"Combien de temps une page doit-elle mettre à s'afficher ?","acceptedAnswer":{"@type":"Answer","text":"Google publie un repère de 2,5 secondes pour l'affichage du contenu principal sur mobile. Sur un téléphone modeste et un réseau réel, ce repère se tient si la page est légère et si l'image principale n'est pas différée. Le repère le plus utile reste le vôtre : mesurez la même page, sur le même appareil, à des moments différents, et comparez. C'est l'évolution de ce chiffre qui dit si votre site progresse."}}
+  ]
+}
+  </script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a class="logo" href="/" aria-label="ePerformance — accueil">
+      <img class="logo-img-light" src="/assets/img/logo-light.webp"
+           srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+           width="182" height="30" alt="ePerformance" fetchpriority="high">
+      <img class="logo-img-dark" src="/assets/img/logo-dark.webp"
+           srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+           width="188" height="30" alt="" aria-hidden="true">
+    </a>
+
+    <nav class="nav" id="primary-nav" aria-label="Navigation principale">
+      <a href="/">Accueil</a>
+      <a href="/acquisition/">Acquisition</a>
+      <a href="/site-web/" aria-current="page">Site web</a>
+      <a href="/seo/">SEO</a>
+      <a href="/business/">Business</a>
+      <a href="/articles/ia-generative-pme-africaine/">IA</a>
+      <a href="/articles/automatisation-marketing-debuter/">Automatisation</a>
+      <a href="/a-propos/">À propos</a>
+      <a href="https://eperformance.pro" rel="noopener">Site principal</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" data-theme-toggle
+              aria-pressed="false" aria-label="Activer le thème sombre">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+        </svg>
+      </button>
+
+      <a class="btn btn-gold btn-desktop" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false"
+              aria-controls="primary-nav" aria-label="Ouvrir le menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<nav class="breadcrumb container" aria-label="Fil d'Ariane">
+  <ol>
+    <li><a href="/">Accueil</a></li>
+    <li><a href="/site-web/">Site web</a></li>
+    <li aria-current="page">Site sur mobile</li>
+  </ol>
+</nav>
+
+<main id="main">
+
+
+<section class="article-hero">
+  <div class="container-reading">
+
+    <nav class="article-breadcrumb" aria-label="Fil d'Ariane">
+      <a href="/">Blog</a>
+      <span class="sep">/</span>
+      <a href="/site-web/">Site Web</a>
+      <span class="sep">/</span>
+      <span>Site mobile d'entrée de gamme</span>
+    </nav>
+
+    <span class="article-category">Site Web</span>
+    <h1>Rendre son site utilisable sur un <span class="text-gold">téléphone d'entrée de gamme</span></h1>
+    <p class="lead">Un appareil à quelques dizaines de milliers de francs, 2 Go de mémoire et un forfait data compté. C'est avec ce téléphone qu'une partie de vos visiteurs découvre votre site. Voici ce qui casse en premier, et comment le tester pour de vrai.</p>
+
+    <div class="article-meta">
+      <div class="author">
+        <div class="author-avatar">KS</div>
+        <div>
+          <div class="article-author-name">K. STEPHANE</div>
+          <div class="small">Fondateur ePerformance</div>
+        </div>
+      </div>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg> 13 janvier 2027</span>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.6 2.1"/></svg> 11 min de lecture</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section-flush-top">
+  <div class="article-body container-reading">
+
+    <p>Un appareil d'entrée de gamme, aujourd'hui, c'est 2 ou 3 Go de mémoire, un processeur modeste, un écran petit et lumineux, et un forfait data qui se compte en mégaoctets. C'est avec un téléphone de ce genre qu'une bonne partie de vos visiteurs arrive sur votre site, souvent en marchant, souvent à une main.</p>
+
+    <p>Votre site peut être parfaitement correct sur votre ordinateur et mauvais sur cet appareil-là. Pas seulement moins beau : inutilisable. Ce qui suit liste ce qui casse en premier, puis comment le vérifier sur un vrai téléphone plutôt que dans une fenêtre de simulation.</p>
+
+    <div class="callout">
+      <div class="callout-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5"/><path d="M12 7.8h.01"/></svg></div>
+      <div class="callout-content">
+        <h4>En une phrase</h4>
+        <p>Un site utilisable sur un téléphone modeste n'est pas un site au rabais. C'est un site qui a été <strong>testé dans les conditions de ses visiteurs</strong>, pas dans celles de son concepteur.</p>
+      </div>
+    </div>
+
+    <h2>Ce qui change sur un téléphone d'entrée de gamme</h2>
+
+    <p>Cinq contraintes rendent ces appareils différents, et chacune déplace les priorités. La mémoire d'abord : un navigateur qui garde plusieurs onglets ouverts dispose de peu de place, et une page trop lourde peut être fermée en plein chargement. Le processeur ensuite : les animations, les scripts et les grandes images coûtent un temps visible, là où votre ordinateur ne montrait rien.</p>
+
+    <p>Le réseau, troisième contrainte, est instable plus que lent : une connexion qui monte et descend, un partage de données depuis un autre téléphone, une coupure au milieu d'un téléchargement. Quatrième contrainte, le forfait : chaque mégaoctet consommé a un prix pour le visiteur, et un site lourd se paie en crédit. Cinquième contrainte, l'écran et la main : une seule main, un pouce, une cible à atteindre.</p>
+
+    <p>Ce classement a une conséquence simple. Sur un téléphone modeste, le poids de la page passe avant les effets visuels, et la lisibilité passe avant la décoration. Si votre site est lent à cause d'un hébergement faible ou de scripts empilés, le problème est encore plus visible ici : <a href="/articles/site-trop-lent/">Site trop lent : les cinq causes réelles</a> décrit ces causes et l'ordre dans lequel les traiter.</p>
+
+    <h2>Les polices lourdes</h2>
+
+    <p>Sur une connexion lente, un fichier de police se télécharge avant que le texte s'affiche dans la bonne typographie. Le visiteur voit d'abord un texte dans une police système, parfois une zone vide, puis la mise en page bouge au moment où la police arrive. Sur un petit écran, ce déplacement se remarque tout de suite.</p>
+
+    <p>Ce qui se corrige : limiter le site à deux graisses, utiliser le format woff2, héberger les fichiers sur votre serveur plutôt que de les demander à un service distant, et déclarer un affichage de secours pour que le texte soit lisible immédiatement. Chaque graisse supprimée est un fichier en moins à télécharger sur une connexion comptée.</p>
+
+    <p>Un point de lisibilité compte autant que le poids. Sur un écran de téléphone, exposé au soleil ou dans un taxi, les graisses très fines et les gris clairs deviennent difficiles à lire. Un texte un peu plus épais, plus sombre, se lit mieux — et ne coûte rien en performance.</p>
+
+    <h2>Les animations qui font ramer</h2>
+
+    <p>Les animations coûteuses se reconnaissent à leur effet : l'image de fond qui glisse au défilement, le bandeau qui défile tout seul, les blocs qui apparaissent en cascade, la vidéo qui démarre sans qu'on l'ait demandée, les images animées au format ancien. Sur un processeur modeste, ces effets consomment la ressource disponible pendant que le visiteur essaie de faire défiler la page.</p>
+
+    <p>Le symptôme est facile à décrire : le doigt glisse, la page ne suit pas, puis rattrape d'un coup. Le téléphone chauffe, la batterie descend, et le navigateur finit parfois par fermer l'onglet.</p>
+
+    <p>Ce qui se corrige : garder les animations qui informent — l'ouverture d'un menu, la confirmation après un clic — et retirer celles qui décorent. Respecter aussi le réglage du téléphone qui demande moins de mouvement, une préférence que le navigateur transmet à votre site et que beaucoup ignorent. Enfin, préférer les transitions légères, sur l'opacité ou la position, à celles qui obligent le navigateur à recalculer toute la mise en page à chaque image.</p>
+
+    <p>Un ralentissement volontaire du processeur dans les outils du navigateur aide à repérer les animations les plus lourdes. C'est une simulation commode, pas une preuve : l'épreuve reste le téléphone.</p>
+
+    <h2>Les formulaires mal adaptés</h2>
+
+    <p>Un formulaire est l'endroit où le visiteur est le plus près de vous contacter, et c'est souvent là qu'il abandonne. Sur un téléphone, quatre défauts suffisent à le faire partir. Le mauvais clavier d'abord : un champ téléphone qui ouvre le clavier des lettres, un champ e-mail qui refuse la touche arobase parce qu'il est mal typé. Le texte trop petit ensuite : un champ dont la police descend sous 16 pixels déclenche un zoom automatique sur certains téléphones, et le visiteur se retrouve avec une page agrandie qu'il doit réduire à la main.</p>
+
+    <p>Le troisième défaut est le nombre de champs. Chaque champ demandé est une occasion de renoncer, et beaucoup de formulaires réclament le nom, le prénom, l'e-mail, la ville et l'objet pour une simple demande de prix. Gardez ce qui vous sert à rappeler la personne : un nom, un numéro, un message. Le quatrième défaut est le silence : quand une erreur survient, elle se signale parfois par une seule bordure rouge. Sur un petit écran, au soleil, cela ne se voit pas. Écrivez en toutes lettres ce qui manque.</p>
+
+    <p>Deux détails pratiques font gagner du temps au visiteur. Les étiquettes restent visibles au-dessus de chaque champ, parce qu'un texte d'exemple disparaît dès la première lettre tapée et laisse le champ anonyme. Et les champs autorisent le collage, ainsi que les espaces dans un numéro de téléphone : bloquer l'un ou l'autre oblige à tout retaper.</p>
+
+    <p>Le test tient en une minute : remplissez votre propre formulaire sur votre téléphone, à une main, et chronométrez. S'il vous faut trois minutes, vos visiteurs n'iront pas au bout.</p>
+
+    <h2>Les images surdimensionnées</h2>
+
+    <p>Une image de plusieurs mégaoctets coûte deux fois sur un téléphone modeste : en données consommées et en mémoire occupée. Elle arrive lentement, puis son affichage peut faire saccader la page, parce que le processeur doit la décoder d'un coup.</p>
+
+    <p>Les règles utiles sont détaillées dans <a href="/articles/images-site-webp/">Images de site : le format qui divise le poids par dix</a> : redimensionner à la largeur d'affichage réelle, convertir au format adapté, déclarer les dimensions pour que la mise en page ne bouge pas, et différer le chargement de ce qui est hors écran. Il reste un point propre au mobile : l'image du premier écran, celle qui porte votre message, doit être la plus légère du site et ne jamais être différée, sinon le visiteur voit un cadre vide pendant que la page finit de se construire.</p>
+
+    <p>Une précaution supplémentaire concerne les images déclarées avec leurs dimensions : si elles n'arrivent pas — connexion coupée, forfait épuisé, mode économie de données —, la page reste lisible à leur place. C'est une différence que vos visiteurs remarquent sans savoir la nommer.</p>
+
+    <h2>Les menus inutilisables au pouce</h2>
+
+    <p>Le menu est le premier endroit où un site échoue sur téléphone, et les défauts se répètent. Le bouton qui ouvre le menu est trop petit, ou il ne répond qu'au centre exact de l'icône. Le menu ouvert couvre tout l'écran sans bouton de fermeture visible, et le visiteur cherche une sortie. Les sous-menus n'apparaissent qu'au survol de la souris : sur un écran tactile, il n'y a pas de survol, donc les pages intérieures deviennent inaccessibles.</p>
+
+    <p>Les liens trop serrés créent un autre problème : le doigt vise un élément et touche son voisin, ce qui ouvre la mauvaise page. La recommandation d'accessibilité la plus courante donne une cible d'au moins 44 pixels de côté, avec un peu d'espace entre les cibles. Ce n'est pas une question d'esthétique : c'est la taille du doigt.</p>
+
+    <p>Trois gestes corrigent l'essentiel. Limitez le menu principal à cinq ou six entrées, et rangez le reste ailleurs. Rendez le numéro de téléphone et le bouton de messagerie cliquables partout où ils apparaissent, y compris dans le pied de page. Vérifiez que le bouton de contact n'est pas recouvert par un bandeau d'information ou par une fenêtre qui s'ouvre au chargement : c'est le cas le plus fréquent, et le plus coûteux.</p>
+
+    <p>Le test se fait à une main, debout : ouvrez le menu, parcourez-le, appelez depuis la page. Si vous devez poser le téléphone ou utiliser deux mains, vos visiteurs non plus ne le feront pas.</p>
+
+    <h2>Tester sur un vrai appareil plutôt qu'en simulation</h2>
+
+    <p>Les fenêtres de simulation des navigateurs reproduisent la taille de l'écran, pas la lenteur. Elles tournent sur votre machine, avec votre processeur, votre connexion et un cache déjà vide de tout. Un site qui paraît rapide dans cet affichage peut être inutilisable sur un appareil réel.</p>
+
+    <p>La méthode tient en six étapes. Prenez le téléphone le plus modeste disponible autour de vous, celui dont personne ne veut plus. Utilisez une carte SIM ordinaire, avec un forfait normal, jamais le wifi du bureau. Ouvrez votre site en navigation privée, et comptez les secondes jusqu'à ce que le texte soit lisible. Faites défiler la page entière, sans vous arrêter, jusqu'au pied de page. Remplissez le formulaire et appelez depuis le site. Recommencez le lendemain, à une heure de forte affluence, quand le réseau est chargé.</p>
+
+    <p>Ajoutez trois conditions qui changent tout : une main, la position debout, et la luminosité de l'écran à moitié. C'est ainsi que vos visiteurs consultent votre site, pas assis dans un bureau avec le téléphone posé à plat.</p>
+
+    <p>Une dernière épreuve vaut tous les tests automatiques. Demandez à deux personnes qui ne connaissent pas votre site d'accomplir une tâche précise : trouver votre numéro, ou demander un prix. Regardez sans aider, et notez les trois premières hésitations. Ces trois points sont vos priorités, et ils ne figurent presque jamais dans les rapports d'outils.</p>
+
+    <p>Notez ce que vous observez, avec la date et le nom de l'appareil. Une phrase suffit : page d'accueil lisible en six secondes, menu ouvert sans problème, formulaire rempli en une minute. Six mois plus tard, cette note vous dira si le site a progressé ou régressé, et elle évitera les discussions d'impression.</p>
+
+    <p>Rien, dans cette liste, ne demande une refonte complète. Alléger une police, retirer une animation, corriger un champ de formulaire, rendre un numéro cliquable : ce sont des corrections d'une heure ou d'une journée, et ce sont celles que vos visiteurs remarquent tout de suite.</p>
+
+    <div class="cta-block">
+      <h2>Un site qui tient sur un téléphone modeste</h2>
+      <p>La page site web présente ce qui est vérifié avant la mise en ligne : affichage sur petit écran, poids des pages, formulaires, et mesures relevées à la livraison.</p>
+      <a class="btn btn-gold" href="https://eperformance.pro/site-web.html">Voir la page site web
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <h2>FAQ — site mobile et appareils modestes</h2>
+
+    <div class="faq-section">
+      <details>
+        <summary>Faut-il une version mobile séparée de mon site ?</summary>
+        <p>Non. Un site unique qui s'adapte à la taille de l'écran évite d'entretenir deux versions, avec les oublis que cela suppose : un prix corrigé d'un côté et pas de l'autre, une page ajoutée seulement sur l'ordinateur. Les moteurs de recherche explorent d'ailleurs vos pages en priorité avec un agent mobile. Une seule version responsive, testée sur un appareil modeste, couvre le besoin.</p>
+      </details>
+
+      <details>
+        <summary>Comment savoir quels téléphones utilisent mes visiteurs ?</summary>
+        <p>Les outils de mesure d'audience donnent un rapport par appareil, par système et parfois par modèle. Ces chiffres restent partiels, parce qu'une partie des visiteurs est bloquée par le bandeau de consentement. Le test le plus fiable ne demande aucune donnée : prenez l'appareil le plus faible disponible autour de vous et utilisez votre site avec. Si cela tient sur celui-là, cela tiendra sur les autres.</p>
+      </details>
+
+      <details>
+        <summary>Mon site est fluide sur mon téléphone, pourquoi pas sur le leur ?</summary>
+        <p>Parce que les conditions ne sont pas les mêmes. Votre appareil est récent, il est souvent en wifi, son cache contient déjà vos images, et peu d'applications tournent en arrière-plan. Le leur a une mémoire occupée, une connexion partagée, un système plus ancien et une page qu'il découvre pour la première fois. C'est la première visite qui compte, pas la troisième.</p>
+      </details>
+
+      <details>
+        <summary>Faut-il supprimer toutes les animations du site ?</summary>
+        <p>Non. Une animation qui informe a sa place : l'ouverture d'un menu, la confirmation qu'un message est parti, l'indication qu'un chargement est en cours. Ce qui se retire, ce sont les animations décoratives qui tournent en continu et consomment le processeur pendant que le visiteur essaie de lire ou de faire défiler. La règle est simple : si l'animation n'apporte aucune information, elle coûte sans rien rendre.</p>
+      </details>
+
+      <details>
+        <summary>Le mode économie de données change-t-il quelque chose pour mon site ?</summary>
+        <p>Oui. Activé sur un téléphone, ce mode limite l'usage des données en arrière-plan et peut compresser les images reçues. Un site lourd reste pénalisé, parce que le poids à télécharger ne change pas, mais les éléments qui se chargent sans que le visiteur l'ait demandé passent souvent à la trappe. C'est une raison de plus de ne rien lancer automatiquement et de laisser le visiteur décider de ce qu'il ouvre.</p>
+      </details>
+
+      <details>
+        <summary>Combien de temps une page doit-elle mettre à s'afficher ?</summary>
+        <p>Google publie un repère de 2,5 secondes pour l'affichage du contenu principal sur mobile. Sur un téléphone modeste et un réseau réel, ce repère se tient si la page est légère et si l'image principale n'est pas différée. Le repère le plus utile reste le vôtre : mesurez la même page, sur le même appareil, à des moments différents, et comparez. C'est l'évolution de ce chiffre qui dit si votre site progresse.</p>
+      </details>
+    </div>
+
+    <div class="tags-row">
+      <a href="/site-web/" class="tag">Site web</a>
+      <a href="/articles/site-trop-lent/" class="tag">Vitesse du site</a>
+      <a href="/articles/images-site-webp/" class="tag">Poids des images</a>
+    </div>
+
+    <div class="share-row">
+      <span class="small">Partager</span>
+      <a href="#" class="share-btn" onclick="return sharePage('whatsapp')" data-share="whatsapp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.6-4.5A8.4 8.4 0 1 1 8 20.4z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('linkedin')" data-share="linkedin" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('facebook')" data-share="facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('copy')" data-share="copy" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></a>
+    </div>
+
+    <div class="related">
+      <h2>Articles à lire ensuite</h2>
+      <a href="/articles/site-trop-lent/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">Site Web</span>
+          <h3>Site trop lent : les cinq causes réelles</h3>
+          <p class="small">Repérer chaque cause, et savoir dans quel ordre les corriger.</p>
+        </div>
+      </a>
+      <a href="/articles/images-site-webp/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">Site Web</span>
+          <h3>Images de site : le format qui divise le poids par dix</h3>
+          <p class="small">Convertir, redimensionner, différer : la méthode complète.</p>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-col">
+        <img class="footer-logo logo-img-light" src="/assets/img/logo-light.webp"
+             srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+             width="152" height="25" alt="ePerformance" loading="lazy">
+        <img class="footer-logo logo-img-dark" src="/assets/img/logo-dark.webp"
+             srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+             width="157" height="25" alt="" aria-hidden="true" loading="lazy">
+        <p class="card-text mt-3" style="max-width:34ch">Stratégie d&#x27;acquisition, IA générative, automatisation et développement web premium. Basé en Côte d&#x27;Ivoire, 100 % en ligne.</p>
+      </div>
+
+      <div class="footer-col">
+        <h2>Services</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/index.html#methode" rel="noopener">stratégie d&#x27;acquisition</a></li>
+          <li><a href="https://eperformance.pro/ia.html" rel="noopener">IA générative</a></li>
+          <li><a href="https://eperformance.pro/automatisation.html" rel="noopener">Automatisation</a></li>
+          <li><a href="https://eperformance.pro/site-web.html" rel="noopener">Création de site web</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Ressources</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/diagnostic_eperformance.html" rel="noopener">Diagnostic gratuit</a></li>
+          <li><a href="https://eperformance.pro/formation.html" rel="noopener">Formations</a></li>
+          <li><a href="https://eperformance.pro/ebook.html" rel="noopener">Ebooks</a></li>
+          <li><a href="https://blog.eperformance.pro/" rel="noopener">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="https://wa.me/2250151170666" rel="noopener">+225 01 51 17 06 66</a></li>
+          <li><a href="mailto:bonjour@eperformance.pro">bonjour@eperformance.pro</a></li>
+          <li><a href="https://api.eperformance.pro/connexion.php" rel="noopener">Espace client</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 ePerformance — par K. Stéphane. Tous droits réservés.</p>
+      <p><a href="https://eperformance.pro/mentions-legales.html">Mentions légales</a> · <a href="https://eperformance.pro/politique-confidentialite.html">Confidentialité</a> · <a href="https://eperformance.pro/cookies.html">Cookies</a> · <a href="https://eperformance.pro/cgv.html">CGV</a></p>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a class="btn btn-gold" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+  <a class="btn btn-wa" href="https://wa.me/2250151170666" style="flex:0 0 auto" rel="noopener">WhatsApp</a>
+</div>
+
+<div class="consent" id="consent-banner" hidden>
+  <div class="consent-inner">
+    <div class="consent-text">
+      <p><strong>Vous choisissez ce que nous mesurons.</strong></p>
+      <p>Nous utilisons des traceurs pour comprendre comment le site est utilisé et pour
+         mesurer nos campagnes. Aucun ne se déclenche avant votre accord.
+         <a href="https://eperformance.pro/politique-confidentialite.html">Politique de confidentialité</a> ·
+         <a href="https://eperformance.pro/cookies.html">En savoir plus</a></p>
+    </div>
+    <div class="consent-actions">
+      <button type="button" class="btn btn-ghost" data-consent="refuse">Tout refuser</button>
+      <button type="button" class="btn btn-outline" data-consent="customize">Paramétrer</button>
+      <button type="button" class="btn btn-gold" data-consent="accept">Tout accepter</button>
+    </div>
+  </div>
+
+  <div class="consent-detail" id="consent-detail" hidden>
+    <fieldset class="fieldset">
+      <legend>Vos préférences</legend>
+
+      <label class="consent-row consent-row-locked">
+        <input type="checkbox" checked disabled>
+        <span>
+          <strong>Nécessaires</strong>
+          <span class="field-hint">Mémorisation de votre choix de thème et de vos préférences.
+            Toujours actifs : le site ne peut pas fonctionner sans.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-analytics">
+        <span>
+          <strong>Mesure d'audience</strong>
+          <span class="field-hint">Google Analytics 4 et Microsoft Clarity. Nous aide à voir
+            quelles pages sont utiles et où les visiteurs abandonnent.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-ads">
+        <span>
+          <strong>Publicité</strong>
+          <span class="field-hint">Meta Pixel. Mesure l'efficacité de nos campagnes
+            Facebook et Instagram.</span>
+        </span>
+      </label>
+    </fieldset>
+
+    <div class="consent-actions">
+      <button type="button" class="btn btn-outline" data-consent="back">Retour</button>
+      <button type="button" class="btn btn-gold" data-consent="save">Enregistrer mes choix</button>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/js/consent.js" defer></script>
+<script src="/assets/js/eperf.js" defer></script>
+<script src="/assets/js/blog.js" defer></script>
+</body>
+</html>

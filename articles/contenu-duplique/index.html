@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+(function(){try{var t=localStorage.getItem('eperf-theme');
+if(t!=='dark'&&t!=='light'){t='light';}
+document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+  <title>Contenu dupliqué : les cas qui pénalisent vraiment</title>
+  <meta name="description" content="Vendre le même produit dans dix villes n&#x27;est pas un problème. Les quatre cas qui en posent un, ce que Google fait vraiment, et comment poser un canonical.">
+  <meta name="robots" content="noindex,follow">
+  <link rel="canonical" href="https://blog.eperformance.pro/articles/contenu-duplique/index.html">
+  <meta name="theme-color" content="#fdfcfa">
+  <meta name="author" content="K. Stéphane">
+
+  <!-- Icônes -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="icon" href="/assets/img/favicon-16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ePerformance">
+  <meta property="og:locale" content="fr_CI">
+  <meta property="og:title" content="Contenu dupliqué : les cas qui pénalisent vraiment">
+  <meta property="og:description" content="Vendre le même produit dans dix villes n&#x27;est pas un problème. Les quatre cas qui en posent un, ce que Google fait vraiment, et comment poser un canonical.">
+  <meta property="og:url" content="https://blog.eperformance.pro/articles/contenu-duplique/index.html">
+  <meta property="og:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ePerformance — ePerformance">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contenu dupliqué : les cas qui pénalisent vraiment">
+  <meta name="twitter:description" content="Vendre le même produit dans dix villes n&#x27;est pas un problème. Les quatre cas qui en posent un, ce que Google fait vraiment, et comment poser un canonical.">
+  <meta name="twitter:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta name="twitter:creator" content="@eperformancepro">
+
+  <!-- Polices : préconnexion, préchargement des deux polices critiques,
+       puis chargement non bloquant de la feuille complète -->
+  <!-- Polices : auto-hébergées, déclarées dans eperf.css.
+       On précharge les deux graisses du premier écran pour que le
+       texte soit peint dans la bonne police dès le premier rendu. -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/cormorant-garamond-700.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/dm-sans-400.woff2">
+
+  <!-- Design system : la MEME feuille que le site, a l'identique. -->
+  <link rel="stylesheet" href="/assets/css/eperf.css">
+  <!-- Composants editoriaux du blog : corps d'article, largeur de
+       lecture, cartes d'article. Ils consomment les jetons d'eperf.css
+       et ne redefinissent aucune couleur. -->
+  <link rel="stylesheet" href="/assets/css/blog.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://blog.eperformance.pro/#organization",
+      "name": "ePerformance",
+      "alternateName": "ePerformance par K. Stéphane",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "founder": {
+        "@type": "Person",
+        "@id": "https://blog.eperformance.pro/#founder",
+        "name": "K. Stéphane",
+        "jobTitle": "Fondateur, stratège acquisition",
+        "url": "https://blog.eperformance.pro/kstephane.html"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Côte d'Ivoire"
+        },
+        {
+          "@type": "Country",
+          "name": "Burkina Faso"
+        },
+        {
+          "@type": "Place",
+          "name": "Afrique de l'Ouest"
+        }
+      ],
+      "knowsLanguage": "fr",
+      "sameAs": [
+        "https://blog.eperformance.pro/"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://blog.eperformance.pro/#localbusiness",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "parentOrganization": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Abidjan",
+        "addressCountry": "CI"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Côte d'Ivoire"
+      },
+      "priceRange": "100000-350000 XOF",
+      "currenciesAccepted": "XOF",
+      "paymentAccepted": "Orange Money, Wave, MTN MoMo, Moov Money, Visa, Mastercard",
+      "availableLanguage": "fr"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://blog.eperformance.pro/#website",
+      "url": "https://blog.eperformance.pro",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "publisher": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://blog.eperformance.pro/articles/contenu-duplique/index.html#webpage",
+      "url": "https://blog.eperformance.pro/articles/contenu-duplique/index.html",
+      "name": "Contenu dupliqué : les cas qui pénalisent vraiment",
+      "description": "Vendre le même produit dans dix villes n'est pas un problème. Les quatre cas qui en posent un, ce que Google fait vraiment, et comment poser un canonical.",
+      "isPartOf": {
+        "@id": "https://blog.eperformance.pro/#website"
+      },
+      "about": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://blog.eperformance.pro/articles/contenu-duplique/index.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://blog.eperformance.pro/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "SEO",
+          "item": "https://blog.eperformance.pro/seo/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Contenu dupliqué : les cas qui pénalisent vraiment",
+          "item": "https://blog.eperformance.pro/articles/contenu-duplique/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Contenu dupliqué : les cas qui pénalisent vraiment",
+  "description":"Vendre le même produit dans dix villes n'est pas un problème. Les quatre cas qui en posent un, ce que Google fait vraiment, et comment poser un canonical.",
+  "image":"https://blog.eperformance.pro/assets/img/og-seo-local.jpg",
+  "datePublished":"2027-02-16T09:00:00+00:00",
+  "dateModified":"2027-02-16T09:00:00+00:00",
+  "inLanguage":"fr-CI",
+  "wordCount":2402,
+  "articleSection":"SEO",
+  "keywords":["contenu dupliqué seo","duplicate content","canonical","balise canonical","indexation","Abidjan"],
+  "author":{"@type":"Person","name":"K. STEPHANE","jobTitle":"Fondateur ePerformance","url":"https://blog.eperformance.pro/a-propos/"},
+  "publisher":{"@type":"Organization","name":"ePerformance","logo":{"@type":"ImageObject","url":"https://eperformance.pro/assets/img/logo-light.webp"}},
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.eperformance.pro/articles/contenu-duplique/"}
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Blog","item":"https://blog.eperformance.pro/"},
+    {"@type":"ListItem","position":2,"name":"SEO","item":"https://blog.eperformance.pro/seo/"},
+    {"@type":"ListItem","position":3,"name":"Contenu dupliqué : les cas qui pénalisent vraiment","item":"https://blog.eperformance.pro/articles/contenu-duplique/"}
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Le contenu dupliqué est-il pénalisé par Google ?","acceptedAnswer":{"@type":"Answer","text":"Dans la grande majorité des cas, non. Google ne sanctionne pas la ressemblance : il choisit une adresse de référence et n'affiche qu'elle. Votre page ne s'affiche pas, mais votre site n'est pas retiré pour autant. La sanction réelle vise le contenu produit en masse."}},
+    {"@type":"Question","name":"Un canonical suffit-il à régler le problème ?","acceptedAnswer":{"@type":"Answer","text":"Dans la plupart des cas de duplication interne, oui. Un canonical auto-référent règle le cas des variantes d'adresse, et un canonical croisé règle le cas de deux pages qui se ressemblent. Deux réserves : c'est une indication, que Google peut ne pas suivre, et cela ne remplace pas une redirection permanente."}},
+    {"@type":"Question","name":"Puis-je reprendre la description produit du fabricant ?","acceptedAnswer":{"@type":"Answer","text":"Oui, et vous ne serez pas pénalisé pour ça : Google sait que la description vient du fabricant et que tous les revendeurs la partagent. Gardez en tête qu'une page qui ne contient que cette description n'a rien de plus qu'un autre revendeur. Un paragraphe écrit par vous, sur la livraison ou sur l'usage réel, fait la différence."}},
+    {"@type":"Question","name":"Faut-il un canonical si la page s'affiche avec et sans www ?","acceptedAnswer":{"@type":"Answer","text":"Oui, et il faut d'abord choisir une version. Faites rediriger l'autre adresse en permanence, puis posez un canonical auto-référent sur les pages retenues. Sans ça, les liens et la popularité se partagent entre deux adresses qui n'en forment qu'une."}},
+    {"@type":"Question","name":"Mon texte a été copié par un autre site, que faire ?","acceptedAnswer":{"@type":"Answer","text":"Le plus souvent, rien. Votre page est plus ancienne, elle est liée, elle porte votre nom : Google affiche l'original. Si la copie vous dépasse sur une requête qui compte, signalez-la avec le formulaire de retrait pour atteinte au droit d'auteur."}},
+    {"@type":"Question","name":"Deux pages proches sur mon site nuisent-elles à mon référencement ?","acceptedAnswer":{"@type":"Answer","text":"Seulement si elles visent la même recherche. Deux pages qui traitent le même sujet avec la même intention se neutralisent : Google en choisit une et ignore l'autre. Deux pages qui répondent à deux demandes différentes — deux villes, deux offres — ne se nuisent pas. La question n'est pas « mes textes se ressemblent-ils », mais « ces deux pages répondent-elles à la même recherche »."}}
+  ]
+}
+  </script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a class="logo" href="/" aria-label="ePerformance — accueil">
+      <img class="logo-img-light" src="/assets/img/logo-light.webp"
+           srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+           width="182" height="30" alt="ePerformance" fetchpriority="high">
+      <img class="logo-img-dark" src="/assets/img/logo-dark.webp"
+           srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+           width="188" height="30" alt="" aria-hidden="true">
+    </a>
+
+    <nav class="nav" id="primary-nav" aria-label="Navigation principale">
+      <a href="/">Accueil</a>
+      <a href="/acquisition/">Acquisition</a>
+      <a href="/site-web/">Site web</a>
+      <a href="/seo/" aria-current="page">SEO</a>
+      <a href="/business/">Business</a>
+      <a href="/articles/ia-generative-pme-africaine/">IA</a>
+      <a href="/articles/automatisation-marketing-debuter/">Automatisation</a>
+      <a href="/a-propos/">À propos</a>
+      <a href="https://eperformance.pro" rel="noopener">Site principal</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" data-theme-toggle
+              aria-pressed="false" aria-label="Activer le thème sombre">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+        </svg>
+      </button>
+
+      <a class="btn btn-gold btn-desktop" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false"
+              aria-controls="primary-nav" aria-label="Ouvrir le menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<nav class="breadcrumb container" aria-label="Fil d'Ariane">
+  <ol>
+    <li><a href="/">Accueil</a></li>
+    <li><a href="/seo/">SEO</a></li>
+    <li aria-current="page">Contenu dupliqué : les cas qui pénalisent vraiment</li>
+  </ol>
+</nav>
+
+<main id="main">
+
+
+<section class="article-hero">
+  <div class="container-reading">
+
+    <nav class="article-breadcrumb" aria-label="Fil d'Ariane">
+      <a href="/">Blog</a>
+      <span class="sep">/</span>
+      <a href="/seo/">SEO</a>
+      <span class="sep">/</span>
+      <span>Contenu dupliqué</span>
+    </nav>
+
+    <span class="article-category">SEO</span>
+    <h1>Contenu dupliqué : <span class="text-gold">les cas qui pénalisent vraiment</span></h1>
+    <p class="lead">La plupart des contenus qui se ressemblent ne posent aucun problème : vendre le même produit dans dix villes n'a jamais pénalisé personne. Ce qui compte tient en quatre situations précises, et une conséquence simple à comprendre : Google choisit une version, et ignore les autres.</p>
+
+    <div class="article-meta">
+      <div class="author">
+        <div class="author-avatar">KS</div>
+        <div>
+          <div class="article-author-name">K. STEPHANE</div>
+          <div class="small">Fondateur ePerformance</div>
+        </div>
+      </div>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg> 16 février 2027</span>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.6 2.1"/></svg> 12 min de lecture</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section-flush-top">
+  <div class="article-body container-reading">
+
+    <p>Le contenu dupliqué fait peur, et cette peur coûte cher : elle pousse à supprimer des pages utiles, à réécrire des textes qui fonctionnaient, à s'interdire de vendre le même produit dans deux villes. La réalité est plus calme. La grande majorité des contenus qui se ressemblent ne posent aucun problème.</p>
+
+    <p>Ce qui pose problème tient en quatre situations précises, et une idée à retenir. Quand deux pages se disputent la même recherche, Google en choisit une et ne retient qu'elle. Il ne retire pas votre site : il décide qui s'affiche.</p>
+
+    <h2>Ce qui ressemble à de la duplication, et qui n'en est pas</h2>
+
+    <p>Commençons par la partie rassurante, parce qu'elle couvre la majorité des cas. Un site qui vend le même produit dans dix villes n'est pas pénalisé pour ça. Une page produit déclinée en dix variantes de couleur non plus. Une boutique qui reprend la description du fabricant, comme les autres revendeurs, non plus.</p>
+
+    <p>Google ne compare pas vos pages entre elles pour chercher des ressemblances à corriger. Il cherche, pour chaque recherche, la page qu'il va afficher. Une page de livraison pour Abidjan et une page de livraison pour Bouaké portent le même texte de service, et chacune sert une demande distincte : vous ne livrez ni au même endroit, ni dans les mêmes délais.</p>
+
+    <p>Ce qui décide n'est donc pas la ressemblance, c'est l'intention. Vous avez créé la deuxième page pour couvrir une recherche précise ? C'est le cas normal. Vous avez copié votre page pour viser un deuxième mot-clé ? C'est le cas qui pose problème.</p>
+
+    <div class="callout">
+      <p><strong>Le repère.</strong> Deux pages qui visent la même requête avec le même contenu ne se renforcent pas : elles se neutralisent.</p>
+    </div>
+
+    <h2>Les quatre cas qui pénalisent vraiment</h2>
+
+    <p>Ces quatre situations couvrent presque tous les problèmes réels. Dans chacune, une page que vous voulez voir s'afficher ne s'affiche pas.</p>
+
+    <h3>Un : recopier le texte d'un autre site</h3>
+
+    <p>Prendre le texte d'un concurrent ou d'un site étranger et le republier chez vous ne vous fait pas hériter de sa position. Google a déjà lu ce texte ailleurs, sur la page d'origine, souvent plus ancienne et mieux liée. Votre copie est traitée comme une deuxième version du document, et c'est la première qui reste affichée.</p>
+
+    <p>La traduction automatique d'un texte étranger entre dans la même catégorie : la langue change, la structure et les chiffres restent ceux de quelqu'un d'autre. Reprendre un sujet n'est pas copier un texte : traitez le même thème avec vos exemples et votre ville.</p>
+
+    <h3>Deux : le même contenu servi par plusieurs adresses</h3>
+
+    <p>C'est le cas le plus fréquent sur les sites d'entreprise, et le plus discret. La même page répond à deux adresses : avec et sans www, en http et en https, avec ou sans <code>index.html</code> à la fin. Le contenu est identique, et rien n'indique à Google laquelle des deux compte.</p>
+
+    <p>Les liens et la popularité se partagent alors entre deux adresses, et chacune est plus faible que ne le serait l'adresse unique. Le problème se détecte en une minute : collez une phrase de la page dans Google entre guillemets, et regardez les adresses qui remontent.</p>
+
+    <h3>Trois : dupliquer sa page pour viser deux mots-clés</h3>
+
+    <p>L'idée semble logique : si une page se classe sur « climatisation Abidjan », on en fabrique une deuxième pour « réparation climatiseur Abidjan ». Dans les faits, les deux pages disent la même chose et visent la même intention. Google choisit celle qu'il juge la meilleure et ignore l'autre — ce n'est pas toujours celle que vous préférez.</p>
+
+    <p>La page ignorée n'apparaît pas, même en fin de liste. Une page complète vaut mieux que deux pages jumelles qui se partagent la même autorité. Si les deux sont faibles, aucune ne s'affiche.</p>
+
+    <h3>Quatre : la version de test restée en ligne</h3>
+
+    <p>C'est le cas qui apparaît le plus souvent après une refonte ou un changement de prestataire. L'ancienne version reste accessible à son adresse, la nouvelle existe à côté, et rien ne relie les deux. Un visiteur qui tombe sur l'ancienne appelle un numéro qui ne répond plus.</p>
+
+    <p>Sont concernées les pages de préproduction, les anciennes adresses jamais supprimées, les maquettes mises en ligne pour validation, les pages de confirmation qui ne devraient pas être indexées. Le sujet est traité dans <a href="/articles/refonte-site-quand/">refonte de site : nécessaire, ou du luxe</a>.</p>
+
+    <h2>Ce que Google fait réellement : un tri, pas une sanction</h2>
+
+    <p>Le vocabulaire compte. On lit partout que Google « pénalise » le contenu dupliqué. Dans l'immense majorité des cas, c'est faux. Ce que Google fait est plus modeste : il choisit une adresse de référence et ne retient qu'elle pour l'affichage. Les autres pages existent toujours, elles ne sont simplement pas montrées.</p>
+
+    <p>La conséquence n'est pas « votre site est puni », elle est « ce n'est pas votre page qui s'affiche ». Vous ne perdez pas de places sur une requête : vous ne participez pas à l'affichage. Un site qui a une page dupliquée n'a pas un problème de santé générale, il a un problème d'aiguillage.</p>
+
+    <p>Une seule situation est plus lourde : quand le contenu répété est produit en volume pour occuper les résultats. Là, il ne s'agit plus de duplication mais de spam, et cette règle vise la production en masse, jamais la page de livraison reprise dans deux villes.</p>
+
+    <h2>Le canonical : ce qu'il fait, et comment le poser</h2>
+
+    <p>La balise <code>canonical</code> indique à Google quelle adresse vous considérez comme la version de référence. Elle se place dans l'en-tête de la page, jamais dans le corps :</p>
+
+    <pre><code>&lt;link rel="canonical" href="https://votresite.ci/savon-karite/"&gt;</code></pre>
+
+    <p>Trois règles suffisent. Un : l'adresse est absolue, avec le protocole, le domaine et le chemin complet. Deux : chaque page normale porte un canonical vers elle-même — c'est la règle la plus oubliée, et la plus utile, parce qu'elle rattrape les variantes d'adresse. Trois : quand deux pages se ressemblent, le canonical de la seconde pointe vers la première, celle que vous voulez voir s'afficher.</p>
+
+    <p>Deux précisions évitent les déceptions. Le canonical est une indication, pas un ordre : Google peut ne pas la suivre s'il juge que l'autre version répond mieux. Et il ne remplace pas une redirection : pour une adresse qui doit disparaître, c'est une redirection permanente qui s'impose.</p>
+
+    <div class="callout">
+      <p><strong>Le repère.</strong> Un canonical ne se contrôle pas dans l'aperçu d'un outil. Ouvrez le code source de la page et cherchez « canonical » : si l'adresse affichée n'est pas celle de la page, il y a un problème.</p>
+    </div>
+
+    <h2>Les erreurs de canonical qui reviennent</h2>
+
+    <h3>Un canonical vers une page en 404</h3>
+
+    <p>Le cas vient d'un changement d'adresse : vous renommez une page, vous mettez à jour son canonical, mais vous oubliez la redirection. Un canonical qui pointe vers une page inexistante est ignoré, et Google choisit lui-même.</p>
+
+    <h3>Un canonical en boucle</h3>
+
+    <p>Deux pages qui se déclarent mutuellement comme version de référence — la page A renvoie vers la page B, qui renvoie vers la page A — n'apportent aucune information. Ces boucles viennent d'une extension mal configurée. Le symptôme : les deux adresses alternent dans les résultats.</p>
+
+    <h3>Le canonical oublié après une refonte</h3>
+
+    <p>C'est l'erreur la plus coûteuse, parce qu'elle touche tout le site d'un coup. Après une refonte, les nouvelles pages sortent avec un canonical par défaut — parfois vers la page d'accueil, parfois sans canonical du tout — au lieu de pointer vers leur propre adresse. Le contrôle prend dix minutes : ouvrez cinq pages clés, cherchez la balise, vérifiez qu'elle porte bien l'adresse de la page.</p>
+
+    <h2>Duplication interne et duplication externe</h2>
+
+    <p>Deux problèmes différents, qui ne se règlent pas de la même façon. La duplication interne, c'est la vôtre : deux de vos pages qui portent le même texte, les variantes d'adresse, les pages de test oubliées. Vous avez la main sur tout. La duplication externe, c'est celle des autres : un site qui recopie vos textes, un média qui publie votre communiqué.</p>
+
+    <p>Sur la duplication interne, vous agissez : canonical, redirections, fusion, suppression. Sur la duplication externe, vous ne contrôlez presque rien. Le plus souvent, il n'y a rien à faire, parce que Google sait distinguer l'original de la copie : votre page est plus ancienne, elle reçoit des liens, elle porte votre nom. Une copie récente, sur un site sans audience, ne prendra pas votre place.</p>
+
+    <p>Un cas mérite une action : quand une page recopiée vous dépasse dans les résultats. Vous pouvez alors la signaler à Google avec le formulaire de retrait pour atteinte au droit d'auteur. C'est la seule voie officielle, et elle demande de prouver que le texte est de vous.</p>
+
+    <h2>Les cas où il ne faut rien faire</h2>
+
+    <p>Une bonne partie des signalements que nous recevons se règlent par une explication, pas par un correctif.</p>
+
+    <p><strong>Un annuaire reprend le texte de votre fiche.</strong> C'est le principe même d'un annuaire, et cela vous apporte une mention de plus. Le travail d'inscription est décrit dans <a href="/articles/annuaires-citations-cote-ivoire/">citations et annuaires ivoiriens</a>.</p>
+
+    <p><strong>Plusieurs distributeurs reprennent la description du fabricant.</strong> Google connaît ce cas depuis longtemps et sait que la source est le fabricant. Personne n'est pénalisé, ni vous ni les autres revendeurs.</p>
+
+    <p><strong>Votre communiqué paraît sur cinq sites.</strong> Un texte diffusé à plusieurs médias est un texte syndiqué. Ce n'est pas vous qui le dupliquez.</p>
+
+    <p><strong>Une page de service est déclinée par ville.</strong> Tant que chaque page contient des éléments propres à sa ville — quartiers desservis, délais, exemples — ce n'est pas de la duplication.</p>
+
+    <h2>Comment savoir si le problème existe chez vous</h2>
+
+    <p>Trois tests, dix minutes, aucun outil payant.</p>
+
+    <p><strong>Test un : la phrase entre guillemets.</strong> Copiez une phrase entière d'une page importante de votre site, collez-la dans Google entre guillemets, et regardez ce qui remonte. Si votre adresse sort en premier, tout va bien. Si une autre adresse du même site sort à votre place, la duplication est réelle.</p>
+
+    <p><strong>Test deux : la Search Console.</strong> Ouvrez le rapport d'indexation et cherchez deux mentions précises : « Doublon, Google a choisi une autre URL canonique » et « Doublon sans URL canonique choisie par l'utilisateur ». Si ces lignes portent des adresses de votre site, vous savez où agir. Le diagnostic complet est décrit dans <a href="/articles/erreurs-indexation-google/">erreurs d'indexation</a>.</p>
+
+    <p><strong>Test trois : une phrase de l'ancienne version.</strong> Si vous avez refait votre site, recherchez une phrase d'une ancienne page. Si elle remonte encore six mois après, les redirections n'ont pas été posées. Le fichier qui sert à les déclarer est décrit dans <a href="/articles/sitemap-robots-txt/">sitemap et robots.txt</a>.</p>
+
+    <h2>Dans quel ordre agir</h2>
+
+    <p>Cinq points, dans cet ordre. Le premier est le plus rentable, le dernier l'est rarement.</p>
+
+    <p><strong>Un.</strong> Supprimez ou redirigez les pages de test et les anciennes versions. C'est le travail le plus simple, et celui qui règle la majorité des cas visibles dans la Search Console.</p>
+
+    <p><strong>Deux.</strong> Choisissez une seule adresse pour votre site — avec ou sans www, en https —, redirigez l'autre en permanence et posez un canonical auto-référent sur toutes les pages.</p>
+
+    <p><strong>Trois.</strong> Fusionnez les pages qui visent la même requête. Reprenez ce qui fonctionne dans les deux textes, gardez une seule adresse, redirigez la page abandonnée.</p>
+
+    <p><strong>Quatre.</strong> Vérifiez les canonicals après chaque refonte ou changement de thème. Cinq pages suffisent à détecter une erreur de configuration. <strong>Cinq.</strong> Pour la copie externe, attendez : sauf si la page copiée vous dépasse sur une requête qui vous rapporte, il n'y a rien à gagner à ouvrir un litige.</p>
+
+    <p>Une dernière remarque, parce qu'elle règle le problème en amont. Un texte écrit avec vos exemples et vos chiffres ne peut pas être confondu avec un autre, même sur un sujet traité partout. Le travail sur les titres et les descriptions suit la même logique, et il est détaillé dans <a href="/articles/balises-title-description/">title et description</a>.</p>
+
+    <div class="cta-block">
+      <h2>Votre site a-t-il un problème de duplication ?</h2>
+      <p>La page site web détaille ce qui est vérifié à la livraison : adresse unique, canonicals posés, redirections en place et Search Console branchée.</p>
+      <a class="btn btn-gold" href="https://eperformance.pro/site-web.html">Voir la page site web
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <h2>FAQ — Le contenu dupliqué</h2>
+
+    <div class="faq-section">
+      <details>
+        <summary>Le contenu dupliqué est-il pénalisé par Google ?</summary>
+        <p>Dans la grande majorité des cas, non. Google ne sanctionne pas la ressemblance : il choisit une adresse de référence et n'affiche qu'elle. Votre page ne s'affiche pas, mais votre site n'est pas retiré pour autant. La sanction réelle vise le contenu produit en masse.</p>
+      </details>
+
+      <details>
+        <summary>Un canonical suffit-il à régler le problème ?</summary>
+        <p>Dans la plupart des cas de duplication interne, oui. Un canonical auto-référent règle le cas des variantes d'adresse, et un canonical croisé règle le cas de deux pages qui se ressemblent. Deux réserves : c'est une indication, que Google peut ne pas suivre, et cela ne remplace pas une redirection permanente.</p>
+      </details>
+
+      <details>
+        <summary>Puis-je reprendre la description produit du fabricant ?</summary>
+        <p>Oui, et vous ne serez pas pénalisé pour ça : Google sait que la description vient du fabricant et que tous les revendeurs la partagent. Gardez en tête qu'une page qui ne contient que cette description n'a rien de plus qu'un autre revendeur. Un paragraphe écrit par vous, sur la livraison ou sur l'usage réel, fait la différence.</p>
+      </details>
+
+      <details>
+        <summary>Faut-il un canonical si la page s'affiche avec et sans www ?</summary>
+        <p>Oui, et il faut d'abord choisir une version. Faites rediriger l'autre adresse en permanence, puis posez un canonical auto-référent sur les pages retenues. Sans ça, les liens et la popularité se partagent entre deux adresses qui n'en forment qu'une.</p>
+      </details>
+
+      <details>
+        <summary>Mon texte a été copié par un autre site, que faire ?</summary>
+        <p>Le plus souvent, rien. Votre page est plus ancienne, elle est liée, elle porte votre nom : Google affiche l'original. Si la copie vous dépasse sur une requête qui compte, signalez-la avec le formulaire de retrait pour atteinte au droit d'auteur.</p>
+      </details>
+
+      <details>
+        <summary>Deux pages proches sur mon site nuisent-elles à mon référencement ?</summary>
+        <p>Seulement si elles visent la même recherche. Deux pages qui traitent le même sujet avec la même intention se neutralisent : Google en choisit une et ignore l'autre. Deux pages qui répondent à deux demandes différentes — deux villes, deux offres — ne se nuisent pas. La question n'est pas « mes textes se ressemblent-ils », mais « ces deux pages répondent-elles à la même recherche ».</p>
+      </details>
+    </div>
+
+    <div class="tags-row">
+      <a href="/seo/" class="tag">SEO</a>
+      <a href="/articles/erreurs-indexation-google/" class="tag">Indexation</a>
+      <a href="/articles/netlinking-local/" class="tag">Netlinking local</a>
+    </div>
+
+    <div class="share-row">
+      <span class="small">Partager</span>
+      <a href="#" class="share-btn" onclick="return sharePage('whatsapp')" data-share="whatsapp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.6-4.5A8.4 8.4 0 1 1 8 20.4z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('linkedin')" data-share="linkedin" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('facebook')" data-share="facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('copy')" data-share="copy" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></a>
+    </div>
+
+    <div class="related">
+      <h2>Articles à lire ensuite</h2>
+      <a href="/articles/erreurs-indexation-google/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">SEO</span>
+          <h3>Erreurs d'indexation : pourquoi votre page n'apparaît pas</h3>
+          <p class="small">Diagnostiquer avec la Search Console, du rapport d'indexation à la correction.</p>
+        </div>
+      </a>
+      <a href="/articles/netlinking-local/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">SEO</span>
+          <h3>Netlinking local : quels liens comptent vraiment</h3>
+          <p class="small">Partenariats, presse locale, annuaires : les sources classées par rendement réel.</p>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-col">
+        <img class="footer-logo logo-img-light" src="/assets/img/logo-light.webp"
+             srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+             width="152" height="25" alt="ePerformance" loading="lazy">
+        <img class="footer-logo logo-img-dark" src="/assets/img/logo-dark.webp"
+             srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+             width="157" height="25" alt="" aria-hidden="true" loading="lazy">
+        <p class="card-text mt-3" style="max-width:34ch">Stratégie d&#x27;acquisition, IA générative, automatisation et développement web premium. Basé en Côte d&#x27;Ivoire, 100 % en ligne.</p>
+      </div>
+
+      <div class="footer-col">
+        <h2>Services</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/index.html#methode" rel="noopener">stratégie d&#x27;acquisition</a></li>
+          <li><a href="https://eperformance.pro/ia.html" rel="noopener">IA générative</a></li>
+          <li><a href="https://eperformance.pro/automatisation.html" rel="noopener">Automatisation</a></li>
+          <li><a href="https://eperformance.pro/site-web.html" rel="noopener">Création de site web</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Ressources</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/diagnostic_eperformance.html" rel="noopener">Diagnostic gratuit</a></li>
+          <li><a href="https://eperformance.pro/formation.html" rel="noopener">Formations</a></li>
+          <li><a href="https://eperformance.pro/ebook.html" rel="noopener">Ebooks</a></li>
+          <li><a href="https://blog.eperformance.pro/" rel="noopener">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="https://wa.me/2250151170666" rel="noopener">+225 01 51 17 06 66</a></li>
+          <li><a href="mailto:bonjour@eperformance.pro">bonjour@eperformance.pro</a></li>
+          <li><a href="https://api.eperformance.pro/connexion.php" rel="noopener">Espace client</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 ePerformance — par K. Stéphane. Tous droits réservés.</p>
+      <p><a href="https://eperformance.pro/mentions-legales.html">Mentions légales</a> · <a href="https://eperformance.pro/politique-confidentialite.html">Confidentialité</a> · <a href="https://eperformance.pro/cookies.html">Cookies</a> · <a href="https://eperformance.pro/cgv.html">CGV</a></p>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a class="btn btn-gold" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+  <a class="btn btn-wa" href="https://wa.me/2250151170666" style="flex:0 0 auto" rel="noopener">WhatsApp</a>
+</div>
+
+<div class="consent" id="consent-banner" hidden>
+  <div class="consent-inner">
+    <div class="consent-text">
+      <p><strong>Vous choisissez ce que nous mesurons.</strong></p>
+      <p>Nous utilisons des traceurs pour comprendre comment le site est utilisé et pour
+         mesurer nos campagnes. Aucun ne se déclenche avant votre accord.
+         <a href="https://eperformance.pro/politique-confidentialite.html">Politique de confidentialité</a> ·
+         <a href="https://eperformance.pro/cookies.html">En savoir plus</a></p>
+    </div>
+    <div class="consent-actions">
+      <button type="button" class="btn btn-ghost" data-consent="refuse">Tout refuser</button>
+      <button type="button" class="btn btn-outline" data-consent="customize">Paramétrer</button>
+      <button type="button" class="btn btn-gold" data-consent="accept">Tout accepter</button>
+    </div>
+  </div>
+
+  <div class="consent-detail" id="consent-detail" hidden>
+    <fieldset class="fieldset">
+      <legend>Vos préférences</legend>
+
+      <label class="consent-row consent-row-locked">
+        <input type="checkbox" checked disabled>
+        <span>
+          <strong>Nécessaires</strong>
+          <span class="field-hint">Mémorisation de votre choix de thème et de vos préférences.
+            Toujours actifs : le site ne peut pas fonctionner sans.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-analytics">
+        <span>
+          <strong>Mesure d'audience</strong>
+          <span class="field-hint">Google Analytics 4 et Microsoft Clarity. Nous aide à voir
+            quelles pages sont utiles et où les visiteurs abandonnent.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-ads">
+        <span>
+          <strong>Publicité</strong>
+          <span class="field-hint">Meta Pixel. Mesure l'efficacité de nos campagnes
+            Facebook et Instagram.</span>
+        </span>
+      </label>
+    </fieldset>
+
+    <div class="consent-actions">
+      <button type="button" class="btn btn-outline" data-consent="back">Retour</button>
+      <button type="button" class="btn btn-gold" data-consent="save">Enregistrer mes choix</button>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/js/consent.js" defer></script>
+<script src="/assets/js/eperf.js" defer></script>
+<script src="/assets/js/blog.js" defer></script>
+</body>
+</html>

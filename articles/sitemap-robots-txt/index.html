@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+(function(){try{var t=localStorage.getItem('eperf-theme');
+if(t!=='dark'&&t!=='light'){t='light';}
+document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+  <title>Sitemap et robots.txt : les deux fichiers qu&#x27;on oublie</title>
+  <meta name="description" content="Vérifier en cinq minutes que sitemap.xml et robots.txt sont en place : adresses à tester, commandes curl, erreurs classiques et corrections.">
+  <meta name="robots" content="noindex,follow">
+  <link rel="canonical" href="https://blog.eperformance.pro/articles/sitemap-robots-txt/index.html">
+  <meta name="theme-color" content="#fdfcfa">
+  <meta name="author" content="K. Stéphane">
+
+  <!-- Icônes -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="icon" href="/assets/img/favicon-16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ePerformance">
+  <meta property="og:locale" content="fr_CI">
+  <meta property="og:title" content="Sitemap et robots.txt : les deux fichiers qu&#x27;on oublie">
+  <meta property="og:description" content="Vérifier en cinq minutes que sitemap.xml et robots.txt sont en place : adresses à tester, commandes curl, erreurs classiques et corrections.">
+  <meta property="og:url" content="https://blog.eperformance.pro/articles/sitemap-robots-txt/index.html">
+  <meta property="og:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ePerformance — ePerformance">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sitemap et robots.txt : les deux fichiers qu&#x27;on oublie">
+  <meta name="twitter:description" content="Vérifier en cinq minutes que sitemap.xml et robots.txt sont en place : adresses à tester, commandes curl, erreurs classiques et corrections.">
+  <meta name="twitter:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta name="twitter:creator" content="@eperformancepro">
+
+  <!-- Polices : préconnexion, préchargement des deux polices critiques,
+       puis chargement non bloquant de la feuille complète -->
+  <!-- Polices : auto-hébergées, déclarées dans eperf.css.
+       On précharge les deux graisses du premier écran pour que le
+       texte soit peint dans la bonne police dès le premier rendu. -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/cormorant-garamond-700.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/dm-sans-400.woff2">
+
+  <!-- Design system : la MEME feuille que le site, a l'identique. -->
+  <link rel="stylesheet" href="/assets/css/eperf.css">
+  <!-- Composants editoriaux du blog : corps d'article, largeur de
+       lecture, cartes d'article. Ils consomment les jetons d'eperf.css
+       et ne redefinissent aucune couleur. -->
+  <link rel="stylesheet" href="/assets/css/blog.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://blog.eperformance.pro/#organization",
+      "name": "ePerformance",
+      "alternateName": "ePerformance par K. Stéphane",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "founder": {
+        "@type": "Person",
+        "@id": "https://blog.eperformance.pro/#founder",
+        "name": "K. Stéphane",
+        "jobTitle": "Fondateur, stratège acquisition",
+        "url": "https://blog.eperformance.pro/kstephane.html"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Côte d'Ivoire"
+        },
+        {
+          "@type": "Country",
+          "name": "Burkina Faso"
+        },
+        {
+          "@type": "Place",
+          "name": "Afrique de l'Ouest"
+        }
+      ],
+      "knowsLanguage": "fr",
+      "sameAs": [
+        "https://blog.eperformance.pro/"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://blog.eperformance.pro/#localbusiness",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "parentOrganization": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Abidjan",
+        "addressCountry": "CI"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Côte d'Ivoire"
+      },
+      "priceRange": "100000-350000 XOF",
+      "currenciesAccepted": "XOF",
+      "paymentAccepted": "Orange Money, Wave, MTN MoMo, Moov Money, Visa, Mastercard",
+      "availableLanguage": "fr"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://blog.eperformance.pro/#website",
+      "url": "https://blog.eperformance.pro",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "publisher": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://blog.eperformance.pro/articles/sitemap-robots-txt/index.html#webpage",
+      "url": "https://blog.eperformance.pro/articles/sitemap-robots-txt/index.html",
+      "name": "Sitemap et robots.txt : les deux fichiers qu'on oublie",
+      "description": "Vérifier en cinq minutes que sitemap.xml et robots.txt sont en place : adresses à tester, commandes curl, erreurs classiques et corrections.",
+      "isPartOf": {
+        "@id": "https://blog.eperformance.pro/#website"
+      },
+      "about": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://blog.eperformance.pro/articles/sitemap-robots-txt/index.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://blog.eperformance.pro/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "SEO",
+          "item": "https://blog.eperformance.pro/seo/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Sitemap et robots.txt : les deux fichiers qu'on oublie",
+          "item": "https://blog.eperformance.pro/articles/sitemap-robots-txt/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Sitemap et robots.txt : les deux fichiers qu'on oublie",
+  "description":"Vérifier en cinq minutes que sitemap.xml et robots.txt sont en place : adresses à tester, commandes curl, erreurs classiques et corrections.",
+  "image":"https://blog.eperformance.pro/assets/img/og-seo-local.jpg",
+  "datePublished":"2027-02-10T09:00:00+00:00",
+  "dateModified":"2027-02-10T09:00:00+00:00",
+  "inLanguage":"fr-CI",
+  "wordCount":2401,
+  "articleSection":"SEO",
+  "keywords":["sitemap robots txt","indexation google","fichiers seo","sitemap.xml","robots.txt","Search Console","Abidjan"],
+  "author":{"@type":"Person","name":"K. STEPHANE","jobTitle":"Fondateur ePerformance","url":"https://blog.eperformance.pro/a-propos/"},
+  "publisher":{"@type":"Organization","name":"ePerformance","logo":{"@type":"ImageObject","url":"https://eperformance.pro/assets/img/logo-light.webp"}},
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.eperformance.pro/articles/sitemap-robots-txt/"}
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Blog","item":"https://blog.eperformance.pro/"},
+    {"@type":"ListItem","position":2,"name":"SEO","item":"https://blog.eperformance.pro/seo/"},
+    {"@type":"ListItem","position":3,"name":"Sitemap et robots.txt : les deux fichiers qu'on oublie","item":"https://blog.eperformance.pro/articles/sitemap-robots-txt/"}
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Où se placent le robots.txt et le sitemap ?","acceptedAnswer":{"@type":"Answer","text":"Le robots.txt se place obligatoirement à la racine du domaine : https://votresite.ci/robots.txt. Le sitemap n'a pas d'emplacement imposé, mais la convention est de le mettre aussi à la racine, sous le nom sitemap.xml. Un robots.txt placé dans un sous-dossier n'est jamais lu par les robots."}},
+    {"@type":"Question","name":"Faut-il un sitemap pour un site de cinq pages ?","acceptedAnswer":{"@type":"Answer","text":"Ce n'est pas obligatoire, et un petit site correctement maillé se fait indexer sans lui. Cela reste utile : vous déclarez vous-même la liste des pages, et Search Console vous prévient quand une adresse cesse de répondre."}},
+    {"@type":"Question","name":"Que faire si mon sitemap est introuvable ?","acceptedAnswer":{"@type":"Answer","text":"Cherchez d'abord l'adresse réelle : sitemap_index.xml sur WordPress, sitemap-index.xml, sitemap.xml.gz. Si aucun ne répond, le fichier n'existe pas. Sur un site statique, il faut le générer. Sur un CMS, activez l'option sitemap de votre extension SEO et vérifiez qu'aucune règle de réécriture ne renvoie l'adresse vers l'accueil."}},
+    {"@type":"Question","name":"Peut-on empêcher l'indexation d'une page avec robots.txt ?","acceptedAnswer":{"@type":"Answer","text":"Non. Le robots.txt interdit l'exploration, pas l'indexation : une page bloquée peut rester dans les résultats, avec son titre seul. Pour la retirer, laissez-la explorable et posez une balise noindex dans la page. Si vous bloquez avant de poser le noindex, Google ne pourra jamais lire l'instruction."}},
+    {"@type":"Question","name":"À quelle fréquence faut-il régénérer le sitemap ?","acceptedAnswer":{"@type":"Answer","text":"À chaque publication, modification ou suppression de page. Sur un CMS, la régénération est automatique. Sur un site statique, elle doit être incluse dans le script de publication. Dans tous les cas, vérifiez une fois par mois que le nombre d'adresses listées correspond au nombre de pages publiées."}},
+    {"@type":"Question","name":"Un robots.txt protège-t-il un dossier privé ?","acceptedAnswer":{"@type":"Answer","text":"Non, et c'est même l'inverse. Le fichier est public : indiquer un dossier dedans revient à le signaler. Un dossier de sauvegarde ou un espace d'administration se protège par un mot de passe ou une restriction d'accès côté serveur."}}
+  ]
+}
+  </script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a class="logo" href="/" aria-label="ePerformance — accueil">
+      <img class="logo-img-light" src="/assets/img/logo-light.webp"
+           srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+           width="182" height="30" alt="ePerformance" fetchpriority="high">
+      <img class="logo-img-dark" src="/assets/img/logo-dark.webp"
+           srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+           width="188" height="30" alt="" aria-hidden="true">
+    </a>
+
+    <nav class="nav" id="primary-nav" aria-label="Navigation principale">
+      <a href="/">Accueil</a>
+      <a href="/acquisition/">Acquisition</a>
+      <a href="/site-web/">Site web</a>
+      <a href="/seo/" aria-current="page">SEO</a>
+      <a href="/business/">Business</a>
+      <a href="/articles/ia-generative-pme-africaine/">IA</a>
+      <a href="/articles/automatisation-marketing-debuter/">Automatisation</a>
+      <a href="/a-propos/">À propos</a>
+      <a href="https://eperformance.pro" rel="noopener">Site principal</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" data-theme-toggle
+              aria-pressed="false" aria-label="Activer le thème sombre">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+        </svg>
+      </button>
+
+      <a class="btn btn-gold btn-desktop" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false"
+              aria-controls="primary-nav" aria-label="Ouvrir le menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<nav class="breadcrumb container" aria-label="Fil d'Ariane">
+  <ol>
+    <li><a href="/">Accueil</a></li>
+    <li><a href="/seo/">SEO</a></li>
+    <li aria-current="page">Sitemap et robots.txt : les deux fichiers qu&#x27;on oublie</li>
+  </ol>
+</nav>
+
+<main id="main">
+
+
+<section class="article-hero">
+  <div class="container-reading">
+
+    <nav class="article-breadcrumb" aria-label="Fil d'Ariane">
+      <a href="/">Blog</a>
+      <span class="sep">/</span>
+      <a href="/seo/">SEO</a>
+      <span class="sep">/</span>
+      <span>Sitemap et robots.txt</span>
+    </nav>
+
+    <span class="article-category">SEO</span>
+    <h1>Sitemap et robots.txt : <span class="text-gold">les deux fichiers qu'on oublie</span></h1>
+    <p class="lead">Un fichier de trois lignes peut décider si Google lit votre site, et une liste d'adresses peut décider s'il sait que vos pages existent. Voici les deux adresses à ouvrir, les commandes à lancer et les erreurs qui bloquent l'indexation à votre insu.</p>
+
+    <div class="article-meta">
+      <div class="author">
+        <div class="author-avatar">KS</div>
+        <div>
+          <div class="article-author-name">K. STEPHANE</div>
+          <div class="small">Fondateur ePerformance</div>
+        </div>
+      </div>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg> 10 février 2027</span>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.6 2.1"/></svg> 12 min de lecture</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section-flush-top">
+  <div class="article-body container-reading">
+
+    <p>Un site peut être rapide, bien écrit et utile, et rester invisible pour une raison minuscule : un fichier de trois lignes mal placé. Le robots.txt et le sitemap.xml ne s'affichent à personne, mais ce sont eux qui décident si Google a le droit de lire vos pages et s'il sait qu'elles existent.</p>
+
+    <p>Les deux se vérifient en cinq minutes, sans outil payant. Ce guide donne les adresses à taper, les commandes à lancer, ce que vous devez y voir, et les défauts qui reviennent sur la majorité des sites.</p>
+
+    <h2>Les deux adresses à ouvrir en premier</h2>
+
+    <p>Tapez dans votre navigateur <code>https://votresite.ci/robots.txt</code>, puis <code>https://votresite.ci/sitemap.xml</code>. La première doit afficher un fichier texte de quelques lignes. La seconde, du XML : une liste d'adresses entre des balises <code>&lt;loc&gt;</code>.</p>
+
+    <p>Si l'une des deux affiche l'accueil du site, une page d'erreur ou un message « 404 », le fichier n'existe pas. Attention à un piège classique : certains serveurs renvoient une page d'erreur avec le code 200, ce qui veut dire « tout va bien » pour un robot. Le doute se lève avec cette commande :</p>
+
+    <pre><code>curl -I https://votresite.ci/sitemap.xml</code></pre>
+
+    <p>Regardez la première ligne. <code>200 OK</code> : le fichier existe et se lit. <code>301</code> ou <code>302</code> : il est redirigé, souvent vers l'accueil, ce qui casse la lecture. <code>404</code> : il est absent. Contrôlez le <code>Content-Type</code>, qui doit indiquer <code>application/xml</code> ou <code>text/xml</code>, jamais <code>text/html</code>.</p>
+
+    <p>Quand rien ne répond à l'adresse standard, cherchez ailleurs : <code>/sitemap_index.xml</code> sur WordPress, <code>/sitemap-index.xml</code>, <code>/sitemap.xml.gz</code>, <code>/page-sitemap.xml</code>. Si l'un répond, c'est celui-là qu'il faut déclarer.</p>
+
+    <div class="callout">
+      <p><strong>Le repère.</strong> Un robots.txt se lit à l'œil nu en trois secondes. Un sitemap se vérifie au compteur : combien d'adresses, et combien répondent en 200. Si vous ne savez pas répondre, personne ne l'a vérifié.</p>
+    </div>
+
+    <h2>robots.txt : les quatre lignes qui comptent</h2>
+
+    <p>Un robots.txt utile tient en quatre lignes. Voici celui d'un site marchand correctement configuré :</p>
+
+    <pre><code>User-agent: *
+Disallow: /panier/
+Disallow: /recherche
+Allow: /
+Sitemap: https://votresite.ci/sitemap.xml</code></pre>
+
+    <p>Chaque ligne a un rôle. <code>User-agent: *</code> adresse la règle à tous les robots. <code>Disallow: /panier/</code> écarte le tunnel de commande, qui ne doit jamais se retrouver dans les résultats. <code>Disallow: /recherche</code> écarte les pages de résultats internes, qui créent des milliers d'adresses creuses. <code>Allow: /</code> autorise le reste. La ligne <code>Sitemap:</code> dit où trouver la liste des pages à indexer.</p>
+
+    <p>Le fichier se place à la racine du domaine, jamais dans un sous-dossier, et son nom s'écrit en minuscules, sans accent. Il est public : n'importe qui peut le lire, votre concurrent compris.</p>
+
+    <h2>L'erreur qui bloque tout le site : le Disallow mal placé</h2>
+
+    <p>La faute la plus lourde tient en une ligne : <code>Disallow: /</code> sous <code>User-agent: *</code>. Elle interdit l'exploration de tout le site, et vient presque toujours du robots.txt du site de test, copié en production et jamais retiré.</p>
+
+    <p>Le symptôme est net dans Search Console : la page « robots.txt » signale les adresses bloquées, et l'inspection d'URL affiche « Bloquée par le fichier robots.txt ». Le trafic ne s'effondre pas le jour même, puisque Google continue d'afficher un moment les pages qu'il connaît déjà : le problème peut rester invisible des semaines.</p>
+
+    <p>Une variante plus sournoise existe : le fichier est correct, mais une règle trop large attrape la moitié du site. <code>Disallow: /p/</code> a l'air anodin, sauf que votre catalogue est rangé dans <code>/produits/</code> : le préfixe avale chaque fiche produit. Relisez chaque règle en vous demandant quelles adresses réelles elle attrape, préfixe compris.</p>
+
+    <p>Le test prend une minute. Dans l'inspection d'URL de Search Console, saisissez une page importante, lancez le « Test de l'indexation en direct », puis ouvrez la section qui montre la page explorée. Si le robots.txt la bloque, c'est écrit noir sur blanc.</p>
+
+    <h2>Ce qu'un robots.txt ne fait pas</h2>
+
+    <p>Deux confusions coûtent cher. La première : croire qu'une page interdite d'exploration disparaît des résultats. Ce n'est pas le cas. Une page bloquée peut rester indexée, avec son titre seul et parfois une description tirée d'un autre site. Pour la retirer, il faut une balise <code>noindex</code> dans la page.</p>
+
+    <p>La deuxième : empiler les deux. Une page à la fois bloquée par robots.txt et porteuse d'un <code>noindex</code> ne disparaîtra jamais, puisque Google n'a pas le droit de l'ouvrir pour lire l'instruction. L'ordre correct : on laisse la page explorable, on pose le <code>noindex</code>, on attend sa sortie des résultats, et seulement ensuite on bloque l'exploration.</p>
+
+    <p>Un robots.txt n'est pas une protection non plus. Il ne remplace ni un mot de passe, ni un pare-feu, ni une sauvegarde. Il sert à dire aux robots où passer. Le principe est le même que pour <a href="/articles/donnees-structurees-schema-org/">les données structurées</a> : un fichier ne protège rien, il informe.</p>
+
+    <h2>Sitemap : ce qu'on doit y voir</h2>
+
+    <p>Un sitemap valide est une liste d'adresses que vous assumez voir dans Google, écrites en entier. Un extrait correct ressemble à ceci :</p>
+
+    <pre><code>&lt;url&gt;
+  &lt;loc&gt;https://votresite.ci/meubles-abidjan/&lt;/loc&gt;
+  &lt;lastmod&gt;2027-01-14&lt;/lastmod&gt;
+&lt;/url&gt;</code></pre>
+
+    <p>Quatre règles décident de sa qualité. Les adresses sont absolues, avec <code>https://</code> et le bon domaine. Elles pointent vers des pages en 200, jamais vers une redirection. Elles correspondent à la version canonique de la page. Et la liste ne contient que des pages indexables : une page en <code>noindex</code> n'a rien à y faire.</p>
+
+    <p>Deux limites à connaître : un fichier accepte jusqu'à 50 000 adresses et 50 Mo. Au-delà, il faut le découper et regrouper les morceaux dans un fichier d'index. Les balises <code>priority</code> et <code>changefreq</code> existent toujours, mais Google les ignore.</p>
+
+    <h2>Déclarer le sitemap dans robots.txt</h2>
+
+    <p>Ajoutez une ligne <code>Sitemap:</code> à votre fichier robots.txt, avec l'adresse complète du fichier :</p>
+
+    <pre><code>Sitemap: https://votresite.ci/sitemap.xml</code></pre>
+
+    <p>L'adresse doit être absolue, sur le même domaine que le robots.txt, et la ligne peut se placer n'importe où dans le fichier. Si vous avez plusieurs sitemaps, ajoutez une ligne par fichier.</p>
+
+    <p>Elle sert de secours : le jour où vous oubliez de déclarer le sitemap dans Search Console, Google le retrouve par ce chemin.</p>
+
+    <h2>Déclarer le sitemap dans Search Console</h2>
+
+    <p>Ouvrez Search Console, choisissez la propriété de votre site, puis « Sitemaps » dans le menu de gauche. Saisissez <code>sitemap.xml</code> et validez. Le statut doit passer à « Réussite ».</p>
+
+    <p>Deux autres statuts existent. « Impossible de récupérer » signale une adresse fausse, un fichier en erreur ou un domaine qui ne correspond pas à la propriété. « Détectée » signale un fichier lu, mais pas traité comme une réussite.</p>
+
+    <p>Ne vous arrêtez pas à la couleur verte. Cliquez sur le sitemap déclaré : le nombre d'adresses découvertes s'affiche, avec les erreurs de lecture. Un sitemap « Réussite » qui annonce 240 adresses quand le site en compte 400 est un fichier incomplet, presque toujours généré avant la dernière publication.</p>
+
+    <h2>Vérifier le sitemap ligne par ligne, en cinq minutes</h2>
+
+    <p>Une fois par mois, lancez ces deux commandes. La première compte les adresses listées :</p>
+
+    <pre><code>curl -s https://votresite.ci/sitemap.xml | grep -o '&lt;loc&gt;[^&lt;]*' | wc -l</code></pre>
+
+    <p>La seconde teste chaque adresse et affiche son code de retour :</p>
+
+    <pre><code>curl -s https://votresite.ci/sitemap.xml | grep -o '&lt;loc&gt;[^&lt;]*' | sed 's/&lt;loc&gt;//' | while read u; do printf '%s %s\n' "$(curl -o /dev/null -s -w '%{http_code}' "$u")" "$u"; done</code></pre>
+
+    <p>Ce que vous devez voir : uniquement des <code>200</code>. Chaque <code>404</code> est une adresse fantôme, à retirer ou à rediriger. Chaque <code>301</code> est une adresse qui n'est pas la version canonique de la page. Sur cinquante pages, le contrôle prend cinq minutes.</p>
+
+    <h2>Les erreurs classiques, et ce qu'elles produisent</h2>
+
+    <p>Six défauts reviennent sur presque tous les sites, chacun avec son symptôme dans Search Console et sa correction.</p>
+
+    <p><strong>Le sitemap liste des adresses en 404.</strong> Symptôme : la colonne « Introuvable (404) » du rapport Sitemaps grimpe. Cause : des pages supprimées ou renommées sans redirection. Correction : rediriger vers la nouvelle adresse, ou retirer l'ancienne du fichier.</p>
+
+    <p><strong>Le sitemap pointe vers le mauvais domaine.</strong> Symptôme : Search Console refuse le fichier ou découvre zéro adresse. Cause : un fichier généré en <code>http://</code> au lieu de <code>https://</code>, avec <code>www</code> quand la version canonique n'en a pas, ou depuis le domaine de test. Correction : régénérer depuis le domaine réel.</p>
+
+    <p><strong>Le sitemap contient des pages en noindex.</strong> Symptôme : dans le rapport Pages, des adresses « Explorée, actuellement non indexée », avec la mention « Exclue par la balise noindex ». Cause : un fichier généré sans filtre. Correction : exclure ces pages du fichier.</p>
+
+    <p><strong>Le sitemap est absent de robots.txt et de Search Console.</strong> Symptôme : aucun, et c'est le problème. Le fichier existe, il est correct, personne ne le lit. Correction : la ligne <code>Sitemap:</code> plus la déclaration dans Search Console.</p>
+
+    <p><strong>Le sitemap n'est plus régénéré.</strong> Symptôme : le compteur d'adresses stagne alors que vous publiez. Cause : un fichier écrit à la main, ou un module désactivé. Correction : automatiser la génération et vérifier le compteur après chaque publication.</p>
+
+    <p><strong>Le sitemap répond, mais c'est une page d'erreur.</strong> Symptôme : le fichier s'ouvre et affiche l'accueil du site, ou une page « introuvable » avec un code 200. Cause : une règle de réécriture qui renvoie tout vers l'accueil. Correction : créer le fichier à la racine et contrôler le code de retour avec <code>curl -I</code>.</p>
+
+    <h2>Le cas des sites WordPress, Shopify et sur mesure</h2>
+
+    <p>Sur WordPress, les extensions SEO — Yoast, Rank Math, SEOPress — génèrent le sitemap sans intervention. Vérifiez que l'option est active, notez l'adresse affichée, souvent <code>/sitemap_index.xml</code>, puis déclarez-la dans robots.txt et Search Console. Si vous changez d'extension, l'adresse change : l'ancienne doit rediriger.</p>
+
+    <p>Sur Shopify et sur les constructeurs en ligne — Wix, Squarespace, Webflow — le sitemap est créé automatiquement et vous ne pouvez pas le modifier. Vous pouvez seulement le déclarer. Le point de vigilance porte alors sur les adresses en double : filtres de collection, variantes de produit, versions de langue. Le choix de la plateforme se traite dans <a href="/articles/wordpress-shopify-sur-mesure/">WordPress, Shopify ou mesure</a>.</p>
+
+    <p>Sur un site écrit à la main ou un site statique, le fichier n'existe pas tant que personne ne le crée. Il faut le générer à chaque publication. Un site sans sitemap n'est pas condamné : Google explore les liens, mais chaque page découverte par un lien l'est plus tard qu'avec une liste. Sur deux cents pages, l'écart se compte en semaines.</p>
+
+    <h2>Ce qui doit sortir du sitemap</h2>
+
+    <p>La règle tient en une phrase : le fichier ne contient que des pages que vous assumez voir dans les résultats de recherche.</p>
+
+    <p>Restent donc dehors : pages de confirmation de commande, paniers, résultats de recherche interne, filtres de catalogue, étiquettes d'articles, pages de test, versions imprimables, adresses avec paramètres de suivi, et toute page portant une balise <code>noindex</code>.</p>
+
+    <p>Une exception se discute : les mentions légales et la politique de confidentialité. Ces pages se déclarent, parce qu'un client peut les chercher et que leur présence rassure.</p>
+
+    <h2>La routine de contrôle, cinq minutes par mois</h2>
+
+    <p>Cinq gestes, dans cet ordre. Le même passage s'impose après une refonte ou un changement de domaine.</p>
+
+    <p><strong>Un.</strong> Relisez <code>robots.txt</code> ligne par ligne. Cherchez un <code>Disallow: /</code> seul, et vérifiez qu'aucune règle n'attrape un dossier plus large que prévu.</p>
+
+    <p><strong>Deux.</strong> Ouvrez <code>sitemap.xml</code>. Le fichier s'affiche, il commence par des balises <code>&lt;url&gt;</code>, il ne renvoie pas l'accueil.</p>
+
+    <p><strong>Trois.</strong> Comptez les adresses et comparez au nombre de pages publiées.</p>
+
+    <p><strong>Quatre.</strong> Testez cinq adresses au hasard. Si une seule répond en 404, testez-les toutes : le défaut est presque toujours groupé.</p>
+
+    <p><strong>Cinq.</strong> Dans Search Console, onglet Pages, surveillez les lignes « Explorée, actuellement non indexée » et « Exclue par la balise noindex ».</p>
+
+    <p>Ces fichiers ne rapportent aucune visite : ils évitent surtout d'en perdre. Quand une page importante reste absente de Google malgré un robots.txt propre et un sitemap à jour, la cause est ailleurs : elle se cherche avec la méthode des <a href="/articles/erreurs-indexation-google/">erreurs d'indexation</a>. Et si le problème est apparu après une refonte ou un changement d'hébergement, commencez par <a href="/articles/refonte-site-quand/">le contrôle post-refonte</a>.</p>
+
+    <div class="cta-block">
+      <h2>Vos deux fichiers sont-ils en place ?</h2>
+      <p>La page site web détaille ce qui est remis avec un site : robots.txt et sitemap configurés, Search Console branchée, et accès qui restent entre vos mains.</p>
+      <a class="btn btn-gold" href="https://eperformance.pro/site-web.html">Voir la page site web
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <h2>FAQ — Sitemap et robots.txt</h2>
+
+    <div class="faq-section">
+      <details>
+        <summary>Où se placent le robots.txt et le sitemap ?</summary>
+        <p>Le robots.txt se place obligatoirement à la racine du domaine : https://votresite.ci/robots.txt. Le sitemap n'a pas d'emplacement imposé, mais la convention est de le mettre aussi à la racine, sous le nom sitemap.xml. Un robots.txt placé dans un sous-dossier n'est jamais lu par les robots.</p>
+      </details>
+
+      <details>
+        <summary>Faut-il un sitemap pour un site de cinq pages ?</summary>
+        <p>Ce n'est pas obligatoire, et un petit site correctement maillé se fait indexer sans lui. Cela reste utile : vous déclarez vous-même la liste des pages, et Search Console vous prévient quand une adresse cesse de répondre.</p>
+      </details>
+
+      <details>
+        <summary>Que faire si mon sitemap est introuvable ?</summary>
+        <p>Cherchez d'abord l'adresse réelle : sitemap_index.xml sur WordPress, sitemap-index.xml, sitemap.xml.gz. Si aucun ne répond, le fichier n'existe pas. Sur un site statique, il faut le générer. Sur un CMS, activez l'option sitemap de votre extension SEO et vérifiez qu'aucune règle de réécriture ne renvoie l'adresse vers l'accueil.</p>
+      </details>
+
+      <details>
+        <summary>Peut-on empêcher l'indexation d'une page avec robots.txt ?</summary>
+        <p>Non. Le robots.txt interdit l'exploration, pas l'indexation : une page bloquée peut rester dans les résultats, avec son titre seul. Pour la retirer, laissez-la explorable et posez une balise noindex dans la page. Si vous bloquez avant de poser le noindex, Google ne pourra jamais lire l'instruction.</p>
+      </details>
+
+      <details>
+        <summary>À quelle fréquence faut-il régénérer le sitemap ?</summary>
+        <p>À chaque publication, modification ou suppression de page. Sur un CMS, la régénération est automatique. Sur un site statique, elle doit être incluse dans le script de publication. Dans tous les cas, vérifiez une fois par mois que le nombre d'adresses listées correspond au nombre de pages publiées.</p>
+      </details>
+
+      <details>
+        <summary>Un robots.txt protège-t-il un dossier privé ?</summary>
+        <p>Non, et c'est même l'inverse. Le fichier est public : indiquer un dossier dedans revient à le signaler. Un dossier de sauvegarde ou un espace d'administration se protège par un mot de passe ou une restriction d'accès côté serveur.</p>
+      </details>
+    </div>
+
+    <div class="tags-row">
+      <a href="/seo/" class="tag">SEO</a>
+      <a href="/articles/erreurs-indexation-google/" class="tag">Indexation</a>
+      <a href="/articles/donnees-structurees-schema-org/" class="tag">Données structurées</a>
+    </div>
+
+    <div class="share-row">
+      <span class="small">Partager</span>
+      <a href="#" class="share-btn" onclick="return sharePage('whatsapp')" data-share="whatsapp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.6-4.5A8.4 8.4 0 1 1 8 20.4z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('linkedin')" data-share="linkedin" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('facebook')" data-share="facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('copy')" data-share="copy" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></a>
+    </div>
+
+    <div class="related">
+      <h2>Articles à lire ensuite</h2>
+      <a href="/articles/erreurs-indexation-google/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">SEO</span>
+          <h3>Erreurs d'indexation : pourquoi votre page n'apparaît pas</h3>
+          <p class="small">L'arbre de diagnostic, cause par cause, avec le symptôme exact dans Search Console.</p>
+        </div>
+      </a>
+      <a href="/articles/donnees-structurees-schema-org/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">SEO</span>
+          <h3>Données structurées : ce que Google comprend de votre site</h3>
+          <p class="small">Les schémas utiles à un commerce local, un exemple JSON-LD, et ceux qui ne servent à rien.</p>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-col">
+        <img class="footer-logo logo-img-light" src="/assets/img/logo-light.webp"
+             srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+             width="152" height="25" alt="ePerformance" loading="lazy">
+        <img class="footer-logo logo-img-dark" src="/assets/img/logo-dark.webp"
+             srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+             width="157" height="25" alt="" aria-hidden="true" loading="lazy">
+        <p class="card-text mt-3" style="max-width:34ch">Stratégie d&#x27;acquisition, IA générative, automatisation et développement web premium. Basé en Côte d&#x27;Ivoire, 100 % en ligne.</p>
+      </div>
+
+      <div class="footer-col">
+        <h2>Services</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/index.html#methode" rel="noopener">stratégie d&#x27;acquisition</a></li>
+          <li><a href="https://eperformance.pro/ia.html" rel="noopener">IA générative</a></li>
+          <li><a href="https://eperformance.pro/automatisation.html" rel="noopener">Automatisation</a></li>
+          <li><a href="https://eperformance.pro/site-web.html" rel="noopener">Création de site web</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Ressources</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/diagnostic_eperformance.html" rel="noopener">Diagnostic gratuit</a></li>
+          <li><a href="https://eperformance.pro/formation.html" rel="noopener">Formations</a></li>
+          <li><a href="https://eperformance.pro/ebook.html" rel="noopener">Ebooks</a></li>
+          <li><a href="https://blog.eperformance.pro/" rel="noopener">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="https://wa.me/2250151170666" rel="noopener">+225 01 51 17 06 66</a></li>
+          <li><a href="mailto:bonjour@eperformance.pro">bonjour@eperformance.pro</a></li>
+          <li><a href="https://api.eperformance.pro/connexion.php" rel="noopener">Espace client</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 ePerformance — par K. Stéphane. Tous droits réservés.</p>
+      <p><a href="https://eperformance.pro/mentions-legales.html">Mentions légales</a> · <a href="https://eperformance.pro/politique-confidentialite.html">Confidentialité</a> · <a href="https://eperformance.pro/cookies.html">Cookies</a> · <a href="https://eperformance.pro/cgv.html">CGV</a></p>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a class="btn btn-gold" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+  <a class="btn btn-wa" href="https://wa.me/2250151170666" style="flex:0 0 auto" rel="noopener">WhatsApp</a>
+</div>
+
+<div class="consent" id="consent-banner" hidden>
+  <div class="consent-inner">
+    <div class="consent-text">
+      <p><strong>Vous choisissez ce que nous mesurons.</strong></p>
+      <p>Nous utilisons des traceurs pour comprendre comment le site est utilisé et pour
+         mesurer nos campagnes. Aucun ne se déclenche avant votre accord.
+         <a href="https://eperformance.pro/politique-confidentialite.html">Politique de confidentialité</a> ·
+         <a href="https://eperformance.pro/cookies.html">En savoir plus</a></p>
+    </div>
+    <div class="consent-actions">
+      <button type="button" class="btn btn-ghost" data-consent="refuse">Tout refuser</button>
+      <button type="button" class="btn btn-outline" data-consent="customize">Paramétrer</button>
+      <button type="button" class="btn btn-gold" data-consent="accept">Tout accepter</button>
+    </div>
+  </div>
+
+  <div class="consent-detail" id="consent-detail" hidden>
+    <fieldset class="fieldset">
+      <legend>Vos préférences</legend>
+
+      <label class="consent-row consent-row-locked">
+        <input type="checkbox" checked disabled>
+        <span>
+          <strong>Nécessaires</strong>
+          <span class="field-hint">Mémorisation de votre choix de thème et de vos préférences.
+            Toujours actifs : le site ne peut pas fonctionner sans.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-analytics">
+        <span>
+          <strong>Mesure d'audience</strong>
+          <span class="field-hint">Google Analytics 4 et Microsoft Clarity. Nous aide à voir
+            quelles pages sont utiles et où les visiteurs abandonnent.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-ads">
+        <span>
+          <strong>Publicité</strong>
+          <span class="field-hint">Meta Pixel. Mesure l'efficacité de nos campagnes
+            Facebook et Instagram.</span>
+        </span>
+      </label>
+    </fieldset>
+
+    <div class="consent-actions">
+      <button type="button" class="btn btn-outline" data-consent="back">Retour</button>
+      <button type="button" class="btn btn-gold" data-consent="save">Enregistrer mes choix</button>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/js/consent.js" defer></script>
+<script src="/assets/js/eperf.js" defer></script>
+<script src="/assets/js/blog.js" defer></script>
+</body>
+</html>

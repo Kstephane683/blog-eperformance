@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+(function(){try{var t=localStorage.getItem('eperf-theme');
+if(t!=='dark'&&t!=='light'){t='light';}
+document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+  <title>Monétiser un site sans e-commerce</title>
+  <meta name="description" content="Rendez-vous, devis, réservation, abonnement, mise en relation, vente sur WhatsApp : six modèles pour faire entrer de l&#x27;argent sans boutique.">
+  <meta name="robots" content="noindex,follow">
+  <link rel="canonical" href="https://blog.eperformance.pro/articles/monetiser-sans-ecommerce/index.html">
+  <meta name="theme-color" content="#fdfcfa">
+  <meta name="author" content="K. Stéphane">
+
+  <!-- Icônes -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="icon" href="/assets/img/favicon-16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ePerformance">
+  <meta property="og:locale" content="fr_CI">
+  <meta property="og:title" content="Monétiser un site sans e-commerce">
+  <meta property="og:description" content="Rendez-vous, devis, réservation, abonnement, mise en relation, vente sur WhatsApp : six modèles pour faire entrer de l&#x27;argent sans boutique.">
+  <meta property="og:url" content="https://blog.eperformance.pro/articles/monetiser-sans-ecommerce/index.html">
+  <meta property="og:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ePerformance — ePerformance">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Monétiser un site sans e-commerce">
+  <meta name="twitter:description" content="Rendez-vous, devis, réservation, abonnement, mise en relation, vente sur WhatsApp : six modèles pour faire entrer de l&#x27;argent sans boutique.">
+  <meta name="twitter:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta name="twitter:creator" content="@eperformancepro">
+
+  <!-- Polices : préconnexion, préchargement des deux polices critiques,
+       puis chargement non bloquant de la feuille complète -->
+  <!-- Polices : auto-hébergées, déclarées dans eperf.css.
+       On précharge les deux graisses du premier écran pour que le
+       texte soit peint dans la bonne police dès le premier rendu. -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/cormorant-garamond-700.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/dm-sans-400.woff2">
+
+  <!-- Design system : la MEME feuille que le site, a l'identique. -->
+  <link rel="stylesheet" href="/assets/css/eperf.css">
+  <!-- Composants editoriaux du blog : corps d'article, largeur de
+       lecture, cartes d'article. Ils consomment les jetons d'eperf.css
+       et ne redefinissent aucune couleur. -->
+  <link rel="stylesheet" href="/assets/css/blog.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://blog.eperformance.pro/#organization",
+      "name": "ePerformance",
+      "alternateName": "ePerformance par K. Stéphane",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "founder": {
+        "@type": "Person",
+        "@id": "https://blog.eperformance.pro/#founder",
+        "name": "K. Stéphane",
+        "jobTitle": "Fondateur, stratège acquisition",
+        "url": "https://blog.eperformance.pro/kstephane.html"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Côte d'Ivoire"
+        },
+        {
+          "@type": "Country",
+          "name": "Burkina Faso"
+        },
+        {
+          "@type": "Place",
+          "name": "Afrique de l'Ouest"
+        }
+      ],
+      "knowsLanguage": "fr",
+      "sameAs": [
+        "https://blog.eperformance.pro/"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://blog.eperformance.pro/#localbusiness",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "parentOrganization": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Abidjan",
+        "addressCountry": "CI"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Côte d'Ivoire"
+      },
+      "priceRange": "100000-350000 XOF",
+      "currenciesAccepted": "XOF",
+      "paymentAccepted": "Orange Money, Wave, MTN MoMo, Moov Money, Visa, Mastercard",
+      "availableLanguage": "fr"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://blog.eperformance.pro/#website",
+      "url": "https://blog.eperformance.pro",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "publisher": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://blog.eperformance.pro/articles/monetiser-sans-ecommerce/index.html#webpage",
+      "url": "https://blog.eperformance.pro/articles/monetiser-sans-ecommerce/index.html",
+      "name": "Monétiser un site sans e-commerce",
+      "description": "Rendez-vous, devis, réservation, abonnement, mise en relation, vente sur WhatsApp : six modèles pour faire entrer de l'argent sans boutique.",
+      "isPartOf": {
+        "@id": "https://blog.eperformance.pro/#website"
+      },
+      "about": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://blog.eperformance.pro/articles/monetiser-sans-ecommerce/index.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://blog.eperformance.pro/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Site web",
+          "item": "https://blog.eperformance.pro/site-web/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Monétiser sans boutique",
+          "item": "https://blog.eperformance.pro/articles/monetiser-sans-ecommerce/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Monétiser un site sans e-commerce",
+  "description":"Rendez-vous, devis, réservation, abonnement, mise en relation, vente sur WhatsApp : six modèles pour faire entrer de l'argent avec un site sans boutique.",
+  "image":"https://blog.eperformance.pro/assets/img/og-site-web.jpg",
+  "datePublished":"2027-01-21T09:00:00+00:00",
+  "dateModified":"2027-01-21T09:00:00+00:00",
+  "inLanguage":"fr-CI",
+  "wordCount":2299,
+  "articleSection":"Site Web",
+  "keywords":["monétiser site web","vendre sans boutique en ligne","demande de devis","prise de rendez-vous","abonnement","WhatsApp Business","Côte d'Ivoire"],
+  "author":{"@type":"Person","name":"K. STEPHANE","jobTitle":"Fondateur ePerformance","url":"https://blog.eperformance.pro/a-propos/"},
+  "publisher":{"@type":"Organization","name":"ePerformance","logo":{"@type":"ImageObject","url":"https://eperformance.pro/assets/img/logo-light.webp"}},
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.eperformance.pro/articles/monetiser-sans-ecommerce/"}
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Blog","item":"https://blog.eperformance.pro/"},
+    {"@type":"ListItem","position":2,"name":"Site Web","item":"https://blog.eperformance.pro/site-web/"},
+    {"@type":"ListItem","position":3,"name":"Monétiser un site sans e-commerce","item":"https://blog.eperformance.pro/articles/monetiser-sans-ecommerce/"}
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Peut-on vendre en ligne sans boutique ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Vendre en ligne signifie encaisser à distance, et un site vitrine le permet déjà : lien de paiement, acompte par mobile money, virement, ou espèces à la livraison. La boutique devient nécessaire quand le client doit choisir seul dans un catalogue et payer sans vous parler."}},
+    {"@type":"Question","name":"Par quel modèle commencer quand on débute ?","acceptedAnswer":{"@type":"Answer","text":"Par celui qui correspond à ce que vos clients font déjà pour vous joindre : s'ils appellent pour un créneau, commencez par le rendez-vous ; s'ils demandent un prix, commencez par le devis. Un modèle qui colle à une habitude existante produit des résultats plus vite qu'un modèle importé."}},
+    {"@type":"Question","name":"Faut-il afficher ses prix sur un site sans boutique ?","acceptedAnswer":{"@type":"Answer","text":"Une fourchette indicative ou un « à partir de » filtre les demandes hors budget et vous épargne des échanges inutiles. Si vous ne pouvez pas afficher de prix, indiquez au moins ce qui le fait varier : quantité, dimensions, délai, zone d'intervention. Un site sans aucun repère de prix reçoit surtout des demandes hors cible."}},
+    {"@type":"Question","name":"Combien de demandes faut-il pour que le site soit rentable ?","acceptedAnswer":{"@type":"Answer","text":"Il n'existe pas de seuil universel. La comparaison utile est annuelle : le nombre de demandes utiles reçues sur douze mois, face au coût du site sur la même période et au temps passé à traiter ces demandes. Si trois demandes conclues par mois couvrent le coût annuel, le calcul est vite fait ; sinon, c'est le modèle ou la page qu'il faut revoir."}},
+    {"@type":"Question","name":"Un site vitrine peut-il demander un acompte ?","acceptedAnswer":{"@type":"Answer","text":"Oui, et c'est une pratique courante pour les prestations qui mobilisent un créneau ou engagent un achat de matière. L'acompte se demande par un lien de paiement ou par mobile money, avec une confirmation écrite qui rappelle le montant versé et le solde restant. Écrivez aussi ce qui se passe en cas d'annulation."}},
+    {"@type":"Question","name":"Les demandes arrivent mais ne se concluent pas : d'où vient le problème ?","acceptedAnswer":{"@type":"Answer","text":"Rarement du site. Le plus souvent, c'est le délai de réponse qui est trop long, ou la réponse qui ne dit ni prix ni délai. Comparez le nombre de demandes reçues et le nombre de réponses envoyées le jour même : l'écart explique presque toujours la différence entre demandes et ventes."}}
+  ]
+}
+  </script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a class="logo" href="/" aria-label="ePerformance — accueil">
+      <img class="logo-img-light" src="/assets/img/logo-light.webp"
+           srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+           width="182" height="30" alt="ePerformance" fetchpriority="high">
+      <img class="logo-img-dark" src="/assets/img/logo-dark.webp"
+           srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+           width="188" height="30" alt="" aria-hidden="true">
+    </a>
+
+    <nav class="nav" id="primary-nav" aria-label="Navigation principale">
+      <a href="/">Accueil</a>
+      <a href="/acquisition/">Acquisition</a>
+      <a href="/site-web/" aria-current="page">Site web</a>
+      <a href="/seo/">SEO</a>
+      <a href="/business/">Business</a>
+      <a href="/articles/ia-generative-pme-africaine/">IA</a>
+      <a href="/articles/automatisation-marketing-debuter/">Automatisation</a>
+      <a href="/a-propos/">À propos</a>
+      <a href="https://eperformance.pro" rel="noopener">Site principal</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" data-theme-toggle
+              aria-pressed="false" aria-label="Activer le thème sombre">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+        </svg>
+      </button>
+
+      <a class="btn btn-gold btn-desktop" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false"
+              aria-controls="primary-nav" aria-label="Ouvrir le menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<nav class="breadcrumb container" aria-label="Fil d'Ariane">
+  <ol>
+    <li><a href="/">Accueil</a></li>
+    <li><a href="/site-web/">Site web</a></li>
+    <li aria-current="page">Monétiser sans boutique</li>
+  </ol>
+</nav>
+
+<main id="main">
+
+
+<section class="article-hero">
+  <div class="container-reading">
+
+    <nav class="article-breadcrumb" aria-label="Fil d'Ariane">
+      <a href="/">Blog</a>
+      <span class="sep">/</span>
+      <a href="/site-web/">Site Web</a>
+      <span class="sep">/</span>
+      <span>Monétiser un site sans e-commerce</span>
+    </nav>
+
+    <span class="article-category">Site Web</span>
+    <h1>Monétiser un site <span class="text-gold">sans e-commerce</span></h1>
+    <p class="lead">Un site sans panier peut déjà faire entrer de l'argent. Rendez-vous, demande de devis, réservation, abonnement, mise en relation, vente conclue sur WhatsApp : voici six modèles qui fonctionnent en Côte d'Ivoire, ce que chacun exige et ce qu'il produit.</p>
+
+    <div class="article-meta">
+      <div class="author">
+        <div class="author-avatar">KS</div>
+        <div>
+          <div class="article-author-name">K. STEPHANE</div>
+          <div class="small">Fondateur ePerformance</div>
+        </div>
+      </div>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg> 21 janvier 2027</span>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.6 2.1"/></svg> 11 min de lecture</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section-flush-top">
+  <div class="article-body container-reading">
+
+    <p>Beaucoup d'entreprises attendent d'avoir une boutique en ligne pour considérer qu'elles vendent sur internet. C'est une erreur de raisonnement : la boutique n'est qu'un mode d'encaissement parmi d'autres. Ce qui compte, c'est le moment où une personne décide de vous écrire, et ce moment se prépare très bien sans panier.</p>
+
+    <p>Six modèles produisent de l'argent avec un site sans boutique : le rendez-vous, la demande de devis, la réservation, l'abonnement, la mise en relation et la vente conclue dans une conversation. Chacun exige quelque chose de précis et produit un résultat différent. Les décrire séparément évite de mélanger trois modèles dans un même site et de n'en réussir aucun.</p>
+
+    <h2>Ce qu'un site sans boutique peut déjà encaisser</h2>
+
+    <p>Un site vitrine ne se juge pas au nombre de paniers, il n'en a pas, mais au nombre de demandes qu'il déclenche. Une demande, c'est une personne qui vous donne son besoin et un moyen de la joindre. À partir de là, l'encaissement passe par les canaux que vos clients utilisent déjà : mobile money, espèces à la livraison, virement, ou un lien de paiement envoyé dans la conversation.</p>
+
+    <p>Le site a donc deux rôles, et un seul est visible. Le premier : présenter l'offre assez clairement pour qu'un inconnu s'y reconnaisse. Le second : capter la demande et la transmettre à quelqu'un qui y répond. Un site qui présente bien mais ne capte rien est une brochure. Un site qui capte mais présente mal attire des demandes hors sujet, qui coûtent du temps sans rien rapporter.</p>
+
+    <p>Les six modèles qui suivent se distinguent par ce qu'ils demandent comme travail quotidien, pas par leur sophistication technique. Aucun n'exige de paiement en ligne intégré. Tous exigent une réponse à la hauteur de la promesse affichée sur la page.</p>
+
+    <div class="callout">
+      <p><strong>Le repère.</strong> Sans boutique, la question n'est pas « combien de commandes en ligne ? » mais « combien de demandes utiles par semaine, et qui y répond ? ». Tant que personne n'est nommé pour répondre, aucun des modèles ci-dessous ne tourne.</p>
+    </div>
+
+    <h2>Le rendez-vous : remplir un agenda</h2>
+
+    <p>C'est le modèle le plus direct pour un service où le client se déplace ou reçoit quelqu'un : salon, cabinet, garage, cours particuliers, atelier de réparation. Le site remplace une partie des appels par une demande écrite, que vous traitez quand vous êtes disponible.</p>
+
+    <p><strong>Ce qu'il exige.</strong> Une page par prestation, avec la durée et le tarif ou la fourchette. Un agenda tenu à jour, ou des créneaux d'appel annoncés noir sur blanc. Une confirmation dans la journée, et un rappel la veille. Un numéro qui répond pendant les heures affichées sur la fiche.</p>
+
+    <p><strong>Ce qu'il produit.</strong> Des créneaux remplis sans passer par le téléphone, et moins de créneaux vides : la confirmation puis le rappel réduisent les absences non prévenues, qui immobilisent une heure de travail chacune. Le gain se mesure au taux de présence, pas au nombre de visites sur la page.</p>
+
+    <p>La mesure utile, ici, n'est pas le nombre de visites sur la page mais le nombre de rendez-vous pris depuis le site, comparé au nombre de rendez-vous pris par téléphone. Si les deux chiffres progressent ensemble, la page fait son travail ; si le téléphone baisse sans que la page monte, c'est que la demande écrite n'est pas encore assez claire, ou que le formulaire réclame trop d'informations.</p>
+
+    <p>L'erreur courante est d'écrire « Prenez rendez-vous » sans dire ce qui se passe ensuite. Le client ne sait pas s'il sera rappelé, ni quand. Il hésite, puis appelle un concurrent dont la page explique la suite. Trois lignes suffisent à lever le doute : qui confirme, sous quel délai, et ce qu'il faut apporter.</p>
+
+    <h2>La demande de devis : qualifier avant de chiffrer</h2>
+
+    <p>C'est le modèle des métiers dont le prix dépend du besoin : menuiserie, imprimerie, transport, événementiel, travaux, logistique. Ici, l'argent entre par une demande de devis suivie d'un devis accepté, souvent après une visite sur place.</p>
+
+    <p><strong>Ce qu'il exige.</strong> Une page par type de prestation, des réalisations comparables à ce que le visiteur cherche, une fourchette indicative ou une explication de ce qui fait varier le prix, un formulaire de cinq champs au maximum, et une réponse rapide. Le formulaire demande le nom, un contact, le besoin, le lieu et le délai. Le budget se discute après, pas avant.</p>
+
+    <p><strong>Ce qu'il produit.</strong> Des demandes exploitables. Le gain principal n'est pas le volume, c'est la qualité : un visiteur qui décrit son besoin en cinq informations vous épargne l'appel de vingt minutes qui sert à les obtenir. Un devis se prépare alors directement, au lieu d'être précédé de deux échanges.</p>
+
+    <p>Deux détails décident du rendement. Le premier est le délai de première réponse : une demande traitée le jour même a plus de chances d'aboutir qu'une demande traitée trois jours plus tard, parce que le client a souvent écrit à plusieurs prestataires en même temps. Le second est la relance unique, programmée quelques jours après l'envoi du devis, pour les dossiers restés sans réponse. Une relance suffit ; au-delà, vous insistez.</p>
+
+    <h2>La réservation, avec un acompte pour tenir le créneau</h2>
+
+    <p>Réserver concerne les salles, les hébergements, les tables, les places de formation. La différence avec le rendez-vous tient à une chose : le créneau a une valeur marchande, et il se paie en partie à l'avance.</p>
+
+    <p><strong>Ce qu'il exige.</strong> Des disponibilités fiables et visibles, une politique d'annulation écrite avec le délai et ce qui reste dû, un moyen d'encaisser l'acompte, et une confirmation qui reprend la date, l'heure, le lieu et le montant réglé. L'usage courant est de demander un acompte qui couvre au moins la mobilisation du créneau.</p>
+
+    <p><strong>Ce qu'il produit.</strong> Des réservations fermes. L'acompte écarte les réservations approximatives, celles qui bloquent une salle un samedi soir et disparaissent sans prévenir. Ce que vous perdez en volume de demandes, vous le gagnez en créneaux réellement occupés, et en silence : les relances téléphoniques du vendredi disparaissent.</p>
+
+    <p>La page de réservation doit répondre à trois questions avant qu'on vous les pose. Est-ce encore libre ? Combien faut-il verser pour bloquer ? Que se passe-t-il si j'annule ? Une page qui répond aux trois transforme une intention en réservation. Une page qui renvoie vers un formulaire de contact laisse la demande refroidir pendant une nuit.</p>
+
+    <h2>L'abonnement : encaisser chaque mois sans redémarrer</h2>
+
+    <p>L'abonnement transforme une vente en revenu qui revient. Il existe déjà dans beaucoup de métiers locaux : entretien, livraison d'eau, pressing, suivi comptable, entretien de climatisation, gestion des réseaux sociaux, maintenance de site.</p>
+
+    <p><strong>Ce qu'il exige.</strong> Une prestation récurrente dont la valeur se voit chaque mois : une fréquence, un délai d'intervention, un résultat vérifiable. Un périmètre écrit, pour éviter les demandes hors abonnement qui reviennent chaque semaine. Un rappel de renouvellement et un paiement simple à répéter, sans nouvelle négociation à chaque échéance.</p>
+
+    <p><strong>Ce qu'il produit.</strong> Un revenu prévisible, qui finance la structure sans repartir de zéro chaque mois. C'est le modèle qui demande le plus de rigueur au départ, parce qu'il faut définir ce qui se répète avant de le vendre. Une fois posé, il se vend sur le site avec trois éléments : la fréquence, le contenu et le tarif mensuel.</p>
+
+    <p>Pour fixer le prix d'un abonnement, une méthode simple consiste à relever ce que vos clients vous ont payé sur les trois derniers mois pour ce même service, puis à en faire une moyenne mensuelle. Cette moyenne devient le tarif indicatif, et la prestation récurrente devient un engagement clair au lieu d'un forfait improvisé.</p>
+
+    <p>Le test de solidité d'un abonnement tient en une question : si vous perdez un client, que reste-t-il à faire ce mois-là ? Si la réponse est « rien, le service s'arrête », l'abonnement est propre. Si la réponse est « il faut encore livrer, entretenir ou produire ce qui était prévu », alors le périmètre doit être ajusté avant la mise en vente.</p>
+
+    <h2>La mise en relation : facturer l'introduction</h2>
+
+    <p>Dans ce modèle, vous ne vendez pas la prestation : vous vendez l'accès. Le site présente une offre, reçoit les demandes, et vous transmettez chaque demande à un professionnel qui vous rémunère pour l'introduction, ou vous prélevez une commission sur l'affaire conclue.</p>
+
+    <p><strong>Ce qu'il exige.</strong> Un volume des deux côtés : assez de demandes pour intéresser les professionnels, et assez de professionnels pour répondre aux demandes. Une règle de commission écrite, avec le moment où elle est due. Et une trace de l'origine de chaque contact, pour éviter les discussions sur l'affaire qui « venait d'ailleurs ».</p>
+
+    <p><strong>Ce qu'il produit.</strong> Une commission par affaire, sans portefeuille de clients à gérer et sans production à assurer. Le site devient le catalogue de l'offre, et votre travail consiste à qualifier avant de transmettre : un contact mal qualifié envoyé trois fois de suite à un professionnel ferme la porte.</p>
+
+    <p>La traçabilité se tient avec des moyens simples. Un numéro ou une référence par professionnel, un tableau qui note pour chaque demande le canal d'arrivée et la date de transmission, et une règle de durée : la commission s'applique si l'affaire se conclut dans les trois mois suivant l'introduction. Sans cette règle, chaque dossier devient une négociation.</p>
+
+    <h2>WhatsApp : présenter sur le site, conclure dans la conversation</h2>
+
+    <p>C'est le modèle le plus répandu en Côte d'Ivoire, et le plus mal documenté. Le site présente l'offre, le catalogue et les prix indicatifs ; la vente se conclut dans une conversation, avec un paiement mobile money. Le site n'encaisse pas, il amène la personne au bon endroit au bon moment.</p>
+
+    <p><strong>Ce qu'il exige.</strong> Une personne qui répond aux heures annoncées, un catalogue à jour avec des prix ou des fourchettes, et un moyen de paiement prêt à envoyer. Le profil, les réponses rapides et les étiquettes de suivi font le reste, comme détaillé dans <a href="/articles/whatsapp-business-conversion/">WhatsApp Business : le canal de conversion sous-estimé</a>.</p>
+
+    <p><strong>Ce qu'il produit.</strong> Le taux de conclusion le plus élevé des six modèles, parce que la conversation lève les doutes un par un, à l'écrit, sans faire attendre le client. Sa limite est humaine et se voit tout de suite : sans quelqu'un pour répondre, le modèle s'arrête au premier message, et le client écrit ailleurs.</p>
+
+    <p>Pour suivre ce modèle, une seule mesure suffit : le nombre de conversations commencées depuis le site, chaque mois. Il se relève en demandant à chaque nouveau contact par où il est arrivé, ou en utilisant un lien différent par page. Ce chiffre dit si le site travaille, et il ne dépend d'aucun tableau de bord.</p>
+
+    <p>Le bon modèle est celui que vous pouvez tenir six mois. Un site avec prise de rendez-vous et personne pour confirmer ne produit rien. Commencez par celui qui correspond à ce que vos clients font déjà, puis ajoutez-en un second quand le premier tourne. Et si le volume de commandes justifie un panier, la question se pose autrement : <a href="/articles/vitrine-ou-ecommerce/">site vitrine ou e-commerce</a> détaille la grille de décision, activité par activité.</p>
+
+    <div class="cta-block">
+      <h2>Un site qui amène des demandes, pas seulement des visites</h2>
+      <p>La page site web présente ce que contient un site vitrine, comment les demandes sont captées et transmises, et ce qui reste entre vos mains.</p>
+      <a class="btn btn-gold" href="https://eperformance.pro/site-web.html">Voir la page site web
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <h2>FAQ — Vendre sans boutique en ligne</h2>
+
+    <div class="faq-section">
+      <details>
+        <summary>Peut-on vendre en ligne sans boutique ?</summary>
+        <p>Oui. Vendre en ligne signifie encaisser à distance, et un site vitrine le permet déjà : lien de paiement, acompte par mobile money, virement, ou espèces à la livraison. La boutique devient nécessaire quand le client doit choisir seul dans un catalogue et payer sans vous parler.</p>
+      </details>
+
+      <details>
+        <summary>Par quel modèle commencer quand on débute ?</summary>
+        <p>Par celui qui correspond à ce que vos clients font déjà pour vous joindre : s'ils appellent pour un créneau, commencez par le rendez-vous ; s'ils demandent un prix, commencez par le devis. Un modèle qui colle à une habitude existante produit des résultats plus vite qu'un modèle importé.</p>
+      </details>
+
+      <details>
+        <summary>Faut-il afficher ses prix sur un site sans boutique ?</summary>
+        <p>Une fourchette indicative ou un « à partir de » filtre les demandes hors budget et vous épargne des échanges inutiles. Si vous ne pouvez pas afficher de prix, indiquez au moins ce qui le fait varier : quantité, dimensions, délai, zone d'intervention. Un site sans aucun repère de prix reçoit surtout des demandes hors cible.</p>
+      </details>
+
+      <details>
+        <summary>Combien de demandes faut-il pour que le site soit rentable ?</summary>
+        <p>Il n'existe pas de seuil universel. La comparaison utile est annuelle : le nombre de demandes utiles reçues sur douze mois, face au coût du site sur la même période et au temps passé à traiter ces demandes. Si trois demandes conclues par mois couvrent le coût annuel, le calcul est vite fait ; sinon, c'est le modèle ou la page qu'il faut revoir.</p>
+      </details>
+
+      <details>
+        <summary>Un site vitrine peut-il demander un acompte ?</summary>
+        <p>Oui, et c'est une pratique courante pour les prestations qui mobilisent un créneau ou engagent un achat de matière. L'acompte se demande par un lien de paiement ou par mobile money, avec une confirmation écrite qui rappelle le montant versé et le solde restant. Écrivez aussi ce qui se passe en cas d'annulation.</p>
+      </details>
+
+      <details>
+        <summary>Les demandes arrivent mais ne se concluent pas : d'où vient le problème ?</summary>
+        <p>Rarement du site. Le plus souvent, c'est le délai de réponse qui est trop long, ou la réponse qui ne dit ni prix ni délai. Comparez le nombre de demandes reçues et le nombre de réponses envoyées le jour même : l'écart explique presque toujours la différence entre demandes et ventes.</p>
+      </details>
+    </div>
+
+    <div class="tags-row">
+      <a href="/site-web/" class="tag">Site web</a>
+      <a href="/articles/vitrine-ou-ecommerce/" class="tag">Vente sans boutique</a>
+      <a href="/articles/whatsapp-business-conversion/" class="tag">WhatsApp</a>
+    </div>
+
+    <div class="share-row">
+      <span class="small">Partager</span>
+      <a href="#" class="share-btn" onclick="return sharePage('whatsapp')" data-share="whatsapp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.6-4.5A8.4 8.4 0 1 1 8 20.4z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('linkedin')" data-share="linkedin" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('facebook')" data-share="facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('copy')" data-share="copy" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></a>
+    </div>
+
+    <div class="related">
+      <h2>Articles à lire ensuite</h2>
+      <a href="/articles/vitrine-ou-ecommerce/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">Site Web</span>
+          <h3>Site vitrine ou e-commerce : comment choisir</h3>
+          <p class="small">Le critère n'est pas le budget, c'est la façon dont vos clients paient.</p>
+        </div>
+      </a>
+      <a href="/articles/whatsapp-business-conversion/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">Acquisition</span>
+          <h3>WhatsApp Business : le canal de conversion sous-estimé</h3>
+          <p class="small">Catalogue, réponses rapides, étiquettes : la structure qui transforme une conversation en commande.</p>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-col">
+        <img class="footer-logo logo-img-light" src="/assets/img/logo-light.webp"
+             srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+             width="152" height="25" alt="ePerformance" loading="lazy">
+        <img class="footer-logo logo-img-dark" src="/assets/img/logo-dark.webp"
+             srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+             width="157" height="25" alt="" aria-hidden="true" loading="lazy">
+        <p class="card-text mt-3" style="max-width:34ch">Stratégie d&#x27;acquisition, IA générative, automatisation et développement web premium. Basé en Côte d&#x27;Ivoire, 100 % en ligne.</p>
+      </div>
+
+      <div class="footer-col">
+        <h2>Services</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/index.html#methode" rel="noopener">stratégie d&#x27;acquisition</a></li>
+          <li><a href="https://eperformance.pro/ia.html" rel="noopener">IA générative</a></li>
+          <li><a href="https://eperformance.pro/automatisation.html" rel="noopener">Automatisation</a></li>
+          <li><a href="https://eperformance.pro/site-web.html" rel="noopener">Création de site web</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Ressources</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/diagnostic_eperformance.html" rel="noopener">Diagnostic gratuit</a></li>
+          <li><a href="https://eperformance.pro/formation.html" rel="noopener">Formations</a></li>
+          <li><a href="https://eperformance.pro/ebook.html" rel="noopener">Ebooks</a></li>
+          <li><a href="https://blog.eperformance.pro/" rel="noopener">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="https://wa.me/2250151170666" rel="noopener">+225 01 51 17 06 66</a></li>
+          <li><a href="mailto:bonjour@eperformance.pro">bonjour@eperformance.pro</a></li>
+          <li><a href="https://api.eperformance.pro/connexion.php" rel="noopener">Espace client</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 ePerformance — par K. Stéphane. Tous droits réservés.</p>
+      <p><a href="https://eperformance.pro/mentions-legales.html">Mentions légales</a> · <a href="https://eperformance.pro/politique-confidentialite.html">Confidentialité</a> · <a href="https://eperformance.pro/cookies.html">Cookies</a> · <a href="https://eperformance.pro/cgv.html">CGV</a></p>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a class="btn btn-gold" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+  <a class="btn btn-wa" href="https://wa.me/2250151170666" style="flex:0 0 auto" rel="noopener">WhatsApp</a>
+</div>
+
+<div class="consent" id="consent-banner" hidden>
+  <div class="consent-inner">
+    <div class="consent-text">
+      <p><strong>Vous choisissez ce que nous mesurons.</strong></p>
+      <p>Nous utilisons des traceurs pour comprendre comment le site est utilisé et pour
+         mesurer nos campagnes. Aucun ne se déclenche avant votre accord.
+         <a href="https://eperformance.pro/politique-confidentialite.html">Politique de confidentialité</a> ·
+         <a href="https://eperformance.pro/cookies.html">En savoir plus</a></p>
+    </div>
+    <div class="consent-actions">
+      <button type="button" class="btn btn-ghost" data-consent="refuse">Tout refuser</button>
+      <button type="button" class="btn btn-outline" data-consent="customize">Paramétrer</button>
+      <button type="button" class="btn btn-gold" data-consent="accept">Tout accepter</button>
+    </div>
+  </div>
+
+  <div class="consent-detail" id="consent-detail" hidden>
+    <fieldset class="fieldset">
+      <legend>Vos préférences</legend>
+
+      <label class="consent-row consent-row-locked">
+        <input type="checkbox" checked disabled>
+        <span>
+          <strong>Nécessaires</strong>
+          <span class="field-hint">Mémorisation de votre choix de thème et de vos préférences.
+            Toujours actifs : le site ne peut pas fonctionner sans.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-analytics">
+        <span>
+          <strong>Mesure d'audience</strong>
+          <span class="field-hint">Google Analytics 4 et Microsoft Clarity. Nous aide à voir
+            quelles pages sont utiles et où les visiteurs abandonnent.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-ads">
+        <span>
+          <strong>Publicité</strong>
+          <span class="field-hint">Meta Pixel. Mesure l'efficacité de nos campagnes
+            Facebook et Instagram.</span>
+        </span>
+      </label>
+    </fieldset>
+
+    <div class="consent-actions">
+      <button type="button" class="btn btn-outline" data-consent="back">Retour</button>
+      <button type="button" class="btn btn-gold" data-consent="save">Enregistrer mes choix</button>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/js/consent.js" defer></script>
+<script src="/assets/js/eperf.js" defer></script>
+<script src="/assets/js/blog.js" defer></script>
+</body>
+</html>

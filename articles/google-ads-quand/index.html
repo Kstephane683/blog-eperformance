@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+(function(){try{var t=localStorage.getItem('eperf-theme');
+if(t!=='dark'&&t!=='light'){t='light';}
+document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+  <title>Google Ads : quand cela vaut vraiment la peine</title>
+  <meta name="description" content="Trois conditions à réunir avant de dépenser sur Google Ads : une demande de recherche existante, une page qui convertit, un budget qui sort de l&#x27;apprentissage.">
+  <meta name="robots" content="noindex,follow">
+  <link rel="canonical" href="https://blog.eperformance.pro/articles/google-ads-quand/index.html">
+  <meta name="theme-color" content="#fdfcfa">
+  <meta name="author" content="K. Stéphane">
+
+  <!-- Icônes -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="icon" href="/assets/img/favicon-16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ePerformance">
+  <meta property="og:locale" content="fr_CI">
+  <meta property="og:title" content="Google Ads : quand cela vaut vraiment la peine">
+  <meta property="og:description" content="Trois conditions à réunir avant de dépenser sur Google Ads : une demande de recherche existante, une page qui convertit, un budget qui sort de l&#x27;apprentissage.">
+  <meta property="og:url" content="https://blog.eperformance.pro/articles/google-ads-quand/index.html">
+  <meta property="og:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ePerformance — ePerformance">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Google Ads : quand cela vaut vraiment la peine">
+  <meta name="twitter:description" content="Trois conditions à réunir avant de dépenser sur Google Ads : une demande de recherche existante, une page qui convertit, un budget qui sort de l&#x27;apprentissage.">
+  <meta name="twitter:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta name="twitter:creator" content="@eperformancepro">
+
+  <!-- Polices : préconnexion, préchargement des deux polices critiques,
+       puis chargement non bloquant de la feuille complète -->
+  <!-- Polices : auto-hébergées, déclarées dans eperf.css.
+       On précharge les deux graisses du premier écran pour que le
+       texte soit peint dans la bonne police dès le premier rendu. -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/cormorant-garamond-700.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/dm-sans-400.woff2">
+
+  <!-- Design system : la MEME feuille que le site, a l'identique. -->
+  <link rel="stylesheet" href="/assets/css/eperf.css">
+  <!-- Composants editoriaux du blog : corps d'article, largeur de
+       lecture, cartes d'article. Ils consomment les jetons d'eperf.css
+       et ne redefinissent aucune couleur. -->
+  <link rel="stylesheet" href="/assets/css/blog.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://blog.eperformance.pro/#organization",
+      "name": "ePerformance",
+      "alternateName": "ePerformance par K. Stéphane",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "founder": {
+        "@type": "Person",
+        "@id": "https://blog.eperformance.pro/#founder",
+        "name": "K. Stéphane",
+        "jobTitle": "Fondateur, stratège acquisition",
+        "url": "https://blog.eperformance.pro/kstephane.html"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Côte d'Ivoire"
+        },
+        {
+          "@type": "Country",
+          "name": "Burkina Faso"
+        },
+        {
+          "@type": "Place",
+          "name": "Afrique de l'Ouest"
+        }
+      ],
+      "knowsLanguage": "fr",
+      "sameAs": [
+        "https://blog.eperformance.pro/"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://blog.eperformance.pro/#localbusiness",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "parentOrganization": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Abidjan",
+        "addressCountry": "CI"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Côte d'Ivoire"
+      },
+      "priceRange": "100000-350000 XOF",
+      "currenciesAccepted": "XOF",
+      "paymentAccepted": "Orange Money, Wave, MTN MoMo, Moov Money, Visa, Mastercard",
+      "availableLanguage": "fr"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://blog.eperformance.pro/#website",
+      "url": "https://blog.eperformance.pro",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "publisher": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://blog.eperformance.pro/articles/google-ads-quand/index.html#webpage",
+      "url": "https://blog.eperformance.pro/articles/google-ads-quand/index.html",
+      "name": "Google Ads : quand cela vaut vraiment la peine",
+      "description": "Trois conditions à réunir avant de dépenser sur Google Ads : une demande de recherche existante, une page qui convertit, un budget qui sort de l'apprentissage.",
+      "isPartOf": {
+        "@id": "https://blog.eperformance.pro/#website"
+      },
+      "about": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://blog.eperformance.pro/articles/google-ads-quand/index.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://blog.eperformance.pro/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Acquisition",
+          "item": "https://blog.eperformance.pro/acquisition/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Google Ads : quand",
+          "item": "https://blog.eperformance.pro/articles/google-ads-quand/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Google Ads : quand cela vaut vraiment la peine",
+  "description":"Trois conditions à réunir avant de dépenser sur Google Ads : une demande de recherche existante, une page qui convertit, un budget qui sort de l'apprentissage.",
+  "image":"https://blog.eperformance.pro/assets/img/og-image.jpg",
+  "datePublished":"2026-12-10T09:00:00+00:00",
+  "dateModified":"2026-12-10T09:00:00+00:00",
+  "inLanguage":"fr-CI",
+  "wordCount":2240,
+  "articleSection":"Acquisition",
+  "keywords":["google ads pme","search ads","publicité google","budget google ads","requêtes commerciales","Côte d'Ivoire","Abidjan"],
+  "author":{"@type":"Person","name":"K. STEPHANE","jobTitle":"Fondateur ePerformance","url":"https://blog.eperformance.pro/a-propos/"},
+  "publisher":{"@type":"Organization","name":"ePerformance","logo":{"@type":"ImageObject","url":"https://eperformance.pro/assets/img/logo-light.webp"}},
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.eperformance.pro/articles/google-ads-quand/"}
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Blog","item":"https://blog.eperformance.pro/"},
+    {"@type":"ListItem","position":2,"name":"Acquisition","item":"https://blog.eperformance.pro/acquisition/"},
+    {"@type":"ListItem","position":3,"name":"Google Ads : quand cela vaut vraiment la peine","item":"https://blog.eperformance.pro/articles/google-ads-quand/"}
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Faut-il un site web pour faire du Google Ads ?","acceptedAnswer":{"@type":"Answer","text":"Pas forcément, mais il faut une page où atterrir. Cela peut être une page de votre site, une page dédiée à une seule offre, ou une fiche avec les informations essentielles et un bouton de contact. Sans page, le clic n'a nulle part où aller, et le budget part sans laisser de trace exploitable."}},
+    {"@type":"Question","name":"Quel budget minimum faut-il prévoir par jour ?","acceptedAnswer":{"@type":"Answer","text":"Il n'existe pas de montant universel. Le minimum se calcule : nombre de conversions mensuelles nécessaires pour juger, multiplié par le coût par conversion estimé. La plateforme accepte de très petits budgets quotidiens, mais un budget qui ne produit que deux ou trois conversions par mois ne permet aucune décision. Mieux vaut attendre que d'ouvrir trop petit."}},
+    {"@type":"Question","name":"Pourquoi mes annonces ne s'affichent-elles presque jamais ?","acceptedAnswer":{"@type":"Answer","text":"Quatre causes, dans l'ordre de fréquence. La demande est trop faible sur les requêtes visées : vérifiez les fourchettes de volume. Le ciblage est trop étroit, ou la zone géographique trop petite. Le budget quotidien est atteint en début de journée. Ou la qualité des annonces est jugée insuffisante. Commencez toujours par le volume de recherche."}},
+    {"@type":"Question","name":"Peut-on piloter sans mesurer les conversions ?","acceptedAnswer":{"@type":"Answer","text":"Non, pas sérieusement. Vous verriez des clics et des factures sans savoir ce qu'ils produisent. Si vous n'avez pas encore de suivi automatique, tenez un comptage manuel : nombre d'appels reçus, de messages, de devis demandés, de ventes conclues, chaque semaine. Ce comptage suffit à décider tant que vous le tenez."}},
+    {"@type":"Question","name":"Faut-il commencer par Search ou par Performance Max ?","acceptedAnswer":{"@type":"Answer","text":"Commencez par Search sur un périmètre étroit. Vous voyez les requêtes, vous contrôlez les exclusions, et vous apprenez ce que vos clients tapent réellement. Une campagne automatisée sur un compte sans données ne vous apprend rien sur vos clients. Elle aura sa place plus tard, quand vous saurez déjà quelles requêtes rapportent."}},
+    {"@type":"Question","name":"Google Ads convient-il à un service local ?","acceptedAnswer":{"@type":"Answer","text":"Oui, quand la demande est écrite et que la zone est précisée dans les annonces. Vérifiez que vos requêtes contiennent bien des noms de quartiers ou de communes, et que votre page indique la zone desservie, un délai d'intervention et un moyen de contact immédiat. C'est souvent le canal le plus rapide pour ce type d'activité."}}
+  ]
+}
+  </script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a class="logo" href="/" aria-label="ePerformance — accueil">
+      <img class="logo-img-light" src="/assets/img/logo-light.webp"
+           srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+           width="182" height="30" alt="ePerformance" fetchpriority="high">
+      <img class="logo-img-dark" src="/assets/img/logo-dark.webp"
+           srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+           width="188" height="30" alt="" aria-hidden="true">
+    </a>
+
+    <nav class="nav" id="primary-nav" aria-label="Navigation principale">
+      <a href="/">Accueil</a>
+      <a href="/acquisition/" aria-current="page">Acquisition</a>
+      <a href="/site-web/">Site web</a>
+      <a href="/seo/">SEO</a>
+      <a href="/business/">Business</a>
+      <a href="/articles/ia-generative-pme-africaine/">IA</a>
+      <a href="/articles/automatisation-marketing-debuter/">Automatisation</a>
+      <a href="/a-propos/">À propos</a>
+      <a href="https://eperformance.pro" rel="noopener">Site principal</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" data-theme-toggle
+              aria-pressed="false" aria-label="Activer le thème sombre">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+        </svg>
+      </button>
+
+      <a class="btn btn-gold btn-desktop" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false"
+              aria-controls="primary-nav" aria-label="Ouvrir le menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<nav class="breadcrumb container" aria-label="Fil d'Ariane">
+  <ol>
+    <li><a href="/">Accueil</a></li>
+    <li><a href="/acquisition/">Acquisition</a></li>
+    <li aria-current="page">Google Ads : quand</li>
+  </ol>
+</nav>
+
+<main id="main">
+
+
+<section class="article-hero">
+  <div class="container-reading">
+
+    <nav class="article-breadcrumb" aria-label="Fil d'Ariane">
+      <a href="/">Blog</a>
+      <span class="sep">/</span>
+      <a href="/acquisition/">Acquisition</a>
+      <span class="sep">/</span>
+      <span>Google Ads : quand cela vaut la peine</span>
+    </nav>
+
+    <span class="article-category">Acquisition</span>
+    <h1>Google Ads : <span class="text-gold">quand cela vaut vraiment la peine</span></h1>
+    <p class="lead">Google Ads n'est ni bon ni mauvais en soi. Il fonctionne quand trois conditions sont réunies : une demande déjà écrite quelque part, une page qui convainc un inconnu, et un budget capable de sortir de la phase d'apprentissage. Voici comment vérifier chacune d'elles, et ce qui arrive quand il en manque une.</p>
+
+    <div class="article-meta">
+      <div class="author">
+        <div class="author-avatar">KS</div>
+        <div>
+          <div class="article-author-name">K. STEPHANE</div>
+          <div class="small">Fondateur ePerformance</div>
+        </div>
+      </div>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg> 10 décembre 2026</span>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.6 2.1"/></svg> 12 min de lecture</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section-flush-top">
+  <div class="article-body container-reading">
+
+    <p>Beaucoup d'entreprises ouvrent un compte Google Ads parce qu'un concurrent le fait, ou parce qu'un commercial a appelé. Trois semaines plus tard, le constat tombe : « ça ne marche pas ». Dans la majorité des cas, le canal n'était pas le problème. Une des trois conditions manquait, et personne ne l'avait vérifiée avant de dépenser.</p>
+
+    <p>Ces trois conditions se vérifient en une semaine, sans compétence technique, et sans dépenser un franc. Elles sont cumulatives : deux sur trois ne suffisent pas. C'est ce qui rend ce canal brutal pour qui l'ouvre à l'envers — et très lisible pour qui l'ouvre dans l'ordre.</p>
+
+    <p>Pour situer ce canal face à l'autre grande famille de publicité en ligne, lisez d'abord <a href="/articles/meta-ads-ou-google-ads/">Meta Ads ou Google Ads : lequel choisir</a>. Ici, on suppose que la question du canal est tranchée et qu'il reste à vérifier si le terrain est prêt. Et quand les trois conditions sont réunies, le montant à engager se calcule, il ne s'invente pas : la méthode est dans <a href="/articles/budget-publicitaire-debuter/">combien prévoir pour commencer</a>.</p>
+
+    <h2>Condition 1 : une intention de recherche existe déjà</h2>
+
+    <p>Google Search ne crée pas la demande, il la capte. Votre offre doit donc correspondre à des phrases que des gens tapent déjà, aujourd'hui, sans vous connaître.</p>
+
+    <p>La vérification tient en un exercice. Écrivez vingt phrases que vos clients prononcent quand ils vous appellent : « réparateur de frigo », « devis peinture maison », « formation comptabilité en ligne ». Tapez les débuts de ces phrases dans la barre de recherche et regardez les suggestions. Puis passez-les dans le planificateur de mots-clés : les fourchettes de volume affichées sont des ordres de grandeur, pas des chiffres exacts, mais elles suffisent à séparer un sujet qui se cherche d'un sujet qui ne se cherche pas.</p>
+
+    <p>Deuxième source, souvent la plus fiable : vos propres conversations. Les questions qu'on vous pose en message sont des requêtes en langue parlée. Si vous recevez dix fois « vous livrez à Yopougon ? », la requête existe.</p>
+
+    <p>Un point de vigilance : distinguez votre nom des besoins génériques. Les recherches sur votre marque sont faciles à capter, mais elles s'adressent à des gens qui vous connaissent déjà. La croissance vient des requêtes de besoin, celles qui ne contiennent pas votre nom. Si vous ne parvenez pas à lister dix de ces requêtes, la condition une n'est pas remplie.</p>
+
+    <h2>Condition 2 : une page qui convertit</h2>
+
+    <p>Google envoie du trafic sur une page. Si cette page ne convainc pas, le clic est perdu, et vous l'avez payé.</p>
+
+    <p>Le test se fait sans statistique. Ouvrez votre page comme si vous ne connaissiez pas votre entreprise, sur un téléphone, avec une connexion ordinaire. En cinq secondes, quatre informations doivent être visibles : ce que vous vendez, le prix ou une fourchette, la zone ou le délai, et comment commander. Si le visiteur doit faire défiler trois écrans ou chercher votre numéro, la page ne convertit pas.</p>
+
+    <p>Vient ensuite un chiffre que vous devez connaître : votre taux de conversion actuel. Sur vos cent derniers visiteurs, combien ont commandé ou écrit ? Si vous n'avez pas de site, prenez la question au comptoir : sur cent personnes qui demandent le prix, combien achètent ? Ce taux est votre point de départ, et il ne s'améliore pas en changeant de canal.</p>
+
+    <p>Un exemple arithmétique, avec des montants ronds choisis pour le calcul et non relevés quelque part. Supposez un clic à 300 FCFA et un visiteur sur cinquante qui commande. Il faut cinquante clics pour une commande, soit 15 000 FCFA de publicité. Si votre marge par vente est de 9 000 FCFA, le compte ne tient pas, quelle que soit la qualité du ciblage. Le même calcul avec un visiteur sur vingt donne 6 000 FCFA par commande, et la conversation change. Retenez la mécanique : ce n'est pas le canal qui décide, c'est votre taux de conversion multiplié par votre coût par clic, comparé à ce que vous pouvez payer pour un client. Refaites ce calcul avec vos propres chiffres, ceux de votre compte et de votre caisse.</p>
+
+    <h2>Condition 3 : un budget qui sort de l'apprentissage</h2>
+
+    <p>Une campagne Search commence par observer. Elle a besoin d'un certain nombre de conversions pour apprendre à qui montrer les annonces et sur quelles requêtes se placer. Tant qu'elle n'a pas ce volume, ses résultats bougent tout seuls, et vous jugez du bruit.</p>
+
+    <p>Le budget minimum ne se fixe donc pas en FCFA ronds, mais par une multiplication : le nombre de conversions mensuelles dont vous avez besoin pour juger, multiplié par le coût par conversion estimé. Si vous estimez qu'il faut une trentaine de conversions par mois pour lire quelque chose, et que chaque conversion coûte autour de 5 000 FCFA, l'ordre de grandeur est de 150 000 FCFA par mois sur ce canal. Ce sont des hypothèses de calcul, à remplacer par vos chiffres réels dès la première semaine de diffusion.</p>
+
+    <p>Deux erreurs de budget cassent la campagne. La première : répartir une somme modeste sur cinq campagnes, cinq groupes d'annonces et deux cents mots-clés. Aucun ensemble n'atteint le volume nécessaire. La seconde : couper au bout de quatre jours, avant la moindre conclusion possible. Si la somme disponible ne permet pas d'atteindre le volume minimum, la bonne décision est de ne pas ouvrir tout de suite, pas d'ouvrir à moitié.</p>
+
+    <h2>Ce qui se passe quand une condition manque</h2>
+
+    <h3>Sans demande : vous payez pour un silence</h3>
+    <p>Peu d'impressions, quelques clics, et un rapport qui ne dit rien. Le danger n'est pas là : il est dans les requêtes larges que le système finira par utiliser pour trouver du volume. Vous paierez alors pour des visites hors sujet, puis vous conclurez que le canal ne fonctionne pas. Le canal fonctionnait ; c'est le terrain qui était vide.</p>
+
+    <h3>Sans page : vous payez des visiteurs qui repartent</h3>
+    <p>Le budget part normalement, les clics arrivent, et rien ne se convertit. C'est le scénario le plus coûteux, parce qu'il donne l'illusion d'une campagne active. Aucun réglage ne le corrige : ni le ciblage, ni les annonces, ni le suivi des conversions. Il faut traiter la page d'abord, et seulement ensuite rouvrir le budget.</p>
+
+    <h3>Sans budget : vous financez un apprentissage sans fin</h3>
+    <p>La campagne reste instable, les résultats montent et descendent, et chaque semaine apporte une conclusion différente. Vous finissez par couper au mauvais moment, ou par augmenter sur un signal qui n'existait pas. Le volume minimum n'est pas une exigence de la plateforme, c'est ce qu'il faut pour que vos propres décisions tiennent debout.</p>
+
+    <h2>Les cas où Google Ads est un mauvais choix</h2>
+
+    <p>Il existe des situations où la réponse est non, et il vaut mieux le savoir avant d'ouvrir un compte.</p>
+
+    <ul>
+      <li><strong>Un produit que personne ne cherche.</strong> Une catégorie nouvelle, un usage que personne ne nomme encore, une innovation à expliquer : la découverte se fait ailleurs. Vous reviendrez sur Search le jour où les recherches de marque apparaîtront.</li>
+      <li><strong>Une vente qui se joue sur la confiance longue.</strong> Marchés publics, gros contrats, équipements à validation multiple : le clic ne suffit pas à déclencher une décision qui demande des semaines et plusieurs interlocuteurs.</li>
+      <li><strong>Une marge trop mince par rapport au clic.</strong> Si vous revendez un produit banalisé à faible marge et que plusieurs clics sont nécessaires pour une vente, l'arithmétique bloque. Ce n'est pas une question de talent, c'est une question de marge.</li>
+      <li><strong>Une équipe qui ne peut pas répondre.</strong> Si le téléphone sonne dans le vide et que les messages restent sans réponse une journée, vous payez pour créer une demande que vous ne servez pas.</li>
+      <li><strong>Un pic saisonnier très court.</strong> Trois semaines d'activité par an ne laissent pas le temps à la campagne de se stabiliser. Le budget part pendant l'apprentissage, et la saison se termine avant les conclusions.</li>
+    </ul>
+
+    <p>Dans ces cinq cas, la décision raisonnable n'est pas de réduire le budget, c'est de ne pas ouvrir ce canal maintenant.</p>
+
+    <h2>Comment vérifier les trois conditions en une semaine</h2>
+
+    <ol>
+      <li><strong>Jour 1 et 2 : la demande.</strong> Listez vingt phrases clients, vérifiez-les dans la barre de recherche, puis relevez les fourchettes de volume du planificateur. Vous cherchez dix requêtes de besoin distinctes, pas une.</li>
+      <li><strong>Jour 3 : la page.</strong> Test sur téléphone, en cinq secondes, avec les quatre informations obligatoires. Notez votre taux de conversion actuel, même approximatif, même au comptoir.</li>
+      <li><strong>Jour 4 : le plafond.</strong> Calculez ce que vous pouvez payer pour acquérir un client, à partir de ce qu'un client vous laisse réellement sur la durée et de la marge. Le calcul détaillé se fait dans <a href="/articles/budget-publicitaire-debuter/">cette méthode de budget</a>.</li>
+      <li><strong>Jour 5 : le budget minimum.</strong> Multipliez le nombre de conversions nécessaires par le coût par conversion estimé. Comparez ce montant au plafond de la veille. Si le budget minimum dépasse ce que vous pouvez payer par client, le canal ne tient pas debout.</li>
+      <li><strong>Jour 5, décision.</strong> Volume de recherche suffisant, page prête, budget cohérent : ouvrez, sur un périmètre étroit. Une condition manque : corrigez-la d'abord. Deux conditions manquent : regardez du côté de la découverte, avec <a href="/articles/meta-ads-ou-google-ads/">Meta Ads</a>.</li>
+    </ol>
+
+    <h2>Le premier mois : ce qu'on regarde, ce qu'on ignore</h2>
+
+    <p>Ce qu'on regarde, dans cet ordre. Le rapport des termes de recherche, pour exclure les requêtes hors sujet : c'est le premier geste de la semaine, à faire une fois par semaine. Le nombre de conversions, confronté à votre propre comptage d'appels, de messages et de ventes. Le coût par conversion, lu sur deux à trois semaines, jamais sur les trois premiers jours.</p>
+
+    <p>Ce qu'on ignore pendant ce premier mois : le nombre d'impressions, le taux de clics isolé — une annonce peut avoir un excellent taux de clics sur des requêtes qui n'achètent rien —, et la comparaison quotidienne avec un concurrent dont vous ne connaissez ni la marge, ni les coûts, ni le budget réel.</p>
+
+    <p>Une règle de conduite pour ces quatre semaines : un changement à la fois, et une trace écrite de la date. Vous modifiez les annonces, vous notez le jour. Vous changez les enchères, vous notez le jour. Sans cette discipline, vous ne saurez jamais ce qui a produit l'amélioration, et vous attribuerez au canal un résultat dû à une seule modification.</p>
+
+    <p>Reste la question que personne ne pose assez tôt : combien votre entreprise peut-elle payer pour un client ? Tant que ce plafond n'est pas écrit, le budget se fixe à l'intuition, et le canal absorbe l'intuition sans se plaindre. C'est précisément l'objet de l'article suivant.</p>
+
+    <div class="cta-block">
+      <h2>Vos trois conditions sont-elles réunies ?</h2>
+      <p>Le diagnostic gratuit reprend vos chiffres et calcule votre CAC, votre LTV et votre Payback en cinq minutes. Vous saurez ce que vous pouvez payer pour un client avant d'ouvrir un budget.</p>
+      <a class="btn btn-gold" href="https://eperformance.pro/diagnostic_eperformance.html">Faire mon diagnostic gratuit
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <h2>FAQ — Ce qu'on me demande sur Google Ads</h2>
+
+    <div class="faq-section">
+      <details>
+        <summary>Faut-il un site web pour faire du Google Ads ?</summary>
+        <p>Pas forcément, mais il faut une page où atterrir. Cela peut être une page de votre site, une page dédiée à une seule offre, ou une fiche avec les informations essentielles et un bouton de contact. Sans page, le clic n'a nulle part où aller, et le budget part sans laisser de trace exploitable.</p>
+      </details>
+
+      <details>
+        <summary>Quel budget minimum faut-il prévoir par jour ?</summary>
+        <p>Il n'existe pas de montant universel. Le minimum se calcule : nombre de conversions mensuelles nécessaires pour juger, multiplié par le coût par conversion estimé. La plateforme accepte de très petits budgets quotidiens, mais un budget qui ne produit que deux ou trois conversions par mois ne permet aucune décision. Mieux vaut attendre que d'ouvrir trop petit.</p>
+      </details>
+
+      <details>
+        <summary>Pourquoi mes annonces ne s'affichent-elles presque jamais ?</summary>
+        <p>Quatre causes, dans l'ordre de fréquence. La demande est trop faible sur les requêtes visées : vérifiez les fourchettes de volume. Le ciblage est trop étroit, ou la zone géographique trop petite. Le budget quotidien est atteint en début de journée. Ou la qualité des annonces est jugée insuffisante. Commencez toujours par le volume de recherche.</p>
+      </details>
+
+      <details>
+        <summary>Peut-on piloter sans mesurer les conversions ?</summary>
+        <p>Non, pas sérieusement. Vous verriez des clics et des factures sans savoir ce qu'ils produisent. Si vous n'avez pas encore de suivi automatique, tenez un comptage manuel : nombre d'appels reçus, de messages, de devis demandés, de ventes conclues, chaque semaine. Ce comptage suffit à décider tant que vous le tenez.</p>
+      </details>
+
+      <details>
+        <summary>Faut-il commencer par Search ou par Performance Max ?</summary>
+        <p>Commencez par Search sur un périmètre étroit. Vous voyez les requêtes, vous contrôlez les exclusions, et vous apprenez ce que vos clients tapent réellement. Une campagne automatisée sur un compte sans données ne vous apprend rien sur vos clients. Elle aura sa place plus tard, quand vous saurez déjà quelles requêtes rapportent.</p>
+      </details>
+
+      <details>
+        <summary>Google Ads convient-il à un service local ?</summary>
+        <p>Oui, quand la demande est écrite et que la zone est précisée dans les annonces. Vérifiez que vos requêtes contiennent bien des noms de quartiers ou de communes, et que votre page indique la zone desservie, un délai d'intervention et un moyen de contact immédiat. C'est souvent le canal le plus rapide pour ce type d'activité.</p>
+      </details>
+    </div>
+
+    <div class="tags-row">
+      <a href="/acquisition/" class="tag">Acquisition</a>
+      <a href="/articles/budget-publicitaire-debuter/" class="tag">Budget</a>
+      <a href="/articles/meta-ads-ou-google-ads/" class="tag">Meta Ads</a>
+    </div>
+
+    <div class="share-row">
+      <span class="small">Partager</span>
+      <a href="#" class="share-btn" onclick="return sharePage('whatsapp')" data-share="whatsapp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.6-4.5A8.4 8.4 0 1 1 8 20.4z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('linkedin')" data-share="linkedin" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('facebook')" data-share="facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('copy')" data-share="copy" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></a>
+    </div>
+
+    <div class="related">
+      <h2>Articles à lire ensuite</h2>
+      <a href="/articles/budget-publicitaire-debuter/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">Acquisition</span>
+          <h3>Budget publicitaire : combien prévoir pour commencer</h3>
+          <p class="small">Partir du CAC cible plutôt que d'un montant choisi au hasard, et le seuil minimum pour tester.</p>
+        </div>
+      </a>
+      <a href="/articles/meta-ads-ou-google-ads/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">Acquisition</span>
+          <h3>Meta Ads ou Google Ads : lequel choisir selon votre activité</h3>
+          <p class="small">La grille de décision par type d'activité, et l'ordre dans lequel ouvrir les deux canaux.</p>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-col">
+        <img class="footer-logo logo-img-light" src="/assets/img/logo-light.webp"
+             srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+             width="152" height="25" alt="ePerformance" loading="lazy">
+        <img class="footer-logo logo-img-dark" src="/assets/img/logo-dark.webp"
+             srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+             width="157" height="25" alt="" aria-hidden="true" loading="lazy">
+        <p class="card-text mt-3" style="max-width:34ch">Stratégie d&#x27;acquisition, IA générative, automatisation et développement web premium. Basé en Côte d&#x27;Ivoire, 100 % en ligne.</p>
+      </div>
+
+      <div class="footer-col">
+        <h2>Services</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/index.html#methode" rel="noopener">stratégie d&#x27;acquisition</a></li>
+          <li><a href="https://eperformance.pro/ia.html" rel="noopener">IA générative</a></li>
+          <li><a href="https://eperformance.pro/automatisation.html" rel="noopener">Automatisation</a></li>
+          <li><a href="https://eperformance.pro/site-web.html" rel="noopener">Création de site web</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Ressources</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/diagnostic_eperformance.html" rel="noopener">Diagnostic gratuit</a></li>
+          <li><a href="https://eperformance.pro/formation.html" rel="noopener">Formations</a></li>
+          <li><a href="https://eperformance.pro/ebook.html" rel="noopener">Ebooks</a></li>
+          <li><a href="https://blog.eperformance.pro/" rel="noopener">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="https://wa.me/2250151170666" rel="noopener">+225 01 51 17 06 66</a></li>
+          <li><a href="mailto:bonjour@eperformance.pro">bonjour@eperformance.pro</a></li>
+          <li><a href="https://api.eperformance.pro/connexion.php" rel="noopener">Espace client</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 ePerformance — par K. Stéphane. Tous droits réservés.</p>
+      <p><a href="https://eperformance.pro/mentions-legales.html">Mentions légales</a> · <a href="https://eperformance.pro/politique-confidentialite.html">Confidentialité</a> · <a href="https://eperformance.pro/cookies.html">Cookies</a> · <a href="https://eperformance.pro/cgv.html">CGV</a></p>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a class="btn btn-gold" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+  <a class="btn btn-wa" href="https://wa.me/2250151170666" style="flex:0 0 auto" rel="noopener">WhatsApp</a>
+</div>
+
+<div class="consent" id="consent-banner" hidden>
+  <div class="consent-inner">
+    <div class="consent-text">
+      <p><strong>Vous choisissez ce que nous mesurons.</strong></p>
+      <p>Nous utilisons des traceurs pour comprendre comment le site est utilisé et pour
+         mesurer nos campagnes. Aucun ne se déclenche avant votre accord.
+         <a href="https://eperformance.pro/politique-confidentialite.html">Politique de confidentialité</a> ·
+         <a href="https://eperformance.pro/cookies.html">En savoir plus</a></p>
+    </div>
+    <div class="consent-actions">
+      <button type="button" class="btn btn-ghost" data-consent="refuse">Tout refuser</button>
+      <button type="button" class="btn btn-outline" data-consent="customize">Paramétrer</button>
+      <button type="button" class="btn btn-gold" data-consent="accept">Tout accepter</button>
+    </div>
+  </div>
+
+  <div class="consent-detail" id="consent-detail" hidden>
+    <fieldset class="fieldset">
+      <legend>Vos préférences</legend>
+
+      <label class="consent-row consent-row-locked">
+        <input type="checkbox" checked disabled>
+        <span>
+          <strong>Nécessaires</strong>
+          <span class="field-hint">Mémorisation de votre choix de thème et de vos préférences.
+            Toujours actifs : le site ne peut pas fonctionner sans.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-analytics">
+        <span>
+          <strong>Mesure d'audience</strong>
+          <span class="field-hint">Google Analytics 4 et Microsoft Clarity. Nous aide à voir
+            quelles pages sont utiles et où les visiteurs abandonnent.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-ads">
+        <span>
+          <strong>Publicité</strong>
+          <span class="field-hint">Meta Pixel. Mesure l'efficacité de nos campagnes
+            Facebook et Instagram.</span>
+        </span>
+      </label>
+    </fieldset>
+
+    <div class="consent-actions">
+      <button type="button" class="btn btn-outline" data-consent="back">Retour</button>
+      <button type="button" class="btn btn-gold" data-consent="save">Enregistrer mes choix</button>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/js/consent.js" defer></script>
+<script src="/assets/js/eperf.js" defer></script>
+<script src="/assets/js/blog.js" defer></script>
+</body>
+</html>

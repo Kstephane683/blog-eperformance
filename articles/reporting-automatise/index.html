@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+(function(){try{var t=localStorage.getItem('eperf-theme');
+if(t!=='dark'&&t!=='light'){t='light';}
+document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+  <title>Un reporting qui se remplit tout seul chaque mois</title>
+  <meta name="description" content="Quelles données collecter, d&#x27;où elles viennent, à quelle fréquence, et les contrôles qui empêchent un rapport faux d&#x27;arriver à l&#x27;heure.">
+  <meta name="robots" content="noindex,follow">
+  <link rel="canonical" href="https://blog.eperformance.pro/articles/reporting-automatise/index.html">
+  <meta name="theme-color" content="#fdfcfa">
+  <meta name="author" content="K. Stéphane">
+
+  <!-- Icônes -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="icon" href="/assets/img/favicon-16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ePerformance">
+  <meta property="og:locale" content="fr_CI">
+  <meta property="og:title" content="Un reporting qui se remplit tout seul chaque mois">
+  <meta property="og:description" content="Quelles données collecter, d&#x27;où elles viennent, à quelle fréquence, et les contrôles qui empêchent un rapport faux d&#x27;arriver à l&#x27;heure.">
+  <meta property="og:url" content="https://blog.eperformance.pro/articles/reporting-automatise/index.html">
+  <meta property="og:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ePerformance — ePerformance">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Un reporting qui se remplit tout seul chaque mois">
+  <meta name="twitter:description" content="Quelles données collecter, d&#x27;où elles viennent, à quelle fréquence, et les contrôles qui empêchent un rapport faux d&#x27;arriver à l&#x27;heure.">
+  <meta name="twitter:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta name="twitter:creator" content="@eperformancepro">
+
+  <!-- Polices : préconnexion, préchargement des deux polices critiques,
+       puis chargement non bloquant de la feuille complète -->
+  <!-- Polices : auto-hébergées, déclarées dans eperf.css.
+       On précharge les deux graisses du premier écran pour que le
+       texte soit peint dans la bonne police dès le premier rendu. -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/cormorant-garamond-700.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/dm-sans-400.woff2">
+
+  <!-- Design system : la MEME feuille que le site, a l'identique. -->
+  <link rel="stylesheet" href="/assets/css/eperf.css">
+  <!-- Composants editoriaux du blog : corps d'article, largeur de
+       lecture, cartes d'article. Ils consomment les jetons d'eperf.css
+       et ne redefinissent aucune couleur. -->
+  <link rel="stylesheet" href="/assets/css/blog.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://blog.eperformance.pro/#organization",
+      "name": "ePerformance",
+      "alternateName": "ePerformance par K. Stéphane",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "founder": {
+        "@type": "Person",
+        "@id": "https://blog.eperformance.pro/#founder",
+        "name": "K. Stéphane",
+        "jobTitle": "Fondateur, stratège acquisition",
+        "url": "https://blog.eperformance.pro/kstephane.html"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Côte d'Ivoire"
+        },
+        {
+          "@type": "Country",
+          "name": "Burkina Faso"
+        },
+        {
+          "@type": "Place",
+          "name": "Afrique de l'Ouest"
+        }
+      ],
+      "knowsLanguage": "fr",
+      "sameAs": [
+        "https://blog.eperformance.pro/"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://blog.eperformance.pro/#localbusiness",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "parentOrganization": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Abidjan",
+        "addressCountry": "CI"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Côte d'Ivoire"
+      },
+      "priceRange": "100000-350000 XOF",
+      "currenciesAccepted": "XOF",
+      "paymentAccepted": "Orange Money, Wave, MTN MoMo, Moov Money, Visa, Mastercard",
+      "availableLanguage": "fr"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://blog.eperformance.pro/#website",
+      "url": "https://blog.eperformance.pro",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "publisher": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://blog.eperformance.pro/articles/reporting-automatise/index.html#webpage",
+      "url": "https://blog.eperformance.pro/articles/reporting-automatise/index.html",
+      "name": "Un reporting qui se remplit tout seul chaque mois",
+      "description": "Quelles données collecter, d'où elles viennent, à quelle fréquence, et les contrôles qui empêchent un rapport faux d'arriver à l'heure.",
+      "isPartOf": {
+        "@id": "https://blog.eperformance.pro/#website"
+      },
+      "about": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://blog.eperformance.pro/articles/reporting-automatise/index.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://blog.eperformance.pro/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Automatisation",
+          "item": "https://blog.eperformance.pro/articles/automatisation-marketing-debuter/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Reporting automatisé",
+          "item": "https://blog.eperformance.pro/articles/reporting-automatise/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Un reporting qui se remplit tout seul chaque mois",
+  "description":"Quelles données collecter, d'où elles viennent, à quelle fréquence : le reporting mensuel qui se construit seul, et les contrôles qui empêchent un document faux d'arriver à l'heure.",
+  "image":"https://blog.eperformance.pro/assets/img/og-image.jpg",
+  "datePublished":"2026-11-04T09:00:00+00:00",
+  "dateModified":"2026-11-04T09:00:00+00:00",
+  "inLanguage":"fr-CI",
+  "wordCount":2286,
+  "articleSection":"Automatisation",
+  "keywords":["reporting automatisé","tableau de bord pme","coût par acquisition","collecte de données api","google ads","meta ads","côte d'ivoire"],
+  "author":{"@type":"Person","name":"K. STEPHANE","jobTitle":"Fondateur ePerformance","url":"https://blog.eperformance.pro/a-propos/"},
+  "publisher":{"@type":"Organization","name":"ePerformance","logo":{"@type":"ImageObject","url":"https://eperformance.pro/assets/img/logo-light.webp"}},
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.eperformance.pro/articles/reporting-automatise/"}
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Blog","item":"https://blog.eperformance.pro/"},
+    {"@type":"ListItem","position":2,"name":"Automatisation","item":"https://blog.eperformance.pro/"},
+    {"@type":"ListItem","position":3,"name":"Un reporting qui se remplit tout seul chaque mois","item":"https://blog.eperformance.pro/articles/reporting-automatise/"}
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Quelles données collecter en priorité ?","acceptedAnswer":{"@type":"Answer","text":"Trois : la dépense publicitaire, les demandes reçues et les ventes signées. Elles suffisent à voir si un canal coûte plus qu'il ne rapporte, ce qui est la première décision d'un rapport. Le trafic et les requêtes de recherche s'ajoutent ensuite, quand ces trois lignes sont fiables et contrôlées."}},
+    {"@type":"Question","name":"Faut-il un entrepôt de données pour automatiser un reporting ?","acceptedAnswer":{"@type":"Answer","text":"Non, pas au départ. Un tableur alimenté par API tient sans difficulté pour quelques milliers de lignes par mois. L'entrepôt devient utile quand plusieurs personnes interrogent la donnée en même temps ou quand elle vient de plus de dix sources. Commencer par le tableur évite de payer une infrastructure pour un besoin qui n'existe pas encore."}},
+    {"@type":"Question","name":"Combien de temps prend la mise en place ?","acceptedAnswer":{"@type":"Answer","text":"De l'ordre de deux à quatre jours selon le nombre de sources et l'état des accès. Le temps se passe surtout sur les autorisations : comptes publicitaires, accès en lecture seule, identifiants d'API. Le rapport lui-même se construit en dernier, et cette étape est rapide une fois la table alimentée."}},
+    {"@type":"Question","name":"Peut-on automatiser un rapport sans API ?","acceptedAnswer":{"@type":"Answer","text":"Partiellement. Des exports de fichiers reçus par email se traitent, mais la collecte devient fragile : un fichier manquant, un nom qui change ou un format modifié casse le circuit sans prévenir. Une source sans API exploitable se traite mieux par un import manuel assumé, ou par un petit développement dédié, que par un bricolage."}},
+    {"@type":"Question","name":"Le rapport remplace-t-il un tableau de bord ?","acceptedAnswer":{"@type":"Answer","text":"Non, les deux servent des usages différents. Le tableau de bord se consulte pour surveiller, le rapport mensuel se lit une fois et se compare au mois précédent. On commence par le rapport, parce qu'il oblige à définir les chiffres qui comptent avant de dessiner des courbes."}},
+    {"@type":"Question","name":"Que faire si les chiffres ne tombent pas juste ?","acceptedAnswer":{"@type":"Answer","text":"On documente l'écart au lieu de le corriger dans la donnée source. Une différence entre la plateforme publicitaire et le suivi des ventes vient souvent des dates de validation, d'un doublon ou d'une conversion rattachée au mois précédent. Un écart connu et écrit vaut mieux qu'un chiffre lissé, qui rendrait le mois suivant incompréhensible."}}
+  ]
+}
+  </script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a class="logo" href="/" aria-label="ePerformance — accueil">
+      <img class="logo-img-light" src="/assets/img/logo-light.webp"
+           srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+           width="182" height="30" alt="ePerformance" fetchpriority="high">
+      <img class="logo-img-dark" src="/assets/img/logo-dark.webp"
+           srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+           width="188" height="30" alt="" aria-hidden="true">
+    </a>
+
+    <nav class="nav" id="primary-nav" aria-label="Navigation principale">
+      <a href="/">Accueil</a>
+      <a href="/acquisition/">Acquisition</a>
+      <a href="/site-web/">Site web</a>
+      <a href="/seo/">SEO</a>
+      <a href="/business/">Business</a>
+      <a href="/articles/ia-generative-pme-africaine/">IA</a>
+      <a href="/articles/automatisation-marketing-debuter/" aria-current="page">Automatisation</a>
+      <a href="/a-propos/">À propos</a>
+      <a href="https://eperformance.pro" rel="noopener">Site principal</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" data-theme-toggle
+              aria-pressed="false" aria-label="Activer le thème sombre">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+        </svg>
+      </button>
+
+      <a class="btn btn-gold btn-desktop" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false"
+              aria-controls="primary-nav" aria-label="Ouvrir le menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<nav class="breadcrumb container" aria-label="Fil d'Ariane">
+  <ol>
+    <li><a href="/">Accueil</a></li>
+    <li><a href="/articles/automatisation-marketing-debuter/">Automatisation</a></li>
+    <li aria-current="page">Reporting automatisé</li>
+  </ol>
+</nav>
+
+<main id="main">
+
+
+<section class="article-hero">
+  <div class="container-reading">
+
+    <nav class="article-breadcrumb" aria-label="Fil d'Ariane">
+      <a href="/">Blog</a>
+      <span class="sep">/</span>
+      <span>Automatisation</span>
+    </nav>
+
+    <span class="article-category">Automatisation</span>
+    <h1>Un reporting qui <span class="text-gold">se remplit tout seul</span> chaque mois</h1>
+    <p class="lead">Le rapport mensuel ne prend pas une journée parce qu'il est compliqué, mais parce qu'il est recopié. Voici quelles données collecter, d'où elles viennent, à quelle fréquence — et pourquoi un rapport automatique sur des données fausses ne vaut rien.</p>
+
+    <div class="article-meta">
+      <div class="author">
+        <div class="author-avatar">KS</div>
+        <div>
+          <div class="article-author-name">K. STEPHANE</div>
+          <div class="small">Fondateur ePerformance</div>
+        </div>
+      </div>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg> 4 novembre 2026</span>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.6 2.1"/></svg> 11 min de lecture</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section-flush-top">
+  <div class="article-body container-reading">
+
+    <p>La scène se répète le 3 de chaque mois. Vous exportez la dépense publicitaire, vous ouvrez le tableur de suivi, vous récupérez les ventes du logiciel de facturation, vous recopiez les demandes reçues sur WhatsApp. Vous cherchez ensuite pourquoi le total de dépense du tableur ne tombe pas sur celui de la plateforme. À la fin, vous produisez un document de deux pages, et il est déjà ancien.</p>
+
+    <p>Le problème n'est pas la mise en forme. C'est la recopie. Un rapport qui se construit à la main se construit trois fois : une fois pour collecter, une fois pour corriger, une fois pour présenter. Automatiser les deux premières étapes change tout, à une condition : la donnée collectée doit être juste.</p>
+
+    <h2>La consolidation mensuelle, et ce qu'elle absorbe</h2>
+
+    <p>Comptez ce que la consolidation prend vraiment. Récupérer trois exports, les aligner sur la même période, retrouver les ventes signées du mois, faire correspondre les noms de campagnes avec les noms du suivi, corriger les doublons, calculer les coûts. Pour une activité ordinaire, cette séquence occupe souvent de l'ordre d'une journée par mois.</p>
+
+    <p>Ce coût est visible, et ce n'est pas le pire. Le vrai problème est le moment : le rapport arrive une semaine après la fin du mois, quand les décisions sont déjà prises. Un canal qui coûte sans vendre depuis six semaines devrait être coupé ; il continue de tourner parce que personne ne l'a vu. Et quand le mois est mauvais, la consolidation saute, ce qui est exactement le mois où il fallait regarder.</p>
+
+    <p>Il y a une troisième perte, plus discrète : la recopie produit des erreurs qui ne se voient pas. Un montant saisi de travers, une colonne décalée, un mois dupliqué. Le rapport est présenté avec assurance, et le chiffre est faux.</p>
+
+    <div class="callout">
+      <p><strong>Le point clé.</strong> Automatiser un rapport sur des données fausses ne fait pas que produire plus vite un document faux. Cela le rend plus crédible, parce que le document arrive à l'heure et ne porte aucune trace d'approximation.</p>
+    </div>
+
+    <h2>Trois sources suffisent pour commencer</h2>
+
+    <p>Un reporting qui mélange douze sources ne se maintient pas. Trois sources couvrent les décisions qui comptent : ce que vous dépensez, ce que vous recevez comme demandes, et ce que vous vendez.</p>
+
+    <table>
+      <thead>
+        <tr><th>Source</th><th>Données collectées</th><th>Fréquence</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Publicité</strong> (Google Ads, Meta Ads)</td><td>Dépense, clics, conversions, coût par conversion</td><td>Chaque jour</td></tr>
+        <tr><td><strong>Suivi commercial</strong> (tableur, facturation)</td><td>Demandes, ventes, chiffre d'affaires, origine</td><td>Chaque jour</td></tr>
+        <tr><td><strong>Site</strong> (GA4, Search Console)</td><td>Sessions, sources, requêtes, pages consultées</td><td>Chaque semaine</td></tr>
+      </tbody>
+    </table>
+
+    <p>Les deux premières lignes sont indispensables. La troisième sert à comprendre, pas à décider : savoir qu'une page reçoit du trafic n'a d'intérêt qu'une fois que vous savez quels canaux amènent des demandes. On l'ajoute quand les deux premières sont fiables.</p>
+
+    <p>La règle de sélection est simple : une source entre dans le circuit si elle expose une API ou un export stable. Un chiffre qui n'existe que dans un cahier n'est pas collectable : il faut d'abord le saisir, et cette étape appartient à la capture des demandes, pas au reporting.</p>
+
+    <p>Reste la question que tout le monde saute : comment la table sait qu'une demande vient de Google Ads et pas de WhatsApp ? Il faut un marqueur posé à l'entrée. Trois solutions simples, à choisir une fois pour toutes : un paramètre de campagne dans l'adresse de la page, un numéro WhatsApp ou un formulaire distinct par canal, ou une question posée directement à la personne qui écrit. Sans marqueur, la colonne canal se remplit à l'intuition, et un rapport qui devine ne sert à rien.</p>
+
+    <h2>Le principe : une donnée, une source, un endroit</h2>
+
+    <p>Un chiffre ne doit exister qu'à un seul endroit, et cet endroit doit être la source d'origine. La dépense publicitaire vient de la plateforme, jamais d'une recopie. Le chiffre d'affaires vient de la facturation, jamais du souvenir de celui qui a vendu.</p>
+
+    <p>La collecte se fait par API, avec un identifiant dédié au reporting, en lecture seule. C'est une précaution à prendre avant de brancher quoi que ce soit : un identifiant qui peut modifier les campagnes est un identifiant qui peut les casser, et il n'a aucune raison d'exister dans un workflow de mesure.</p>
+
+    <p>Chaque ligne collectée porte trois informations qui ne se voyagent pas sans elle : la période couverte, la date de collecte, et la source. Ces trois champs sont ce qui permet de répondre, six mois plus tard, à la question qui dérange : d'où sort ce chiffre ?</p>
+
+    <p>Le tableur de collecte est une base de données, pas un document à présenter. On ne le met pas en forme, on l'interroge. La mise en forme vient après, dans un second tableau ou dans un rapport d'une page, et elle ne contient aucun calcul refait à la main.</p>
+
+    <h2>La table de collecte, colonne par colonne</h2>
+
+    <p>Sept colonnes suffisent. Une ligne par mois et par canal, ce qui garde le fichier petit et lisible.</p>
+
+    <table>
+      <thead>
+        <tr><th>Colonne</th><th>Contenu</th><th>Origine</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>periode</strong></td><td>Le mois, au format 2026-10</td><td>Généré</td></tr>
+        <tr><td><strong>canal</strong></td><td>Google Ads, Meta, WhatsApp, référencement</td><td>Liste fixe</td></tr>
+        <tr><td><strong>depense</strong></td><td>Montant en FCFA</td><td>Plateforme publicitaire</td></tr>
+        <tr><td><strong>demandes</strong></td><td>Nombre de demandes reçues</td><td>Suivi commercial</td></tr>
+        <tr><td><strong>ventes</strong></td><td>Nombre de ventes signées</td><td>Suivi commercial</td></tr>
+        <tr><td><strong>chiffre_affaires</strong></td><td>Montant encaissé en FCFA</td><td>Facturation</td></tr>
+        <tr><td><strong>collecte_le</strong></td><td>Date de la dernière mise à jour</td><td>Généré</td></tr>
+      </tbody>
+    </table>
+
+    <p>Les indicateurs se calculent à partir de ces colonnes, et ils ne se saisissent jamais : coût par demande, coût par vente, taux de conversion des demandes en ventes, chiffre d'affaires par franc dépensé. C'est ce dernier rapport qui fait la différence entre un canal qui rapporte et un canal qui occupe. Un canal avec une marge de 40 % et un canal avec une marge de 12 % ne se comparent pas au chiffre d'affaires : la marge, quand elle varie d'une offre à l'autre, se saisit aussi.</p>
+
+    <p>La colonne des demandes vient du suivi commercial, alimenté par la capture des demandes entrantes et par <a href="/articles/relance-client-automatique/">la séquence de relance</a> qui met à jour le statut de chaque dossier. Sans statut tenu à jour, la colonne des ventes se remplit avec un mois de retard, et le rapport compare des périodes qui ne veulent rien dire.</p>
+
+    <h2>Ce qui tourne chaque jour, chaque semaine, chaque mois</h2>
+
+    <p>La fréquence fait partie du réglage. Un rapport mensuel qui dépend d'une collecte quotidienne se remplit tout seul ; le même rapport lancé le 30 du mois demande une journée de rattrapage.</p>
+
+    <p><strong>Chaque jour, tôt le matin.</strong> La dépense de la veille et les demandes reçues sont collectées et écrites dans la table. Si une source ne renvoie rien, une alerte part : c'est ainsi qu'on repère un identifiant expiré en une journée au lieu d'un mois.</p>
+
+    <p><strong>Chaque lundi.</strong> Trois chiffres pour la semaine écoulée : dépense, demandes, ventes. Rien de plus. Ce relevé hebdomadaire sert à repérer une dérive pendant qu'elle est encore corrigeable : une campagne qui double son coût par demande se voit en sept jours, pas en trente.</p>
+
+    <p><strong>Le 1 de chaque mois.</strong> Le rapport complet se construit sur le mois clos, et la période est figée : une fois validée, elle ne bouge plus. C'est ce qui rend les mois comparables entre eux, et c'est aussi ce qui évite le rapport qui change de chiffres à chaque fois qu'on l'ouvre.</p>
+
+    <p><strong>Chaque trimestre.</strong> Une revue des canaux, avec une décision par canal : on augmente, on maintient, on coupe. Un canal sans vente sur deux mois consécutifs se coupe au trimestre, avec les chiffres sous les yeux.</p>
+
+    <p>Le rapport se livre là où il sera lu : un message WhatsApp ou Telegram avec les cinq chiffres, et un lien vers la version complète. Une pièce jointe lourde envoyée par email se classe sans être ouverte. Précisez aussi qui le reçoit : un rapport adressé à trois personnes qui n'ont rien à décider finit ignoré.</p>
+
+    <h2>Vérifier la donnée avant de l'automatiser</h2>
+
+    <p>C'est la partie que l'on saute, et c'est celle qui décide si le rapport sert à quelque chose. Trois contrôles automatiques suffisent à attraper la plupart des erreurs, et ils s'écrivent une fois.</p>
+
+    <p><strong>Le nombre de lignes attendues.</strong> Chaque collecte quotidienne doit produire exactement une ligne par canal et par jour. Zéro ligne ou deux lignes déclenchent une alerte. C'est le contrôle qui détecte un changement d'identifiant de campagne, une source muette ou un doublon.</p>
+
+    <p><strong>Le rapprochement avec l'interface.</strong> Une fois par mois, la dépense totale de la table se compare au total affiché dans la plateforme publicitaire. Un écart de quelques pour cent s'explique par les dates de validation ; un écart plus large signale un problème de collecte, pas un problème de plateforme.</p>
+
+    <p><strong>Le contrôle des périodes.</strong> Le mois clos ne doit plus recevoir de ligne. Une écriture tardive sur une période figée se signale et se corrige dans le mois courant, avec une note.</p>
+
+    <p>Ajoutez un principe qui vaut pour tout : on ne corrige jamais la donnée source pour faire tomber un total juste. Un écart se documente. La tentation de lisser un chiffre est exactement ce qui transforme un rapport en décoration. Rappelez-vous aussi qu'un jeton d'accès expire : sans surveillance, une source s'arrête en silence et le rapport se remplit de trous.</p>
+
+    <p>Le premier mois sert de calibrage. Les écarts qui apparaissent ne sont pas des pannes : ils montrent les endroits où votre suivi et les plateformes ne comptent pas la même chose. Notez-les dans le journal du projet, corrigez la règle de collecte, et ne touchez pas à la présentation du rapport avant le deuxième mois.</p>
+
+    <h2>Le rapport d'une page, et ce qu'il déclenche</h2>
+
+    <p>Un rapport lu est un rapport court. Une page, cinq chiffres, trois questions.</p>
+
+    <p>Les cinq chiffres : dépense du mois, demandes reçues, ventes signées, chiffre d'affaires encaissé, coût par vente. Chacun comparé au mois précédent, avec l'écart en pourcentage. Les trois questions qui suivent : quel canal a coûté sans vendre ce mois-ci, quel canal vend sans qu'on y mette davantage, et qu'est-ce qui a changé depuis le mois dernier.</p>
+
+    <p>Côté moyens, une instance auto-hébergée se loue dans l'ordre de quelques milliers de francs par mois, quel que soit le nombre de lignes collectées. La mise en place demande de l'ordre de deux à quatre jours selon le nombre de sources, et le temps se passe souvent sur les autorisations d'accès plutôt que sur le rapport lui-même. Le chiffrage se fait après le <a href="https://eperformance.pro/diagnostic_eperformance.html">diagnostic gratuit</a>, quand les sources et les volumes sont connus.</p>
+
+    <p>Une honnêteté pour finir : la donnée publicitaire est déclarative, et l'attribution reste imparfaite. Le rapport ne dit pas avec certitude quelle vente vient de quel clic. Il donne une répartition, des écarts et des tendances — c'est suffisant pour décider d'un budget, et cela ne remplace pas une lecture commerciale. Ce que le dispositif remplace, en revanche, est net : la consolidation du début de mois, le copier-coller entre le tableur et le logiciel de gestion, et la réunion où l'on discute d'un chiffre que personne n'a vérifié. C'est le même principe que dans <a href="/articles/synchroniser-outils-commerciaux/">la synchronisation de vos outils commerciaux</a> : une seule vérité par client, et une seule source par chiffre.</p>
+
+    <div class="cta-block">
+      <h2>Le rapport du mois dernier était prêt quand ?</h2>
+      <p>Un diagnostic gratuit pour lister vos sources, vérifier ce qui est vraiment collectable et situer les volumes. Le périmètre se décide ensuite.</p>
+      <a class="btn btn-gold" href="https://eperformance.pro/automatisation.html">Voir l'automatisation
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <h2>FAQ — reporting automatisé</h2>
+
+    <div class="faq-section">
+      <details>
+        <summary>Quelles données collecter en priorité ?</summary>
+        <p>Trois : la dépense publicitaire, les demandes reçues et les ventes signées. Elles suffisent à voir si un canal coûte plus qu'il ne rapporte, ce qui est la première décision d'un rapport. Le trafic et les requêtes de recherche s'ajoutent ensuite, quand ces trois lignes sont fiables et contrôlées.</p>
+      </details>
+
+      <details>
+        <summary>Faut-il un entrepôt de données pour automatiser un reporting ?</summary>
+        <p>Non, pas au départ. Un tableur alimenté par API tient sans difficulté pour quelques milliers de lignes par mois. L'entrepôt devient utile quand plusieurs personnes interrogent la donnée en même temps ou quand elle vient de plus de dix sources. Commencer par le tableur évite de payer une infrastructure pour un besoin qui n'existe pas encore.</p>
+      </details>
+
+      <details>
+        <summary>Combien de temps prend la mise en place ?</summary>
+        <p>De l'ordre de deux à quatre jours selon le nombre de sources et l'état des accès. Le temps se passe surtout sur les autorisations : comptes publicitaires, accès en lecture seule, identifiants d'API. Le rapport lui-même se construit en dernier, et cette étape est rapide une fois la table alimentée.</p>
+      </details>
+
+      <details>
+        <summary>Peut-on automatiser un rapport sans API ?</summary>
+        <p>Partiellement. Des exports de fichiers reçus par email se traitent, mais la collecte devient fragile : un fichier manquant, un nom qui change ou un format modifié casse le circuit sans prévenir. Une source sans API exploitable se traite mieux par un import manuel assumé, ou par un petit développement dédié, que par un bricolage.</p>
+      </details>
+
+      <details>
+        <summary>Le rapport remplace-t-il un tableau de bord ?</summary>
+        <p>Non, les deux servent des usages différents. Le tableau de bord se consulte pour surveiller, le rapport mensuel se lit une fois et se compare au mois précédent. On commence par le rapport, parce qu'il oblige à définir les chiffres qui comptent avant de dessiner des courbes.</p>
+      </details>
+
+      <details>
+        <summary>Que faire si les chiffres ne tombent pas juste ?</summary>
+        <p>On documente l'écart au lieu de le corriger dans la donnée source. Une différence entre la plateforme publicitaire et le suivi des ventes vient souvent des dates de validation, d'un doublon ou d'une conversion rattachée au mois précédent. Un écart connu et écrit vaut mieux qu'un chiffre lissé, qui rendrait le mois suivant incompréhensible.</p>
+      </details>
+    </div>
+
+    <div class="tags-row">
+      <a href="https://eperformance.pro/automatisation.html" class="tag">Workflows n8n</a>
+      <a href="/articles/reporting-automatise/" class="tag">Reporting</a>
+      <a href="/articles/automatisation-marketing-debuter/" class="tag">Automatisation</a>
+    </div>
+
+    <div class="share-row">
+      <span class="small">Partager</span>
+      <a href="#" class="share-btn" onclick="return sharePage('whatsapp')" data-share="whatsapp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.6-4.5A8.4 8.4 0 1 1 8 20.4z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('linkedin')" data-share="linkedin" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('facebook')" data-share="facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('copy')" data-share="copy" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></a>
+    </div>
+
+    <div class="related">
+      <h2>Articles à lire ensuite</h2>
+      <a href="/articles/relance-client-automatique/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">Automatisation</span>
+          <h3>Relancer un prospect sans y penser : la séquence qui se déclenche seule</h3>
+          <p class="small">J+1, J+3, J+7 — et l'arrêt immédiat dès que la personne répond.</p>
+        </div>
+      </a>
+      <a href="/articles/capturer-qualifier-demandes/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">Automatisation</span>
+          <h3>Capturer et qualifier ses demandes entrantes automatiquement</h3>
+          <p class="small">Accusé de réception, qualification, fiche et notification.</p>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-col">
+        <img class="footer-logo logo-img-light" src="/assets/img/logo-light.webp"
+             srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+             width="152" height="25" alt="ePerformance" loading="lazy">
+        <img class="footer-logo logo-img-dark" src="/assets/img/logo-dark.webp"
+             srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+             width="157" height="25" alt="" aria-hidden="true" loading="lazy">
+        <p class="card-text mt-3" style="max-width:34ch">Stratégie d&#x27;acquisition, IA générative, automatisation et développement web premium. Basé en Côte d&#x27;Ivoire, 100 % en ligne.</p>
+      </div>
+
+      <div class="footer-col">
+        <h2>Services</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/index.html#methode" rel="noopener">stratégie d&#x27;acquisition</a></li>
+          <li><a href="https://eperformance.pro/ia.html" rel="noopener">IA générative</a></li>
+          <li><a href="https://eperformance.pro/automatisation.html" rel="noopener">Automatisation</a></li>
+          <li><a href="https://eperformance.pro/site-web.html" rel="noopener">Création de site web</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Ressources</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/diagnostic_eperformance.html" rel="noopener">Diagnostic gratuit</a></li>
+          <li><a href="https://eperformance.pro/formation.html" rel="noopener">Formations</a></li>
+          <li><a href="https://eperformance.pro/ebook.html" rel="noopener">Ebooks</a></li>
+          <li><a href="https://blog.eperformance.pro/" rel="noopener">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="https://wa.me/2250151170666" rel="noopener">+225 01 51 17 06 66</a></li>
+          <li><a href="mailto:bonjour@eperformance.pro">bonjour@eperformance.pro</a></li>
+          <li><a href="https://api.eperformance.pro/connexion.php" rel="noopener">Espace client</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 ePerformance — par K. Stéphane. Tous droits réservés.</p>
+      <p><a href="https://eperformance.pro/mentions-legales.html">Mentions légales</a> · <a href="https://eperformance.pro/politique-confidentialite.html">Confidentialité</a> · <a href="https://eperformance.pro/cookies.html">Cookies</a> · <a href="https://eperformance.pro/cgv.html">CGV</a></p>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a class="btn btn-gold" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+  <a class="btn btn-wa" href="https://wa.me/2250151170666" style="flex:0 0 auto" rel="noopener">WhatsApp</a>
+</div>
+
+<div class="consent" id="consent-banner" hidden>
+  <div class="consent-inner">
+    <div class="consent-text">
+      <p><strong>Vous choisissez ce que nous mesurons.</strong></p>
+      <p>Nous utilisons des traceurs pour comprendre comment le site est utilisé et pour
+         mesurer nos campagnes. Aucun ne se déclenche avant votre accord.
+         <a href="https://eperformance.pro/politique-confidentialite.html">Politique de confidentialité</a> ·
+         <a href="https://eperformance.pro/cookies.html">En savoir plus</a></p>
+    </div>
+    <div class="consent-actions">
+      <button type="button" class="btn btn-ghost" data-consent="refuse">Tout refuser</button>
+      <button type="button" class="btn btn-outline" data-consent="customize">Paramétrer</button>
+      <button type="button" class="btn btn-gold" data-consent="accept">Tout accepter</button>
+    </div>
+  </div>
+
+  <div class="consent-detail" id="consent-detail" hidden>
+    <fieldset class="fieldset">
+      <legend>Vos préférences</legend>
+
+      <label class="consent-row consent-row-locked">
+        <input type="checkbox" checked disabled>
+        <span>
+          <strong>Nécessaires</strong>
+          <span class="field-hint">Mémorisation de votre choix de thème et de vos préférences.
+            Toujours actifs : le site ne peut pas fonctionner sans.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-analytics">
+        <span>
+          <strong>Mesure d'audience</strong>
+          <span class="field-hint">Google Analytics 4 et Microsoft Clarity. Nous aide à voir
+            quelles pages sont utiles et où les visiteurs abandonnent.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-ads">
+        <span>
+          <strong>Publicité</strong>
+          <span class="field-hint">Meta Pixel. Mesure l'efficacité de nos campagnes
+            Facebook et Instagram.</span>
+        </span>
+      </label>
+    </fieldset>
+
+    <div class="consent-actions">
+      <button type="button" class="btn btn-outline" data-consent="back">Retour</button>
+      <button type="button" class="btn btn-gold" data-consent="save">Enregistrer mes choix</button>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/js/consent.js" defer></script>
+<script src="/assets/js/eperf.js" defer></script>
+<script src="/assets/js/blog.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+(function(){try{var t=localStorage.getItem('eperf-theme');
+if(t!=='dark'&&t!=='light'){t='light';}
+document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+  <title>Structurer une offre commerciale avec l&#x27;IA | ePerformance</title>
+  <meta name="description" content="Structurer une proposition commerciale en une heure : problème, périmètre, livrables, délais. Ce que l&#x27;IA rédige et ce qui doit rester de votre main.">
+  <meta name="robots" content="noindex,follow">
+  <link rel="canonical" href="https://blog.eperformance.pro/articles/ia-preparation-commerciale/index.html">
+  <meta name="theme-color" content="#fdfcfa">
+  <meta name="author" content="K. Stéphane">
+
+  <!-- Icônes -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="icon" href="/assets/img/favicon-16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ePerformance">
+  <meta property="og:locale" content="fr_CI">
+  <meta property="og:title" content="Structurer une offre commerciale avec l&#x27;IA | ePerformance">
+  <meta property="og:description" content="Structurer une proposition commerciale en une heure : problème, périmètre, livrables, délais. Ce que l&#x27;IA rédige et ce qui doit rester de votre main.">
+  <meta property="og:url" content="https://blog.eperformance.pro/articles/ia-preparation-commerciale/index.html">
+  <meta property="og:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ePerformance — ePerformance">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Structurer une offre commerciale avec l&#x27;IA | ePerformance">
+  <meta name="twitter:description" content="Structurer une proposition commerciale en une heure : problème, périmètre, livrables, délais. Ce que l&#x27;IA rédige et ce qui doit rester de votre main.">
+  <meta name="twitter:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta name="twitter:creator" content="@eperformancepro">
+
+  <!-- Polices : préconnexion, préchargement des deux polices critiques,
+       puis chargement non bloquant de la feuille complète -->
+  <!-- Polices : auto-hébergées, déclarées dans eperf.css.
+       On précharge les deux graisses du premier écran pour que le
+       texte soit peint dans la bonne police dès le premier rendu. -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/cormorant-garamond-700.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/dm-sans-400.woff2">
+
+  <!-- Design system : la MEME feuille que le site, a l'identique. -->
+  <link rel="stylesheet" href="/assets/css/eperf.css">
+  <!-- Composants editoriaux du blog : corps d'article, largeur de
+       lecture, cartes d'article. Ils consomment les jetons d'eperf.css
+       et ne redefinissent aucune couleur. -->
+  <link rel="stylesheet" href="/assets/css/blog.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://blog.eperformance.pro/#organization",
+      "name": "ePerformance",
+      "alternateName": "ePerformance par K. Stéphane",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "founder": {
+        "@type": "Person",
+        "@id": "https://blog.eperformance.pro/#founder",
+        "name": "K. Stéphane",
+        "jobTitle": "Fondateur, stratège acquisition",
+        "url": "https://blog.eperformance.pro/kstephane.html"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Côte d'Ivoire"
+        },
+        {
+          "@type": "Country",
+          "name": "Burkina Faso"
+        },
+        {
+          "@type": "Place",
+          "name": "Afrique de l'Ouest"
+        }
+      ],
+      "knowsLanguage": "fr",
+      "sameAs": [
+        "https://blog.eperformance.pro/"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://blog.eperformance.pro/#localbusiness",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "parentOrganization": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Abidjan",
+        "addressCountry": "CI"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Côte d'Ivoire"
+      },
+      "priceRange": "100000-350000 XOF",
+      "currenciesAccepted": "XOF",
+      "paymentAccepted": "Orange Money, Wave, MTN MoMo, Moov Money, Visa, Mastercard",
+      "availableLanguage": "fr"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://blog.eperformance.pro/#website",
+      "url": "https://blog.eperformance.pro",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "publisher": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://blog.eperformance.pro/articles/ia-preparation-commerciale/index.html#webpage",
+      "url": "https://blog.eperformance.pro/articles/ia-preparation-commerciale/index.html",
+      "name": "Structurer une offre commerciale avec l'IA | ePerformance",
+      "description": "Structurer une proposition commerciale en une heure : problème, périmètre, livrables, délais. Ce que l'IA rédige et ce qui doit rester de votre main.",
+      "isPartOf": {
+        "@id": "https://blog.eperformance.pro/#website"
+      },
+      "about": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://blog.eperformance.pro/articles/ia-preparation-commerciale/index.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://blog.eperformance.pro/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "IA générative",
+          "item": "https://blog.eperformance.pro/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Structurer une offre avec l'IA",
+          "item": "https://blog.eperformance.pro/articles/ia-preparation-commerciale/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"IA et préparation commerciale : structurer une offre en une heure",
+  "description":"Problème du client, périmètre, livrables, délais, prix, conditions : comment l'IA met en forme vos notes de rendez-vous en une heure, et ce qui doit rester de votre main.",
+  "image":"https://blog.eperformance.pro/assets/img/og-image.jpg",
+  "datePublished":"2026-10-20T09:00:00+00:00",
+  "dateModified":"2026-10-20T09:00:00+00:00",
+  "inLanguage":"fr-CI",
+  "wordCount":2290,
+  "articleSection":"IA générative",
+  "keywords":["ia proposition commerciale","ia devis","structurer son offre","préparation commerciale","proposition commerciale pme","Côte d'Ivoire","Abidjan"],
+  "author":{"@type":"Person","name":"K. STEPHANE","jobTitle":"Fondateur ePerformance","url":"https://blog.eperformance.pro/a-propos/"},
+  "publisher":{"@type":"Organization","name":"ePerformance","logo":{"@type":"ImageObject","url":"https://eperformance.pro/assets/img/logo-light.webp"}},
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.eperformance.pro/articles/ia-preparation-commerciale/"}
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Blog","item":"https://blog.eperformance.pro/"},
+    {"@type":"ListItem","position":2,"name":"IA générative","item":"https://blog.eperformance.pro/"},
+    {"@type":"ListItem","position":3,"name":"IA et préparation commerciale : structurer une offre en une heure","item":"https://blog.eperformance.pro/articles/ia-preparation-commerciale/"}
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Combien de temps faut-il pour préparer une proposition commerciale ?","acceptedAnswer":{"@type":"Answer","text":"Une heure pour une offre simple, à condition d'avoir écrit vos notes de rendez-vous juste après l'échange. Sans notes, le même travail prend trois à quatre heures : il faut reconstituer ce que le client a dit, puis vérifier que le document y répond. C'est le seul poste de temps vraiment compressible."}},
+    {"@type":"Question","name":"L'IA peut-elle fixer mon prix ?","acceptedAnswer":{"@type":"Answer","text":"Non, et il vaut mieux qu'elle ne le fasse pas. Elle ne connaît ni votre taux horaire, ni votre marge cible, ni le coût réel de livraison. Elle peut en revanche calculer un total à partir de vos lignes, vérifier qu'un chiffre correspond aux heures annoncées, ou comparer deux variantes que vous avez chiffrées. Le chiffre lui-même reste votre décision."}},
+    {"@type":"Question","name":"Faut-il un modèle de proposition ?","acceptedAnswer":{"@type":"Answer","text":"Oui, un modèle avec les six blocs et leurs titres. Le modèle règle l'ordre et évite les oublis : vous ne sautez plus le périmètre ni les conditions. L'outil remplit ensuite ce modèle à partir de vos notes, ce qui vous évite de repartir d'une page blanche à chaque proposition."}},
+    {"@type":"Question","name":"Que faire si le client ne donne pas son budget ?","acceptedAnswer":{"@type":"Answer","text":"Ne remplissez pas le vide avec un prix choisi au hasard. Proposez deux paliers chiffrés et laissez le client choisir, ou annoncez une fourchette en expliquant ce qui la fait varier. Un prix unique face à un client sans budget se négocie mal ; deux paliers donnent au client une décision à prendre."}},
+    {"@type":"Question","name":"La méthode fonctionne-t-elle pour une prestation de service, pas seulement pour un produit ?","acceptedAnswer":{"@type":"Answer","text":"Oui, la structure ne change pas : problème, périmètre, livrables, délais, prix, conditions. Ce qui change, c'est la précision du périmètre, plus difficile à écrire pour une prestation que pour un produit. C'est aussi là que le document rend le plus de service, parce qu'un périmètre flou se paie pendant toute la mission."}},
+    {"@type":"Question","name":"Peut-on utiliser l'IA pour répondre à un appel d'offres ?","acceptedAnswer":{"@type":"Answer","text":"Oui pour la structure et le contrôle : vérifier que chaque exigence du dossier a une réponse, qu'un titre reprend les termes du cahier des charges, que les pièces demandées sont toutes listées. Non pour le contenu technique et le prix, qui doivent rester les vôtres. Sur un appel d'offres, un document générique se repère immédiatement."}}
+  ]
+}
+  </script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a class="logo" href="/" aria-label="ePerformance — accueil">
+      <img class="logo-img-light" src="/assets/img/logo-light.webp"
+           srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+           width="182" height="30" alt="ePerformance" fetchpriority="high">
+      <img class="logo-img-dark" src="/assets/img/logo-dark.webp"
+           srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+           width="188" height="30" alt="" aria-hidden="true">
+    </a>
+
+    <nav class="nav" id="primary-nav" aria-label="Navigation principale">
+      <a href="/">Accueil</a>
+      <a href="/acquisition/">Acquisition</a>
+      <a href="/site-web/">Site web</a>
+      <a href="/seo/">SEO</a>
+      <a href="/business/">Business</a>
+      <a href="/articles/ia-generative-pme-africaine/" aria-current="page">IA</a>
+      <a href="/articles/automatisation-marketing-debuter/">Automatisation</a>
+      <a href="/a-propos/">À propos</a>
+      <a href="https://eperformance.pro" rel="noopener">Site principal</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" data-theme-toggle
+              aria-pressed="false" aria-label="Activer le thème sombre">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+        </svg>
+      </button>
+
+      <a class="btn btn-gold btn-desktop" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false"
+              aria-controls="primary-nav" aria-label="Ouvrir le menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<nav class="breadcrumb container" aria-label="Fil d'Ariane">
+  <ol>
+    <li><a href="/">Accueil</a></li>
+    <li><a href="/">IA générative</a></li>
+    <li aria-current="page">Structurer une offre avec l&#x27;IA</li>
+  </ol>
+</nav>
+
+<main id="main">
+
+
+<section class="article-hero">
+  <div class="container-reading">
+
+    <nav class="article-breadcrumb" aria-label="Fil d'Ariane">
+      <a href="/">Blog</a>
+      <span class="sep">/</span>
+      <span>IA générative</span>
+    </nav>
+
+    <span class="article-category">IA générative</span>
+    <h1>IA et préparation commerciale : structurer une offre <span class="text-gold">en une heure</span></h1>
+    <p class="lead">Une proposition commerciale se perd rarement sur le prix. Elle se perd sur le désordre : le client ne trouve ni son problème, ni ce qu'il reçoit, ni ce qu'il doit payer. Voici comment l'IA met en forme vos notes en une heure — et ce qui doit rester de votre main.</p>
+
+    <div class="article-meta">
+      <div class="author">
+        <div class="author-avatar">KS</div>
+        <div>
+          <div class="article-author-name">K. STEPHANE</div>
+          <div class="small">Fondateur ePerformance</div>
+        </div>
+      </div>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg> 20 octobre 2026</span>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.6 2.1"/></svg> 11 min de lecture</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section-flush-top">
+  <div class="article-body container-reading">
+
+    <p>Un client vous a parlé pendant quarante minutes. Vous avez compris ce qu'il veut, vous savez faire, vous avez une idée du budget. Trois jours plus tard, vous envoyez un document que vous avez mis deux heures à écrire, et vous attendez.</p>
+
+    <p>Le problème n'est presque jamais le prix. Il est dans l'ordre des choses : la plupart des propositions commencent par l'entreprise qui les envoie — son histoire, ses références, sa méthode. Le client, lui, lit en cherchant trois informations : est-ce que vous avez compris mon problème, qu'est-ce que je reçois exactement, et combien ça coûte.</p>
+
+    <p>L'IA générative sert ici à une chose précise : transformer vos notes de rendez-vous en document structuré, dans l'ordre où le client lit. Elle ne fixe pas le prix, elle ne prend pas l'engagement de délai, elle ne connaît pas votre marge. Cette répartition des rôles est le sujet de cet article.</p>
+
+    <h2>Pourquoi une proposition se perd avant d'être lue</h2>
+
+    <p>Trois défauts reviennent dans les propositions qui restent sans réponse.</p>
+
+    <p><strong>Le problème du client n'est pas reformulé.</strong> Il l'a expliqué de vive voix, avec ses mots, et le document parle de vos prestations. Le client ne se reconnaît pas dans la première page. C'est le défaut le plus fréquent, et le plus facile à corriger : reprenez ses phrases, pas les vôtres.</p>
+
+    <p><strong>Le périmètre est flou.</strong> Le client ne sait pas où s'arrête ce qu'il achète. Il lit « accompagnement », « optimisation », « mise en place ». Ces mots ne délimitent rien. Il hésite, il demande un délai, il consulte quelqu'un d'autre.</p>
+
+    <p><strong>Le prix arrive sans contexte.</strong> Un chiffre seul ne se compare à rien. Sans le détail de ce qui le compose et sans ce qui ferait varier la dépense, le client le compare au premier prix qu'on lui a donné, souvent pour autre chose.</p>
+
+    <p>Une proposition ne se juge pas à sa longueur. Elle se juge au nombre de questions que le client doit encore poser avant de répondre oui.</p>
+
+    <h2>Les six blocs d'une proposition qui se lit</h2>
+
+    <p>Six blocs, toujours dans cet ordre. Si un bloc manque, le client le réclamera ou conclura à votre place.</p>
+
+    <ol>
+      <li><strong>Le problème du client.</strong> Dix lignes, avec ses mots. Ce qu'il a dit vouloir, ce qui le bloque aujourd'hui, ce qu'il a déjà essayé.</li>
+      <li><strong>Le périmètre.</strong> Ce qui est inclus, puis ce qui ne l'est pas. La liste des exclusions n'est pas une précaution juridique : c'est ce qui donne sa valeur à la liste des inclusions.</li>
+      <li><strong>Les livrables.</strong> Des objets concrets et comptés : trois pages, huit visuels, deux séances de formation, un fichier de suivi. Pas des verbes, des choses.</li>
+      <li><strong>Les délais.</strong> Des jalons datés ou numérotés, avec ce qui dépend du client — fourniture des textes, validation, paiement d'un acompte. Un planning qui ne mentionne que vos engagements est un planning faux.</li>
+      <li><strong>Le prix.</strong> Un chiffre ferme, et au maximum une option. Ce qui déclenche un supplément, et à partir de quel seuil.</li>
+      <li><strong>Les conditions.</strong> Acompte, nombre de cycles de révision, échéance de paiement du solde, ce qui se passe en cas de retard de part et d'autre, propriété des livrables.</li>
+    </ol>
+
+    <p>Ce qui n'est pas écrit n'existe pas le jour du désaccord. Un périmètre implicite se discute toujours à votre désavantage, parce que le client se souvient de ce qu'il espérait, pas de ce que vous aviez en tête.</p>
+
+    <h2>La répartition des rôles : l'IA structure, vous décidez</h2>
+
+    <p>La question utile n'est pas « est-ce que l'IA peut écrire la proposition ». Elle est : quelle partie du travail peut être déléguée sans risque, et quelle partie ne le peut pas.</p>
+
+    <p><strong>Ce que l'outil fait bien.</strong> Il met en forme vos notes dans l'ordre des six blocs. Il reformule en phrases lisibles ce que vous avez griffé entre deux rendez-vous. Il signale les blocs manquants et les informations à compléter. Il vérifie la cohérence des dates et des quantités : un planning qui commence avant la date d'aujourd'hui, un total qui ne correspond pas aux lignes. Il rédige les conditions à partir des règles que vous lui donnez, et il produit deux ou trois formulations différentes du même paragraphe, à vous de choisir.</p>
+
+    <p><strong>Ce qui reste de votre main.</strong> Le prix, la remise éventuelle, l'engagement de délai, la liste des exclusions, et la décision d'envoyer. Un document généré n'engage personne : c'est vous qui signez, vous qui livrez, vous qui portez les conséquences d'un délai tenu ou non.</p>
+
+    <div class="callout">
+      <p><strong>La règle.</strong> L'outil propose, vous engagez. Tout chiffre, toute date et toute promesse qui figurent dans le document définitif doivent avoir été écrits ou validés par vous, ligne par ligne.</p>
+    </div>
+
+    <p>Une proposition se relit d'ailleurs avec un œil particulier sur ces trois éléments : chaque nombre, chaque date, chaque « nous ferons ». Ce sont les seules parties du document que l'outil ne peut pas vérifier à votre place.</p>
+
+    <h2>Le matériau d'entrée : dix lignes écrites après le rendez-vous</h2>
+
+    <p>La qualité du document final dépend entièrement de ce que vous fournissez. Dix lignes suffisent, écrites dans les minutes qui suivent le rendez-vous, avant que les mots exacts du client ne s'effacent.</p>
+
+    <blockquote>
+      <p>1. Qui : le client, son activité, sa taille. 2. Son problème, avec ses mots. 3. Ce qu'il veut obtenir, tel qu'il l'a formulé. 4. Où il en est : ce qu'il a déjà fait ou essayé. 5. Le budget évoqué, même vague. 6. L'échéance souhaitée. 7. Ce qui compte le plus pour lui dans la décision. 8. Qui décide, et si ce n'est pas lui. 9. Ce qu'il redoute, ce qu'il a refusé chez un autre. 10. Ce que je dois vérifier avant de chiffrer.</p>
+    </blockquote>
+
+    <p>Ces dix lignes sont la matière première. Le jour où elles manquent, il faut reconstituer de mémoire ce que le client a dit, et la proposition se remplit de votre point de vue à la place du sien.</p>
+
+    <h2>L'heure découpée, minute par minute</h2>
+
+    <h3>0 à 10 minutes — rassembler</h3>
+
+    <p>Ouvrez vos notes, le cahier des charges s'il existe, et le modèle de proposition de votre entreprise. Vérifiez que le modèle contient bien les six blocs. Vous ne rédigez rien à cette étape : vous rassemblez, et vous décidez du périmètre.</p>
+
+    <h3>10 à 20 minutes — faire structurer</h3>
+
+    <p>Vous donnez vos notes brutes et une consigne précise. La consigne compte plus que l'outil : elle fixe ce qu'il a le droit d'écrire et ce qu'il doit laisser vide.</p>
+
+    <div class="callout">
+      <p><strong>Exemple de consigne.</strong> « Voici mes notes de rendez-vous. Transforme-les en proposition commerciale en six blocs, dans cet ordre : problème du client, périmètre, livrables, délais, prix, conditions. N'invente aucun chiffre, aucune référence, aucun engagement : là où une information manque, écris [À COMPLÉTER]. Utilise les mots du client pour le bloc problème. Ne propose aucun prix : laisse [PRIX À FIXER]. N'écris aucune promesse de performance. »</p>
+    </div>
+
+    <h3>20 à 35 minutes — lire et corriger</h3>
+
+    <p>Vous lisez le document en entier, en corrigeant. Trois contrôles : le bloc problème utilise-t-il les mots du client, ou les vôtres ? Les livrables sont-ils comptés et nommés, ou formulés en verbes ? Les [À COMPLÉTER] restants sont-ils vraiment des informations que vous n'avez pas, ou des oublis de votre part ?</p>
+
+    <h3>35 à 60 minutes — le prix, les conditions, l'envoi</h3>
+
+    <p>Vous chiffrez, vous fixez les conditions, vous relisez les dates une dernière fois. Comptez un quart d'heure pour le chiffrage et les conditions, dix minutes pour la relecture finale. C'est la partie qui ne se délègue pas, et c'est aussi celle qui décide si le document tient dans trois semaines.</p>
+
+    <h2>Le prix et les conditions : ce qui ne se délègue pas</h2>
+
+    <h3>Trois façons d'ancrer un prix</h3>
+
+    <p><strong>Par le coût et la marge cible.</strong> Vous estimez le nombre d'heures, vous le multipliez par votre taux horaire, vous ajoutez vos frais et votre marge, puis vous arrondissez. Exemple de travail : 40 heures à 15 000 FCFA de l'heure, soit 600 000 FCFA, arrondis à 650 000 FCFA après ajout des frais et de la marge. Le calcul est simple ; ce qui est difficile est d'estimer les heures honnêtement, en incluant les allers-retours avec le client.</p>
+
+    <p><strong>Par ce que le problème coûte aujourd'hui au client.</strong> Un manque à gagner mensuel, un poste de dépense, un temps perdu. Le prix se situe alors en proportion de ce coût, jamais en proportion de votre effort. C'est un raisonnement à écrire dans la proposition, chiffres du client à l'appui — pas une estimation de ce qu'il pourrait gagner.</p>
+
+    <p><strong>Par paliers.</strong> Une offre socle et une option, deux prix, deux périmètres. Trois paliers diluent la décision ; un seul prix la rend binaire. Deux laissent au client une décision à prendre, ce qui est souvent ce qu'il attend pour avancer.</p>
+
+    <h3>Les conditions à écrire noir sur blanc</h3>
+
+    <p>Un acompte à la commande, entre 40 et 50 % selon votre trésorerie et la taille du projet. Le nombre de cycles de révision inclus — deux, c'est un standard tenable — et le prix du cycle supplémentaire. L'échéance de paiement du solde, en jours, à compter de la livraison. Ce qui se passe si le client ne fournit pas les éléments attendus : le calendrier glisse d'autant, avec une date limite au-delà de laquelle le projet est rééchelonné. La propriété des livrables, transférée au paiement complet. Les modalités de résiliation, avec le sort des sommes déjà versées.</p>
+
+    <p>Rien de tout cela ne nécessite de compétence juridique particulière pour être écrit clairement. Ce qui coûte cher, c'est l'absence : un désaccord sur un délai ou sur un périmètre non écrit se règle toujours en faveur du client, parce que la relation pèse plus lourd que le document.</p>
+
+    <h2>Trois erreurs qui coûtent le contrat</h2>
+
+    <p><strong>Laisser l'outil écrire les délais.</strong> Il produit un calendrier plausible, avec des dates fermes que vous n'avez pas validées. Un planning écrit par un outil devient votre engagement dès l'envoi. Les dates se fixent après vérification de votre charge réelle, jamais avant.</p>
+
+    <p><strong>Envoyer le jour même sans relire les chiffres.</strong> C'est la relecture à 22h, quand la proposition est prête et que le client attend. Un total qui ne correspond pas aux lignes, un prix recopié d'une ancienne offre, un livrable oublié : l'erreur se voit tout de suite et coûte la confiance, pas seulement le contrat.</p>
+
+    <p><strong>Élargir le périmètre pour conclure.</strong> Une ligne ajoutée en fin de négociation « pour faire plaisir » devient un engagement que personne n'a chiffré. Écrivez-la, estimez-la, et facturez-la ou refusez-la. Le périmètre se négocie avant l'accord, pas pendant l'exécution.</p>
+
+    <p>Une proposition commerciale n'est pas un document de présentation, c'est un document de décision. L'outil prend en charge la mise en forme et le contrôle de complétude : l'ordre des blocs, les informations manquantes, la cohérence des dates. Le prix, les délais et les conditions restent votre travail : ce sont eux qui vous engagent, et aucun outil ne les portera à votre place au moment de livrer.</p>
+
+    <div class="cta-block">
+      <h2>Combien vous coûte vraiment chaque client ?</h2>
+      <p>Cinq minutes pour calculer votre CAC, votre LTV, votre Payback et un score sur 100. Résultat immédiat, sans engagement.</p>
+      <a class="btn btn-gold" href="https://eperformance.pro/diagnostic_eperformance.html">Faire mon diagnostic gratuit
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <h2>FAQ — Ce qu'on me demande sur les propositions commerciales</h2>
+
+    <div class="faq-section">
+      <details>
+        <summary>Combien de temps faut-il pour préparer une proposition commerciale ?</summary>
+        <p>Une heure pour une offre simple, à condition d'avoir écrit vos notes de rendez-vous juste après l'échange. Sans notes, le même travail prend trois à quatre heures : il faut reconstituer ce que le client a dit, puis vérifier que le document y répond. C'est le seul poste de temps vraiment compressible.</p>
+      </details>
+
+      <details>
+        <summary>L'IA peut-elle fixer mon prix ?</summary>
+        <p>Non, et il vaut mieux qu'elle ne le fasse pas. Elle ne connaît ni votre taux horaire, ni votre marge cible, ni le coût réel de livraison. Elle peut en revanche calculer un total à partir de vos lignes, vérifier qu'un chiffre correspond aux heures annoncées, ou comparer deux variantes que vous avez chiffrées. Le chiffre lui-même reste votre décision.</p>
+      </details>
+
+      <details>
+        <summary>Faut-il un modèle de proposition ?</summary>
+        <p>Oui, un modèle avec les six blocs et leurs titres. Le modèle règle l'ordre et évite les oublis : vous ne sautez plus le périmètre ni les conditions. L'outil remplit ensuite ce modèle à partir de vos notes, ce qui vous évite de repartir d'une page blanche à chaque proposition.</p>
+      </details>
+
+      <details>
+        <summary>Que faire si le client ne donne pas son budget ?</summary>
+        <p>Ne remplissez pas le vide avec un prix choisi au hasard. Proposez deux paliers chiffrés et laissez le client choisir, ou annoncez une fourchette en expliquant ce qui la fait varier. Un prix unique face à un client sans budget se négocie mal ; deux paliers donnent au client une décision à prendre.</p>
+      </details>
+
+      <details>
+        <summary>La méthode fonctionne-t-elle pour une prestation de service, pas seulement pour un produit ?</summary>
+        <p>Oui, la structure ne change pas : problème, périmètre, livrables, délais, prix, conditions. Ce qui change, c'est la précision du périmètre, plus difficile à écrire pour une prestation que pour un produit. C'est aussi là que le document rend le plus de service, parce qu'un périmètre flou se paie pendant toute la mission.</p>
+      </details>
+
+      <details>
+        <summary>Peut-on utiliser l'IA pour répondre à un appel d'offres ?</summary>
+        <p>Oui pour la structure et le contrôle : vérifier que chaque exigence du dossier a une réponse, qu'un titre reprend les termes du cahier des charges, que les pièces demandées sont toutes listées. Non pour le contenu technique et le prix, qui doivent rester les vôtres. Sur un appel d'offres, un document générique se repère immédiatement.</p>
+      </details>
+    </div>
+
+    <div class="tags-row">
+      <a href="/articles/ia-preparation-commerciale/" class="tag">Proposition commerciale</a>
+      <a href="/articles/rediger-fiches-produits-ia/" class="tag">Rédaction assistée</a>
+      <a href="/articles/ia-analyse-rapports-publicitaires/" class="tag">IA générative</a>
+    </div>
+
+    <div class="share-row">
+      <span class="small">Partager</span>
+      <a href="#" class="share-btn" onclick="return sharePage('whatsapp')" data-share="whatsapp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.6-4.5A8.4 8.4 0 1 1 8 20.4z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('linkedin')" data-share="linkedin" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('facebook')" data-share="facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('copy')" data-share="copy" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></a>
+    </div>
+
+    <div class="related">
+      <h2>Articles à lire ensuite</h2>
+      <a href="/articles/rediger-fiches-produits-ia/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">IA générative</span>
+          <h3>Rédiger ses fiches produits avec l'IA sans perdre sa voix</h3>
+          <p class="small">La méthode pour garder le ton de la marque sur chaque texte.</p>
+        </div>
+      </a>
+      <a href="/articles/ia-analyse-rapports-publicitaires/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">IA générative</span>
+          <h3>Utiliser l'IA pour analyser ses rapports publicitaires</h3>
+          <p class="small">De l'export brut au diagnostic : les colonnes, les comparaisons, les vérifications.</p>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-col">
+        <img class="footer-logo logo-img-light" src="/assets/img/logo-light.webp"
+             srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+             width="152" height="25" alt="ePerformance" loading="lazy">
+        <img class="footer-logo logo-img-dark" src="/assets/img/logo-dark.webp"
+             srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+             width="157" height="25" alt="" aria-hidden="true" loading="lazy">
+        <p class="card-text mt-3" style="max-width:34ch">Stratégie d&#x27;acquisition, IA générative, automatisation et développement web premium. Basé en Côte d&#x27;Ivoire, 100 % en ligne.</p>
+      </div>
+
+      <div class="footer-col">
+        <h2>Services</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/index.html#methode" rel="noopener">stratégie d&#x27;acquisition</a></li>
+          <li><a href="https://eperformance.pro/ia.html" rel="noopener">IA générative</a></li>
+          <li><a href="https://eperformance.pro/automatisation.html" rel="noopener">Automatisation</a></li>
+          <li><a href="https://eperformance.pro/site-web.html" rel="noopener">Création de site web</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Ressources</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/diagnostic_eperformance.html" rel="noopener">Diagnostic gratuit</a></li>
+          <li><a href="https://eperformance.pro/formation.html" rel="noopener">Formations</a></li>
+          <li><a href="https://eperformance.pro/ebook.html" rel="noopener">Ebooks</a></li>
+          <li><a href="https://blog.eperformance.pro/" rel="noopener">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="https://wa.me/2250151170666" rel="noopener">+225 01 51 17 06 66</a></li>
+          <li><a href="mailto:bonjour@eperformance.pro">bonjour@eperformance.pro</a></li>
+          <li><a href="https://api.eperformance.pro/connexion.php" rel="noopener">Espace client</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 ePerformance — par K. Stéphane. Tous droits réservés.</p>
+      <p><a href="https://eperformance.pro/mentions-legales.html">Mentions légales</a> · <a href="https://eperformance.pro/politique-confidentialite.html">Confidentialité</a> · <a href="https://eperformance.pro/cookies.html">Cookies</a> · <a href="https://eperformance.pro/cgv.html">CGV</a></p>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a class="btn btn-gold" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+  <a class="btn btn-wa" href="https://wa.me/2250151170666" style="flex:0 0 auto" rel="noopener">WhatsApp</a>
+</div>
+
+<div class="consent" id="consent-banner" hidden>
+  <div class="consent-inner">
+    <div class="consent-text">
+      <p><strong>Vous choisissez ce que nous mesurons.</strong></p>
+      <p>Nous utilisons des traceurs pour comprendre comment le site est utilisé et pour
+         mesurer nos campagnes. Aucun ne se déclenche avant votre accord.
+         <a href="https://eperformance.pro/politique-confidentialite.html">Politique de confidentialité</a> ·
+         <a href="https://eperformance.pro/cookies.html">En savoir plus</a></p>
+    </div>
+    <div class="consent-actions">
+      <button type="button" class="btn btn-ghost" data-consent="refuse">Tout refuser</button>
+      <button type="button" class="btn btn-outline" data-consent="customize">Paramétrer</button>
+      <button type="button" class="btn btn-gold" data-consent="accept">Tout accepter</button>
+    </div>
+  </div>
+
+  <div class="consent-detail" id="consent-detail" hidden>
+    <fieldset class="fieldset">
+      <legend>Vos préférences</legend>
+
+      <label class="consent-row consent-row-locked">
+        <input type="checkbox" checked disabled>
+        <span>
+          <strong>Nécessaires</strong>
+          <span class="field-hint">Mémorisation de votre choix de thème et de vos préférences.
+            Toujours actifs : le site ne peut pas fonctionner sans.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-analytics">
+        <span>
+          <strong>Mesure d'audience</strong>
+          <span class="field-hint">Google Analytics 4 et Microsoft Clarity. Nous aide à voir
+            quelles pages sont utiles et où les visiteurs abandonnent.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-ads">
+        <span>
+          <strong>Publicité</strong>
+          <span class="field-hint">Meta Pixel. Mesure l'efficacité de nos campagnes
+            Facebook et Instagram.</span>
+        </span>
+      </label>
+    </fieldset>
+
+    <div class="consent-actions">
+      <button type="button" class="btn btn-outline" data-consent="back">Retour</button>
+      <button type="button" class="btn btn-gold" data-consent="save">Enregistrer mes choix</button>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/js/consent.js" defer></script>
+<script src="/assets/js/eperf.js" defer></script>
+<script src="/assets/js/blog.js" defer></script>
+</body>
+</html>

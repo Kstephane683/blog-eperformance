@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+(function(){try{var t=localStorage.getItem('eperf-theme');
+if(t!=='dark'&&t!=='light'){t='light';}
+document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+  <title>Synchroniser site, WhatsApp et suivi commercial</title>
+  <meta name="description" content="Un seul statut par contact, partagé entre site, WhatsApp et suivi : la mécanique de synchronisation, les règles à écrire et les pièges du numéro.">
+  <meta name="robots" content="noindex,follow">
+  <link rel="canonical" href="https://blog.eperformance.pro/articles/synchroniser-outils-commerciaux/index.html">
+  <meta name="theme-color" content="#fdfcfa">
+  <meta name="author" content="K. Stéphane">
+
+  <!-- Icônes -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="icon" href="/assets/img/favicon-16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ePerformance">
+  <meta property="og:locale" content="fr_CI">
+  <meta property="og:title" content="Synchroniser site, WhatsApp et suivi commercial">
+  <meta property="og:description" content="Un seul statut par contact, partagé entre site, WhatsApp et suivi : la mécanique de synchronisation, les règles à écrire et les pièges du numéro.">
+  <meta property="og:url" content="https://blog.eperformance.pro/articles/synchroniser-outils-commerciaux/index.html">
+  <meta property="og:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ePerformance — ePerformance">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Synchroniser site, WhatsApp et suivi commercial">
+  <meta name="twitter:description" content="Un seul statut par contact, partagé entre site, WhatsApp et suivi : la mécanique de synchronisation, les règles à écrire et les pièges du numéro.">
+  <meta name="twitter:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta name="twitter:creator" content="@eperformancepro">
+
+  <!-- Polices : préconnexion, préchargement des deux polices critiques,
+       puis chargement non bloquant de la feuille complète -->
+  <!-- Polices : auto-hébergées, déclarées dans eperf.css.
+       On précharge les deux graisses du premier écran pour que le
+       texte soit peint dans la bonne police dès le premier rendu. -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/cormorant-garamond-700.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/dm-sans-400.woff2">
+
+  <!-- Design system : la MEME feuille que le site, a l'identique. -->
+  <link rel="stylesheet" href="/assets/css/eperf.css">
+  <!-- Composants editoriaux du blog : corps d'article, largeur de
+       lecture, cartes d'article. Ils consomment les jetons d'eperf.css
+       et ne redefinissent aucune couleur. -->
+  <link rel="stylesheet" href="/assets/css/blog.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://blog.eperformance.pro/#organization",
+      "name": "ePerformance",
+      "alternateName": "ePerformance par K. Stéphane",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "founder": {
+        "@type": "Person",
+        "@id": "https://blog.eperformance.pro/#founder",
+        "name": "K. Stéphane",
+        "jobTitle": "Fondateur, stratège acquisition",
+        "url": "https://blog.eperformance.pro/kstephane.html"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Côte d'Ivoire"
+        },
+        {
+          "@type": "Country",
+          "name": "Burkina Faso"
+        },
+        {
+          "@type": "Place",
+          "name": "Afrique de l'Ouest"
+        }
+      ],
+      "knowsLanguage": "fr",
+      "sameAs": [
+        "https://blog.eperformance.pro/"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://blog.eperformance.pro/#localbusiness",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "parentOrganization": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Abidjan",
+        "addressCountry": "CI"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Côte d'Ivoire"
+      },
+      "priceRange": "100000-350000 XOF",
+      "currenciesAccepted": "XOF",
+      "paymentAccepted": "Orange Money, Wave, MTN MoMo, Moov Money, Visa, Mastercard",
+      "availableLanguage": "fr"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://blog.eperformance.pro/#website",
+      "url": "https://blog.eperformance.pro",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "publisher": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://blog.eperformance.pro/articles/synchroniser-outils-commerciaux/index.html#webpage",
+      "url": "https://blog.eperformance.pro/articles/synchroniser-outils-commerciaux/index.html",
+      "name": "Synchroniser site, WhatsApp et suivi commercial",
+      "description": "Un seul statut par contact, partagé entre site, WhatsApp et suivi : la mécanique de synchronisation, les règles à écrire et les pièges du numéro.",
+      "isPartOf": {
+        "@id": "https://blog.eperformance.pro/#website"
+      },
+      "about": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://blog.eperformance.pro/articles/synchroniser-outils-commerciaux/index.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://blog.eperformance.pro/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Automatisation",
+          "item": "https://blog.eperformance.pro/articles/automatisation-marketing-debuter/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Synchroniser ses outils",
+          "item": "https://blog.eperformance.pro/articles/synchroniser-outils-commerciaux/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Synchroniser son site, WhatsApp et son suivi commercial",
+  "description":"Un seul statut par contact, partagé entre le site, WhatsApp et le suivi commercial : la mécanique de synchronisation, les règles à écrire et les pièges du numéro de téléphone.",
+  "image":"https://blog.eperformance.pro/assets/img/og-image.jpg",
+  "datePublished":"2026-11-05T09:00:00+00:00",
+  "dateModified":"2026-11-05T09:00:00+00:00",
+  "inLanguage":"fr-CI",
+  "wordCount":2393,
+  "articleSection":"Automatisation",
+  "keywords":["synchronisation whatsapp site web","suivi commercial","statut contact","double saisie","whatsapp business api","n8n","côte d'ivoire"],
+  "author":{"@type":"Person","name":"K. STEPHANE","jobTitle":"Fondateur ePerformance","url":"https://blog.eperformance.pro/a-propos/"},
+  "publisher":{"@type":"Organization","name":"ePerformance","logo":{"@type":"ImageObject","url":"https://eperformance.pro/assets/img/logo-light.webp"}},
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.eperformance.pro/articles/synchroniser-outils-commerciaux/"}
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Blog","item":"https://blog.eperformance.pro/"},
+    {"@type":"ListItem","position":2,"name":"Automatisation","item":"https://blog.eperformance.pro/"},
+    {"@type":"ListItem","position":3,"name":"Synchroniser son site, WhatsApp et son suivi commercial","item":"https://blog.eperformance.pro/articles/synchroniser-outils-commerciaux/"}
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Faut-il un CRM pour synchroniser ses outils ?","acceptedAnswer":{"@type":"Answer","text":"Non. Un tableur bien structuré suffit comme source de vérité, à condition que les colonnes soient fixées et que tout le monde y écrive. Le CRM devient utile quand plusieurs commerciaux travaillent sur les mêmes contacts ou quand les volumes dépassent quelques centaines de lignes. "}},
+    {"@type":"Question","name":"Comment éviter les doublons entre le site et WhatsApp ?","acceptedAnswer":{"@type":"Answer","text":"En normalisant le numéro avant toute écriture : indicatif du pays, chiffres seuls, aucun espace, stocké en texte. Chaque canal passe par cette même clé, qui sert à retrouver la fiche existante au lieu d'en créer une nouvelle. Le nettoyage des doublons déjà présents se fait une fois, avant le branchement."}},
+    {"@type":"Question","name":"Peut-on automatiser l'application WhatsApp Business d'un téléphone ?","acceptedAnswer":{"@type":"Answer","text":"Non. L'application installée sur un téléphone n'expose pas d'API : ce qu'elle contient reste dans l'appareil. Pour synchroniser les conversations, il faut un compte WhatsApp Business passé par l'API Cloud de Meta, avec un numéro professionnel vérifié, et Meta facture les conversations selon leur catégorie et le pays."}},
+    {"@type":"Question","name":"Où sont stockées les conversations et les données clients ?","acceptedAnswer":{"@type":"Answer","text":"Le suivi conserve le statut, la date du dernier échange, le canal et un résumé d'une ligne. Le contenu intégral des conversations reste dans le canal d'origine. Si l'instance d'automatisation est auto-hébergée, les journaux restent sur votre serveur et vous fixez leur durée de conservation."}},
+    {"@type":"Question","name":"Combien de temps prend la mise en place ?","acceptedAnswer":{"@type":"Answer","text":"De l'ordre de quelques jours de travail, étalés sur une à deux semaines. Le délai vient rarement de la construction du workflow : il vient de l'obtention des accès et des règles de statut à valider en interne."}},
+    {"@type":"Question","name":"Que se passe-t-il si un client écrit sur deux canaux à la fois ?","acceptedAnswer":{"@type":"Answer","text":"Les deux messages retrouvent la même fiche, parce que le numéro est la clé. Le statut est mis à jour une seule fois, la date du dernier contact est la plus récente, et le canal du premier contact est conservé."}}
+  ]
+}
+  </script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a class="logo" href="/" aria-label="ePerformance — accueil">
+      <img class="logo-img-light" src="/assets/img/logo-light.webp"
+           srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+           width="182" height="30" alt="ePerformance" fetchpriority="high">
+      <img class="logo-img-dark" src="/assets/img/logo-dark.webp"
+           srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+           width="188" height="30" alt="" aria-hidden="true">
+    </a>
+
+    <nav class="nav" id="primary-nav" aria-label="Navigation principale">
+      <a href="/">Accueil</a>
+      <a href="/acquisition/">Acquisition</a>
+      <a href="/site-web/">Site web</a>
+      <a href="/seo/">SEO</a>
+      <a href="/business/">Business</a>
+      <a href="/articles/ia-generative-pme-africaine/">IA</a>
+      <a href="/articles/automatisation-marketing-debuter/" aria-current="page">Automatisation</a>
+      <a href="/a-propos/">À propos</a>
+      <a href="https://eperformance.pro" rel="noopener">Site principal</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" data-theme-toggle
+              aria-pressed="false" aria-label="Activer le thème sombre">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+        </svg>
+      </button>
+
+      <a class="btn btn-gold btn-desktop" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false"
+              aria-controls="primary-nav" aria-label="Ouvrir le menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<nav class="breadcrumb container" aria-label="Fil d'Ariane">
+  <ol>
+    <li><a href="/">Accueil</a></li>
+    <li><a href="/articles/automatisation-marketing-debuter/">Automatisation</a></li>
+    <li aria-current="page">Synchroniser ses outils</li>
+  </ol>
+</nav>
+
+<main id="main">
+
+
+<section class="article-hero">
+  <div class="container-reading">
+
+    <nav class="article-breadcrumb" aria-label="Fil d'Ariane">
+      <a href="/">Blog</a>
+      <span class="sep">/</span>
+      <span>Automatisation</span>
+    </nav>
+
+    <span class="article-category">Automatisation</span>
+    <h1>Synchroniser son site, WhatsApp et son suivi <span class="text-gold">commercial</span></h1>
+    <p class="lead">Le site reçoit la demande, WhatsApp porte la conversation, le suivi commercial garde la trace. Quand les trois ne se parlent pas, quelqu'un recopie à la main — et un client déjà servi peut être relancé comme un prospect neuf.</p>
+
+    <div class="article-meta">
+      <div class="author">
+        <div class="author-avatar">KS</div>
+        <div>
+          <div class="article-author-name">K. STEPHANE</div>
+          <div class="small">Fondateur ePerformance</div>
+        </div>
+      </div>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg> 5 novembre 2026</span>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.6 2.1"/></svg> 11 min de lecture</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section-flush-top">
+  <div class="article-body container-reading">
+
+    <p>Trois outils, trois endroits où l'information se dépose, et aucune passerelle entre eux. C'est la situation la plus fréquente que nous rencontrons : le formulaire du site envoie un email que personne n'ouvre le vendredi, WhatsApp contient la vraie conversation, et le suivi commercial vit dans un tableur mis à jour le soir, de mémoire.</p>
+
+    <p>Le sujet n'est pas de changer d'outils. Le sujet est qu'un contact doit avoir un seul statut, connu du site, de WhatsApp et du suivi, mis à jour sans que personne recopie quoi que ce soit. Ce n'est pas un problème de discipline : c'est un problème d'architecture, avec la même information en trois exemplaires dont deux sont incomplets.</p>
+
+    <p>Voici la mécanique, les règles à écrire avant de brancher le premier câble, et les pièges du numéro de téléphone. Le coût de ce chantier et son seuil de rentabilité sont traités dans <a href="/articles/cout-automatisation/">le calcul détaillé ici</a>.</p>
+
+    <h2>Trois outils, trois vérités différentes</h2>
+
+    <p><strong>Le site.</strong> Une demande arrive avec un nom, un numéro, un besoin en deux lignes. Le message part par email vers une boîte que trois personnes consultent, ou que personne n'ouvre le week-end. La demande existe, mais elle attend.</p>
+
+    <p><strong>WhatsApp.</strong> C'est là que la vente se joue. Trois échanges, un prix évoqué, une photo de facture, une promesse de rappel. Tout cela reste dans un téléphone. Le jour où la personne qui le tient est absente, l'historique n'existe plus pour les autres : on redemande au client ce qu'il a déjà expliqué.</p>
+
+    <p><strong>Le suivi commercial.</strong> Un tableur ou un cahier, tenu en fin de journée. On y écrit ce dont on se souvient, avec les erreurs que la mémoire produit : une date approximative, un besoin résumé trop court, un numéro recopié à la main.</p>
+
+    <p>Les conséquences sont toujours les mêmes. Le même client laisse son numéro sur le site puis écrit sur WhatsApp : deux fiches, deux réponses différentes. Un numéro recopié à la main perd un chiffre, et le rappel ne passe jamais — personne ne s'en aperçoit, parce que le client ne se plaint pas, il va voir ailleurs. Une conversation sans trace fait perdre le prix annoncé et la date promise. Et un client déjà servi, dont l'achat n'a pas été enregistré, reçoit une relance comme s'il découvrait l'entreprise.</p>
+
+    <h2>Ce que coûte une fiche éclatée, en heures et en francs</h2>
+
+    <p>Le coût se compte en gestes de deux ou trois minutes, que personne ne compte. Relevé courant dans une structure de dix à quinze personnes, avec une quarantaine de demandes par semaine.</p>
+
+    <table>
+      <thead>
+        <tr><th>Geste répétitif</th><th>Fréquence</th><th>Temps unitaire</th><th>Heures par mois</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Recopier les demandes WhatsApp dans le suivi</strong></td><td>40 par semaine</td><td>3 minutes</td><td>environ 8 h</td></tr>
+        <tr><td><strong>Ressaisir les demandes du site dans le suivi</strong></td><td>15 par semaine</td><td>4 minutes</td><td>environ 4 h</td></tr>
+        <tr><td><strong>Retrouver l'historique d'un contact</strong></td><td>20 par semaine</td><td>3 minutes</td><td>environ 4 h</td></tr>
+        <tr><td><strong>Vérifier qu'un contact n'a pas déjà acheté</strong></td><td>25 par semaine</td><td>2 minutes</td><td>environ 2 h</td></tr>
+      </tbody>
+    </table>
+
+    <p>Le total tourne autour de dix-huit heures par mois, plus de deux journées de travail. À 1 000 FCFA l'heure — la référence d'un poste administratif rémunéré 150 000 FCFA pour 160 heures — cela représente de l'ordre de 18 000 FCFA par mois. Ce montant n'est pas le vrai problème.</p>
+
+    <p>Les deux dernières lignes du tableau sont celles que l'équipe saute quand elle est pressée. Quand on ne retrouve pas l'historique, on repose au client une question à laquelle il a déjà répondu. Quand on ne vérifie pas s'il a déjà acheté, on relance un client satisfait avec une offre de bienvenue. Ces erreurs ne coûtent pas des heures : elles coûtent la vente suivante. Le premier gain d'une synchronisation n'est donc pas le temps gagné, c'est la disparition des gestes qu'on oublie de faire.</p>
+
+    <h2>Un seul statut par contact : la règle qui simplifie tout</h2>
+
+    <p>Avant de parler d'outil, il faut écrire la liste des statuts, une fois, et s'y tenir. Une liste courte suffit, à condition que tout le monde utilise les mêmes mots.</p>
+
+    <p><strong>Nouveau</strong> : la demande est arrivée, personne ne l'a encore traitée. <strong>En discussion</strong> : un échange a eu lieu, le besoin se précise. <strong>Devis envoyé</strong> : une proposition est partie, une échéance de relance est fixée. <strong>En attente</strong> : le client doit revenir ou valider un délai. <strong>Gagné</strong> : la vente est faite. <strong>Perdu</strong> : la décision est prise ailleurs, avec une raison notée. <strong>Dormant</strong> : plus de réponse depuis le délai que vous avez fixé. <strong>Ne pas relancer</strong> : la personne l'a demandé, sur n'importe quel canal.</p>
+
+    <p>Deuxième règle : une seule ligne par contact, pas une ligne par demande. Un client qui revient six mois plus tard pour un autre sujet reste le même contact, avec un historique qui s'allonge.</p>
+
+    <p>Troisième règle : une seule source de vérité pour le statut. Les autres outils lisent et alimentent cette base, aucun ne décide à sa place. Sans cette règle, vous n'aurez pas une synchronisation, vous aurez trois copies qui divergent.</p>
+
+    <div class="callout">
+      <p><strong>Le test qui dit si c'est réglé.</strong> Demandez à deux personnes de votre équipe le statut du même contact, chacune de son côté. Si les réponses diffèrent, ou si l'une doit chercher, la synchronisation n'est pas faite. Une seule fiche, un seul statut, accessible à tous ceux qui parlent au client.</p>
+    </div>
+
+    <h2>La mécanique de synchronisation, étape par étape</h2>
+
+    <p>La mécanique tient en sept étapes. Aucune ne demande de compétence rare, mais chacune doit être décidée par vous.</p>
+
+    <p><strong>1. Choisir la base.</strong> Le suivi commercial devient la référence. Un tableur suffit au départ, à condition que les colonnes soient fixées : numéro, nom, canal d'origine, statut, dernier contact, prochaine action.</p>
+
+    <p><strong>2. Normaliser le numéro.</strong> Toute écriture passe par une seule forme : indicatif du pays suivi du numéro, sans espace, sans tiret, stocké en texte — jamais en format numérique, qui fait disparaître le zéro initial. C'est la clé de tout le reste.</p>
+
+    <p><strong>3. Brancher le site.</strong> Le formulaire envoie une notification à une adresse technique. Le workflow cherche le numéro dans la base, crée la ligne s'il est absent, la met à jour s'il existe, et note le canal d'origine « site ».</p>
+
+    <p><strong>4. Brancher WhatsApp.</strong> Une nuance décide de la faisabilité : l'application WhatsApp Business installée sur un téléphone n'expose pas d'API. Pour automatiser, il faut un compte passé par l'API Cloud de Meta, avec un numéro professionnel vérifié ; Meta facture les conversations selon leur catégorie et le pays.</p>
+
+    <p><strong>5. Écrire les règles de mise à jour.</strong> Un message entrant fait passer le statut de « nouveau » à « en discussion » et met à jour la date du dernier contact. Un devis envoyé crée une échéance de relance. Une réponse du client arrête la séquence en cours.</p>
+
+    <p><strong>6. Prévoir le retour.</strong> Le canal n'est pas seulement une entrée. Le statut mis à jour déclenche le message suivant : accusé de réception, relance programmée, confirmation de commande.</p>
+
+    <p><strong>7. Journaliser chaque écriture.</strong> Quand, quoi, quel canal, quel déclencheur. Ce journal sert deux fois : il explique pourquoi une fiche a changé, et il prouve que la synchronisation tourne encore.</p>
+
+    <h3>Ce qui remonte dans le suivi, et ce qui n'y remonte pas</h3>
+
+    <p>La synchronisation ne veut pas dire tout dupliquer. Ce qui remonte : la date du dernier échange, le canal utilisé, le statut, un résumé d'une ligne. Ce qui ne remonte pas : le contenu intégral des conversations, les pièces d'identité, les photos de reçus. Ces éléments restent dans le canal où le client les a envoyés — un tableur partagé qui en contient des copies est un problème de sécurité, pas un outil de suivi.</p>
+
+    <h2>Le numéro comme clé, et les pièges qu'il pose</h2>
+
+    <p>Le numéro de téléphone est le seul identifiant que vos clients donnent sans discuter. Il pose quatre difficultés, toutes connues à l'avance.</p>
+
+    <p><strong>Les formats multiples.</strong> Le même mobile s'écrit 07 07 12 34 56, 0707123456, +225 07 07 12 34 56, ou 00225 07 07 12 34 56. La normalisation s'écrit en quelques lignes de règle et s'applique à chaque entrée, quel que soit le canal. C'est le travail le plus ingrat du chantier, et celui qui décide de sa solidité.</p>
+
+    <p><strong>Les contacts partagés.</strong> Un numéro de bureau, de famille, ou tenu par un assistant. On ne l'interdit pas : on note le nom de la personne qui répond réellement, à côté du nom du client.</p>
+
+    <p><strong>Les doublons déjà présents.</strong> Avant de brancher quoi que ce soit, il faut nettoyer une fois. Comptez-les, puis fixez la règle de fusion : la fiche la plus ancienne garde la clé, on récupère les informations les plus récentes des autres, et le journal note ce qui a été fusionné.</p>
+
+    <p><strong>Le changement de numéro.</strong> Un client qui change de mobile crée une fiche neuve et perd son historique. On peut l'accepter, ou ajouter une colonne « ancien numéro » que le workflow consulte avant de créer une ligne. Une règle, enfin : ne jamais deviner. Un message sans numéro exploitable crée une ligne « à compléter » et une alerte.</p>
+
+    <h2>Les règles à écrire avant de brancher quoi que ce soit</h2>
+
+    <p>Cinq règles, à valider avec la personne qui parle aux clients.</p>
+
+    <p><strong>1. La désinscription.</strong> Un mot suffit, et le statut passe à « ne pas relancer » pour tous les canaux, pas seulement celui où la personne s'est exprimée. Un retrait demandé sur WhatsApp doit arrêter aussi les emails.</p>
+
+    <p><strong>2. L'arrêt de séquence.</strong> Toute réponse du client arrête la relance en cours et la remplace par un traitement humain. Une séquence qui continue après une réponse est un générateur de plaintes.</p>
+
+    <p><strong>3. Le client existant.</strong> Une vente clôt la séquence. Une nouvelle demande du même contact repart en « nouveau » avec son propre contexte, jamais en « prospect à relancer ».</p>
+
+    <p><strong>4. Le silence n'est pas un refus.</strong> Sans réponse, le statut reste « en attente ». Il ne bascule pas en « perdu » sans une règle écrite, et il ne déclenche pas de message de clôture définitif.</p>
+
+    <p><strong>5. Le délai de dormance.</strong> Fixez le nombre de jours sans réponse à partir duquel un contact devient « dormant », ce qu'on lui envoie à ce moment-là, puis ce qu'on fait ensuite.</p>
+
+    <h2>Ce que ça change, et comment mettre ça en place</h2>
+
+    <p>Ce que la synchronisation change au quotidien tient en quatre lignes. La recopie disparaît. L'historique survit aux absences : le départ d'un commercial n'emporte plus la mémoire des échanges. On arrête de relancer les clients déjà servis et ceux qui ont demandé qu'on les laisse tranquilles. Et le dirigeant voit où en est chaque demande — combien sont en discussion, combien attendent un devis, combien dorment.</p>
+
+    <p>Ce qu'il faut préparer avant de commencer : les accès au formulaire du site, un numéro professionnel pour le compte WhatsApp Business passé par l'API Cloud, l'accès au suivi, la liste des statuts validée, et le nom de la personne qui recevra les alertes. La mise en place demande de l'ordre de quelques jours de travail étalés sur une à deux semaines : l'essentiel du délai passe dans les validations côté Meta et dans les règles à trancher.</p>
+
+    <p>Un ordre de grandeur pour décider : en dessous d'une vingtaine de demandes par mois, un tableur tenu à jour et un modèle de message suffisent. Au-delà d'une quarantaine, la synchronisation devient le chantier qui rapporte le plus, parce qu'elle traite les trois fuites en même temps. Elle suppose en amont une capture correcte : si vos demandes arrivent sans besoin identifié ni budget évoqué, commencez par <a href="/articles/capturer-qualifier-demandes/">capturer et qualifier les demandes</a>, puis branchez les canaux entre eux.</p>
+
+    <p>Reste l'exploitation : quelques minutes par semaine pour ouvrir le journal et vérifier qu'aucune étape n'a échoué, et une alerte vers une personne nommée dès qu'un traitement ne passe pas. C'est peu, mais c'est ce qui distingue une synchronisation qui tient d'un branchement qui tombe en silence.</p>
+
+    <div class="cta-block">
+      <h2>Un seul statut pour chaque contact ?</h2>
+      <p>Synchronisation du site, de WhatsApp et du suivi commercial, avec un statut unique et un export complet. Le périmètre se définit après le diagnostic gratuit.</p>
+      <a class="btn btn-gold" href="https://eperformance.pro/automatisation.html">Voir l'automatisation
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <h2>FAQ — Site, WhatsApp et suivi commercial</h2>
+
+    <div class="faq-section">
+      <details>
+        <summary>Faut-il un CRM pour synchroniser ses outils ?</summary>
+        <p>Non. Un tableur bien structuré suffit comme source de vérité, à condition que les colonnes soient fixées et que tout le monde y écrive. Le CRM devient utile quand plusieurs commerciaux travaillent sur les mêmes contacts ou quand les volumes dépassent quelques centaines de lignes. </p>
+      </details>
+
+      <details>
+        <summary>Comment éviter les doublons entre le site et WhatsApp ?</summary>
+        <p>En normalisant le numéro avant toute écriture : indicatif du pays, chiffres seuls, aucun espace, stocké en texte. Chaque canal passe par cette même clé, qui sert à retrouver la fiche existante au lieu d'en créer une nouvelle. Le nettoyage des doublons déjà présents se fait une fois, avant le branchement.</p>
+      </details>
+
+      <details>
+        <summary>Peut-on automatiser l'application WhatsApp Business d'un téléphone ?</summary>
+        <p>Non. L'application installée sur un téléphone n'expose pas d'API : ce qu'elle contient reste dans l'appareil. Pour synchroniser les conversations, il faut un compte WhatsApp Business passé par l'API Cloud de Meta, avec un numéro professionnel vérifié, et Meta facture les conversations selon leur catégorie et le pays.</p>
+      </details>
+
+      <details>
+        <summary>Où sont stockées les conversations et les données clients ?</summary>
+        <p>Le suivi conserve le statut, la date du dernier échange, le canal et un résumé d'une ligne. Le contenu intégral des conversations reste dans le canal d'origine. Si l'instance d'automatisation est auto-hébergée, les journaux restent sur votre serveur et vous fixez leur durée de conservation.</p>
+      </details>
+
+      <details>
+        <summary>Combien de temps prend la mise en place ?</summary>
+        <p>De l'ordre de quelques jours de travail, étalés sur une à deux semaines. Le délai vient rarement de la construction du workflow : il vient de l'obtention des accès et des règles de statut à valider en interne.</p>
+      </details>
+
+      <details>
+        <summary>Que se passe-t-il si un client écrit sur deux canaux à la fois ?</summary>
+        <p>Les deux messages retrouvent la même fiche, parce que le numéro est la clé. Le statut est mis à jour une seule fois, la date du dernier contact est la plus récente, et le canal du premier contact est conservé.</p>
+      </details>
+    </div>
+
+    <div class="tags-row">
+      <a href="/articles/synchroniser-outils-commerciaux/" class="tag">Synchronisation</a>
+      <a href="https://eperformance.pro/automatisation.html" class="tag">WhatsApp Business</a>
+      <a href="/articles/capturer-qualifier-demandes/" class="tag">Suivi commercial</a>
+    </div>
+
+    <div class="share-row">
+      <span class="small">Partager</span>
+      <a href="#" class="share-btn" onclick="return sharePage('whatsapp')" data-share="whatsapp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.6-4.5A8.4 8.4 0 1 1 8 20.4z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('linkedin')" data-share="linkedin" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('facebook')" data-share="facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('copy')" data-share="copy" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></a>
+    </div>
+
+    <div class="related">
+      <h2>Articles à lire ensuite</h2>
+      <a href="/articles/cout-automatisation/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">Automatisation</span>
+          <h3>Combien coûte une automatisation, et combien rapporte-t-elle</h3>
+          <p class="small">Les cinq postes de coût, et la méthode pour calculer le seuil.</p>
+        </div>
+      </a>
+      <a href="/articles/automatisation-marketing-debuter/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">Automatisation</span>
+          <h3>Automatisation marketing : par où commencer quand tout est manuel</h3>
+          <p class="small">Repérer la tâche qui coûte le plus, la mesurer, la traiter.</p>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-col">
+        <img class="footer-logo logo-img-light" src="/assets/img/logo-light.webp"
+             srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+             width="152" height="25" alt="ePerformance" loading="lazy">
+        <img class="footer-logo logo-img-dark" src="/assets/img/logo-dark.webp"
+             srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+             width="157" height="25" alt="" aria-hidden="true" loading="lazy">
+        <p class="card-text mt-3" style="max-width:34ch">Stratégie d&#x27;acquisition, IA générative, automatisation et développement web premium. Basé en Côte d&#x27;Ivoire, 100 % en ligne.</p>
+      </div>
+
+      <div class="footer-col">
+        <h2>Services</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/index.html#methode" rel="noopener">stratégie d&#x27;acquisition</a></li>
+          <li><a href="https://eperformance.pro/ia.html" rel="noopener">IA générative</a></li>
+          <li><a href="https://eperformance.pro/automatisation.html" rel="noopener">Automatisation</a></li>
+          <li><a href="https://eperformance.pro/site-web.html" rel="noopener">Création de site web</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Ressources</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/diagnostic_eperformance.html" rel="noopener">Diagnostic gratuit</a></li>
+          <li><a href="https://eperformance.pro/formation.html" rel="noopener">Formations</a></li>
+          <li><a href="https://eperformance.pro/ebook.html" rel="noopener">Ebooks</a></li>
+          <li><a href="https://blog.eperformance.pro/" rel="noopener">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="https://wa.me/2250151170666" rel="noopener">+225 01 51 17 06 66</a></li>
+          <li><a href="mailto:bonjour@eperformance.pro">bonjour@eperformance.pro</a></li>
+          <li><a href="https://api.eperformance.pro/connexion.php" rel="noopener">Espace client</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 ePerformance — par K. Stéphane. Tous droits réservés.</p>
+      <p><a href="https://eperformance.pro/mentions-legales.html">Mentions légales</a> · <a href="https://eperformance.pro/politique-confidentialite.html">Confidentialité</a> · <a href="https://eperformance.pro/cookies.html">Cookies</a> · <a href="https://eperformance.pro/cgv.html">CGV</a></p>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a class="btn btn-gold" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+  <a class="btn btn-wa" href="https://wa.me/2250151170666" style="flex:0 0 auto" rel="noopener">WhatsApp</a>
+</div>
+
+<div class="consent" id="consent-banner" hidden>
+  <div class="consent-inner">
+    <div class="consent-text">
+      <p><strong>Vous choisissez ce que nous mesurons.</strong></p>
+      <p>Nous utilisons des traceurs pour comprendre comment le site est utilisé et pour
+         mesurer nos campagnes. Aucun ne se déclenche avant votre accord.
+         <a href="https://eperformance.pro/politique-confidentialite.html">Politique de confidentialité</a> ·
+         <a href="https://eperformance.pro/cookies.html">En savoir plus</a></p>
+    </div>
+    <div class="consent-actions">
+      <button type="button" class="btn btn-ghost" data-consent="refuse">Tout refuser</button>
+      <button type="button" class="btn btn-outline" data-consent="customize">Paramétrer</button>
+      <button type="button" class="btn btn-gold" data-consent="accept">Tout accepter</button>
+    </div>
+  </div>
+
+  <div class="consent-detail" id="consent-detail" hidden>
+    <fieldset class="fieldset">
+      <legend>Vos préférences</legend>
+
+      <label class="consent-row consent-row-locked">
+        <input type="checkbox" checked disabled>
+        <span>
+          <strong>Nécessaires</strong>
+          <span class="field-hint">Mémorisation de votre choix de thème et de vos préférences.
+            Toujours actifs : le site ne peut pas fonctionner sans.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-analytics">
+        <span>
+          <strong>Mesure d'audience</strong>
+          <span class="field-hint">Google Analytics 4 et Microsoft Clarity. Nous aide à voir
+            quelles pages sont utiles et où les visiteurs abandonnent.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-ads">
+        <span>
+          <strong>Publicité</strong>
+          <span class="field-hint">Meta Pixel. Mesure l'efficacité de nos campagnes
+            Facebook et Instagram.</span>
+        </span>
+      </label>
+    </fieldset>
+
+    <div class="consent-actions">
+      <button type="button" class="btn btn-outline" data-consent="back">Retour</button>
+      <button type="button" class="btn btn-gold" data-consent="save">Enregistrer mes choix</button>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/js/consent.js" defer></script>
+<script src="/assets/js/eperf.js" defer></script>
+<script src="/assets/js/blog.js" defer></script>
+</body>
+</html>

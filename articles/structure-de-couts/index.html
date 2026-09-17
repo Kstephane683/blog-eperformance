@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+(function(){try{var t=localStorage.getItem('eperf-theme');
+if(t!=='dark'&&t!=='light'){t='light';}
+document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+  <title>Structure de coûts : où part votre argent</title>
+  <meta name="description" content="Coûts fixes, coûts variables, cas ambigus, seuil de rentabilité et décisions : la carte des charges d&#x27;une petite structure, avec un exemple chiffré.">
+  <meta name="robots" content="noindex,follow">
+  <link rel="canonical" href="https://blog.eperformance.pro/articles/structure-de-couts/index.html">
+  <meta name="theme-color" content="#fdfcfa">
+  <meta name="author" content="K. Stéphane">
+
+  <!-- Icônes -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="icon" href="/assets/img/favicon-16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ePerformance">
+  <meta property="og:locale" content="fr_CI">
+  <meta property="og:title" content="Structure de coûts : où part votre argent">
+  <meta property="og:description" content="Coûts fixes, coûts variables, cas ambigus, seuil de rentabilité et décisions : la carte des charges d&#x27;une petite structure, avec un exemple chiffré.">
+  <meta property="og:url" content="https://blog.eperformance.pro/articles/structure-de-couts/index.html">
+  <meta property="og:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ePerformance — ePerformance">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Structure de coûts : où part votre argent">
+  <meta name="twitter:description" content="Coûts fixes, coûts variables, cas ambigus, seuil de rentabilité et décisions : la carte des charges d&#x27;une petite structure, avec un exemple chiffré.">
+  <meta name="twitter:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta name="twitter:creator" content="@eperformancepro">
+
+  <!-- Polices : préconnexion, préchargement des deux polices critiques,
+       puis chargement non bloquant de la feuille complète -->
+  <!-- Polices : auto-hébergées, déclarées dans eperf.css.
+       On précharge les deux graisses du premier écran pour que le
+       texte soit peint dans la bonne police dès le premier rendu. -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/cormorant-garamond-700.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/dm-sans-400.woff2">
+
+  <!-- Design system : la MEME feuille que le site, a l'identique. -->
+  <link rel="stylesheet" href="/assets/css/eperf.css">
+  <!-- Composants editoriaux du blog : corps d'article, largeur de
+       lecture, cartes d'article. Ils consomment les jetons d'eperf.css
+       et ne redefinissent aucune couleur. -->
+  <link rel="stylesheet" href="/assets/css/blog.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://blog.eperformance.pro/#organization",
+      "name": "ePerformance",
+      "alternateName": "ePerformance par K. Stéphane",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "founder": {
+        "@type": "Person",
+        "@id": "https://blog.eperformance.pro/#founder",
+        "name": "K. Stéphane",
+        "jobTitle": "Fondateur, stratège acquisition",
+        "url": "https://blog.eperformance.pro/kstephane.html"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Côte d'Ivoire"
+        },
+        {
+          "@type": "Country",
+          "name": "Burkina Faso"
+        },
+        {
+          "@type": "Place",
+          "name": "Afrique de l'Ouest"
+        }
+      ],
+      "knowsLanguage": "fr",
+      "sameAs": [
+        "https://blog.eperformance.pro/"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://blog.eperformance.pro/#localbusiness",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "parentOrganization": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Abidjan",
+        "addressCountry": "CI"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Côte d'Ivoire"
+      },
+      "priceRange": "100000-350000 XOF",
+      "currenciesAccepted": "XOF",
+      "paymentAccepted": "Orange Money, Wave, MTN MoMo, Moov Money, Visa, Mastercard",
+      "availableLanguage": "fr"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://blog.eperformance.pro/#website",
+      "url": "https://blog.eperformance.pro",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "publisher": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://blog.eperformance.pro/articles/structure-de-couts/index.html#webpage",
+      "url": "https://blog.eperformance.pro/articles/structure-de-couts/index.html",
+      "name": "Structure de coûts : où part votre argent",
+      "description": "Coûts fixes, coûts variables, cas ambigus, seuil de rentabilité et décisions : la carte des charges d'une petite structure, avec un exemple chiffré.",
+      "isPartOf": {
+        "@id": "https://blog.eperformance.pro/#website"
+      },
+      "about": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://blog.eperformance.pro/articles/structure-de-couts/index.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://blog.eperformance.pro/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Business",
+          "item": "https://blog.eperformance.pro/business/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Structure de coûts : où part votre argent",
+          "item": "https://blog.eperformance.pro/articles/structure-de-couts/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Structure de coûts : où part votre argent",
+  "description":"Coûts fixes, coûts variables, cas ambigus, seuil de rentabilité et décisions : la carte des charges d'une petite structure, avec un exemple chiffré.",
+  "image":"https://blog.eperformance.pro/assets/img/og-image.jpg",
+  "datePublished":"2027-02-27T09:00:00+00:00",
+  "dateModified":"2027-02-27T09:00:00+00:00",
+  "inLanguage":"fr-CI",
+  "wordCount":2456,
+  "articleSection":"Business",
+  "keywords":["structure de coûts pme","charges entreprise","marge réelle","coûts fixes","coûts variables","seuil de rentabilité"],
+  "author":{"@type":"Person","name":"K. STEPHANE","jobTitle":"Fondateur ePerformance","url":"https://blog.eperformance.pro/a-propos/"},
+  "publisher":{"@type":"Organization","name":"ePerformance","logo":{"@type":"ImageObject","url":"https://eperformance.pro/assets/img/logo-light.webp"}},
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.eperformance.pro/articles/structure-de-couts/"}
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Blog","item":"https://blog.eperformance.pro/"},
+    {"@type":"ListItem","position":2,"name":"Business","item":"https://blog.eperformance.pro/business/"},
+    {"@type":"ListItem","position":3,"name":"Structure de coûts : où part votre argent","item":"https://blog.eperformance.pro/articles/structure-de-couts/"}
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Quelle est la différence entre un coût fixe et un coût variable ?","acceptedAnswer":{"@type":"Answer","text":"Un coût fixe est dû que vous vendiez ou non : loyer, salaires de base, abonnements. Un coût variable n'existe qu'avec l'activité : matière, emballage, commission du paiement, transport. Le premier décide de votre risque dans un creux, le second de ce que rapporte chaque vente."}},
+    {"@type":"Question","name":"Comment classer un abonnement payé une fois par an ?","acceptedAnswer":{"@type":"Answer","text":"Comme un coût fixe. Le paiement en une seule fois ne change pas sa nature : l'engagement court sur douze mois. Ce qui compte, c'est de noter la date de reconduction à côté de la ligne, parce que c'est le seul moment où vous pouvez la réduire ou l'arrêter sans frais."}},
+    {"@type":"Question","name":"Qu'est-ce que le seuil de rentabilité ?","acceptedAnswer":{"@type":"Answer","text":"Le niveau d'activité à partir duquel l'entreprise ne perd plus d'argent. Il se calcule en divisant les coûts fixes de la période par la marge sur coût variable d'une vente. Dans l'exemple de cet article, un atelier qui porte 380 000 FCFA de fixes doit vendre 346 bouteilles par mois pour y arriver."}},
+    {"@type":"Question","name":"Comment savoir si ma structure de coûts est fragile ?","acceptedAnswer":{"@type":"Answer","text":"Comparez votre seuil en nombre de ventes au mois le plus faible de l'année passée. Si le seuil est au-dessus, la structure ne tient pas sur un creux, et ce n'est pas une question d'effort commercial. Beaucoup de fixes avec une faible marge unitaire est la combinaison la plus risquée."}},
+    {"@type":"Question","name":"Que faire quand le seuil est trop haut ?","acceptedAnswer":{"@type":"Answer","text":"Trois gestes, du moins coûteux au plus lourd : renégocier ou supprimer un fixe qui n'a plus de justification, basculer un fixe en variable, par exemple en externalisant la livraison, et augmenter la marge unitaire en revoyant le prix ou le coût des intrants. Baisser le prix pour vendre plus ne fait que monter le seuil."}},
+    {"@type":"Question","name":"Où placer le temps du dirigeant dans le calcul ?","acceptedAnswer":{"@type":"Answer","text":"Comme un coût fixe si l'on est présent tous les mois, ou réparti sur les tâches qui prennent du temps. Dans les deux cas, il doit apparaître : un modèle qui ne tient que parce que le dirigeant travaille sans être payé n'est pas encore rentable."}}
+  ]
+}
+  </script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a class="logo" href="/" aria-label="ePerformance — accueil">
+      <img class="logo-img-light" src="/assets/img/logo-light.webp"
+           srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+           width="182" height="30" alt="ePerformance" fetchpriority="high">
+      <img class="logo-img-dark" src="/assets/img/logo-dark.webp"
+           srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+           width="188" height="30" alt="" aria-hidden="true">
+    </a>
+
+    <nav class="nav" id="primary-nav" aria-label="Navigation principale">
+      <a href="/">Accueil</a>
+      <a href="/acquisition/">Acquisition</a>
+      <a href="/site-web/">Site web</a>
+      <a href="/seo/">SEO</a>
+      <a href="/business/" aria-current="page">Business</a>
+      <a href="/articles/ia-generative-pme-africaine/">IA</a>
+      <a href="/articles/automatisation-marketing-debuter/">Automatisation</a>
+      <a href="/a-propos/">À propos</a>
+      <a href="https://eperformance.pro" rel="noopener">Site principal</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" data-theme-toggle
+              aria-pressed="false" aria-label="Activer le thème sombre">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+        </svg>
+      </button>
+
+      <a class="btn btn-gold btn-desktop" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false"
+              aria-controls="primary-nav" aria-label="Ouvrir le menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<nav class="breadcrumb container" aria-label="Fil d'Ariane">
+  <ol>
+    <li><a href="/">Accueil</a></li>
+    <li><a href="/business/">Business</a></li>
+    <li aria-current="page">Structure de coûts : où part votre argent</li>
+  </ol>
+</nav>
+
+<main id="main">
+
+
+<section class="article-hero">
+  <div class="container-reading">
+
+    <nav class="article-breadcrumb" aria-label="Fil d'Ariane">
+      <a href="/">Blog</a>
+      <span class="sep">/</span>
+      <a href="/business/">Business</a>
+      <span class="sep">/</span>
+      <span>Structure de coûts</span>
+    </nav>
+
+    <span class="article-category">Business</span>
+    <h1>Structure de coûts : <span class="text-gold">où part votre argent</span></h1>
+    <p class="lead">Un coût fixe tombe que vous vendiez ou non. Un coût variable suit l'activité. La plupart des dirigeants mélangent les deux et croient que leur marge va bien, jusqu'au mois où elle ne va plus. Voici comment classer douze postes, calculer son seuil de rentabilité, et décider.</p>
+
+    <div class="article-meta">
+      <div class="author">
+        <div class="author-avatar">KS</div>
+        <div>
+          <div class="article-author-name">K. STEPHANE</div>
+          <div class="small">Fondateur ePerformance</div>
+        </div>
+      </div>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg> 27 février 2027</span>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.6 2.1"/></svg> 12 min de lecture</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section-flush-top">
+  <div class="article-body container-reading">
+
+    <p>Un coût fixe tombe que vous vendiez ou non : le loyer, le salaire, l'abonnement, l'électricité de base. Un coût variable suit l'activité : la matière, l'emballage, la commission du paiement, le transport d'une commande. Le premier ne bouge pas quand les ventes bougent. Le second bouge à chaque vente, à la hausse comme à la baisse.</p>
+
+    <p>Cette distinction décide de trois choses : ce que vous risquez dans un mois creux, le prix en dessous duquel il ne faut pas descendre, et le nombre de ventes nécessaires pour ne plus perdre d'argent.</p>
+
+    <h2>La différence qui change tout</h2>
+
+    <p>Un fixe se paie avec de la trésorerie déjà là. Un variable se paie avec la vente qui vient d'être faite. Les deux ne se remplacent pas : un mois sans vente ne réduit pas le loyer, et un mois à forte vente ne rembourse pas les mois creux qui l'ont précédé.</p>
+
+    <p>C'est là que se cache la fragilité. Une activité qui porte beaucoup de fixes doit vendre un minimum tous les mois, même quand personne ne commande. Une activité qui ne porte presque que des variables peut s'arrêter sans perdre davantage. Les deux peuvent gagner la même chose sur l'année, elles ne courent pas le même risque.</p>
+
+    <div class="callout">
+      <p><strong>Le repère.</strong> Un fixe, c'est un engagement que vous avez pris envers quelqu'un d'autre : le bailleur, le salarié, le fournisseur d'abonnement. Il se renégocie à certaines dates, pas à volonté.</p>
+    </div>
+
+    <h2>Pourquoi les deux se mélangent dans la tête</h2>
+
+    <p>Un relevé bancaire montre des sorties, pas des natures. Le loyer et le réassort partent du même compte, parfois le même jour. On additionne, on divise par le chiffre d'affaires, et on se dit que la marge est de tant.</p>
+
+    <p>Le mélange produit une erreur précise : le dirigeant croit que sa marge se dégrade à cause de ventes trop faibles, alors qu'elle se dégrade parce qu'un fixe est trop lourd pour son volume. Ou l'inverse, quand il croit qu'une commande supplémentaire rapporte beaucoup.</p>
+
+    <p>Deux confusions reviennent souvent. Le versement d'avance : un abonnement annuel réglé en une fois reste un coût fixe, même s'il est sorti du compte en un seul mois. Et le salaire qui inclut une prime sur les ventes : il mêle une part fixe et une part variable dans la même ligne, et il faut les séparer pour que le calcul veuille dire quelque chose.</p>
+
+    <h2>Douze postes, rangés</h2>
+
+    <p>Voici la liste des postes qu'on retrouve dans une petite structure, avec leur nature la plus fréquente. C'est votre organisation qui décide, pas la ligne du tableau.</p>
+
+    <table>
+      <thead>
+        <tr><th>Poste</th><th>Nature</th><th>Ce qui le décide</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Loyer du local</td><td>Fixe</td><td>Dû chaque mois, que le local serve ou non</td></tr>
+        <tr><td>Salaires de base</td><td>Fixe</td><td>Dus à date connue, indépendamment des ventes</td></tr>
+        <tr><td>Abonnements et hébergement</td><td>Fixe</td><td>Reconduits d'eux-mêmes, souvent sans qu'on y pense</td></tr>
+        <tr><td>Connexion et données</td><td>Fixe</td><td>Forfait mensuel, sauf formule à la consommation</td></tr>
+        <tr><td>Transport de livraison</td><td>Variable</td><td>Suit les commandes réellement livrées</td></tr>
+        <tr><td>Commission du paiement</td><td>Variable</td><td>Proportionnelle à ce qui est encaissé</td></tr>
+        <tr><td>Matière et marchandise</td><td>Variable</td><td>Pas de vente, pas de commande</td></tr>
+        <tr><td>Emballage</td><td>Variable</td><td>Suit les unités vendues</td></tr>
+        <tr><td>Publicité</td><td>Ambiguë</td><td>Budget décidé à l'avance, engagement à tenir</td></tr>
+        <tr><td>Comptable et honoraires</td><td>Fixe</td><td>Forfait mensuel ou annuel</td></tr>
+        <tr><td>Impôts et taxes</td><td>Ambiguë</td><td>Fixe si forfaitaire, variable si proportionnel</td></tr>
+        <tr><td>Imprévus</td><td>Provision</td><td>Ni fixe ni variable : une réserve, pas un poste</td></tr>
+      </tbody>
+    </table>
+
+    <p>Deux remarques sur cette liste. Le transport est variable quand il se paie à la course, mais il devient fixe dès qu'un chauffeur est salarié. Et les imprévus ne se classent pas : on les met de côté chaque mois, dans une réserve, et ils ne servent pas à calculer un seuil.</p>
+
+    <h2>Les cas ambigus : trois exemples</h2>
+
+    <p><strong>L'abonnement.</strong> Il est fixe tant qu'il est actif, et variable à l'échéance : c'est là qu'on peut le couper, le réduire ou changer de palier. La bonne tenue consiste à noter la date de reconduction à côté de la ligne.</p>
+
+    <p><strong>La publicité.</strong> On la croit variable parce qu'on peut l'arrêter. Dans le mois, elle ne l'est pas : une campagne qui tourne ne se coupe pas sans conséquence, et l'arrêt se voit sur le carnet de commandes deux semaines plus tard. Traitez-la comme un fixe tant qu'elle tourne.</p>
+
+    <p><strong>Le salaire avec prime.</strong> La part de base est fixe, la part indexée sur les ventes est variable. Si vous ne séparez pas les deux, votre marge par vente est fausse, et votre seuil aussi.</p>
+
+    <h2>Le seuil de rentabilité : combien de ventes couvrent les fixes</h2>
+
+    <p>Le seuil, c'est le niveau d'activité à partir duquel l'entreprise ne perd plus d'argent. En dessous, chaque vente contribue, mais pas assez pour couvrir les fixes. Au-dessus, chaque vente supplémentaire laisse sa marge.</p>
+
+    <p>Deux nombres suffisent. La marge sur coût variable par vente : le prix de vente moins les coûts variables de cette vente. Et le total des coûts fixes du mois. Le seuil en nombre de ventes, c'est le second divisé par le premier.</p>
+
+    <div class="callout">
+      <p><strong>La formule.</strong> Seuil en nombre de ventes = coûts fixes du mois ÷ (prix de vente − coûts variables par vente). Le résultat s'arrondit vers le haut : on ne vend pas une demi-bouteille.</p>
+    </div>
+
+    <h2>Pourquoi ce n'est pas une science exacte</h2>
+
+    <p>Le seuil n'est pas un verdict, pour trois raisons.</p>
+
+    <p>La première est le mélange des produits : avec plusieurs articles à des marges différentes, la marge moyenne bouge dès que la répartition change.</p>
+
+    <p>La deuxième est la saison. Une activité qui vit au rythme des campagnes, des rentrées scolaires ou des fêtes a des hauts et des bas. Le seuil se calcule sur un mois moyen, et il se compare au mois le plus faible, pas au meilleur.</p>
+
+    <p>La troisième est que rien n'est fixe pour toujours. Un salarié part, un loyer augmente, un abonnement change de palier. Le seuil est une photo : il faut la refaire quand une ligne bouge, et c'est ce qui le rend utile.</p>
+
+    <h2>Un atelier, de bout en bout</h2>
+
+    <p>Prenons un atelier qui transforme des fruits et vend des bouteilles à 2 500 FCFA, en direct et chez deux commerçants partenaires.</p>
+
+    <table>
+      <thead>
+        <tr><th>Coûts fixes du mois</th><th>FCFA</th><th>Coûts variables par bouteille</th><th>FCFA</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Loyer de l'atelier</td><td>120 000</td><td>Matière (fruits, sucre)</td><td>800</td></tr>
+        <tr><td>Salaire d'une employée</td><td>100 000</td><td>Emballage et étiquette</td><td>300</td></tr>
+        <tr><td>Électricité et eau (base)</td><td>35 000</td><td>Commission du paiement</td><td>100</td></tr>
+        <tr><td>Connexion et abonnements</td><td>25 000</td><td>Transport de livraison</td><td>200</td></tr>
+        <tr><td>Comptable</td><td>40 000</td><td></td><td></td></tr>
+        <tr><td>Publicité (budget du mois)</td><td>60 000</td><td></td><td></td></tr>
+        <tr><td><strong>Total des fixes</strong></td><td><strong>380 000</strong></td><td><strong>Total variable</strong></td><td><strong>1 400</strong></td></tr>
+      </tbody>
+    </table>
+
+    <p>La marge sur coût variable d'une bouteille est donc de 2 500 moins 1 400, soit 1 100 FCFA. Le seuil mensuel est de 380 000 divisé par 1 100, soit 346 bouteilles. Voilà ce que l'atelier doit vendre chaque mois avant de gagner un franc.</p>
+
+    <table>
+      <thead>
+        <tr><th>Bouteilles vendues</th><th>Chiffre d'affaires</th><th>Coûts variables</th><th>Marge</th><th>Après les fixes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>300</td><td>750 000</td><td>420 000</td><td>330 000</td><td><strong>− 50 000</strong></td></tr>
+        <tr><td>346</td><td>865 000</td><td>484 400</td><td>380 600</td><td>≈ 0</td></tr>
+        <tr><td>400</td><td>1 000 000</td><td>560 000</td><td>440 000</td><td>+ 60 000</td></tr>
+        <tr><td>500</td><td>1 250 000</td><td>700 000</td><td>550 000</td><td>+ 170 000</td></tr>
+      </tbody>
+    </table>
+
+    <p>Regardez ce que dit le tableau, plutôt que le chiffre d'affaires. À 400 bouteilles, l'atelier vend un million et gagne 60 000 FCFA : la marge tient à 54 bouteilles au-dessus du seuil. À 300 bouteilles, il perd 50 000 FCFA, et le mois n'est pourtant pas catastrophique.</p>
+
+    <p>Faites maintenant varier une ligne. Si l'atelier baisse son prix à 2 200 FCFA pour vendre davantage, la marge par bouteille tombe à 800 FCFA et le seuil monte à 475 bouteilles : il doit en vendre 129 de plus qu'avant pour gagner la même chose. Ce n'est pas une opinion sur la stratégie de prix, c'est de l'arithmétique.</p>
+
+    <h2>Ce que la structure révèle</h2>
+
+    <p>Une activité qui porte beaucoup de fixes et une faible marge unitaire est fragile au moindre creux. Le seuil est haut, et deux mois moyens suffisent à passer dessous.</p>
+
+    <p>Le repère utile tient en une comparaison : le seuil en nombre de ventes, face aux ventes du mois le plus faible de l'année passée. Si le seuil passe au-dessus, le problème n'est pas la motivation de l'équipe, il est dans la structure.</p>
+
+    <p>La sensibilité va dans le même sens. Un fixe qui augmente de 10 % pousse le seuil de 10 %. Une marge unitaire qui baisse de 10 % le pousse de 11 %. C'est la marge qui coûte le plus cher, parce qu'elle baisse sans annonce.</p>
+
+    <h2>Les décisions qui découlent de la lecture</h2>
+
+    <p><strong>Basculer un fixe en variable.</strong> Un livreur salarié se paie tous les mois, y compris le mois où il n'y a rien à livrer. Un livreur payé à la course coûte plus cher par livraison et rien du tout quand il n'y a pas de commande. En dessous d'un certain volume, l'externalisation est moins risquée ; au-dessus, le salaire redevient plus économique.</p>
+
+    <p><strong>Renégocier un abonnement.</strong> Listez ce que vous payez chaque mois sans l'avoir ouvert depuis six mois. Coupez ce qui ne sert plus, passez au palier inférieur quand il existe, notez les dates de reconduction pour décider avant qu'elles passent.</p>
+
+    <p><strong>Augmenter le volume plutôt que le prix.</strong> Quand la marge est mince et le marché sensible au prix, le volume est le levier le plus sûr : chaque vente au-dessus du seuil laisse sa marge entière. Attention : soutenir le volume demande souvent un fixe de plus.</p>
+
+    <p><strong>Baisser un fixe qu'on ne s'explique plus.</strong> Le test est sévère et simple : si vous ne pouvez pas dire en une phrase ce que cette ligne vous rapporte, elle est candidate à la sortie. Un local trop grand, un abonnement oublié, un service sous-utilisé passent inaperçus parce qu'ils sont payés automatiquement.</p>
+
+    <p><strong>Ne pas ajouter un fixe sur une marge incertaine.</strong> Une machine ou un poste supplémentaire se justifient par des ventes déjà là, pas par des ventes espérées. Le sujet rejoint celui de <a href="/articles/emprunter-ou-autofinancer/">l'emprunt et de l'autofinancement</a>, puisque la charge d'un crédit est un fixe de plus.</p>
+
+    <h2>Le coût qu'on ne classe jamais : votre temps</h2>
+
+    <p>Votre temps n'apparaît ni dans les fixes, ni dans les variables. Il est pourtant réel, et souvent le poste le plus lourd de la structure.</p>
+
+    <p>Deux façons de le traiter. Le compter comme un fixe, si vous êtes présent tous les mois : l'entreprise devrait vous verser une somme, même modeste. Ou attribuer vos heures aux tâches concernées et regarder celles qui pourraient être déléguées — la saisie, les relances, les publications.</p>
+
+    <p>Le test qui rend service : si vous deviez payer quelqu'un pour faire ce que vous faites, combien cela coûterait-il ? Si la réponse dépasse ce que l'activité dégage, le modèle ne tient que parce que vous travaillez sans être payé.</p>
+
+    <div class="callout">
+      <p><strong>Le repère.</strong> Un dirigeant qui ne s'attribue rien finit par piocher dans la trésorerie. Le <a href="/articles/tableau-tresorerie/">tableau de trésorerie</a> le montre avant le calcul de marge.</p>
+    </div>
+
+    <h2>Une heure par trimestre, et trois questions</h2>
+
+    <p>La structure de coûts n'est pas un document à produire une fois. C'est une page que l'on rouvre chaque trimestre, avec les montants du dernier mois, et trois questions.</p>
+
+    <p>Quelle ligne a bougé ? Un intrant, un abonnement, un salaire : toute hausse déplace le seuil, parfois sans que personne ne l'ait décidé.</p>
+
+    <p>Quelle ligne n'a plus de justification cette année ? Les fixes survivent à leur raison d'être. Ce qui se vérifie une fois par trimestre se corrige en une réunion ; ce qui ne se vérifie jamais se paie pendant des années.</p>
+
+    <p>Combien de fixes je porte, comparé au mois le plus faible ? Si la réponse est « plus », deux voies s'ouvrent : réduire le fixe, ou lisser l'activité pour faire entrer de l'argent dans le creux — une offre de saison, un contrat d'entretien mensuel, un abonnement client. Le lissage est souvent la voie la moins coûteuse. Et lorsque le prix est en cause, la lecture croise celle de <a href="/articles/fixer-ses-prix/">la fixation des prix</a> : un prix qui ne couvre pas les variables fait perdre de l'argent à chaque vente, quelle que soit la quantité vendue.</p>
+
+    <div class="cta-block">
+      <h2>Savez-vous combien de ventes couvrent vos charges ?</h2>
+      <p>Le diagnostic en ligne reprend vos postes, sépare les fixes des variables et vous montre le seuil que votre activité doit atteindre chaque mois.</p>
+      <a class="btn btn-gold" href="https://eperformance.pro/diagnostic_eperformance.html">Faire le diagnostic en ligne
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <h2>FAQ — La structure de coûts d'une PME</h2>
+
+    <div class="faq-section">
+      <details>
+        <summary>Quelle est la différence entre un coût fixe et un coût variable ?</summary>
+        <p>Un coût fixe est dû que vous vendiez ou non : loyer, salaires de base, abonnements. Un coût variable n'existe qu'avec l'activité : matière, emballage, commission du paiement, transport. Le premier décide de votre risque dans un creux, le second de ce que rapporte chaque vente.</p>
+      </details>
+
+      <details>
+        <summary>Comment classer un abonnement payé une fois par an ?</summary>
+        <p>Comme un coût fixe. Le paiement en une seule fois ne change pas sa nature : l'engagement court sur douze mois. Ce qui compte, c'est de noter la date de reconduction à côté de la ligne, parce que c'est le seul moment où vous pouvez la réduire ou l'arrêter sans frais.</p>
+      </details>
+
+      <details>
+        <summary>Qu'est-ce que le seuil de rentabilité ?</summary>
+        <p>Le niveau d'activité à partir duquel l'entreprise ne perd plus d'argent. Il se calcule en divisant les coûts fixes de la période par la marge sur coût variable d'une vente. Dans l'exemple de cet article, un atelier qui porte 380 000 FCFA de fixes doit vendre 346 bouteilles par mois pour y arriver.</p>
+      </details>
+
+      <details>
+        <summary>Comment savoir si ma structure de coûts est fragile ?</summary>
+        <p>Comparez votre seuil en nombre de ventes au mois le plus faible de l'année passée. Si le seuil est au-dessus, la structure ne tient pas sur un creux, et ce n'est pas une question d'effort commercial. Beaucoup de fixes avec une faible marge unitaire est la combinaison la plus risquée.</p>
+      </details>
+
+      <details>
+        <summary>Que faire quand le seuil est trop haut ?</summary>
+        <p>Trois gestes, du moins coûteux au plus lourd : renégocier ou supprimer un fixe qui n'a plus de justification, basculer un fixe en variable, par exemple en externalisant la livraison, et augmenter la marge unitaire en revoyant le prix ou le coût des intrants. Baisser le prix pour vendre plus ne fait que monter le seuil.</p>
+      </details>
+
+      <details>
+        <summary>Où placer le temps du dirigeant dans le calcul ?</summary>
+        <p>Comme un coût fixe si l'on est présent tous les mois, ou réparti sur les tâches qui prennent du temps. Dans les deux cas, il doit apparaître : un modèle qui ne tient que parce que le dirigeant travaille sans être payé n'est pas encore rentable.</p>
+      </details>
+    </div>
+
+    <div class="tags-row">
+      <a href="/business/" class="tag">Business</a>
+      <a href="/articles/tableau-tresorerie/" class="tag">Trésorerie</a>
+      <a href="/articles/fixer-ses-prix/" class="tag">Prix</a>
+    </div>
+
+    <div class="share-row">
+      <span class="small">Partager</span>
+      <a href="#" class="share-btn" onclick="return sharePage('whatsapp')" data-share="whatsapp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.6-4.5A8.4 8.4 0 1 1 8 20.4z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('linkedin')" data-share="linkedin" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('facebook')" data-share="facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('copy')" data-share="copy" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></a>
+    </div>
+
+    <div class="related">
+      <h2>Articles à lire ensuite</h2>
+      <a href="/articles/tableau-tresorerie/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">Business</span>
+          <h3>Trésorerie : le tableau qui évite le blocage</h3>
+          <p class="small">Trois colonnes, une ligne par semaine : voir le trou avant qu'il n'arrive.</p>
+        </div>
+      </a>
+      <a href="/articles/fixer-ses-prix/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">Business</span>
+          <h3>Fixer ses prix sans travailler à perte</h3>
+          <p class="small">Ce qui doit entrer dans un prix, et ce que la remise accordée coûte vraiment.</p>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-col">
+        <img class="footer-logo logo-img-light" src="/assets/img/logo-light.webp"
+             srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+             width="152" height="25" alt="ePerformance" loading="lazy">
+        <img class="footer-logo logo-img-dark" src="/assets/img/logo-dark.webp"
+             srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+             width="157" height="25" alt="" aria-hidden="true" loading="lazy">
+        <p class="card-text mt-3" style="max-width:34ch">Stratégie d&#x27;acquisition, IA générative, automatisation et développement web premium. Basé en Côte d&#x27;Ivoire, 100 % en ligne.</p>
+      </div>
+
+      <div class="footer-col">
+        <h2>Services</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/index.html#methode" rel="noopener">stratégie d&#x27;acquisition</a></li>
+          <li><a href="https://eperformance.pro/ia.html" rel="noopener">IA générative</a></li>
+          <li><a href="https://eperformance.pro/automatisation.html" rel="noopener">Automatisation</a></li>
+          <li><a href="https://eperformance.pro/site-web.html" rel="noopener">Création de site web</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Ressources</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/diagnostic_eperformance.html" rel="noopener">Diagnostic gratuit</a></li>
+          <li><a href="https://eperformance.pro/formation.html" rel="noopener">Formations</a></li>
+          <li><a href="https://eperformance.pro/ebook.html" rel="noopener">Ebooks</a></li>
+          <li><a href="https://blog.eperformance.pro/" rel="noopener">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="https://wa.me/2250151170666" rel="noopener">+225 01 51 17 06 66</a></li>
+          <li><a href="mailto:bonjour@eperformance.pro">bonjour@eperformance.pro</a></li>
+          <li><a href="https://api.eperformance.pro/connexion.php" rel="noopener">Espace client</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 ePerformance — par K. Stéphane. Tous droits réservés.</p>
+      <p><a href="https://eperformance.pro/mentions-legales.html">Mentions légales</a> · <a href="https://eperformance.pro/politique-confidentialite.html">Confidentialité</a> · <a href="https://eperformance.pro/cookies.html">Cookies</a> · <a href="https://eperformance.pro/cgv.html">CGV</a></p>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a class="btn btn-gold" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+  <a class="btn btn-wa" href="https://wa.me/2250151170666" style="flex:0 0 auto" rel="noopener">WhatsApp</a>
+</div>
+
+<div class="consent" id="consent-banner" hidden>
+  <div class="consent-inner">
+    <div class="consent-text">
+      <p><strong>Vous choisissez ce que nous mesurons.</strong></p>
+      <p>Nous utilisons des traceurs pour comprendre comment le site est utilisé et pour
+         mesurer nos campagnes. Aucun ne se déclenche avant votre accord.
+         <a href="https://eperformance.pro/politique-confidentialite.html">Politique de confidentialité</a> ·
+         <a href="https://eperformance.pro/cookies.html">En savoir plus</a></p>
+    </div>
+    <div class="consent-actions">
+      <button type="button" class="btn btn-ghost" data-consent="refuse">Tout refuser</button>
+      <button type="button" class="btn btn-outline" data-consent="customize">Paramétrer</button>
+      <button type="button" class="btn btn-gold" data-consent="accept">Tout accepter</button>
+    </div>
+  </div>
+
+  <div class="consent-detail" id="consent-detail" hidden>
+    <fieldset class="fieldset">
+      <legend>Vos préférences</legend>
+
+      <label class="consent-row consent-row-locked">
+        <input type="checkbox" checked disabled>
+        <span>
+          <strong>Nécessaires</strong>
+          <span class="field-hint">Mémorisation de votre choix de thème et de vos préférences.
+            Toujours actifs : le site ne peut pas fonctionner sans.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-analytics">
+        <span>
+          <strong>Mesure d'audience</strong>
+          <span class="field-hint">Google Analytics 4 et Microsoft Clarity. Nous aide à voir
+            quelles pages sont utiles et où les visiteurs abandonnent.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-ads">
+        <span>
+          <strong>Publicité</strong>
+          <span class="field-hint">Meta Pixel. Mesure l'efficacité de nos campagnes
+            Facebook et Instagram.</span>
+        </span>
+      </label>
+    </fieldset>
+
+    <div class="consent-actions">
+      <button type="button" class="btn btn-outline" data-consent="back">Retour</button>
+      <button type="button" class="btn btn-gold" data-consent="save">Enregistrer mes choix</button>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/js/consent.js" defer></script>
+<script src="/assets/js/eperf.js" defer></script>
+<script src="/assets/js/blog.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+(function(){try{var t=localStorage.getItem('eperf-theme');
+if(t!=='dark'&&t!=='light'){t='light';}
+document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+  <title>Les questions à poser avant de confier son site</title>
+  <meta name="description" content="Douze questions à poser avant de signer, et ce qu&#x27;une bonne réponse contient : propriété, délai écrit, support, sauvegardes, sortie de collaboration.">
+  <meta name="robots" content="noindex,follow">
+  <link rel="canonical" href="https://blog.eperformance.pro/articles/questions-prestataire-site-web/index.html">
+  <meta name="theme-color" content="#fdfcfa">
+  <meta name="author" content="K. Stéphane">
+
+  <!-- Icônes -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="icon" href="/assets/img/favicon-16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ePerformance">
+  <meta property="og:locale" content="fr_CI">
+  <meta property="og:title" content="Les questions à poser avant de confier son site">
+  <meta property="og:description" content="Douze questions à poser avant de signer, et ce qu&#x27;une bonne réponse contient : propriété, délai écrit, support, sauvegardes, sortie de collaboration.">
+  <meta property="og:url" content="https://blog.eperformance.pro/articles/questions-prestataire-site-web/index.html">
+  <meta property="og:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ePerformance — ePerformance">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Les questions à poser avant de confier son site">
+  <meta name="twitter:description" content="Douze questions à poser avant de signer, et ce qu&#x27;une bonne réponse contient : propriété, délai écrit, support, sauvegardes, sortie de collaboration.">
+  <meta name="twitter:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta name="twitter:creator" content="@eperformancepro">
+
+  <!-- Polices : préconnexion, préchargement des deux polices critiques,
+       puis chargement non bloquant de la feuille complète -->
+  <!-- Polices : auto-hébergées, déclarées dans eperf.css.
+       On précharge les deux graisses du premier écran pour que le
+       texte soit peint dans la bonne police dès le premier rendu. -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/cormorant-garamond-700.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/dm-sans-400.woff2">
+
+  <!-- Design system : la MEME feuille que le site, a l'identique. -->
+  <link rel="stylesheet" href="/assets/css/eperf.css">
+  <!-- Composants editoriaux du blog : corps d'article, largeur de
+       lecture, cartes d'article. Ils consomment les jetons d'eperf.css
+       et ne redefinissent aucune couleur. -->
+  <link rel="stylesheet" href="/assets/css/blog.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://blog.eperformance.pro/#organization",
+      "name": "ePerformance",
+      "alternateName": "ePerformance par K. Stéphane",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "founder": {
+        "@type": "Person",
+        "@id": "https://blog.eperformance.pro/#founder",
+        "name": "K. Stéphane",
+        "jobTitle": "Fondateur, stratège acquisition",
+        "url": "https://blog.eperformance.pro/kstephane.html"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Côte d'Ivoire"
+        },
+        {
+          "@type": "Country",
+          "name": "Burkina Faso"
+        },
+        {
+          "@type": "Place",
+          "name": "Afrique de l'Ouest"
+        }
+      ],
+      "knowsLanguage": "fr",
+      "sameAs": [
+        "https://blog.eperformance.pro/"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://blog.eperformance.pro/#localbusiness",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "parentOrganization": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Abidjan",
+        "addressCountry": "CI"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Côte d'Ivoire"
+      },
+      "priceRange": "100000-350000 XOF",
+      "currenciesAccepted": "XOF",
+      "paymentAccepted": "Orange Money, Wave, MTN MoMo, Moov Money, Visa, Mastercard",
+      "availableLanguage": "fr"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://blog.eperformance.pro/#website",
+      "url": "https://blog.eperformance.pro",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "publisher": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://blog.eperformance.pro/articles/questions-prestataire-site-web/index.html#webpage",
+      "url": "https://blog.eperformance.pro/articles/questions-prestataire-site-web/index.html",
+      "name": "Les questions à poser avant de confier son site",
+      "description": "Douze questions à poser avant de signer, et ce qu'une bonne réponse contient : propriété, délai écrit, support, sauvegardes, sortie de collaboration.",
+      "isPartOf": {
+        "@id": "https://blog.eperformance.pro/#website"
+      },
+      "about": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://blog.eperformance.pro/articles/questions-prestataire-site-web/index.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://blog.eperformance.pro/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Site web",
+          "item": "https://blog.eperformance.pro/site-web/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Questions au prestataire",
+          "item": "https://blog.eperformance.pro/articles/questions-prestataire-site-web/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Les questions à poser avant de confier son site",
+  "description":"Douze questions à poser avant de signer, et ce qu'une bonne réponse contient : propriété, délai écrit, support, sauvegardes, sortie de collaboration.",
+  "image":"https://blog.eperformance.pro/assets/img/og-image.jpg",
+  "datePublished":"2027-01-05T09:00:00+00:00",
+  "dateModified":"2027-01-05T09:00:00+00:00",
+  "inLanguage":"fr-CI",
+  "wordCount":2235,
+  "articleSection":"Site Web",
+  "keywords":["questions prestataire site web","choisir développeur","cahier des charges site","propriété nom de domaine","sauvegardes site","support site web","Abidjan"],
+  "author":{"@type":"Person","name":"K. STEPHANE","jobTitle":"Fondateur ePerformance","url":"https://blog.eperformance.pro/a-propos/"},
+  "publisher":{"@type":"Organization","name":"ePerformance","logo":{"@type":"ImageObject","url":"https://eperformance.pro/assets/img/logo-light.webp"}},
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.eperformance.pro/articles/questions-prestataire-site-web/"}
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Blog","item":"https://blog.eperformance.pro/"},
+    {"@type":"ListItem","position":2,"name":"Site Web","item":"https://blog.eperformance.pro/site-web/"},
+    {"@type":"ListItem","position":3,"name":"Les questions à poser avant de confier son site","item":"https://blog.eperformance.pro/articles/questions-prestataire-site-web/"}
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Faut-il un contrat écrit pour un site web ?","acceptedAnswer":{"@type":"Answer","text":"Oui, même court. Le contrat doit nommer ce qui est livré, le prix, le délai de départ, le propriétaire du domaine et de l'hébergement, et ce qui se passe en cas d'arrêt de la collaboration. Un devis signé qui contient ces éléments suffit souvent. Ce qui manque le plus fréquemment, c'est la clause de sortie."}},
+    {"@type":"Question","name":"Le prestataire doit-il me donner les accès à la mise en ligne ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Les accès au domaine, à l'hébergement, à l'administration du site et aux outils de mesure se remettent à la livraison, pas à la fin d'un quelconque engagement. Un prestataire qui conserve les accès pour vous « éviter les fausses manipulations » vous met en dépendance, même avec de bonnes intentions."}},
+    {"@type":"Question","name":"Que faire si le prestataire refuse de transférer le nom de domaine ?","acceptedAnswer":{"@type":"Answer","text":"Commencez par demander par écrit le bureau d'enregistrement et le titulaire du domaine, puis adressez une demande de transfert à ce bureau. Si le domaine est à son nom, il faut son accord pour le céder : c'est précisément la situation que les trois premières questions servent à éviter. En cas de blocage, la voie amiable reste la plus rapide ; un litige coûte plus cher que le domaine."}},
+    {"@type":"Question","name":"Combien de temps le support doit-il durer après la livraison ?","acceptedAnswer":{"@type":"Answer","text":"Il n'existe pas de durée standard : certains prestataires incluent un mois, d'autres proposent une maintenance annuelle. Ce qui compte n'est pas la durée annoncée, mais ce qu'elle couvre et par quel canal. Exigez que la durée, le canal et le délai de réponse soient écrits dans le devis."}},
+    {"@type":"Question","name":"Puis-je modifier mon site moi-même après la livraison ?","acceptedAnswer":{"@type":"Answer","text":"Cela dépend de l'outil et de la formation reçue. Sur un site vitrine géré par un logiciel de gestion de contenu, une personne de votre équipe peut apprendre à changer un texte, une photo ou un prix en quelques heures. Demandez cette prise en main à la livraison : elle fait partie du transfert, pas d'une prestation supplémentaire."}},
+    {"@type":"Question","name":"Un prestataire peut-il reprendre un site construit par quelqu'un d'autre ?","acceptedAnswer":{"@type":"Answer","text":"Oui, à condition d'avoir les accès et un minimum de documentation. La reprise commence toujours par un inventaire : où est hébergé le site, qui contrôle le domaine, quelles extensions ou applications sont utilisées, comment les sauvegardes sont faites. Sans cet inventaire, le nouveau prestataire travaille sans filet, et le premier incident devient difficile à réparer."}}
+  ]
+}
+  </script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a class="logo" href="/" aria-label="ePerformance — accueil">
+      <img class="logo-img-light" src="/assets/img/logo-light.webp"
+           srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+           width="182" height="30" alt="ePerformance" fetchpriority="high">
+      <img class="logo-img-dark" src="/assets/img/logo-dark.webp"
+           srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+           width="188" height="30" alt="" aria-hidden="true">
+    </a>
+
+    <nav class="nav" id="primary-nav" aria-label="Navigation principale">
+      <a href="/">Accueil</a>
+      <a href="/acquisition/">Acquisition</a>
+      <a href="/site-web/" aria-current="page">Site web</a>
+      <a href="/seo/">SEO</a>
+      <a href="/business/">Business</a>
+      <a href="/articles/ia-generative-pme-africaine/">IA</a>
+      <a href="/articles/automatisation-marketing-debuter/">Automatisation</a>
+      <a href="/a-propos/">À propos</a>
+      <a href="https://eperformance.pro" rel="noopener">Site principal</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" data-theme-toggle
+              aria-pressed="false" aria-label="Activer le thème sombre">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+        </svg>
+      </button>
+
+      <a class="btn btn-gold btn-desktop" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false"
+              aria-controls="primary-nav" aria-label="Ouvrir le menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<nav class="breadcrumb container" aria-label="Fil d'Ariane">
+  <ol>
+    <li><a href="/">Accueil</a></li>
+    <li><a href="/site-web/">Site web</a></li>
+    <li aria-current="page">Questions au prestataire</li>
+  </ol>
+</nav>
+
+<main id="main">
+
+
+<section class="article-hero">
+  <div class="container-reading">
+
+    <nav class="article-breadcrumb" aria-label="Fil d'Ariane">
+      <a href="/">Blog</a>
+      <span class="sep">/</span>
+      <a href="/site-web/">Site Web</a>
+      <span class="sep">/</span>
+      <span>Questions à poser à un prestataire</span>
+    </nav>
+
+    <span class="article-category">Site Web</span>
+    <h1>Les questions à poser avant de confier <span class="text-gold">son site</span></h1>
+    <p class="lead">Douze questions suffisent à savoir à qui vous avez affaire. Un prestataire sérieux y répond par écrit, sans se vexer. Un prestataire qui les esquive vous fait gagner du temps : vous connaissez déjà la fin de l'histoire.</p>
+
+    <div class="article-meta">
+      <div class="author">
+        <div class="author-avatar">KS</div>
+        <div>
+          <div class="article-author-name">K. STEPHANE</div>
+          <div class="small">Fondateur ePerformance</div>
+        </div>
+      </div>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg> 5 janvier 2027</span>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.6 2.1"/></svg> 12 min de lecture</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section-flush-top">
+  <div class="article-body container-reading">
+
+    <p>La mauvaise surprise arrive rarement au moment de la livraison. Elle arrive dix-huit mois plus tard : le domaine est au nom de quelqu'un d'autre, personne ne sait où sont les sauvegardes, le prestataire a changé de métier et le site ne peut plus être modifié par personne. À ce moment-là, la question n'est plus « combien ça coûte », c'est « comment je récupère mon site ».</p>
+
+    <p>Ces douze questions se posent avant de signer, et les réponses s'écrivent. Elles se répartissent en quatre familles : ce que vous possédez, le cadre du travail, l'après-livraison, et la sortie de la collaboration. Pour chacune, voici ce qu'une bonne réponse contient et ce qui doit alerter.</p>
+
+    <h2>Comment poser ces questions</h2>
+
+    <p>Posez-les par écrit, dans un message ou un courriel, avant de valider le devis. Pas au téléphone, pas à la fin d'une réunion : une réponse orale ne laisse aucune trace le jour où les choses se compliquent.</p>
+
+    <p>Vous n'avez pas besoin de poser les douze d'un coup. Commencez par les trois premières, celles sur la propriété. Elles éliminent le plus de mauvais profils, parce qu'elles portent sur des faits vérifiables, pas sur des intentions. Un prestataire qui répond clairement à celles-là répondra clairement aux autres.</p>
+
+    <p>Ne prenez pas une hésitation pour un mensonge. Un bon prestataire peut avoir besoin de vérifier une date, un nom de bureau d'enregistrement ou les modalités de son support. Ce qui compte, c'est qu'il revienne avec une réponse précise et vérifiable. La différence entre un professionnel et un amateur se voit là : l'un donne un fait, l'autre donne une phrase rassurante.</p>
+
+    <p>Un dernier point de méthode : demandez les réponses avant de négocier le prix. Posées après l'accord commercial, ces questions deviennent gênantes et les réponses se raccourcissent. Posées avant, elles font partie du cadrage normal, et chacun sait à quoi il s'engage.</p>
+
+    <h2>Questions 1 à 3 : ce que vous devez posséder</h2>
+
+    <p><strong>1. Qui possède le nom de domaine ?</strong> Une bonne réponse tient en une phrase : le domaine est enregistré à votre nom, dans un compte que vous pouvez consulter, et le prestataire n'a qu'un accès délégué pour faire pointer le site. Demandez le nom du bureau d'enregistrement, la date d'expiration et l'adresse qui recevra le rappel de renouvellement. Ce qui doit alerter : une réponse floue sur le propriétaire, ou une facture de domaine qui ne mentionne nulle part votre nom.</p>
+
+    <p><strong>2. Qui possède l'hébergement ?</strong> Le compte d'hébergement doit être ouvert à votre nom, même si le prestataire en assure la gestion technique. Demandez chez qui le site est hébergé, à quel tarif, et ce qui se passe si vous voulez changer d'hébergeur. Ce qui doit alerter : un hébergement « inclus dans la prestation » sans compte client à votre nom, et un refus de communiquer la moindre référence d'hébergement.</p>
+
+    <p><strong>3. Qui possède les comptes d'administration ?</strong> Site, boîte mail professionnelle, analytics, Search Console, fiche Google Business Profile : la liste doit être écrite, avec le titulaire de chaque compte. Le prestataire peut avoir un accès administrateur, mais le compte principal reste le vôtre. Ce qui doit alerter : des comptes créés avec l'adresse e-mail du prestataire, et une analytics que vous ne pouvez pas consulter sans passer par lui.</p>
+
+    <p>Ces trois réponses se vérifient en quelques minutes, sans compétence technique. Un accès administrateur se constate : soit vous pouvez ajouter un utilisateur, soit vous ne pouvez pas. Il ne se déclare pas.</p>
+
+    <h2>Questions 4 à 6 : le cadre du travail</h2>
+
+    <p><strong>4. Quel est le délai écrit, et à partir de quand court-il ?</strong> Un délai commence à une date précise : celle où le prestataire a reçu les textes, les photos et les validations. Demandez un planning par étapes, avec ce qui est attendu de votre côté à chaque étape. Ce qui doit alerter : un délai annoncé oralement, un planning sans étape de validation, et aucune mention de vos propres retards dans le calcul.</p>
+
+    <p><strong>5. Que comprend le support, et pendant combien de temps ?</strong> La réponse doit préciser la durée, le canal (téléphone, courriel, WhatsApp), le délai de réponse et ce qui est couvert : corrections d'anomalies, petites modifications, ou rien du tout. Ce qui doit alerter : un support « à vie » sans définition, un support qui passe uniquement par le même interlocuteur, et l'absence de distinction entre une anomalie à corriger et une nouveauté à facturer.</p>
+
+    <p><strong>6. Qui rédige le contenu, et à qui appartient-il ?</strong> Trois formules existent : vous fournissez les textes, le prestataire les rédige, ou le travail se fait à deux. Dans tous les cas, les textes, photos et visuels livrés doivent vous appartenir, avec l'accord écrit pour les réutiliser ailleurs. Ce qui doit alerter : des textes repris d'un autre site sans vérification, des photos sous licence non transférable, et une propriété du contenu jamais évoquée.</p>
+
+    <h2>Questions 7 à 9 : l'après-livraison</h2>
+
+    <p><strong>7. Comment le site est-il sauvegardé, et où sont les sauvegardes ?</strong> Une bonne réponse décrit la fréquence (quotidienne, hebdomadaire), l'endroit où les sauvegardes sont stockées, et la personne qui peut les restaurer. Demandez aussi comment une restauration se teste : une sauvegarde jamais essayée n'est qu'une promesse. Ce qui doit alerter : des sauvegardes stockées sur le même serveur que le site, et l'absence de toute mention de restauration.</p>
+
+    <p><strong>8. Qui fait les mises à jour techniques et de sécurité ?</strong> Sur un site qui repose sur un logiciel et des extensions, quelqu'un doit suivre les mises à jour et surveiller les tentatives d'intrusion. Demandez qui s'en charge, à quelle fréquence, et comment vous êtes prévenu en cas de problème. Ce qui doit alerter : « on met à jour quand c'est nécessaire », sans fréquence, et personne de nommé pour le faire.</p>
+
+    <p><strong>9. Comment les modifications après la livraison sont-elles facturées ?</strong> Demandez le tarif d'une modification simple : changer un prix, ajouter une page, remplacer une photo. Certains prestataires facturent à l'heure, d'autres au forfait, d'autres incluent un volume mensuel. Ce qui doit alerter : aucun tarif annoncé, une facturation « au cas par cas » et des modifications qui prennent systématiquement plusieurs jours pour un changement de texte.</p>
+
+    <p>Sur ces trois points, une bonne réponse partage une caractéristique : elle se comprend sans que le prestataire soit là pour l'expliquer. Si vous devez rappeler pour savoir qui sauvegarde quoi et à quelle fréquence, la réponse était insuffisante.</p>
+
+    <h2>Questions 10 à 12 : la sortie de la collaboration</h2>
+
+    <p><strong>10. Que se passe-t-il si on arrête de travailler ensemble ?</strong> La réponse doit être écrite, et elle doit tenir en une phrase : le site continue de fonctionner, le domaine et l'hébergement restent à votre nom, et le prestataire remet les accès. Demandez un délai de remise et la forme de cette remise. Ce qui doit alerter : un silence sur le sujet, une réponse du type « cela n'arrivera pas », et une dépendance technique telle que le site ne peut plus tourner sans la personne qui l'a construit.</p>
+
+    <p><strong>11. Le site peut-il être repris par un autre prestataire ?</strong> Un site reprenable dispose d'une documentation, d'un accès aux fichiers, et d'une procédure de déploiement compréhensible. Sur un site sur mesure, cette documentation doit être livrée avec le code. Ce qui doit alerter : un refus de donner les accès aux fichiers, un code hébergé uniquement chez le prestataire, et des identifiants que seul lui détient.</p>
+
+    <p><strong>12. Que se passe-t-il si le site tombe en panne un vendredi soir ?</strong> La question paraît anecdotique. Elle révèle qui répond en dehors des heures de bureau, par quel canal, et sous quel délai. Un site vitrine qui tombe un week-end coûte des demandes perdues sans que personne ne s'en aperçoive. Ce qui doit alerter : « appelez-moi sur mon portable », sans procédure écrite ni engagement de délai de prise en charge.</p>
+
+    <h2>Ce qui doit alerter dans la façon de répondre</h2>
+
+    <p>Les alertes ne portent pas seulement sur le contenu des réponses, mais sur la manière de répondre. Quatre signaux reviennent souvent.</p>
+
+    <p><strong>Le refus d'écrire.</strong> Un prestataire qui répond volontiers au téléphone mais jamais par écrit vous laisse sans preuve. Ce qui se dit à l'oral se conteste plus tard, parfois de bonne foi.</p>
+
+    <p><strong>Les réponses toutes faites.</strong> « Pas d'inquiétude, tout est prévu », « on gère tout, vous n'avez rien à faire ». Ces phrases ne décrivent rien de vérifiable. Une réponse utile cite un nom, une date, un outil ou un tarif.</p>
+
+    <p><strong>La précipitation sur le paiement.</strong> Un prestataire qui réclame un acompte complet avant d'avoir répondu aux questions de propriété inverse l'ordre normal. L'acompte se discute après le cadrage, pas avant.</p>
+
+    <p><strong>La comparaison uniquement sur le prix.</strong> Le devis le moins cher cache parfois une construction sur un compte au nom du prestataire, où les accès vous seront facturés plus tard. Sur ce point précis, la lecture de <a href="/articles/domaine-hebergement-propriete/">ce qui doit être à votre nom</a> évite une négociation pénible deux ans après.</p>
+
+    <p>Ces quatre signaux ne prouvent rien à eux seuls. Un prestataire peut être lent à répondre et très rigoureux sur les accès. Ce qui compte, c'est la cohérence entre ce qu'il dit et ce qu'il accepte de mettre par écrit dans le devis.</p>
+
+    <h2>Ce qu'il faut retenir</h2>
+
+    <p>Ces douze questions tiennent sur une page et se posent en une heure. Elles portent sur trois choses : ce que vous possédez, ce qui est écrit, et ce qui se passe quand la relation s'arrête. Le reste — design, animations, effets — se discute après.</p>
+
+    <p>Un prestataire qui répond précisément à tout cela vous donne une raison de travailler avec lui. Un prestataire qui esquive vous donne une raison d'aller voir ailleurs. Dans les deux cas, vous aurez appris quelque chose avant d'avoir payé.</p>
+
+    <p>Le bon moment pour poser ces questions n'est pas la veille de la signature. Envoyez-les au premier échange, puis comparez les réponses de deux ou trois prestataires sur les mêmes questions : les écarts deviennent visibles immédiatement, et la décision se prend sur des faits.</p>
+
+    <p>Deux compléments utiles. Avant de valider les maquettes, <a href="/articles/site-web-professionnel-abidjan-guide/">les sept critères d'un site professionnel à Abidjan</a> donnent les points à vérifier au moment de la recette : vitesse, affichage mobile, données structurées, capture des demandes. Et le choix de l'outil lui-même se pose avant celui du prestataire : <a href="/articles/wordpress-shopify-sur-mesure/">WordPress, Shopify ou le sur-mesure</a> se comparent sur quatre critères locaux.</p>
+
+    <div class="cta-block">
+      <h2>Ces réponses sont écrites noir sur blanc</h2>
+      <p>La page site web détaille ce qui est livré, comment le projet se déroule et ce qui reste en votre possession à la fin.</p>
+      <a class="btn btn-gold" href="https://eperformance.pro/site-web.html">Voir la page site web
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <h2>FAQ — Confier son site à un prestataire</h2>
+
+    <div class="faq-section">
+      <details>
+        <summary>Faut-il un contrat écrit pour un site web ?</summary>
+        <p>Oui, même court. Le contrat doit nommer ce qui est livré, le prix, le délai de départ, le propriétaire du domaine et de l'hébergement, et ce qui se passe en cas d'arrêt de la collaboration. Un devis signé qui contient ces éléments suffit souvent. Ce qui manque le plus fréquemment, c'est la clause de sortie.</p>
+      </details>
+
+      <details>
+        <summary>Le prestataire doit-il me donner les accès à la mise en ligne ?</summary>
+        <p>Oui. Les accès au domaine, à l'hébergement, à l'administration du site et aux outils de mesure se remettent à la livraison, pas à la fin d'un quelconque engagement. Un prestataire qui conserve les accès pour vous « éviter les fausses manipulations » vous met en dépendance, même avec de bonnes intentions.</p>
+      </details>
+
+      <details>
+        <summary>Que faire si le prestataire refuse de transférer le nom de domaine ?</summary>
+        <p>Commencez par demander par écrit le bureau d'enregistrement et le titulaire du domaine, puis adressez une demande de transfert à ce bureau. Si le domaine est à son nom, il faut son accord pour le céder : c'est précisément la situation que les trois premières questions servent à éviter. En cas de blocage, la voie amiable reste la plus rapide ; un litige coûte plus cher que le domaine.</p>
+      </details>
+
+      <details>
+        <summary>Combien de temps le support doit-il durer après la livraison ?</summary>
+        <p>Il n'existe pas de durée standard : certains prestataires incluent un mois, d'autres proposent une maintenance annuelle. Ce qui compte n'est pas la durée annoncée, mais ce qu'elle couvre et par quel canal. Exigez que la durée, le canal et le délai de réponse soient écrits dans le devis.</p>
+      </details>
+
+      <details>
+        <summary>Puis-je modifier mon site moi-même après la livraison ?</summary>
+        <p>Cela dépend de l'outil et de la formation reçue. Sur un site vitrine géré par un logiciel de gestion de contenu, une personne de votre équipe peut apprendre à changer un texte, une photo ou un prix en quelques heures. Demandez cette prise en main à la livraison : elle fait partie du transfert, pas d'une prestation supplémentaire.</p>
+      </details>
+
+      <details>
+        <summary>Un prestataire peut-il reprendre un site construit par quelqu'un d'autre ?</summary>
+        <p>Oui, à condition d'avoir les accès et un minimum de documentation. La reprise commence toujours par un inventaire : où est hébergé le site, qui contrôle le domaine, quelles extensions ou applications sont utilisées, comment les sauvegardes sont faites. Sans cet inventaire, le nouveau prestataire travaille sans filet, et le premier incident devient difficile à réparer.</p>
+      </details>
+    </div>
+
+    <div class="tags-row">
+      <a href="/site-web/" class="tag">Site web</a>
+      <a href="/articles/domaine-hebergement-propriete/" class="tag">Propriété du site</a>
+      <a href="/articles/site-web-professionnel-abidjan-guide/" class="tag">Choisir son site</a>
+    </div>
+
+    <div class="share-row">
+      <span class="small">Partager</span>
+      <a href="#" class="share-btn" onclick="return sharePage('whatsapp')" data-share="whatsapp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.6-4.5A8.4 8.4 0 1 1 8 20.4z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('linkedin')" data-share="linkedin" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('facebook')" data-share="facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('copy')" data-share="copy" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></a>
+    </div>
+
+    <div class="related">
+      <h2>Articles à lire ensuite</h2>
+      <a href="/articles/domaine-hebergement-propriete/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">Site Web</span>
+          <h3>Nom de domaine et hébergement : ce que vous devez posséder</h3>
+          <p class="small">Vérifier ce qui est à votre nom, et reprendre la main sinon.</p>
+        </div>
+      </a>
+      <a href="/articles/site-web-professionnel-abidjan-guide/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">Site Web</span>
+          <h3>Site web professionnel à Abidjan : 7 critères SEO</h3>
+          <p class="small">Ce qu'il faut vérifier au moment de la recette.</p>
+        </div>
+      </a>
+      <a href="/articles/reprendre-controle-site/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">Site Web</span>
+          <h3>Reprendre le contrôle de son site après un prestataire</h3>
+          <p class="small">Les accès à récupérer, et comment les demander.</p>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-col">
+        <img class="footer-logo logo-img-light" src="/assets/img/logo-light.webp"
+             srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+             width="152" height="25" alt="ePerformance" loading="lazy">
+        <img class="footer-logo logo-img-dark" src="/assets/img/logo-dark.webp"
+             srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+             width="157" height="25" alt="" aria-hidden="true" loading="lazy">
+        <p class="card-text mt-3" style="max-width:34ch">Stratégie d&#x27;acquisition, IA générative, automatisation et développement web premium. Basé en Côte d&#x27;Ivoire, 100 % en ligne.</p>
+      </div>
+
+      <div class="footer-col">
+        <h2>Services</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/index.html#methode" rel="noopener">stratégie d&#x27;acquisition</a></li>
+          <li><a href="https://eperformance.pro/ia.html" rel="noopener">IA générative</a></li>
+          <li><a href="https://eperformance.pro/automatisation.html" rel="noopener">Automatisation</a></li>
+          <li><a href="https://eperformance.pro/site-web.html" rel="noopener">Création de site web</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Ressources</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/diagnostic_eperformance.html" rel="noopener">Diagnostic gratuit</a></li>
+          <li><a href="https://eperformance.pro/formation.html" rel="noopener">Formations</a></li>
+          <li><a href="https://eperformance.pro/ebook.html" rel="noopener">Ebooks</a></li>
+          <li><a href="https://blog.eperformance.pro/" rel="noopener">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="https://wa.me/2250151170666" rel="noopener">+225 01 51 17 06 66</a></li>
+          <li><a href="mailto:bonjour@eperformance.pro">bonjour@eperformance.pro</a></li>
+          <li><a href="https://api.eperformance.pro/connexion.php" rel="noopener">Espace client</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 ePerformance — par K. Stéphane. Tous droits réservés.</p>
+      <p><a href="https://eperformance.pro/mentions-legales.html">Mentions légales</a> · <a href="https://eperformance.pro/politique-confidentialite.html">Confidentialité</a> · <a href="https://eperformance.pro/cookies.html">Cookies</a> · <a href="https://eperformance.pro/cgv.html">CGV</a></p>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a class="btn btn-gold" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+  <a class="btn btn-wa" href="https://wa.me/2250151170666" style="flex:0 0 auto" rel="noopener">WhatsApp</a>
+</div>
+
+<div class="consent" id="consent-banner" hidden>
+  <div class="consent-inner">
+    <div class="consent-text">
+      <p><strong>Vous choisissez ce que nous mesurons.</strong></p>
+      <p>Nous utilisons des traceurs pour comprendre comment le site est utilisé et pour
+         mesurer nos campagnes. Aucun ne se déclenche avant votre accord.
+         <a href="https://eperformance.pro/politique-confidentialite.html">Politique de confidentialité</a> ·
+         <a href="https://eperformance.pro/cookies.html">En savoir plus</a></p>
+    </div>
+    <div class="consent-actions">
+      <button type="button" class="btn btn-ghost" data-consent="refuse">Tout refuser</button>
+      <button type="button" class="btn btn-outline" data-consent="customize">Paramétrer</button>
+      <button type="button" class="btn btn-gold" data-consent="accept">Tout accepter</button>
+    </div>
+  </div>
+
+  <div class="consent-detail" id="consent-detail" hidden>
+    <fieldset class="fieldset">
+      <legend>Vos préférences</legend>
+
+      <label class="consent-row consent-row-locked">
+        <input type="checkbox" checked disabled>
+        <span>
+          <strong>Nécessaires</strong>
+          <span class="field-hint">Mémorisation de votre choix de thème et de vos préférences.
+            Toujours actifs : le site ne peut pas fonctionner sans.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-analytics">
+        <span>
+          <strong>Mesure d'audience</strong>
+          <span class="field-hint">Google Analytics 4 et Microsoft Clarity. Nous aide à voir
+            quelles pages sont utiles et où les visiteurs abandonnent.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-ads">
+        <span>
+          <strong>Publicité</strong>
+          <span class="field-hint">Meta Pixel. Mesure l'efficacité de nos campagnes
+            Facebook et Instagram.</span>
+        </span>
+      </label>
+    </fieldset>
+
+    <div class="consent-actions">
+      <button type="button" class="btn btn-outline" data-consent="back">Retour</button>
+      <button type="button" class="btn btn-gold" data-consent="save">Enregistrer mes choix</button>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/js/consent.js" defer></script>
+<script src="/assets/js/eperf.js" defer></script>
+<script src="/assets/js/blog.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+(function(){try{var t=localStorage.getItem('eperf-theme');
+if(t!=='dark'&&t!=='light'){t='light';}
+document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+  <title>Analyser ses rapports publicitaires avec l&#x27;IA | ePerformance</title>
+  <meta name="description" content="Comment faire lire un export publicitaire à un outil d&#x27;IA : ce qui a bougé d&#x27;un mois sur l&#x27;autre, et pourquoi un résumé de données fausses est pire qu&#x27;aucun.">
+  <meta name="robots" content="noindex,follow">
+  <link rel="canonical" href="https://blog.eperformance.pro/articles/ia-analyse-rapports-publicitaires/index.html">
+  <meta name="theme-color" content="#fdfcfa">
+  <meta name="author" content="K. Stéphane">
+
+  <!-- Icônes -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="icon" href="/assets/img/favicon-16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ePerformance">
+  <meta property="og:locale" content="fr_CI">
+  <meta property="og:title" content="Analyser ses rapports publicitaires avec l&#x27;IA | ePerformance">
+  <meta property="og:description" content="Comment faire lire un export publicitaire à un outil d&#x27;IA : ce qui a bougé d&#x27;un mois sur l&#x27;autre, et pourquoi un résumé de données fausses est pire qu&#x27;aucun.">
+  <meta property="og:url" content="https://blog.eperformance.pro/articles/ia-analyse-rapports-publicitaires/index.html">
+  <meta property="og:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ePerformance — ePerformance">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Analyser ses rapports publicitaires avec l&#x27;IA | ePerformance">
+  <meta name="twitter:description" content="Comment faire lire un export publicitaire à un outil d&#x27;IA : ce qui a bougé d&#x27;un mois sur l&#x27;autre, et pourquoi un résumé de données fausses est pire qu&#x27;aucun.">
+  <meta name="twitter:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta name="twitter:creator" content="@eperformancepro">
+
+  <!-- Polices : préconnexion, préchargement des deux polices critiques,
+       puis chargement non bloquant de la feuille complète -->
+  <!-- Polices : auto-hébergées, déclarées dans eperf.css.
+       On précharge les deux graisses du premier écran pour que le
+       texte soit peint dans la bonne police dès le premier rendu. -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/cormorant-garamond-700.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/dm-sans-400.woff2">
+
+  <!-- Design system : la MEME feuille que le site, a l'identique. -->
+  <link rel="stylesheet" href="/assets/css/eperf.css">
+  <!-- Composants editoriaux du blog : corps d'article, largeur de
+       lecture, cartes d'article. Ils consomment les jetons d'eperf.css
+       et ne redefinissent aucune couleur. -->
+  <link rel="stylesheet" href="/assets/css/blog.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://blog.eperformance.pro/#organization",
+      "name": "ePerformance",
+      "alternateName": "ePerformance par K. Stéphane",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "founder": {
+        "@type": "Person",
+        "@id": "https://blog.eperformance.pro/#founder",
+        "name": "K. Stéphane",
+        "jobTitle": "Fondateur, stratège acquisition",
+        "url": "https://blog.eperformance.pro/kstephane.html"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Côte d'Ivoire"
+        },
+        {
+          "@type": "Country",
+          "name": "Burkina Faso"
+        },
+        {
+          "@type": "Place",
+          "name": "Afrique de l'Ouest"
+        }
+      ],
+      "knowsLanguage": "fr",
+      "sameAs": [
+        "https://blog.eperformance.pro/"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://blog.eperformance.pro/#localbusiness",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "parentOrganization": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Abidjan",
+        "addressCountry": "CI"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Côte d'Ivoire"
+      },
+      "priceRange": "100000-350000 XOF",
+      "currenciesAccepted": "XOF",
+      "paymentAccepted": "Orange Money, Wave, MTN MoMo, Moov Money, Visa, Mastercard",
+      "availableLanguage": "fr"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://blog.eperformance.pro/#website",
+      "url": "https://blog.eperformance.pro",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "publisher": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://blog.eperformance.pro/articles/ia-analyse-rapports-publicitaires/index.html#webpage",
+      "url": "https://blog.eperformance.pro/articles/ia-analyse-rapports-publicitaires/index.html",
+      "name": "Analyser ses rapports publicitaires avec l'IA | ePerformance",
+      "description": "Comment faire lire un export publicitaire à un outil d'IA : ce qui a bougé d'un mois sur l'autre, et pourquoi un résumé de données fausses est pire qu'aucun.",
+      "isPartOf": {
+        "@id": "https://blog.eperformance.pro/#website"
+      },
+      "about": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://blog.eperformance.pro/articles/ia-analyse-rapports-publicitaires/index.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://blog.eperformance.pro/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "IA générative",
+          "item": "https://blog.eperformance.pro/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Analyser ses rapports publicitaires",
+          "item": "https://blog.eperformance.pro/articles/ia-analyse-rapports-publicitaires/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Utiliser l'IA pour analyser ses rapports publicitaires",
+  "description":"De l'export brut au diagnostic : préparer le fichier, poser les bonnes questions, comparer ce qui est comparable, et vérifier les totaux avant de décider.",
+  "image":"https://blog.eperformance.pro/assets/img/og-image.jpg",
+  "datePublished":"2026-10-15T09:00:00+00:00",
+  "dateModified":"2026-10-15T09:00:00+00:00",
+  "inLanguage":"fr-CI",
+  "wordCount":2336,
+  "articleSection":"IA générative",
+  "keywords":["analyser rapport meta ads ia","ia analyse données","lire ses statistiques","export gestionnaire publicités","coût par résultat","Côte d'Ivoire","Abidjan"],
+  "author":{"@type":"Person","name":"K. STEPHANE","jobTitle":"Fondateur ePerformance","url":"https://blog.eperformance.pro/a-propos/"},
+  "publisher":{"@type":"Organization","name":"ePerformance","logo":{"@type":"ImageObject","url":"https://eperformance.pro/assets/img/logo-light.webp"}},
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.eperformance.pro/articles/ia-analyse-rapports-publicitaires/"}
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Blog","item":"https://blog.eperformance.pro/"},
+    {"@type":"ListItem","position":2,"name":"IA générative","item":"https://blog.eperformance.pro/"},
+    {"@type":"ListItem","position":3,"name":"Utiliser l'IA pour analyser ses rapports publicitaires","item":"https://blog.eperformance.pro/articles/ia-analyse-rapports-publicitaires/"}
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Faut-il un outil payant pour analyser ses rapports publicitaires avec l'IA ?","acceptedAnswer":{"@type":"Answer","text":"Non. Un tableau de six à huit colonnes collé dans une conversation suffit, avec une demande formulée précisément. Ce qui coûte du temps, ce n'est pas l'outil : c'est la préparation du fichier et la vérification des totaux. Les offres payantes apportent surtout l'automatisation du collage, pas la justesse de la lecture."}},
+    {"@type":"Question","name":"Puis-je donner l'accès à mon compte publicitaire à un outil d'IA ?","acceptedAnswer":{"@type":"Answer","text":"Ce n'est pas nécessaire, et c'est rarement souhaitable. Un export préparé contient tout ce dont la lecture a besoin, sans donner à un tiers la main sur vos campagnes ni accès à vos données de compte. Tant que vous ne savez pas exactement ce que l'outil ferait de cet accès, l'export reste la voie la plus simple."}},
+    {"@type":"Question","name":"L'IA peut-elle me dire quelle campagne est rentable ?","acceptedAnswer":{"@type":"Answer","text":"Non, pas sur la base du seul export. Elle peut dire quelle campagne coûte le plus cher par résultat et laquelle a le plus bougé. La rentabilité dépend de votre marge et de la valeur d'un client sur la durée, deux informations qui ne figurent pas dans le fichier. Sans elles, toute conclusion de rentabilité est une supposition."}},
+    {"@type":"Question","name":"Faut-il comparer deux mois ou plus ?","acceptedAnswer":{"@type":"Answer","text":"Deux mois suffisent pour repérer un mouvement, à condition que les deux périodes aient la même durée et que les campagnes soient nommées de la même façon. Trois mois permettent de distinguer une tendance d'une variation ponctuelle. Au-delà, vous lisez de l'histoire ancienne : les audiences et les créas ont changé."}},
+    {"@type":"Question","name":"Que faire si mon export est incomplet ?","acceptedAnswer":{"@type":"Answer","text":"Ne comblez pas les trous par une estimation, et ne demandez pas à l'outil de le faire. Travaillez sur les colonnes présentes, ajoutez les manquantes au prochain export, et notez ce qui manque. Un rapport partiel assumé vaut mieux qu'un rapport complet obtenu en inventant deux lignes."}},
+    {"@type":"Question","name":"Combien de temps prend cette analyse chaque mois ?","acceptedAnswer":{"@type":"Answer","text":"Environ trente minutes une fois la routine installée : cinq minutes de préparation du fichier, dix minutes de lecture, cinq minutes de vérification des totaux, dix minutes pour écrire les trois décisions du mois. La première fois compte plutôt une heure, le temps de choisir vos colonnes."}}
+  ]
+}
+  </script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a class="logo" href="/" aria-label="ePerformance — accueil">
+      <img class="logo-img-light" src="/assets/img/logo-light.webp"
+           srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+           width="182" height="30" alt="ePerformance" fetchpriority="high">
+      <img class="logo-img-dark" src="/assets/img/logo-dark.webp"
+           srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+           width="188" height="30" alt="" aria-hidden="true">
+    </a>
+
+    <nav class="nav" id="primary-nav" aria-label="Navigation principale">
+      <a href="/">Accueil</a>
+      <a href="/acquisition/">Acquisition</a>
+      <a href="/site-web/">Site web</a>
+      <a href="/seo/">SEO</a>
+      <a href="/business/">Business</a>
+      <a href="/articles/ia-generative-pme-africaine/" aria-current="page">IA</a>
+      <a href="/articles/automatisation-marketing-debuter/">Automatisation</a>
+      <a href="/a-propos/">À propos</a>
+      <a href="https://eperformance.pro" rel="noopener">Site principal</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" data-theme-toggle
+              aria-pressed="false" aria-label="Activer le thème sombre">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+        </svg>
+      </button>
+
+      <a class="btn btn-gold btn-desktop" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false"
+              aria-controls="primary-nav" aria-label="Ouvrir le menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<nav class="breadcrumb container" aria-label="Fil d'Ariane">
+  <ol>
+    <li><a href="/">Accueil</a></li>
+    <li><a href="/">IA générative</a></li>
+    <li aria-current="page">Analyser ses rapports publicitaires</li>
+  </ol>
+</nav>
+
+<main id="main">
+
+
+<section class="article-hero">
+  <div class="container-reading">
+
+    <nav class="article-breadcrumb" aria-label="Fil d'Ariane">
+      <a href="/">Blog</a>
+      <span class="sep">/</span>
+      <span>IA générative</span>
+    </nav>
+
+    <span class="article-category">IA générative</span>
+    <h1>Utiliser l'IA pour analyser ses <span class="text-gold">rapports publicitaires</span></h1>
+    <p class="lead">Votre export publicitaire contient déjà la réponse à la question « qu'est-ce qui a bougé ce mois-ci ». Encore faut-il le lire sans se tromper. Voici la méthode, depuis les colonnes du fichier jusqu'aux décisions, et les vérifications qui évitent de conclure sur des chiffres faux.</p>
+
+    <div class="article-meta">
+      <div class="author">
+        <div class="author-avatar">KS</div>
+        <div>
+          <div class="article-author-name">K. STEPHANE</div>
+          <div class="small">Fondateur ePerformance</div>
+        </div>
+      </div>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg> 15 octobre 2026</span>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.6 2.1"/></svg> 12 min de lecture</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section-flush-top">
+  <div class="article-body container-reading">
+
+    <p>Vous ouvrez le gestionnaire de publicités, vous regardez trois chiffres en haut du tableau, vous vous faites une opinion, et vous refermez. C'est ainsi que la plupart des budgets se décident : au ressenti, sur un total.</p>
+
+    <p>Le problème n'est pas le manque de données. Le problème est que l'export contient les réponses sous une forme qui ne se lit pas — des colonnes, des lignes, des campagnes, des périodes. Un outil d'IA générative ne calcule rien à votre place, mais il lit ce fichier vite, il repère ce qui a bougé d'un mois sur l'autre, et il vous le dit dans une langue que vous pouvez utiliser.</p>
+
+    <p>Encore faut-il lui donner des données propres et vérifier sa lecture. Un résumé de données fausses est plus dangereux qu'aucun résumé : il a l'autorité d'un document bien écrit, et vous décidez dessus.</p>
+
+    <h2>L'export que vous avez déjà, et ce qu'il contient vraiment</h2>
+
+    <p>Un export de gestionnaire de publicités, Meta ou Google, contient toujours les mêmes familles de colonnes. Voici celles qui servent : le nom de la campagne, le montant dépensé, les impressions, les clics sur le lien, le CTR, le CPC, les résultats, et le coût par résultat.</p>
+
+    <p>Deux précisions de vocabulaire, parce qu'elles changent la lecture. Chez Meta, la colonne « Résultats » contient ce que vous avez demandé d'optimiser : des conversations démarrées, des achats, des prospects. Chez Google, on parle de conversions et de coût par conversion. Dans les deux cas, « résultat » ne veut pas dire « client ».</p>
+
+    <p>Ce que l'export ne contient pas, et qui compte autant : votre marge, la valeur d'un client sur la durée, les ventes conclues hors ligne, et le coût de production ou de livraison. Un rapport publicitaire dit ce que la publicité a coûté et produit. Il ne dit pas si vous y avez gagné quelque chose.</p>
+
+    <div class="callout">
+      <p><strong>La règle.</strong> L'export répond à « qu'est-ce qui a bougé ? ». Il ne répond pas à « est-ce rentable ? ». La deuxième question se traite avec le <a href="/articles/calculer-cac-cote-ivoire/">coût d'acquisition réel</a> et la <a href="/articles/calculer-ltv/">valeur d'un client sur la durée</a>, pas avec le tableau du gestionnaire.</p>
+    </div>
+
+    <h2>Étape 1 — Préparer le fichier avant de le faire lire</h2>
+
+    <p>Un outil à qui vous donnez un export brut vous répond sur un export brut. Cinq contrôles suffisent, et ils prennent moins de dix minutes.</p>
+
+    <ol>
+      <li>Gardez six à huit colonnes, pas trente. Campagne, dépenses, impressions, clics, résultats, coût par résultat. Les colonnes inutiles alourdissent la lecture et noient les écarts.</li>
+      <li>Supprimez la ligne de total, ou nommez-la explicitement « TOTAL ». C'est la cause d'erreur la plus fréquente : le total se fait passer pour une campagne.</li>
+      <li>Vérifiez que les périodes comparées ont la même durée. Trente jours contre trente et un, ce n'est pas comparable. Ramenez tout au jour : divisez la dépense par le nombre de jours du mois.</li>
+      <li>Supprimez les lignes à zéro dépense. Elles n'apportent rien et déclenchent de fausses conclusions sur des campagnes qui n'ont pas tourné.</li>
+      <li>Vérifiez les campagnes renommées ou dupliquées en cours de période. Une campagne renommée en octobre apparaît deux fois : une ligne pour chaque nom. Fusionnez-les avant de lire, sinon vous comparerez deux choses différentes.</li>
+    </ol>
+
+    <p>Trois colonnes ne s'affichent pas par défaut dans la plupart des exports, et ce sont souvent celles qui expliquent le reste : la fréquence, qui indique combien de fois la même personne a vu l'annonce ; la portée, qui compte les personnes différentes touchées ; et les résultats secondaires, qui montrent ce que la campagne a produit en plus de l'objectif principal. Activez-les avant d'exporter.</p>
+
+    <p>Formatez ensuite en tableau simple : une ligne par campagne et par mois. Un fichier CSV ou un tableau collé dans la conversation fait le travail. Une capture d'écran, non : sur une image, l'outil lit les chiffres de travers et vous ne pouvez pas vérifier ses additions.</p>
+
+    <h2>Étape 2 — Les questions à poser, formulées pour être vérifiables</h2>
+
+    <p>La qualité de la réponse dépend entièrement de la formulation de la demande. Trois principes.</p>
+
+    <p><strong>Interdisez l'invention de chiffres.</strong> Écrivez noir sur blanc que l'outil doit répondre uniquement avec les données présentes dans le fichier, et écrire « donnée absente » quand la réponse n'y est pas. Sans cette phrase, il complètera avec du plausible.</p>
+
+    <p><strong>Demandez des comparaisons, pas des conclusions.</strong> « Le coût par résultat a augmenté de 41 % sur cette campagne » est vérifiable. « Il faut réduire le budget de cette campagne » ne l'est pas, et ne dépend pas du fichier.</p>
+
+    <p><strong>Demandez les lignes concernées.</strong> Exigez que chaque constat cite le nom de la campagne ou de la ligne d'où il vient. Vous pourrez alors ouvrir le fichier et contrôler en dix secondes.</p>
+
+    <blockquote>
+      <p>« Voici un export de mon gestionnaire de publicités. Colonnes : campagne, mois, dépenses, impressions, clics, résultats, coût par résultat. N'invente aucun chiffre : réponds uniquement avec les données du fichier, et écris "donnée absente" si la réponse n'y est pas. Donne-moi : (1) les trois campagnes dont le coût par résultat a le plus augmenté entre les deux mois ; (2) la campagne dont les impressions ont baissé alors que la dépense augmentait ; (3) le total des dépenses et des résultats, mois par mois ; (4) les campagnes dont le coût par résultat dépasse la moyenne de mon compte. Pour chaque point, cite la ligne utilisée. »</p>
+    </blockquote>
+
+    <p>Cette demande produit une liste de constats vérifiables. Elle ne produit pas un plan d'action, et c'est volontaire : le plan dépend de votre marge, que le fichier ne connaît pas.</p>
+
+    <h2>Étape 3 — Les quatre comparaisons qui décident</h2>
+
+    <p>Vous avez maintenant une liste de constats. Quatre comparaisons suffisent pour décider, et elles se font dans cet ordre.</p>
+
+    <p><strong>Le coût par résultat, jamais le total.</strong> Une campagne qui dépense plus peut être une bonne nouvelle si elle produit proportionnellement plus. Une campagne qui dépense deux fois plus pour trois résultats de plus est un signal, pas un succès. Exemple de travail : 240 000 FCFA dépensés pour 62 conversations en septembre, soit 3 871 FCFA par conversation. En octobre, 300 000 FCFA pour 55 conversations, soit 5 455 FCFA. La dépense a augmenté de 25 %, le coût par conversation de 41 %.</p>
+
+    <p><strong>La dépense et le résultat dans les deux sens.</strong> Croisez systématiquement : dépense en hausse et résultats en baisse, c'est la catégorie à traiter en premier. Dépense stable et résultats en hausse, c'est la campagne à alimenter.</p>
+
+    <p>Un exemple de lecture croisée, sur deux campagnes et deux mois. Campagne A : 180 000 FCFA en septembre pour 41 résultats, puis 180 000 FCFA en octobre pour 28 résultats. La dépense n'a pas bougé, le coût par résultat est passé de 4 390 à 6 428 FCFA. Campagne B : 120 000 FCFA pour 30 résultats, puis 190 000 FCFA pour 58 résultats. La dépense a augmenté de 58 %, les résultats de 93 %. La première demande une correction, la seconde peut recevoir un budget supplémentaire.</p>
+
+    <p><strong>Les impressions contre la fréquence.</strong> Si les impressions montent alors que les clics stagnent, vous payez pour montrer la même annonce aux mêmes personnes. C'est un signal de saturation, et il se lit sur deux colonnes seulement.</p>
+
+    <p><strong>Le CTR et le CPC ensemble.</strong> Un CTR qui baisse avec un CPC qui monte dit que l'annonce fatigue. Un CTR qui baisse avec un CPC stable dit que l'audience est plus large et moins qualifiée. Ce ne sont pas les mêmes corrections.</p>
+
+    <div class="callout">
+      <p><strong>Ce qui compte, ce sont les écarts, pas les niveaux.</strong> Un coût par résultat de 4 000 FCFA peut être excellent ou catastrophique selon votre marge. Ce que le fichier vous montre de fiable, c'est la direction : ça monte ou ça descend, et sur quelle campagne.</p>
+    </div>
+
+    <h2>Étape 4 — Vérifier avant de conclure</h2>
+
+    <p>Un résumé de rapport publicitaire se contrôle en trois minutes, à la main. Faites-le à chaque fois, surtout quand le constat vous arrange.</p>
+
+    <ol>
+      <li>Additionnez vous-même la colonne des dépenses des deux mois. Le total du résumé doit correspondre au chiffre affiché par le gestionnaire.</li>
+      <li>Additionnez la colonne des résultats. Même contrôle. Si l'écart est important, une ligne a été comptée deux fois ou oubliée.</li>
+      <li>Recalculez le coût par résultat de la campagne la plus chère : dépense divisée par résultats. C'est le constat qui déclenchera vos décisions, vérifiez-le en premier.</li>
+    </ol>
+
+    <p>Ajoutez deux questions que seuls vous pouvez trancher. Les campagnes affichées étaient-elles toutes actives sur toute la période ? Et les résultats affichés sont-ils dédoublonnés — un client qui a cliqué, écrit, puis acheté compte-t-il une fois ou trois ?</p>
+
+    <h2>Pourquoi un résumé de données fausses est pire qu'aucun résumé</h2>
+
+    <p>Un rapport faux ne se contente pas d'être faux. Il est écrit proprement, il hiérarchise, il recommande. Il vous donne une raison d'agir sur un chiffre qui n'existe pas.</p>
+
+    <p>Les quatre pièges que nous voyons le plus souvent : la ligne de total comptée comme une campagne ; la campagne renommée en cours de mois, comptée deux fois ; la période de quinze jours face à un mois complet ; et la conversion attribuée à deux campagnes à la fois, parce que les fenêtres d'attribution se recouvrent.</p>
+
+    <p>Dans ces quatre cas, la conclusion tirée du fichier est fausse, alors que les chiffres du fichier sont justes. C'est vous qui avez comparé ce qui n'était pas comparable, ou l'outil avec vos données telles quelles. La préparation de l'étape 1 et le contrôle de l'étape 4 existent pour cela.</p>
+
+    <p>Le piège du renommage mérite un exemple, parce qu'il ne se voit pas. Une campagne appelée « Catalogue WhatsApp » en septembre et « Catalogue — oct. » en octobre donne deux lignes distinctes. L'outil annonce l'arrêt de l'une et l'apparition de l'autre, alors qu'il s'agit de la même campagne. Les deux lignes sont exactes, la comparaison est fausse.</p>
+
+    <p>Un dernier piège, plus sournois : demander à l'outil ce qu'il ne peut pas savoir. Il ne connaît ni votre marge, ni votre coût de livraison, ni le client qui vous a appelé après avoir vu l'annonce sans cliquer. Si vous lui demandez quelles campagnes couper, il répondra — avec aplomb, et sans ces informations.</p>
+
+    <h2>La routine mensuelle, en trente minutes</h2>
+
+    <p>Une fois par mois, à date fixe, dans cet ordre : export du mois précédent, préparation en cinq colonnes, lecture des quatre comparaisons, vérification des trois totaux. Trente minutes, montre en main.</p>
+
+    <p>Terminez par trois décisions écrites, pas par un commentaire : ce que vous coupez, ce que vous maintenez tel quel, et ce que vous testez le mois suivant. Une décision par écrit se vérifie au mois suivant. Un commentaire général ne se vérifie jamais.</p>
+
+    <p>Et gardez le fichier préparé de chaque mois. Au bout de trois mois, vous ne comparez plus des campagnes entre elles, vous comparez vos décisions à leurs effets. C'est là que la lecture des rapports devient utile, et c'est aussi le moment où la question de la rentabilité réelle — celle qui intègre votre marge — devient la seule qui compte. Un agent qui répond la nuit sur WhatsApp produit aussi des conversations : <a href="/articles/ia-service-client-nuit/">comparer les niveaux d'automatisation du service client</a> se fait avec la même logique de coût par résultat, pas avec une impression.</p>
+
+    <div class="cta-block">
+      <h2>Vos campagnes sont-elles rentables ?</h2>
+      <p>Cinq minutes pour calculer votre CAC, votre LTV, votre Payback et un score sur 100. Résultat immédiat, sans engagement.</p>
+      <a class="btn btn-gold" href="https://eperformance.pro/diagnostic_eperformance.html">Faire mon diagnostic gratuit
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <h2>FAQ — Ce qu'on me demande sur l'analyse des rapports publicitaires</h2>
+
+    <div class="faq-section">
+      <details>
+        <summary>Faut-il un outil payant pour analyser ses rapports publicitaires avec l'IA ?</summary>
+        <p>Non. Un tableau de six à huit colonnes collé dans une conversation suffit, avec une demande formulée précisément. Ce qui coûte du temps, ce n'est pas l'outil : c'est la préparation du fichier et la vérification des totaux. Les offres payantes apportent surtout l'automatisation du collage, pas la justesse de la lecture.</p>
+      </details>
+
+      <details>
+        <summary>Puis-je donner l'accès à mon compte publicitaire à un outil d'IA ?</summary>
+        <p>Ce n'est pas nécessaire, et c'est rarement souhaitable. Un export préparé contient tout ce dont la lecture a besoin, sans donner à un tiers la main sur vos campagnes ni accès à vos données de compte. Tant que vous ne savez pas exactement ce que l'outil ferait de cet accès, l'export reste la voie la plus simple.</p>
+      </details>
+
+      <details>
+        <summary>L'IA peut-elle me dire quelle campagne est rentable ?</summary>
+        <p>Non, pas sur la base du seul export. Elle peut dire quelle campagne coûte le plus cher par résultat et laquelle a le plus bougé. La rentabilité dépend de votre marge et de la valeur d'un client sur la durée, deux informations qui ne figurent pas dans le fichier. Sans elles, toute conclusion de rentabilité est une supposition.</p>
+      </details>
+
+      <details>
+        <summary>Faut-il comparer deux mois ou plus ?</summary>
+        <p>Deux mois suffisent pour repérer un mouvement, à condition que les deux périodes aient la même durée et que les campagnes soient nommées de la même façon. Trois mois permettent de distinguer une tendance d'une variation ponctuelle. Au-delà, vous lisez de l'histoire ancienne : les audiences et les créas ont changé.</p>
+      </details>
+
+      <details>
+        <summary>Que faire si mon export est incomplet ?</summary>
+        <p>Ne comblez pas les trous par une estimation, et ne demandez pas à l'outil de le faire. Travaillez sur les colonnes présentes, ajoutez les manquantes au prochain export, et notez ce qui manque. Un rapport partiel assumé vaut mieux qu'un rapport complet obtenu en inventant deux lignes.</p>
+      </details>
+
+      <details>
+        <summary>Combien de temps prend cette analyse chaque mois ?</summary>
+        <p>Environ trente minutes une fois la routine installée : cinq minutes de préparation du fichier, dix minutes de lecture, cinq minutes de vérification des totaux, dix minutes pour écrire les trois décisions du mois. La première fois compte plutôt une heure, le temps de choisir vos colonnes.</p>
+      </details>
+    </div>
+
+    <div class="tags-row">
+      <a href="/articles/ia-analyse-rapports-publicitaires/" class="tag">Analyse de données</a>
+      <a href="/articles/ia-service-client-nuit/" class="tag">Cas d'usage</a>
+      <a href="/articles/ia-generative-pme-africaine/" class="tag">IA générative</a>
+    </div>
+
+    <div class="share-row">
+      <span class="small">Partager</span>
+      <a href="#" class="share-btn" onclick="return sharePage('whatsapp')" data-share="whatsapp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.6-4.5A8.4 8.4 0 1 1 8 20.4z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('linkedin')" data-share="linkedin" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('facebook')" data-share="facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('copy')" data-share="copy" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></a>
+    </div>
+
+    <div class="related">
+      <h2>Articles à lire ensuite</h2>
+      <a href="/articles/calculer-cac-cote-ivoire/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">Acquisition</span>
+          <h3>Calculer son vrai CAC en Côte d'Ivoire : le guide complet</h3>
+          <p class="small">Ce que l'export publicitaire ne dit pas sur ce que vous coûte un client.</p>
+        </div>
+      </a>
+      <a href="/articles/ia-service-client-nuit/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">IA générative</span>
+          <h3>IA et service client : répondre la nuit sans recruter</h3>
+          <p class="small">Trois niveaux d'automatisation, et le calcul qui tranche entre recruter et automatiser.</p>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-col">
+        <img class="footer-logo logo-img-light" src="/assets/img/logo-light.webp"
+             srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+             width="152" height="25" alt="ePerformance" loading="lazy">
+        <img class="footer-logo logo-img-dark" src="/assets/img/logo-dark.webp"
+             srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+             width="157" height="25" alt="" aria-hidden="true" loading="lazy">
+        <p class="card-text mt-3" style="max-width:34ch">Stratégie d&#x27;acquisition, IA générative, automatisation et développement web premium. Basé en Côte d&#x27;Ivoire, 100 % en ligne.</p>
+      </div>
+
+      <div class="footer-col">
+        <h2>Services</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/index.html#methode" rel="noopener">stratégie d&#x27;acquisition</a></li>
+          <li><a href="https://eperformance.pro/ia.html" rel="noopener">IA générative</a></li>
+          <li><a href="https://eperformance.pro/automatisation.html" rel="noopener">Automatisation</a></li>
+          <li><a href="https://eperformance.pro/site-web.html" rel="noopener">Création de site web</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Ressources</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/diagnostic_eperformance.html" rel="noopener">Diagnostic gratuit</a></li>
+          <li><a href="https://eperformance.pro/formation.html" rel="noopener">Formations</a></li>
+          <li><a href="https://eperformance.pro/ebook.html" rel="noopener">Ebooks</a></li>
+          <li><a href="https://blog.eperformance.pro/" rel="noopener">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="https://wa.me/2250151170666" rel="noopener">+225 01 51 17 06 66</a></li>
+          <li><a href="mailto:bonjour@eperformance.pro">bonjour@eperformance.pro</a></li>
+          <li><a href="https://api.eperformance.pro/connexion.php" rel="noopener">Espace client</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 ePerformance — par K. Stéphane. Tous droits réservés.</p>
+      <p><a href="https://eperformance.pro/mentions-legales.html">Mentions légales</a> · <a href="https://eperformance.pro/politique-confidentialite.html">Confidentialité</a> · <a href="https://eperformance.pro/cookies.html">Cookies</a> · <a href="https://eperformance.pro/cgv.html">CGV</a></p>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a class="btn btn-gold" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+  <a class="btn btn-wa" href="https://wa.me/2250151170666" style="flex:0 0 auto" rel="noopener">WhatsApp</a>
+</div>
+
+<div class="consent" id="consent-banner" hidden>
+  <div class="consent-inner">
+    <div class="consent-text">
+      <p><strong>Vous choisissez ce que nous mesurons.</strong></p>
+      <p>Nous utilisons des traceurs pour comprendre comment le site est utilisé et pour
+         mesurer nos campagnes. Aucun ne se déclenche avant votre accord.
+         <a href="https://eperformance.pro/politique-confidentialite.html">Politique de confidentialité</a> ·
+         <a href="https://eperformance.pro/cookies.html">En savoir plus</a></p>
+    </div>
+    <div class="consent-actions">
+      <button type="button" class="btn btn-ghost" data-consent="refuse">Tout refuser</button>
+      <button type="button" class="btn btn-outline" data-consent="customize">Paramétrer</button>
+      <button type="button" class="btn btn-gold" data-consent="accept">Tout accepter</button>
+    </div>
+  </div>
+
+  <div class="consent-detail" id="consent-detail" hidden>
+    <fieldset class="fieldset">
+      <legend>Vos préférences</legend>
+
+      <label class="consent-row consent-row-locked">
+        <input type="checkbox" checked disabled>
+        <span>
+          <strong>Nécessaires</strong>
+          <span class="field-hint">Mémorisation de votre choix de thème et de vos préférences.
+            Toujours actifs : le site ne peut pas fonctionner sans.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-analytics">
+        <span>
+          <strong>Mesure d'audience</strong>
+          <span class="field-hint">Google Analytics 4 et Microsoft Clarity. Nous aide à voir
+            quelles pages sont utiles et où les visiteurs abandonnent.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-ads">
+        <span>
+          <strong>Publicité</strong>
+          <span class="field-hint">Meta Pixel. Mesure l'efficacité de nos campagnes
+            Facebook et Instagram.</span>
+        </span>
+      </label>
+    </fieldset>
+
+    <div class="consent-actions">
+      <button type="button" class="btn btn-outline" data-consent="back">Retour</button>
+      <button type="button" class="btn btn-gold" data-consent="save">Enregistrer mes choix</button>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/js/consent.js" defer></script>
+<script src="/assets/js/eperf.js" defer></script>
+<script src="/assets/js/blog.js" defer></script>
+</body>
+</html>

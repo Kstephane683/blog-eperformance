@@ -56,6 +56,8 @@ NAV = [
     ("Site web",       "/site-web/",   "site-web"),
     ("SEO",            "/seo/",        "seo"),
     ("Business",       "/business/",   "business"),
+    ("IA",             "/articles/ia-generative-pme-africaine/", "ia"),
+    ("Automatisation", "/articles/automatisation-marketing-debuter/", "automatisation"),
     ("À propos",       "/a-propos/",   "a-propos"),
     ("Site principal", SITE_URL,       "site"),
 ]
@@ -173,6 +175,587 @@ PAGES = {
     # ── Les 3 articles ───────────────────────────────────────────────────
     # Pas de hero : le fragment porte son propre en-tête éditorial
     # (.article-hero avec catégorie, <h1>, date, temps de lecture).
+    "articles/site-trop-lent/index.html": {
+        "title": 'Site trop lent : les cinq causes réelles',
+        "description": "Serveur, images, scripts, polices, services tiers : les cinq causes d'un site lent, comment les repérer avec un outil, et dans quel ordre les corriger.",
+        "fragment": "articles-site-trop-lent.html",
+        "nav_active": "site-web",
+        "breadcrumb": [("Site web", "/site-web/"), ("Site trop lent", "/articles/site-trop-lent/")],
+    },
+    "articles/images-site-webp/index.html": {
+        "title": 'Images de site : le format qui divise le poids par dix',
+        "description": "Convertir en WebP, redimensionner à la taille d'affichage, différer le chargement : la méthode pour alléger les images sans casser la mise en page.",
+        "fragment": "articles-images-site-webp.html",
+        "nav_active": "site-web",
+        "breadcrumb": [("Site web", "/site-web/"), ("Images et WebP", "/articles/images-site-webp/")],
+    },
+    "articles/site-mobile-entree-de-gamme/index.html": {
+        "title": 'Rendre son site utilisable sur un téléphone modeste',
+        "description": 'Polices lourdes, animations, formulaires, images, menus : ce qui casse en premier sur un appareil modeste, et comment tester son site sur un vrai téléphone.',
+        "fragment": "articles-site-mobile-entree-de-gamme.html",
+        "nav_active": "site-web",
+        "breadcrumb": [("Site web", "/site-web/"), ("Site sur mobile", "/articles/site-mobile-entree-de-gamme/")],
+    },
+    "articles/formulaire-contact-efficace/index.html": {
+        "title": 'Formulaire de contact : pourquoi le vôtre ne reçoit rien',
+        "description": 'Trop de champs, libellés flous, formulaire cassé, notifications en spam : les six causes qui vident une boîte de réception, et comment tester la vôtre.',
+        "fragment": "articles-formulaire-contact-efficace.html",
+        "nav_active": "site-web",
+        "breadcrumb": [("Site web", "/site-web/"), ("Formulaire de contact", "/articles/formulaire-contact-efficace/")],
+    },
+    "articles/bouton-whatsapp-site/index.html": {
+        "title": "Bouton WhatsApp : bien le placer pour qu'on clique",
+        "description": "Placement, libellé, message pré-rempli, taille et moment d'apparition : les cinq réglages qui décident des clics sur un bouton WhatsApp.",
+        "fragment": "articles-bouton-whatsapp-site.html",
+        "nav_active": "site-web",
+        "breadcrumb": [("Site web", "/site-web/"), ("Bouton WhatsApp", "/articles/bouton-whatsapp-site/")],
+    },
+    "articles/erreurs-qui-font-fuir/index.html": {
+        "title": 'Les erreurs qui font fuir un visiteur en dix secondes',
+        "description": 'Page lente, message incompréhensible, absence de preuve, navigation introuvable, contact invisible : repérer ces cinq défauts, et les corriger.',
+        "fragment": "articles-erreurs-qui-font-fuir.html",
+        "nav_active": "site-web",
+        "breadcrumb": [("Site web", "/site-web/"), ("Erreurs qui font fuir", "/articles/erreurs-qui-font-fuir/")],
+    },
+    "articles/monetiser-sans-ecommerce/index.html": {
+        "title": 'Monétiser un site sans e-commerce',
+        "description": "Rendez-vous, devis, réservation, abonnement, mise en relation, vente sur WhatsApp : six modèles pour faire entrer de l'argent sans boutique.",
+        "fragment": "articles-monetiser-sans-ecommerce.html",
+        "nav_active": "site-web",
+        "breadcrumb": [("Site web", "/site-web/"), ("Monétiser sans boutique", "/articles/monetiser-sans-ecommerce/")],
+    },
+    "articles/refonte-site-quand/index.html": {
+        "title": "Refonte de site : nécessaire, ou du luxe ?",
+        "description": 'Les signaux qui justifient une refonte, ceux qui ne la justifient pas, et les cinq chiffres à relever avant de décider entre réparer et tout refaire.',
+        "fragment": "articles-refonte-site-quand.html",
+        "nav_active": "site-web",
+        "breadcrumb": [("Site web", "/site-web/"), ("Faut-il refaire son site", "/articles/refonte-site-quand/")],
+    },
+    "articles/reprendre-controle-site/index.html": {
+        "title": 'Reprendre le contrôle de son site après un prestataire',
+        "description": 'Domaine, hébergement, administration, mesure, contenus : quoi récupérer, comment le demander par écrit, et les étapes quand le prestataire ne répond plus.',
+        "fragment": "articles-reprendre-controle-site.html",
+        "nav_active": "site-web",
+        "breadcrumb": [("Site web", "/site-web/"), ("Reprendre son site", "/articles/reprendre-controle-site/")],
+    },
+    "articles/fiche-google-business-profile/index.html": {
+        "title": 'Fiche Google Business Profile : la configuration qui compte',
+        "description": "Nom, catégories, description, horaires, zone, photos, attributs, questions, publications, messagerie : ce qu'il faut mettre dans chaque champ.",
+        "fragment": "articles-fiche-google-business-profile.html",
+        "nav_active": "seo",
+        "breadcrumb": [("SEO", "/seo/"), ("Fiche Google Business Profile", "/articles/fiche-google-business-profile/")],
+    },
+    "articles/avis-google-sans-forcer/index.html": {
+        "title": 'Avis Google : comment en obtenir sans forcer',
+        "description": 'Quand demander un avis, quel lien envoyer, quoi écrire, comment répondre à un avis négatif et ce qui fait suspendre une fiche.',
+        "fragment": "articles-avis-google-sans-forcer.html",
+        "nav_active": "seo",
+        "breadcrumb": [("SEO", "/seo/"), ("Avis Google : comment en obtenir sans forcer", "/articles/avis-google-sans-forcer/")],
+    },
+    "articles/pack-local-ouagadougou/index.html": {
+        "title": 'Être visible dans le pack local Google à Ouagadougou',
+        "description": 'Secteurs, quartiers, repères et point sur la carte : comment configurer sa fiche Google et suivre ce qui amène des appels à Ouagadougou.',
+        "fragment": "articles-pack-local-ouagadougou.html",
+        "nav_active": "seo",
+        "breadcrumb": [("SEO", "/seo/"), ("Être visible dans le pack local Google à Ouagadougou", "/articles/pack-local-ouagadougou/")],
+    },
+    "articles/annuaires-citations-cote-ivoire/index.html": {
+        "title": "Citations, annuaires ivoiriens : où inscrire son entreprise",
+        "description": "Les plateformes à tenir, les familles d'annuaires à couvrir en Côte d'Ivoire, et sept vérifications pour écarter un annuaire sans audience.",
+        "fragment": "articles-annuaires-citations-cote-ivoire.html",
+        "nav_active": "seo",
+        "breadcrumb": [("SEO", "/seo/"), ("Citations, annuaires ivoiriens : où inscrire son entreprise", "/articles/annuaires-citations-cote-ivoire/")],
+    },
+    "articles/seo-local-sans-site-web/index.html": {
+        "title": "SEO local pour un commerce sans site web",
+        "description": "Une fiche Google bien tenue ramène des appels et des visites, sans site. Voici ce qu'elle permet vraiment, et le point exact où elle plafonne.",
+        "fragment": "articles-seo-local-sans-site-web.html",
+        "nav_active": "seo",
+        "breadcrumb": [("SEO", "/seo/"), ("SEO local pour un commerce sans site web", "/articles/seo-local-sans-site-web/")],
+    },
+    "articles/balises-title-description/index.html": {
+        "title": 'Title et description : réécrire pour gagner des clics',
+        "description": 'Balise title et meta description : la méthode de réécriture en quatre questions, trois exemples avant/après, et comment vérifier ce que Google affiche.',
+        "fragment": "articles-balises-title-description.html",
+        "nav_active": "seo",
+        "breadcrumb": [("SEO", "/seo/"), ("Title et description : réécrire pour gagner des clics", "/articles/balises-title-description/")],
+    },
+    "articles/donnees-structurees-schema-org/index.html": {
+        "title": 'Données structurées : ce que Google comprend de votre site',
+        "description": 'Données structurées : à quoi servent LocalBusiness, Organization, Product, Article, BreadcrumbList ou FAQPage, avec un exemple JSON-LD.',
+        "fragment": "articles-donnees-structurees-schema-org.html",
+        "nav_active": "seo",
+        "breadcrumb": [("SEO", "/seo/"), ("Données structurées : ce que Google comprend de votre site", "/articles/donnees-structurees-schema-org/")],
+    },
+    "articles/sitemap-robots-txt/index.html": {
+        "title": "Sitemap et robots.txt : les deux fichiers qu'on oublie",
+        "description": "Vérifier en cinq minutes que sitemap.xml et robots.txt sont en place : adresses à tester, commandes curl, erreurs classiques et corrections.",
+        "fragment": "articles-sitemap-robots-txt.html",
+        "nav_active": "seo",
+        "breadcrumb": [("SEO", "/seo/"), ("Sitemap et robots.txt : les deux fichiers qu'on oublie", "/articles/sitemap-robots-txt/")],
+    },
+    "articles/erreurs-indexation-google/index.html": {
+        "title": "Erreurs d'indexation : pourquoi votre page n'apparaît pas",
+        "description": "Diagnostiquer une page absente de Google avec Search Console : les sept causes par ordre de fréquence, le symptôme exact et la correction.",
+        "fragment": "articles-erreurs-indexation-google.html",
+        "nav_active": "seo",
+        "breadcrumb": [("SEO", "/seo/"), ("Erreurs d'indexation : pourquoi votre page n'apparaît pas", "/articles/erreurs-indexation-google/")],
+    },
+    "articles/etre-cite-par-chatgpt/index.html": {
+        "title": 'Être cité par ChatGPT, Claude et Perplexity : la méthode',
+        "description": 'Structure de réponse, faits datés et vérifiables, entité cohérente : les conditions pour être cité par ChatGPT, Claude et Perplexity, et comment mesurer.',
+        "fragment": "articles-etre-cite-par-chatgpt.html",
+        "nav_active": "seo",
+        "breadcrumb": [("SEO", "/seo/"), ("Être cité par ChatGPT, Claude et Perplexity", "/articles/etre-cite-par-chatgpt/")],
+    },
+    "articles/llms-txt/index.html": {
+        "title": "llms.txt : à quoi ça sert, et si ça sert vraiment",
+        "description": "Le llms.txt se pose à la racine d'un site. Ce qu'il contient, ce qu'il ne fait pas encore, et pourquoi il ne remplace ni robots.txt ni vos pages.",
+        "fragment": "articles-llms-txt.html",
+        "nav_active": "seo",
+        "breadcrumb": [("SEO", "/seo/"), ("llms.txt : à quoi ça sert, et si ça sert vraiment", "/articles/llms-txt/")],
+    },
+    "articles/contenu-duplique/index.html": {
+        "title": "Contenu dupliqué : les cas qui pénalisent vraiment",
+        "description": "Vendre le même produit dans dix villes n'est pas un problème. Les quatre cas qui en posent un, ce que Google fait vraiment, et comment poser un canonical.",
+        "fragment": "articles-contenu-duplique.html",
+        "nav_active": "seo",
+        "breadcrumb": [("SEO", "/seo/"), ("Contenu dupliqué : les cas qui pénalisent vraiment", "/articles/contenu-duplique/")],
+    },
+    "articles/netlinking-local/index.html": {
+        "title": "Netlinking local : quels liens comptent vraiment",
+        "description": "Partenariats, presse locale, annuaires, associations : les sources de liens classées par rendement réel pour un commerce en Afrique de l'Ouest.",
+        "fragment": "articles-netlinking-local.html",
+        "nav_active": "seo",
+        "breadcrumb": [("SEO", "/seo/"), ("Netlinking local : quels liens comptent vraiment", "/articles/netlinking-local/")],
+    },
+    "articles/mesurer-son-seo/index.html": {
+        "title": 'Mesurer son SEO sans y passer ses journées',
+        "description": 'Quatre indicateurs, une lecture par mois, quinze minutes : impressions, clics, position sur les requêtes qui comptent, pages indexées.',
+        "fragment": "articles-mesurer-son-seo.html",
+        "nav_active": "seo",
+        "breadcrumb": [("SEO", "/seo/"), ("Mesurer son SEO sans y passer ses journées", "/articles/mesurer-son-seo/")],
+    },
+    "articles/fixer-ses-prix/index.html": {
+        "title": "Fixer ses prix quand on vend en ligne en Afrique de l'Ouest",
+        "description": "Coût de revient réel, marge visée, puis prix affiché : la méthode dans l'ordre, les coûts oubliés du e-commerce et deux exemples chiffrés en FCFA.",
+        "fragment": "articles-fixer-ses-prix.html",
+        "nav_active": "business",
+        "breadcrumb": [("Business", "/business/"), ("Fixer ses prix quand on vend en ligne en Afrique de l'Ouest", "/articles/fixer-ses-prix/")],
+    },
+    "articles/vendre-a-la-diaspora/index.html": {
+        "title": "Vendre à la diaspora : ce qui change dans l'achat",
+        "description": "Confiance, paiement en euros, livraison à un tiers, calendrier des fêtes et service après : le parcours d'achat d'un client de la diaspora, étape par étape.",
+        "fragment": "articles-vendre-a-la-diaspora.html",
+        "nav_active": "business",
+        "breadcrumb": [("Business", "/business/"), ("Vendre à la diaspora : ce qui change dans l'achat", "/articles/vendre-a-la-diaspora/")],
+    },
+    "articles/paiement-mobile-money/index.html": {
+        "title": "Paiement mobile money : Orange, Wave, MTN et Moov",
+        "description": "Ce qu'un site peut accepter en mobile money : lien de paiement, QR code, formulaire avec confirmation manuelle ou passerelle. Les frictions qui restent.",
+        "fragment": "articles-paiement-mobile-money.html",
+        "nav_active": "business",
+        "breadcrumb": [("Business", "/business/"), ("Paiement mobile money : Orange, Wave, MTN et Moov", "/articles/paiement-mobile-money/")],
+    },
+    "articles/tableau-tresorerie/index.html": {
+        "title": 'Trésorerie : le tableau qui évite le blocage',
+        "description": 'Trois colonnes, une ligne par semaine, quinze minutes le lundi : le tableau de trésorerie minimal, avec un exemple chiffré en FCFA sur huit semaines.',
+        "fragment": "articles-tableau-tresorerie.html",
+        "nav_active": "business",
+        "breadcrumb": [("Business", "/business/"), ("Trésorerie : le tableau qui évite le blocage", "/articles/tableau-tresorerie/")],
+    },
+    "articles/delai-paiement-client/index.html": {
+        "title": "Délai de paiement client : comment ne plus le subir",
+        "description": "Conditions écrites, acompte, facturation immédiate, relance programmée : l'ordre des défenses contre les retards de paiement, avec les textes à copier.",
+        "fragment": "articles-delai-paiement-client.html",
+        "nav_active": "business",
+        "breadcrumb": [("Business", "/business/"), ("Délai de paiement client : comment ne plus le subir", "/articles/delai-paiement-client/")],
+    },
+    "articles/emprunter-ou-autofinancer/index.html": {
+        "title": "Emprunter ou autofinancer sa croissance",
+        "description": "L'autofinancement coûte la lenteur, l'emprunt coûte les intérêts et la date fixe. Comparaison des deux coûts réels, fonds de roulement compris.",
+        "fragment": "articles-emprunter-ou-autofinancer.html",
+        "nav_active": "business",
+        "breadcrumb": [("Business", "/business/"), ("Emprunter ou autofinancer sa croissance", "/articles/emprunter-ou-autofinancer/")],
+    },
+    "articles/choisir-statut-entreprise/index.html": {
+        "title": "Choisir son statut d'entreprise en Côte d'Ivoire",
+        "description": "Ce que le statut change pour la publicité, les paiements et la séparation du patrimoine — et ce qu'il ne change pas, pour décider sur des faits.",
+        "fragment": "articles-choisir-statut-entreprise.html",
+        "nav_active": "business",
+        "breadcrumb": [("Business", "/business/"), ("Choisir son statut d'entreprise en Côte d'Ivoire", "/articles/choisir-statut-entreprise/")],
+    },
+    "articles/se-lancer-au-burkina-faso/index.html": {
+        "title": "Se lancer au Burkina Faso : ce qui change",
+        "description": "Ouagadougou et Bobo ne se ressemblent pas, les portefeuilles mobiles ne sont pas les mêmes, la route fixe le délai : ce qui change quand on arrive d'Abidjan.",
+        "fragment": "articles-se-lancer-au-burkina-faso.html",
+        "nav_active": "business",
+        "breadcrumb": [("Business", "/business/"), ("Se lancer au Burkina Faso : ce qui change", "/articles/se-lancer-au-burkina-faso/")],
+    },
+    "articles/structure-de-couts/index.html": {
+        "title": "Structure de coûts : où part votre argent",
+        "description": "Coûts fixes, coûts variables, cas ambigus, seuil de rentabilité et décisions : la carte des charges d'une petite structure, avec un exemple chiffré.",
+        "fragment": "articles-structure-de-couts.html",
+        "nav_active": "business",
+        "breadcrumb": [("Business", "/business/"), ("Structure de coûts : où part votre argent", "/articles/structure-de-couts/")],
+    },
+    "articles/externaliser-ou-recruter/index.html": {
+        "title": 'Externaliser ou recruter : décider avec des chiffres',
+        "description": 'Salaire demandé contre facture : ce que chaque option coûte vraiment sur douze mois, et pourquoi le volume décide du résultat.',
+        "fragment": "articles-externaliser-ou-recruter.html",
+        "nav_active": "business",
+        "breadcrumb": [("Business", "/business/"), ("Externaliser ou recruter : décider avec des chiffres", "/articles/externaliser-ou-recruter/")],
+    },
+    "articles/deleguer-sans-perdre-le-controle/index.html": {
+        "title": 'Déléguer sans perdre le contrôle',
+        "description": 'Ce qui se délègue, ce qui ne se délègue pas, la procédure écrite en cinq questions et le contrôle par échantillon qui laisse travailler.',
+        "fragment": "articles-deleguer-sans-perdre-le-controle.html",
+        "nav_active": "business",
+        "breadcrumb": [("Business", "/business/"), ("Déléguer sans perdre le contrôle", "/articles/deleguer-sans-perdre-le-controle/")],
+    },
+    "articles/decider-avec-des-chiffres/index.html": {
+        "title": "Décider avec des chiffres plutôt qu'au ressenti",
+        "description": "La boucle mesure, décision, action : pourquoi le chiffre manque au moment de décider, et la routine d'une heure par mois qui rend les décisions défendables.",
+        "fragment": "articles-decider-avec-des-chiffres.html",
+        "nav_active": "business",
+        "breadcrumb": [("Business", "/business/"), ("Décider avec des chiffres plutôt qu'au ressenti", "/articles/decider-avec-des-chiffres/")],
+    },
+    "articles/se-lancer-au-burkina-faso/index.html": {
+        "title": "Se lancer au Burkina Faso : ce qui change",
+        "description": "Ouagadougou et Bobo ne se ressemblent pas, les portefeuilles mobiles ne sont pas les mêmes, la route fixe le délai : ce qui change quand on arrive d'Abidjan.",
+        "fragment": "articles-se-lancer-au-burkina-faso.html",
+        "nav_active": "business",
+        "breadcrumb": [("Business", "/business/"), ("Se lancer au Burkina Faso : ce qui change", "/articles/se-lancer-au-burkina-faso/")],
+    },
+    "articles/structure-de-couts/index.html": {
+        "title": "Structure de coûts : où part votre argent",
+        "description": "Coûts fixes, coûts variables, cas ambigus, seuil de rentabilité et décisions : la carte des charges d'une petite structure, avec un exemple chiffré.",
+        "fragment": "articles-structure-de-couts.html",
+        "nav_active": "business",
+        "breadcrumb": [("Business", "/business/"), ("Structure de coûts : où part votre argent", "/articles/structure-de-couts/")],
+    },
+    "articles/externaliser-ou-recruter/index.html": {
+        "title": 'Externaliser ou recruter : décider avec des chiffres',
+        "description": 'Salaire demandé contre facture : ce que chaque option coûte vraiment sur douze mois, et pourquoi le volume décide du résultat.',
+        "fragment": "articles-externaliser-ou-recruter.html",
+        "nav_active": "business",
+        "breadcrumb": [("Business", "/business/"), ("Externaliser ou recruter : décider avec des chiffres", "/articles/externaliser-ou-recruter/")],
+    },
+    "articles/deleguer-sans-perdre-le-controle/index.html": {
+        "title": 'Déléguer sans perdre le contrôle',
+        "description": 'Ce qui se délègue, ce qui ne se délègue pas, la procédure écrite en cinq questions et le contrôle par échantillon qui laisse travailler.',
+        "fragment": "articles-deleguer-sans-perdre-le-controle.html",
+        "nav_active": "business",
+        "breadcrumb": [("Business", "/business/"), ("Déléguer sans perdre le contrôle", "/articles/deleguer-sans-perdre-le-controle/")],
+    },
+    "articles/decider-avec-des-chiffres/index.html": {
+        "title": "Décider avec des chiffres plutôt qu'au ressenti",
+        "description": "La boucle mesure, décision, action : pourquoi le chiffre manque au moment de décider, et la routine d'une heure par mois qui rend les décisions défendables.",
+        "fragment": "articles-decider-avec-des-chiffres.html",
+        "nav_active": "business",
+        "breadcrumb": [("Business", "/business/"), ("Décider avec des chiffres plutôt qu'au ressenti", "/articles/decider-avec-des-chiffres/")],
+    },
+    "articles/marge-nette-acquisition/index.html": {
+        "title": "Marge nette d'acquisition : le chiffre qui dit vrai",
+        "description": "Publicité, marchandise, emballage, livraison, commission et retours déduits un par un : ce qui reste vraiment sur chaque vente, exemple chiffré en FCFA.",
+        "fragment": "articles-marge-nette-acquisition.html",
+        "nav_active": "acquisition",
+        "breadcrumb": [("Acquisition", "/acquisition/"), ("Marge nette d'acquisition : le chiffre qui dit vrai", "/articles/marge-nette-acquisition/")],
+    },
+    "articles/boost-publication/index.html": {
+        "title": "Le boost de publication est-il encore utile",
+        "description": "Ce que le boost d'une publication fait, ce qu'il ne mesure pas, les cas où il rend service et le test simple pour savoir s'il a rapporté quelque chose.",
+        "fragment": "articles-boost-publication.html",
+        "nav_active": "acquisition",
+        "breadcrumb": [("Acquisition", "/acquisition/"), ("Le boost de publication est-il encore utile", "/articles/boost-publication/")],
+    },
+    "articles/ameliorer-taux-conversion/index.html": {
+        "title": 'Améliorer le taux de conversion sans toucher au budget pub',
+        "description": 'Cinq fuites du parcours client, du clic à la relance, avec la méthode pour repérer chacune et la correction à appliquer, sans un franc de budget en plus.',
+        "fragment": "articles-ameliorer-taux-conversion.html",
+        "nav_active": "acquisition",
+        "breadcrumb": [("Acquisition", "/acquisition/"), ("Améliorer sa conversion", "/articles/ameliorer-taux-conversion/")],
+    },
+    "articles/cac-par-segment/index.html": {
+        "title": 'Segments clients : arrêter de calculer un CAC moyen',
+        "description": 'Segmenter par canal, produit, type de client et zone. La méthode de calcul du CAC par segment, avec un exemple où un segment en finance un autre.',
+        "fragment": "articles-cac-par-segment.html",
+        "nav_active": "acquisition",
+        "breadcrumb": [("Acquisition", "/acquisition/"), ("CAC par segment", "/articles/cac-par-segment/")],
+    },
+    "articles/test-ab-methode/index.html": {
+        "title": 'Test A/B : la méthode minimale pour décider',
+        "description": 'Ce qui se teste en une semaine, ce qui ne se teste pas sans volume, comment fixer la durée et lire un résultat. La version minimale, sans outil payant.',
+        "fragment": "articles-test-ab-methode.html",
+        "nav_active": "acquisition",
+        "breadcrumb": [("Acquisition", "/acquisition/"), ("Test A/B", "/articles/test-ab-methode/")],
+    },
+    "articles/fidelisation-ltv/index.html": {
+        "title": 'Fidélisation : le levier de LTV le plus rentable',
+        "description": "Faire revenir un client coûte moins cher que d'en acquérir un nouveau. Quatre mécaniques de fidélisation testables, et ce qu'elles déplacent sur votre LTV.",
+        "fragment": "articles-fidelisation-ltv.html",
+        "nav_active": "acquisition",
+        "breadcrumb": [("Acquisition", "/acquisition/"), ("Fidélisation", "/articles/fidelisation-ltv/")],
+    },
+    "articles/upsell-vente-complementaire/index.html": {
+        "title": 'Upsell et vente complémentaire : la méthode simple',
+        "description": 'Le complément à la commande, la montée en gamme, le réassort programmé : trois mécaniques testables pour faire monter le panier moyen.',
+        "fragment": "articles-upsell-vente-complementaire.html",
+        "nav_active": "acquisition",
+        "breadcrumb": [("Acquisition", "/acquisition/"), ("Upsell", "/articles/upsell-vente-complementaire/")],
+    },
+    "articles/prix-site-web-cote-ivoire/index.html": {
+        "title": "Combien coûte un site web professionnel en Côte d'Ivoire",
+        "description": 'Fourchettes observées sur le marché ivoirien, sept éléments qui font monter un devis, et comment lire une proposition de site web avant de signer.',
+        "fragment": "articles-prix-site-web-cote-ivoire.html",
+        "nav_active": "site-web",
+        "breadcrumb": [("Site web", "/site-web/"), ("Prix d'un site web", "/articles/prix-site-web-cote-ivoire/")],
+    },
+    "articles/vitrine-ou-ecommerce/index.html": {
+        "title": 'Site vitrine, e-commerce ou les deux : comment décider',
+        "description": "Vos clients achètent-ils après avoir vu, ou après avoir demandé ? Grille de décision par activité, et coût caché d'un e-commerce qu'on n'utilise pas.",
+        "fragment": "articles-vitrine-ou-ecommerce.html",
+        "nav_active": "site-web",
+        "breadcrumb": [("Site web", "/site-web/"), ("Vitrine ou e-commerce", "/articles/vitrine-ou-ecommerce/")],
+    },
+    "articles/wordpress-shopify-sur-mesure/index.html": {
+        "title": 'WordPress, Shopify ou sur-mesure : lequel choisir',
+        "description": 'Paiement mobile money, connexion, maintenance, liberté de changer : quatre critères locaux pour trancher, et pour qui chaque option est un mauvais choix.',
+        "fragment": "articles-wordpress-shopify-sur-mesure.html",
+        "nav_active": "site-web",
+        "breadcrumb": [("Site web", "/site-web/"), ("Quelle technologie", "/articles/wordpress-shopify-sur-mesure/")],
+    },
+    "articles/questions-prestataire-site-web/index.html": {
+        "title": 'Les questions à poser avant de confier son site',
+        "description": "Douze questions à poser avant de signer, et ce qu'une bonne réponse contient : propriété, délai écrit, support, sauvegardes, sortie de collaboration.",
+        "fragment": "articles-questions-prestataire-site-web.html",
+        "nav_active": "site-web",
+        "breadcrumb": [("Site web", "/site-web/"), ("Questions au prestataire", "/articles/questions-prestataire-site-web/")],
+    },
+    "articles/domaine-hebergement-propriete/index.html": {
+        "title": 'Nom de domaine et hébergement : ce que vous devez posséder',
+        "description": "Le domaine, l'hébergement, les comptes et les accès de mesure doivent être à votre nom. Vérifier ce que vous possédez, et reprendre la main si besoin.",
+        "fragment": "articles-domaine-hebergement-propriete.html",
+        "nav_active": "site-web",
+        "breadcrumb": [("Site web", "/site-web/"), ("Propriété du site", "/articles/domaine-hebergement-propriete/")],
+    },
+    "articles/cinq-couts-cac-oublies/index.html": {
+        "title": 'Les cinq coûts que votre CAC oublie',
+        "description": 'Les cinq coûts absents de votre CAC : temps de traitement, frais mobile money, colis refusés, livraison, outils. Comment les repérer et les chiffrer.',
+        "fragment": "articles-cinq-couts-cac-oublies.html",
+        "nav_active": "acquisition",
+        "breadcrumb": [("Acquisition", "/acquisition/"), ("Les coûts oubliés du CAC", "/articles/cinq-couts-cac-oublies/")],
+    },
+    "articles/lire-statistiques-meta-ads/index.html": {
+        "title": 'Lire ses statistiques Meta sans se noyer',
+        "description": 'Six chiffres suffisent pour lire un gestionnaire de publicités : dépense, résultats, coût par résultat, CTR, CPM, fréquence. Ceux à ignorer, et pourquoi.',
+        "fragment": "articles-lire-statistiques-meta-ads.html",
+        "nav_active": "acquisition",
+        "breadcrumb": [("Acquisition", "/acquisition/"), ("Lire ses statistiques Meta", "/articles/lire-statistiques-meta-ads/")],
+    },
+    "articles/roas-trompeur/index.html": {
+        "title": 'Pourquoi le ROAS affiché ment sur votre rentabilité',
+        "description": "Un ROAS de 4 peut cacher un mois déficitaire : marchandise, livraison, frais mobile money, colis refusés et temps déduits, chiffres à l'appui.",
+        "fragment": "articles-roas-trompeur.html",
+        "nav_active": "acquisition",
+        "breadcrumb": [("Acquisition", "/acquisition/"), ("Le ROAS qui trompe", "/articles/roas-trompeur/")],
+    },
+    "articles/ciblage-meta-2026/index.html": {
+        "title": "Cibler ou laisser l'algorithme travailler en 2026",
+        "description": 'Andromeda change la donne : le ciblage manuel fin perd son intérêt. Structure de campagne, rôle de la créa, qualité du signal, habitudes à abandonner.',
+        "fragment": "articles-ciblage-meta-2026.html",
+        "nav_active": "acquisition",
+        "breadcrumb": [("Acquisition", "/acquisition/"), ("Ciblage Meta en 2026", "/articles/ciblage-meta-2026/")],
+    },
+    "articles/creas-publicitaires-afrique/index.html": {
+        "title": "Créas publicitaires qui fonctionnent en Afrique de l'Ouest",
+        "description": 'Trois formats efficaces localement, ce qui échoue, et les critères de production : format, durée, taille du texte, poids du fichier, lisibilité sur petit écran.',
+        "fragment": "articles-creas-publicitaires-afrique.html",
+        "nav_active": "acquisition",
+        "breadcrumb": [("Acquisition", "/acquisition/"), ("Créas qui fonctionnent", "/articles/creas-publicitaires-afrique/")],
+    },
+    "articles/whatsapp-business-conversion/index.html": {
+        "title": 'WhatsApp Business : le canal de conversion sous-estimé',
+        "description": "Catalogue, réponses rapides, message d'accueil, étiquettes : la structure qui transforme une conversation WhatsApp en commande, et ses limites.",
+        "fragment": "articles-whatsapp-business-conversion.html",
+        "nav_active": "acquisition",
+        "breadcrumb": [("Acquisition", "/acquisition/"), ("WhatsApp Business", "/articles/whatsapp-business-conversion/")],
+    },
+    "articles/pixel-meta-capi/index.html": {
+        "title": 'Pixel Meta et CAPI : un tracking qui survit à iOS',
+        "description": 'Pourquoi le Pixel seul perd des conversions depuis iOS, ce que le CAPI envoie côté serveur, et ce que vous devez commander et vérifier vous-même.',
+        "fragment": "articles-pixel-meta-capi.html",
+        "nav_active": "acquisition",
+        "breadcrumb": [("Acquisition", "/acquisition/"), ("Pixel et CAPI", "/articles/pixel-meta-capi/")],
+    },
+    "articles/meta-ads-ou-google-ads/index.html": {
+        "title": 'Meta Ads ou Google Ads : lequel choisir',
+        "description": "Meta interrompt, Google répond. Grille de décision par activité, ordre d'ouverture des deux canaux et vérifications avant d'engager un budget.",
+        "fragment": "articles-meta-ads-ou-google-ads.html",
+        "nav_active": "acquisition",
+        "breadcrumb": [("Acquisition", "/acquisition/"), ("Meta ou Google Ads", "/articles/meta-ads-ou-google-ads/")],
+    },
+    "articles/google-ads-quand/index.html": {
+        "title": 'Google Ads : quand cela vaut vraiment la peine',
+        "description": "Trois conditions à réunir avant de dépenser sur Google Ads : une demande de recherche existante, une page qui convertit, un budget qui sort de l'apprentissage.",
+        "fragment": "articles-google-ads-quand.html",
+        "nav_active": "acquisition",
+        "breadcrumb": [("Acquisition", "/acquisition/"), ("Google Ads : quand", "/articles/google-ads-quand/")],
+    },
+    "articles/budget-publicitaire-debuter/index.html": {
+        "title": 'Budget publicitaire : combien prévoir pour commencer',
+        "description": "Partir du CAC cible plutôt que d'un budget arbitraire : méthode en quatre lignes, seuil minimum pour tester, budget de test et budget d'échelle.",
+        "fragment": "articles-budget-publicitaire-debuter.html",
+        "nav_active": "acquisition",
+        "breadcrumb": [("Acquisition", "/acquisition/"), ("Budget publicitaire", "/articles/budget-publicitaire-debuter/")],
+    },
+    "articles/capturer-qualifier-demandes/index.html": {
+        "title": 'Capturer et qualifier ses demandes entrantes',
+        "description": "Le parcours d'une demande entrante, étape par étape : accusé de réception, trois questions de qualification, fiche créée, bonne personne prévenue.",
+        "fragment": "articles-capturer-qualifier-demandes.html",
+        "nav_active": "automatisation",
+        "breadcrumb": [("Automatisation", "/articles/automatisation-marketing-debuter/"), ("Capturer ses demandes entrantes", "/articles/capturer-qualifier-demandes/")],
+    },
+    "articles/relance-client-automatique/index.html": {
+        "title": 'Relance automatique : la séquence J+1, J+3, J+7',
+        "description": "J+1, J+3, J+7, puis l'arrêt immédiat dès que la personne répond : comment régler une séquence de relance et écrire un message qui donne envie de répondre.",
+        "fragment": "articles-relance-client-automatique.html",
+        "nav_active": "automatisation",
+        "breadcrumb": [("Automatisation", "/articles/automatisation-marketing-debuter/"), ("Relance automatique", "/articles/relance-client-automatique/")],
+    },
+    "articles/reporting-automatise/index.html": {
+        "title": 'Un reporting qui se remplit tout seul chaque mois',
+        "description": "Quelles données collecter, d'où elles viennent, à quelle fréquence, et les contrôles qui empêchent un rapport faux d'arriver à l'heure.",
+        "fragment": "articles-reporting-automatise.html",
+        "nav_active": "automatisation",
+        "breadcrumb": [("Automatisation", "/articles/automatisation-marketing-debuter/"), ("Reporting automatisé", "/articles/reporting-automatise/")],
+    },
+    "articles/synchroniser-outils-commerciaux/index.html": {
+        "title": 'Synchroniser site, WhatsApp et suivi commercial',
+        "description": 'Un seul statut par contact, partagé entre site, WhatsApp et suivi : la mécanique de synchronisation, les règles à écrire et les pièges du numéro.',
+        "fragment": "articles-synchroniser-outils-commerciaux.html",
+        "nav_active": "automatisation",
+        "breadcrumb": [("Automatisation", "/articles/automatisation-marketing-debuter/"), ("Synchroniser ses outils", "/articles/synchroniser-outils-commerciaux/")],
+    },
+    "articles/cout-automatisation/index.html": {
+        "title": 'Combien coûte une automatisation, et que rapporte-t-elle',
+        "description": "Les cinq postes de coût, la mise en place comptée en jours de travail et la division qui donne le seuil de rentabilité d'une automatisation.",
+        "fragment": "articles-cout-automatisation.html",
+        "nav_active": "automatisation",
+        "breadcrumb": [("Automatisation", "/articles/automatisation-marketing-debuter/"), ("Coût d'une automatisation", "/articles/cout-automatisation/")],
+    },
+    "articles/automatisation-dependance/index.html": {
+        "title": "Automatiser sans dépendre d'un prestataire",
+        "description": "Accès à votre nom, propriété des workflows, documentation, réversibilité : ce qui doit rester chez vous et ce qu'il faut exiger par écrit.",
+        "fragment": "articles-automatisation-dependance.html",
+        "nav_active": "automatisation",
+        "breadcrumb": [("Automatisation", "/articles/automatisation-marketing-debuter/"), ("Garder la main", "/articles/automatisation-dependance/")],
+    },
+    "articles/erreurs-automatisation/index.html": {
+        "title": 'Trois automatisations à ne pas faire',
+        "description": 'Relancer des prospects mal qualifiés, automatiser sans volume, automatiser une réclamation : trois chantiers à refuser, et pourquoi.',
+        "fragment": "articles-erreurs-automatisation.html",
+        "nav_active": "automatisation",
+        "breadcrumb": [("Automatisation", "/articles/automatisation-marketing-debuter/"), ("Ce qu'il ne faut pas automatiser", "/articles/erreurs-automatisation/")],
+    },
+    "articles/calculer-ltv/index.html": {
+        "title": "Calculer sa LTV sans se raconter d'histoires",
+        "description": 'La LTV se calcule sur des achats réels : méthode par cohorte, taux de rachat, erreurs qui gonflent le chiffre et décisions publicitaires.',
+        "fragment": "articles-calculer-ltv.html",
+        "nav_active": "acquisition",
+        "breadcrumb": [("Acquisition", "/acquisition/"), ("Calculer sa LTV", "/articles/calculer-ltv/")],
+    },
+    "articles/payback-period/index.html": {
+        "title": 'Payback period : le ratio qui tue les trésoreries',
+        "description": 'Le payback mesure le délai de récupération du CAC. Calcul, cible des 90 jours, exemple chiffré et cinq leviers pour le raccourcir.',
+        "fragment": "articles-payback-period.html",
+        "nav_active": "acquisition",
+        "breadcrumb": [("Acquisition", "/acquisition/"), ("Payback period", "/articles/payback-period/")],
+    },
+    "articles/ratio-ltv-cac/index.html": {
+        "title": 'Ratio LTV:CAC : quel seuil viser vraiment',
+        "description": 'Le 3:1 est un point de départ, pas une loi. Calcul en marge, lecture par zone, seuils de décision et alerte du ratio trop élevé.',
+        "fragment": "articles-ratio-ltv-cac.html",
+        "nav_active": "acquisition",
+        "breadcrumb": [("Acquisition", "/acquisition/"), ("Ratio LTV:CAC", "/articles/ratio-ltv-cac/")],
+    },
+    "articles/cinq-taches-ia-entreprise/index.html": {
+        "title": "Cinq tâches que l'IA fait mieux que vous | ePerformance",
+        "description": "Cinq tâches que l'IA générative fait mieux que vous, classées par temps gagné mesurable. Ce que chacune remplace, ce qu'elle produit, comment la traiter.",
+        "fragment": "articles-cinq-taches-ia-entreprise.html",
+        "nav_active": "ia",
+        "breadcrumb": [("IA générative", "/"), ("Cinq tâches que l'IA fait mieux que vous", "/articles/cinq-taches-ia-entreprise/")],
+    },
+    "articles/chatbot-ia-repondre-site/index.html": {
+        "title": "IA conversationnelle : ce qu'elle répond vraiment",
+        "description": "Ce qu'un agent conversationnel peut répondre depuis vos données réelles, et ce qu'il ne peut pas. La mécanique, les limites, le passage à un humain.",
+        "fragment": "articles-chatbot-ia-repondre-site.html",
+        "nav_active": "ia",
+        "breadcrumb": [("IA générative", "/"), ("IA conversationnelle sur votre site", "/articles/chatbot-ia-repondre-site/")],
+    },
+    "articles/rediger-fiches-produits-ia/index.html": {
+        "title": "Rédiger ses fiches produits avec l'IA | ePerformance",
+        "description": "La méthode en quatre étapes pour produire ses fiches produits avec l'IA sans perdre la voix de la marque. Sans informations brutes, le résultat est générique.",
+        "fragment": "articles-rediger-fiches-produits-ia.html",
+        "nav_active": "ia",
+        "breadcrumb": [("IA générative", "/"), ("Rédiger ses fiches produits avec l'IA", "/articles/rediger-fiches-produits-ia/")],
+    },
+    "articles/ia-service-client-nuit/index.html": {
+        "title": 'IA et service client : répondre la nuit | ePerformance',
+        "description": "Trois niveaux d'automatisation du service client comparés : réponse préparée, agent sur le site, agent sur WhatsApp. Ce que chacun couvre et ce qu'il exige.",
+        "fragment": "articles-ia-service-client-nuit.html",
+        "nav_active": "ia",
+        "breadcrumb": [("IA générative", "/"), ("IA et service client", "/articles/ia-service-client-nuit/")],
+    },
+    "articles/ia-analyse-rapports-publicitaires/index.html": {
+        "title": "Analyser ses rapports publicitaires avec l'IA | ePerformance",
+        "description": "Comment faire lire un export publicitaire à un outil d'IA : ce qui a bougé d'un mois sur l'autre, et pourquoi un résumé de données fausses est pire qu'aucun.",
+        "fragment": "articles-ia-analyse-rapports-publicitaires.html",
+        "nav_active": "ia",
+        "breadcrumb": [("IA générative", "/"), ("Analyser ses rapports publicitaires", "/articles/ia-analyse-rapports-publicitaires/")],
+    },
+    "articles/ia-preparation-commerciale/index.html": {
+        "title": "Structurer une offre commerciale avec l'IA | ePerformance",
+        "description": "Structurer une proposition commerciale en une heure : problème, périmètre, livrables, délais. Ce que l'IA rédige et ce qui doit rester de votre main.",
+        "fragment": "articles-ia-preparation-commerciale.html",
+        "nav_active": "ia",
+        "breadcrumb": [("IA générative", "/"), ("Structurer une offre avec l'IA", "/articles/ia-preparation-commerciale/")],
+    },
+    "articles/ia-limites-business/index.html": {
+        "title": "Ce que l'IA ne sait pas faire dans votre business",
+        "description": "L'IA ignore votre marge, votre trésorerie et votre capacité de production. Elle amplifie ce que vous faites mal autant que ce que vous faites bien.",
+        "fragment": "articles-ia-limites-business.html",
+        "nav_active": "ia",
+        "breadcrumb": [("IA générative", "/"), ("Ce que l'IA ne sait pas faire", "/articles/ia-limites-business/")],
+    },
+    "articles/ia-donnees-confidentialite/index.html": {
+        "title": "Vos données et l'IA : ce qui sort, ce qui reste",
+        "description": "Le trajet d'une donnée quand vous l'utilisez dans un outil en ligne : ce qui quitte votre entreprise, ce qui reste local, ce qu'il faut vérifier avant.",
+        "fragment": "articles-ia-donnees-confidentialite.html",
+        "nav_active": "ia",
+        "breadcrumb": [("IA générative", "/"), ("Vos données et l'IA", "/articles/ia-donnees-confidentialite/")],
+    },
+    "articles/automatisation-marketing-debuter/index.html": {
+        "title": 'Automatisation marketing : par où commencer | ePerformance',
+        "description": "Commencer par la tâche qui coûte le plus d'heures, pas la plus spectaculaire. Comment la repérer, la mesurer et la traiter sans y passer plus de temps.",
+        "fragment": "articles-automatisation-marketing-debuter.html",
+        "nav_active": "automatisation",
+        "breadcrumb": [("Automatisation", "/articles/automatisation-marketing-debuter/"), ("Par où commencer", "/articles/automatisation-marketing-debuter/")],
+    },
+    "articles/n8n-afrique-ouest/index.html": {
+        "title": "n8n en Afrique de l'Ouest : pourquoi cet outil",
+        "description": "n8n auto-hébergeable, connecteurs WhatsApp Business, réversibilité des workflows : ce que cela change localement, et pour qui ce n'est pas le bon choix.",
+        "fragment": "articles-n8n-afrique-ouest.html",
+        "nav_active": "automatisation",
+        "breadcrumb": [("Automatisation", "/articles/automatisation-marketing-debuter/"), ("n8n en Afrique de l'Ouest", "/articles/n8n-afrique-ouest/")],
+    },
+    "articles/ia-generative-pme-africaine/index.html": {
+        "title": "IA générative pour une PME africaine : trois tâches",
+        "description": "Ce que l'IA générative fait vraiment pour une PME : trois tâches qu'elle fait mieux que vous, trois qu'elle ne fera jamais. Guide pratique.",
+        "fragment": "articles-ia-generative-pme-africaine.html",
+        "nav_active": "ia",
+        "breadcrumb": [("IA générative", "/"), ("Qu'est-ce que l'IA générative pour une PME africaine", "/articles/ia-generative-pme-africaine/")],
+    },
     "articles/calculer-cac-cote-ivoire/index.html": {
         "title": "Calculer son vrai CAC en Côte d'Ivoire (guide 2026)",
         "description": "Le CAC réel inclut la pub, les outils et votre temps. Méthode de calcul, exemple chiffré et 5 leviers pour le réduire.",
@@ -743,6 +1326,23 @@ def controler(page_key, html_produit):
 # PROGRAMME
 # ---------------------------------------------------------------------------
 
+def articles_differe():
+    """Slugs des articles planifiés qui ne sont pas encore publiés.
+
+    Lit _schedule.json : un article dont le drapeau published est faux n'est
+    pas encore en ligne. Sa page est composée quand même — sinon les liens des
+    articles déjà publiés vers lui casseraient — mais elle porte
+    « noindex,follow » et reste hors du sitemap et de l'index. Un lien qui
+    résout vers une page noindex vaut mieux qu'un lien vers une 404.
+    """
+    chemin = os.path.join(PREVIEW, "_schedule.json")
+    if not os.path.exists(chemin):
+        return set()
+    with open(chemin, encoding="utf-8") as f:
+        sched = json.load(f)
+    return {a["slug"] for a in sched.get("articles", []) if not a.get("published")}
+
+
 def main():
     ap = argparse.ArgumentParser(description="Compose les pages statiques ePerformance.")
     ap.add_argument("--check", action="store_true", help="vérifie sans écrire")
@@ -752,10 +1352,16 @@ def main():
     os.makedirs(PREVIEW, exist_ok=True)
 
     written, skipped, errors = 0, [], []
+    differes = articles_differe()
+    noindexes = 0
 
     for page_key, meta in PAGES.items():
         if args.only and page_key != args.only:
             continue
+        meta = dict(meta)
+        if page_key.startswith("articles/") and page_key.split("/")[1] in differes:
+            meta["noindex"] = True
+            noindexes += 1
         frag = os.path.join(CONTENT, meta["fragment"])
         if not os.path.exists(frag):
             skipped.append((page_key, meta["fragment"]))
@@ -779,6 +1385,8 @@ def main():
 
     label = "vérifiées" if args.check else "écrites"
     print(f"  {written} page(s) {label}")
+    if noindexes:
+        print(f"  dont {noindexes} article(s) planifié(s) en noindex — hors sitemap, hors index")
     if written and not errors:
         print(f"  ressources vérifiées : feuille de style, JS, polices")
 

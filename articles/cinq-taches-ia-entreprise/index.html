@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+(function(){try{var t=localStorage.getItem('eperf-theme');
+if(t!=='dark'&&t!=='light'){t='light';}
+document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+  <title>Cinq tâches que l&#x27;IA fait mieux que vous | ePerformance</title>
+  <meta name="description" content="Cinq tâches que l&#x27;IA générative fait mieux que vous, classées par temps gagné mesurable. Ce que chacune remplace, ce qu&#x27;elle produit, comment la traiter.">
+  <meta name="robots" content="noindex,follow">
+  <link rel="canonical" href="https://blog.eperformance.pro/articles/cinq-taches-ia-entreprise/index.html">
+  <meta name="theme-color" content="#fdfcfa">
+  <meta name="author" content="K. Stéphane">
+
+  <!-- Icônes -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="icon" href="/assets/img/favicon-16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ePerformance">
+  <meta property="og:locale" content="fr_CI">
+  <meta property="og:title" content="Cinq tâches que l&#x27;IA fait mieux que vous | ePerformance">
+  <meta property="og:description" content="Cinq tâches que l&#x27;IA générative fait mieux que vous, classées par temps gagné mesurable. Ce que chacune remplace, ce qu&#x27;elle produit, comment la traiter.">
+  <meta property="og:url" content="https://blog.eperformance.pro/articles/cinq-taches-ia-entreprise/index.html">
+  <meta property="og:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ePerformance — ePerformance">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cinq tâches que l&#x27;IA fait mieux que vous | ePerformance">
+  <meta name="twitter:description" content="Cinq tâches que l&#x27;IA générative fait mieux que vous, classées par temps gagné mesurable. Ce que chacune remplace, ce qu&#x27;elle produit, comment la traiter.">
+  <meta name="twitter:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta name="twitter:creator" content="@eperformancepro">
+
+  <!-- Polices : préconnexion, préchargement des deux polices critiques,
+       puis chargement non bloquant de la feuille complète -->
+  <!-- Polices : auto-hébergées, déclarées dans eperf.css.
+       On précharge les deux graisses du premier écran pour que le
+       texte soit peint dans la bonne police dès le premier rendu. -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/cormorant-garamond-700.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/dm-sans-400.woff2">
+
+  <!-- Design system : la MEME feuille que le site, a l'identique. -->
+  <link rel="stylesheet" href="/assets/css/eperf.css">
+  <!-- Composants editoriaux du blog : corps d'article, largeur de
+       lecture, cartes d'article. Ils consomment les jetons d'eperf.css
+       et ne redefinissent aucune couleur. -->
+  <link rel="stylesheet" href="/assets/css/blog.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://blog.eperformance.pro/#organization",
+      "name": "ePerformance",
+      "alternateName": "ePerformance par K. Stéphane",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "founder": {
+        "@type": "Person",
+        "@id": "https://blog.eperformance.pro/#founder",
+        "name": "K. Stéphane",
+        "jobTitle": "Fondateur, stratège acquisition",
+        "url": "https://blog.eperformance.pro/kstephane.html"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Côte d'Ivoire"
+        },
+        {
+          "@type": "Country",
+          "name": "Burkina Faso"
+        },
+        {
+          "@type": "Place",
+          "name": "Afrique de l'Ouest"
+        }
+      ],
+      "knowsLanguage": "fr",
+      "sameAs": [
+        "https://blog.eperformance.pro/"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://blog.eperformance.pro/#localbusiness",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "parentOrganization": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Abidjan",
+        "addressCountry": "CI"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Côte d'Ivoire"
+      },
+      "priceRange": "100000-350000 XOF",
+      "currenciesAccepted": "XOF",
+      "paymentAccepted": "Orange Money, Wave, MTN MoMo, Moov Money, Visa, Mastercard",
+      "availableLanguage": "fr"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://blog.eperformance.pro/#website",
+      "url": "https://blog.eperformance.pro",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "publisher": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://blog.eperformance.pro/articles/cinq-taches-ia-entreprise/index.html#webpage",
+      "url": "https://blog.eperformance.pro/articles/cinq-taches-ia-entreprise/index.html",
+      "name": "Cinq tâches que l'IA fait mieux que vous | ePerformance",
+      "description": "Cinq tâches que l'IA générative fait mieux que vous, classées par temps gagné mesurable. Ce que chacune remplace, ce qu'elle produit, comment la traiter.",
+      "isPartOf": {
+        "@id": "https://blog.eperformance.pro/#website"
+      },
+      "about": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://blog.eperformance.pro/articles/cinq-taches-ia-entreprise/index.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://blog.eperformance.pro/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "IA générative",
+          "item": "https://blog.eperformance.pro/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Cinq tâches que l'IA fait mieux que vous",
+          "item": "https://blog.eperformance.pro/articles/cinq-taches-ia-entreprise/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Cinq tâches que l'IA fait mieux que vous dans votre entreprise",
+  "description":"Cinq tâches classées par temps gagné mesurable : ce qu'elles remplacent, le temps avant, le temps après et ce qu'elles produisent. Ordres de grandeur et méthode de mesure.",
+  "image":"https://blog.eperformance.pro/assets/img/og-image.jpg",
+  "datePublished":"2026-10-07T09:00:00+00:00",
+  "dateModified":"2026-10-07T09:00:00+00:00",
+  "inLanguage":"fr-CI",
+  "wordCount":2393,
+  "articleSection":"IA générative",
+  "keywords":["IA pour entreprise","automatiser avec IA","IA petite entreprise","temps gagné","Abidjan","Côte d'Ivoire","tâches répétitives"],
+  "author":{"@type":"Person","name":"K. STEPHANE","jobTitle":"Fondateur ePerformance","url":"https://blog.eperformance.pro/a-propos/"},
+  "publisher":{"@type":"Organization","name":"ePerformance","logo":{"@type":"ImageObject","url":"https://eperformance.pro/assets/img/logo-light.webp"}},
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.eperformance.pro/articles/cinq-taches-ia-entreprise/"}
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Blog","item":"https://blog.eperformance.pro/"},
+    {"@type":"ListItem","position":2,"name":"IA générative","item":"https://blog.eperformance.pro/"},
+    {"@type":"ListItem","position":3,"name":"Cinq tâches que l'IA fait mieux que vous dans votre entreprise","item":"https://blog.eperformance.pro/articles/cinq-taches-ia-entreprise/"}
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Combien de temps avant de voir un gain réel ?","acceptedAnswer":{"@type":"Answer","text":"Comptez une semaine de mesure et dix unités traitées. Il faut d'abord écrire vos informations brutes, puis comparer le temps total, préparation et relecture comprises. Si ce total n'a pas baissé après dix unités, la tâche choisie est trop complexe ou la matière brute trop incomplète."}},
+    {"@type":"Question","name":"Faut-il payer un abonnement pour ces cinq tâches ?","acceptedAnswer":{"@type":"Answer","text":"Non. Les cinq usages décrits — réponses fréquentes, fiches produits, relances, lecture d'un export, trame de proposition — sont accessibles avec les offres gratuites ou d'entrée de gamme. Le poste de dépense réel, c'est le temps de préparation et de relecture, pas l'abonnement."}},
+    {"@type":"Question","name":"Est-ce utilisable depuis un téléphone, avec une connexion irrégulière ?","acceptedAnswer":{"@type":"Answer","text":"Oui, à condition de travailler par petites séances : une tâche, un lot de dix unités, une vingtaine de minutes. Les sessions longues sont interrompues par les coupures et font perdre le fil. Le fichier de matière brute, lui, se prépare hors connexion et se garde sur le téléphone."}},
+    {"@type":"Question","name":"Que faire des informations de mes clients ?","acceptedAnswer":{"@type":"Answer","text":"Le principe : ce que vous n'avez pas besoin de transmettre ne se transmet pas. Un prix, un délai ou une caractéristique de produit n'ont besoin ni du nom, ni du numéro, ni de l'adresse du client. Pour une conversation complète, retirez l'identité avant de demander une reformulation, et vérifiez les conditions d'utilisation de l'outil employé."}},
+    {"@type":"Question","name":"L'outil peut-il répondre aux messages WhatsApp à ma place ?","acceptedAnswer":{"@type":"Answer","text":"Il peut préparer la réponse, pas la porter. Vous gardez la relecture et l'envoi, parce que c'est vous qui engagez votre prix et votre délai. Le passage à un agent qui répond seul au visiteur est un autre chantier, décrit dans ce que l'IA peut vraiment répondre sur votre site."}},
+    {"@type":"Question","name":"Par laquelle des cinq tâches commencer ?","acceptedAnswer":{"@type":"Answer","text":"Par les réponses aux questions fréquentes : c'est le gain le plus élevé, la matière brute se rassemble en une heure, et une erreur s'y corrige en une minute. Les fiches produits viennent ensuite, quand vous avez pris l'habitude de préparer l'information avant d'ouvrir l'outil."}}
+  ]
+}
+  </script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a class="logo" href="/" aria-label="ePerformance — accueil">
+      <img class="logo-img-light" src="/assets/img/logo-light.webp"
+           srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+           width="182" height="30" alt="ePerformance" fetchpriority="high">
+      <img class="logo-img-dark" src="/assets/img/logo-dark.webp"
+           srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+           width="188" height="30" alt="" aria-hidden="true">
+    </a>
+
+    <nav class="nav" id="primary-nav" aria-label="Navigation principale">
+      <a href="/">Accueil</a>
+      <a href="/acquisition/">Acquisition</a>
+      <a href="/site-web/">Site web</a>
+      <a href="/seo/">SEO</a>
+      <a href="/business/">Business</a>
+      <a href="/articles/ia-generative-pme-africaine/" aria-current="page">IA</a>
+      <a href="/articles/automatisation-marketing-debuter/">Automatisation</a>
+      <a href="/a-propos/">À propos</a>
+      <a href="https://eperformance.pro" rel="noopener">Site principal</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" data-theme-toggle
+              aria-pressed="false" aria-label="Activer le thème sombre">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+        </svg>
+      </button>
+
+      <a class="btn btn-gold btn-desktop" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false"
+              aria-controls="primary-nav" aria-label="Ouvrir le menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<nav class="breadcrumb container" aria-label="Fil d'Ariane">
+  <ol>
+    <li><a href="/">Accueil</a></li>
+    <li><a href="/">IA générative</a></li>
+    <li aria-current="page">Cinq tâches que l&#x27;IA fait mieux que vous</li>
+  </ol>
+</nav>
+
+<main id="main">
+
+
+<section class="article-hero">
+  <div class="container-reading">
+
+    <nav class="article-breadcrumb" aria-label="Fil d'Ariane">
+      <a href="/">Blog</a>
+      <span class="sep">/</span>
+      <span>IA générative</span>
+    </nav>
+
+    <span class="article-category">IA générative</span>
+    <h1>Cinq tâches que l'IA fait mieux que vous dans votre <span class="text-gold">entreprise</span></h1>
+    <p class="lead">Cinq tâches classées par heures récupérées chaque semaine, pas par nouveauté. Pour chacune : ce qu'elle remplace, le temps avant, le temps après, et ce que vous obtenez. Les ordres de grandeur sont à vérifier chez vous, chronomètre en main.</p>
+
+    <div class="article-meta">
+      <div class="author">
+        <div class="author-avatar">KS</div>
+        <div>
+          <div class="article-author-name">K. STEPHANE</div>
+          <div class="small">Fondateur ePerformance</div>
+        </div>
+      </div>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg> 7 octobre 2026</span>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.6 2.1"/></svg> 11 min de lecture</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section-flush-top">
+  <div class="article-body container-reading">
+
+    <p>Vous connaissez déjà la liste. L'IA qui écrit des articles, l'IA qui produit des visuels, l'IA qui prévoit les ventes du trimestre. Dans une entreprise de cinq à trente personnes, la plupart de ces promesses ne se transforment pas en heures récupérées. Elles se transforment en essais abandonnés et en abonnements oubliés.</p>
+
+    <p>Le problème n'est pas l'outil. C'est le critère de choix. On essaie l'IA sur ce qui impressionne, alors qu'il faut l'essayer sur ce qui se répète. La bonne question n'est jamais « qu'est-ce que ça sait faire ? » mais « combien d'heures cette tâche me coûte aujourd'hui ? ».</p>
+
+    <p>Les cinq tâches qui suivent passent ce filtre. Elles sont répétitives, textuelles, et vous en connaissez déjà le contenu. L'outil ne remplace pas ce savoir : il le met en forme plus vite.</p>
+
+    <h2>Le critère : le temps gagné, pas la nouveauté</h2>
+
+    <p>Trois conditions doivent être réunies pour qu'une tâche mérite d'être traitée avec un outil génératif. Si une seule manque, le gain disparaît au bout de deux semaines.</p>
+
+    <ul>
+      <li><strong>Vous la faites au moins trois fois par semaine.</strong> Une tâche mensuelle ne crée pas d'habitude, et une habitude qui ne se prend pas ne fait rien gagner.</li>
+      <li><strong>Vous savez quoi écrire, mais vous n'avez pas le temps de l'écrire.</strong> C'est exactement le cas des réponses clients, des fiches produits et des relances.</li>
+      <li><strong>Une erreur se corrige sans conséquence lourde.</strong> Un prix faux dans une fiche se corrige en une minute. Un prix faux dans un devis déjà envoyé se corrige en trois échanges désagréables.</li>
+    </ul>
+
+    <p>Écartez le reste. Les idées de produit, les prévisions de vente, l'analyse d'un marché : l'outil y produit une réponse plausible et sans valeur, parce qu'il ne connaît ni vos clients ni vos coûts.</p>
+
+    <h2>Les cinq tâches, classées par temps gagné</h2>
+
+    <p>Le classement suit un ordre unique : le gain, du plus élevé au plus faible. Trois lignes se mesurent à la semaine, les deux dernières au mois et à la proposition. Les temps « avant » correspondent à la tâche faite correctement, pas bâclée ; les temps « après » incluent la relecture, jamais supprimée.</p>
+
+    <table>
+      <thead>
+        <tr><th>Tâche</th><th>Avant</th><th>Après</th><th>Gain</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>1. Réponses aux questions fréquentes</strong></td><td>3 h 20 / semaine</td><td>50 min</td><td>≈ 2 h 30</td></tr>
+        <tr><td><strong>2. Fiches produits</strong> (lot de 10)</td><td>3 h 20</td><td>1 h 15</td><td>≈ 2 h</td></tr>
+        <tr><td><strong>3. Relances de devis</strong></td><td>1 h 10 / semaine</td><td>20 min</td><td>≈ 50 min</td></tr>
+        <tr><td><strong>4. Lecture de l'export publicitaire</strong></td><td>1 h 30 / mois</td><td>25 min</td><td>≈ 1 h par mois</td></tr>
+        <tr><td><strong>5. Proposition commerciale</strong></td><td>2 h</td><td>35 min</td><td>≈ 1 h 25 par proposition</td></tr>
+      </tbody>
+    </table>
+
+    <p>Reprenons chaque ligne : ce qu'elle remplace, les temps avant et après, ce que vous obtenez.</p>
+
+    <h3>1. Répondre aux questions qui reviennent</h3>
+
+    <p><strong>Ce qu'elle remplace.</strong> Les vingt à trente messages identiques de la semaine : le prix, le délai, la zone de livraison, les moyens de paiement, la disponibilité.</p>
+
+    <p><strong>Le temps avant.</strong> Deux minutes par réponse, une vingtaine de fois par jour dans une activité qui vend sur WhatsApp : trois heures vingt par semaine.</p>
+
+    <p><strong>Le temps après.</strong> Une heure la première fois, pour écrire vos quinze réponses socles avec vos prix et vos délais réels. Ensuite dix minutes par jour pour adapter la formulation au fil de la conversation. Cinquante minutes par semaine.</p>
+
+    <p><strong>Ce que vous obtenez.</strong> Un fichier de quinze réponses écrites une fois, réutilisables sur WhatsApp, en commentaire de publication et en message privé. L'outil reformule : le prix vient de votre fichier, jamais de lui.</p>
+
+    <p><strong>L'exemple de formulation.</strong> « Réécris la réponse 4 en message WhatsApp de 40 mots, ton direct. Ne modifie aucun prix ni aucun délai. »</p>
+
+    <h3>2. Rédiger les fiches produits du catalogue</h3>
+
+    <p><strong>Ce qu'elle remplace.</strong> Les descriptions de dix à quarante articles que vous repoussez depuis des mois, parce qu'elles n'ont aucune échéance. Personne ne les réclame, donc elles ne se font pas.</p>
+
+    <p><strong>Le temps avant.</strong> Vingt minutes par fiche quand vous partez d'une page blanche, soit trois heures vingt pour dix fiches. En pratique ces trois heures ne sont jamais trouvées et le catalogue reste à moitié décrit.</p>
+
+    <p><strong>Le temps après.</strong> Quarante-cinq minutes pour les dix fiches, matière brute déjà rassemblée, plus trente minutes de relecture. Comptez une heure et quart.</p>
+
+    <p><strong>Ce que vous obtenez.</strong> Dix fiches prêtes à publier : un titre, une description de 80 à 120 mots, quatre caractéristiques. Avec vos mesures, vos matières et vos prix réels. La méthode complète pour garder votre ton est dans <a href="/articles/rediger-fiches-produits-ia/">rédiger ses fiches produits avec l'IA</a>.</p>
+
+    <h3>3. Relancer les devis sans réponse</h3>
+
+    <p><strong>Ce qu'elle remplace.</strong> Les six à dix devis qui dorment dans votre téléphone. Ils ne sont pas relancés par négligence, mais parce que chaque relance demande un texte à écrire.</p>
+
+    <p><strong>Le temps avant.</strong> Douze minutes par relance en comptant la rédaction, l'envoi et la note dans le carnet. Une heure dix par semaine.</p>
+
+    <p><strong>Le temps après.</strong> Vingt minutes par semaine, parce que les quatre messages sont écrits une fois puis réutilisés tels quels.</p>
+
+    <p><strong>Ce que vous obtenez.</strong> Une séquence de quatre messages — à deux jours, cinq jours, douze jours et vingt-cinq jours — avec une règle de conduite : elle s'arrête dès que le client répond ou demande à ne plus être contacté.</p>
+
+    <h3>4. Lire l'export publicitaire ou de ventes</h3>
+
+    <p><strong>Ce qu'elle remplace.</strong> Le fichier que vous exportez, ouvrez, survolez et refermez. Les chiffres y sont, la lecture non.</p>
+
+    <p><strong>Le temps avant.</strong> Une heure trente par mois pour essayer de comprendre l'export — et souvent zéro minute, parce que la séance est reportée.</p>
+
+    <p><strong>Le temps après.</strong> Vingt-cinq minutes : dix pour préparer les colonnes, quinze pour lire la synthèse et décider.</p>
+
+    <p><strong>Ce que vous obtenez.</strong> Une note de dix lignes qui dit ce qui a bougé et de combien. Copiez six colonnes et deux mois — campagne, dépense, impressions, clics, conversations, ventes — puis demandez : « Quelles lignes ont varié de plus de 20 % entre les deux mois ? Classe-les par montant, pas par pourcentage. » Le classement par montant évite de s'alarmer sur une ligne à 3 000 FCFA.</p>
+
+    <h3>5. Préparer une proposition commerciale</h3>
+
+    <p><strong>Ce qu'elle remplace.</strong> Le document à écrire de zéro pour un client qui demande une offre structurée, avec le périmètre, les conditions et les étapes.</p>
+
+    <p><strong>Le temps avant.</strong> Deux heures par proposition, dont une bonne partie passée à retrouver ce que vous aviez écrit la dernière fois. Trois propositions par mois, six heures.</p>
+
+    <p><strong>Le temps après.</strong> Cinquante minutes la première fois pour poser vos cinq blocs, puis trente-cinq minutes par proposition.</p>
+
+    <p><strong>Ce que vous obtenez.</strong> Une trame stable : ce que le client a demandé, ce que vous proposez, ce qui est inclus, le prix et les conditions, les prochaines étapes. Vous remplissez, l'outil met en forme. Le périmètre et le prix restent vos décisions.</p>
+
+    <h2>Ce qui ne gagne pas de temps mesurable</h2>
+
+    <p>Trois tâches que l'on essaie souvent en premier, et qui rapportent moins qu'elles ne coûtent.</p>
+
+    <p><strong>Trouver des idées de contenu.</strong> Un outil ne sait pas ce qui intéresse vos clients. Il produit dix idées en trente secondes, dont aucune ne vient de ce que vous entendez en boutique.</p>
+
+    <p><strong>Répondre à une réclamation.</strong> Un client mécontent ne cherche pas une phrase bien tournée, il cherche une décision : un échange, un avoir, une date de livraison. Cette conversation se mène par une personne qui a le pouvoir de trancher.</p>
+
+    <p><strong>Écrire un contrat ou un document juridique.</strong> Le risque dépasse largement l'économie de temps. Un engagement mal formulé coûte plus cher que l'heure gagnée à le rédiger.</p>
+
+    <h2>Ce que ces cinq tâches représentent en heures</h2>
+
+    <p>Additionnez les gains : environ six heures trente par semaine, soit vingt-six heures par mois, près d'un mois et demi de travail d'une personne à temps plein sur l'année.</p>
+
+    <p>Pour donner un ordre de grandeur, une personne payée 150 000 FCFA brut par mois sur une base de quarante heures par semaine représente environ 870 FCFA de l'heure. Vingt-six heures correspondent donc à un peu moins de 23 000 FCFA de capacité de travail chaque mois.</p>
+
+    <p>Attention à la lecture de ce chiffre. Ce n'est pas de l'argent qui rentre : c'est du temps qui se libère, et il n'a de valeur que s'il est réinvesti dans la vente — appeler dix prospects, relancer les impayés, rencontrer un partenaire. S'il part en navigation sur le téléphone, vous avez simplement ajouté un outil à votre pile.</p>
+
+    <p>Le coût est faible en face. Les cinq usages décrits ici sont accessibles avec une offre gratuite ou d'entrée de gamme, un téléphone et une connexion même irrégulière. Ce qui coûte, ce n'est pas l'abonnement : c'est l'heure passée à écrire vos informations brutes. C'est cette heure-là qui décide du résultat.</p>
+
+    <h2>Comment démarrer cette semaine</h2>
+
+    <p>Six étapes, dans cet ordre. La dernière est la plus importante et c'est celle que tout le monde saute.</p>
+
+    <ol>
+      <li><strong>Chronométrez une fois, honnêtement.</strong> Notez l'heure de début et l'heure de fin sur trois occurrences de la tâche, puis prenez la moyenne. Sans ce chiffre de départ, vous ne saurez jamais si l'outil vous sert.</li>
+      <li><strong>Rassemblez la matière brute avant d'ouvrir l'outil.</strong> Prix, délais, zones desservies, conditions de retour, caractéristiques de chaque produit. Dans un fichier texte, sur votre téléphone. C'est cette étape qui sépare un texte utilisable d'un texte creux.</li>
+      <li><strong>Commencez par la tâche la plus répétitive</strong>, pas par la plus intéressante. Celle du haut du tableau, pas celle qui vous amuse.</li>
+      <li><strong>Traitez dix unités, pas cent.</strong> Dix fiches, dix réponses. Dix résultats à corriger vous apprennent plus que cent résultats à survoler.</li>
+      <li><strong>Relisez tout, en lisant.</strong> Un prix, un délai, une condition : chaque chiffre se vérifie sur votre fichier, pas sur le texte produit.</li>
+      <li><strong>Reprenez le chronomètre et comparez.</strong> Si le temps total — préparation comprise — n'a pas baissé, arrêtez cette tâche et passez à la suivante.</li>
+    </ol>
+
+    <p>Un critère d'abandon utile : si votre relecture vous prend plus de temps que la rédaction, ne cherchez pas du côté de l'outil. Votre matière brute est incomplète, et c'est elle qu'il faut compléter.</p>
+
+    <h2>Les trois erreurs qui annulent le gain</h2>
+
+    <p><strong>Demander à l'outil de combler un manque d'information.</strong> Si vous ne savez pas quoi dire de votre produit, lui non plus. Il écrira un texte long, bien tourné et vide, et vous passerez le double de temps à le corriger. La première étape reste de rassembler l'information.</p>
+
+    <p><strong>Accepter le ton par défaut.</strong> Un texte qui ouvre sur « dans un contexte de plus en plus concurrentiel » ne ressemble à personne, et surtout pas à vous. Donnez trois exemples de ce que vous écrivez habituellement : l'outil s'aligne sur le style qu'on lui montre.</p>
+
+    <p><strong>Publier sans relire.</strong> C'est l'erreur la plus coûteuse, parce qu'elle est visible du client. Un délai trop court, une dimension fausse, un prix périmé : la correction prend plus de temps que la rédaction, et elle se fait devant le client.</p>
+
+    <h2>Ce qu'il faut retenir</h2>
+
+    <p>Une tâche mérite un outil génératif quand elle se répète au moins trois fois par semaine, quand vous savez déjà quoi écrire, et quand une erreur se corrige en une minute. Les cinq tâches de cet article remplissent ces trois conditions. Elles représentent six heures trente par semaine dans une petite structure.</p>
+
+    <p>L'outil ne décide pas à votre place, ne connaît pas votre marge, et n'invente pas une information que vous n'avez pas. Ces limites ne sont pas des défauts techniques : ce sont les vôtres, et elles restent les vôtres.</p>
+
+    <p>Si vous voulez savoir où ces heures se perdent réellement chez vous, commencez par mesurer ce que vous coûte un client. Un chiffre exact vaut mieux qu'une intuition sur le temps que vous gagnez. Ce calcul est le point de départ de <a href="/articles/ia-generative-pme-africaine/">ce que l'IA générative fait concrètement pour une PME</a>.</p>
+
+    <div class="cta-block">
+      <h2>Combien vous coûte vraiment chaque client ?</h2>
+      <p>Cinq minutes pour calculer votre CAC, votre LTV, votre Payback et un score sur 100. Résultat immédiat, sans engagement.</p>
+      <a class="btn btn-gold" href="https://eperformance.pro/diagnostic_eperformance.html">Faire mon diagnostic gratuit
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <h2>FAQ — Questions sur les cinq tâches</h2>
+
+    <div class="faq-section">
+      <details>
+        <summary>Combien de temps avant de voir un gain réel ?</summary>
+        <p>Comptez une semaine de mesure et dix unités traitées. Il faut d'abord écrire vos informations brutes, puis comparer le temps total, préparation et relecture comprises. Si ce total n'a pas baissé après dix unités, la tâche choisie est trop complexe ou la matière brute trop incomplète.</p>
+      </details>
+
+      <details>
+        <summary>Faut-il payer un abonnement pour ces cinq tâches ?</summary>
+        <p>Non. Les cinq usages décrits — réponses fréquentes, fiches produits, relances, lecture d'un export, trame de proposition — sont accessibles avec les offres gratuites ou d'entrée de gamme. Le poste de dépense réel, c'est le temps de préparation et de relecture, pas l'abonnement.</p>
+      </details>
+
+      <details>
+        <summary>Est-ce utilisable depuis un téléphone, avec une connexion irrégulière ?</summary>
+        <p>Oui, à condition de travailler par petites séances : une tâche, un lot de dix unités, une vingtaine de minutes. Les sessions longues sont interrompues par les coupures et font perdre le fil. Le fichier de matière brute, lui, se prépare hors connexion et se garde sur le téléphone.</p>
+      </details>
+
+      <details>
+        <summary>Que faire des informations de mes clients ?</summary>
+        <p>Le principe : ce que vous n'avez pas besoin de transmettre ne se transmet pas. Un prix, un délai ou une caractéristique de produit n'ont besoin ni du nom, ni du numéro, ni de l'adresse du client. Pour une conversation complète, retirez l'identité avant de demander une reformulation, et vérifiez les conditions d'utilisation de l'outil employé.</p>
+      </details>
+
+      <details>
+        <summary>L'outil peut-il répondre aux messages WhatsApp à ma place ?</summary>
+        <p>Il peut préparer la réponse, pas la porter. Vous gardez la relecture et l'envoi, parce que c'est vous qui engagez votre prix et votre délai. Le passage à un agent qui répond seul au visiteur est un autre chantier, décrit dans <a href="/articles/chatbot-ia-repondre-site/">ce que l'IA peut vraiment répondre sur votre site</a>.</p>
+      </details>
+
+      <details>
+        <summary>Par laquelle des cinq tâches commencer ?</summary>
+        <p>Par les réponses aux questions fréquentes : c'est le gain le plus élevé, la matière brute se rassemble en une heure, et une erreur s'y corrige en une minute. Les fiches produits viennent ensuite, quand vous avez pris l'habitude de préparer l'information avant d'ouvrir l'outil.</p>
+      </details>
+    </div>
+
+    <div class="tags-row">
+      <a href="/articles/chatbot-ia-repondre-site/" class="tag">IA pour entreprise</a>
+      <a href="/articles/rediger-fiches-produits-ia/" class="tag">Gagner du temps</a>
+      <a href="/articles/ia-generative-pme-africaine/" class="tag">IA générative</a>
+    </div>
+
+    <div class="share-row">
+      <span class="small">Partager</span>
+      <a href="#" class="share-btn" onclick="return sharePage('whatsapp')" data-share="whatsapp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.6-4.5A8.4 8.4 0 1 1 8 20.4z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('linkedin')" data-share="linkedin" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('facebook')" data-share="facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('copy')" data-share="copy" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></a>
+    </div>
+
+    <div class="related">
+      <h2>Articles à lire ensuite</h2>
+      <a href="/articles/chatbot-ia-repondre-site/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">IA générative</span>
+          <h3>IA conversationnelle : ce qu'elle peut vraiment répondre sur votre site</h3>
+          <p class="small">La mécanique depuis vos données, et les cas où il faut passer la main.</p>
+        </div>
+      </a>
+      <a href="/articles/rediger-fiches-produits-ia/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">IA générative</span>
+          <h3>Rédiger ses fiches produits avec l'IA sans perdre sa voix</h3>
+          <p class="small">La méthode en quatre étapes, avec vos informations brutes.</p>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-col">
+        <img class="footer-logo logo-img-light" src="/assets/img/logo-light.webp"
+             srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+             width="152" height="25" alt="ePerformance" loading="lazy">
+        <img class="footer-logo logo-img-dark" src="/assets/img/logo-dark.webp"
+             srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+             width="157" height="25" alt="" aria-hidden="true" loading="lazy">
+        <p class="card-text mt-3" style="max-width:34ch">Stratégie d&#x27;acquisition, IA générative, automatisation et développement web premium. Basé en Côte d&#x27;Ivoire, 100 % en ligne.</p>
+      </div>
+
+      <div class="footer-col">
+        <h2>Services</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/index.html#methode" rel="noopener">stratégie d&#x27;acquisition</a></li>
+          <li><a href="https://eperformance.pro/ia.html" rel="noopener">IA générative</a></li>
+          <li><a href="https://eperformance.pro/automatisation.html" rel="noopener">Automatisation</a></li>
+          <li><a href="https://eperformance.pro/site-web.html" rel="noopener">Création de site web</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Ressources</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/diagnostic_eperformance.html" rel="noopener">Diagnostic gratuit</a></li>
+          <li><a href="https://eperformance.pro/formation.html" rel="noopener">Formations</a></li>
+          <li><a href="https://eperformance.pro/ebook.html" rel="noopener">Ebooks</a></li>
+          <li><a href="https://blog.eperformance.pro/" rel="noopener">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="https://wa.me/2250151170666" rel="noopener">+225 01 51 17 06 66</a></li>
+          <li><a href="mailto:bonjour@eperformance.pro">bonjour@eperformance.pro</a></li>
+          <li><a href="https://api.eperformance.pro/connexion.php" rel="noopener">Espace client</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 ePerformance — par K. Stéphane. Tous droits réservés.</p>
+      <p><a href="https://eperformance.pro/mentions-legales.html">Mentions légales</a> · <a href="https://eperformance.pro/politique-confidentialite.html">Confidentialité</a> · <a href="https://eperformance.pro/cookies.html">Cookies</a> · <a href="https://eperformance.pro/cgv.html">CGV</a></p>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a class="btn btn-gold" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+  <a class="btn btn-wa" href="https://wa.me/2250151170666" style="flex:0 0 auto" rel="noopener">WhatsApp</a>
+</div>
+
+<div class="consent" id="consent-banner" hidden>
+  <div class="consent-inner">
+    <div class="consent-text">
+      <p><strong>Vous choisissez ce que nous mesurons.</strong></p>
+      <p>Nous utilisons des traceurs pour comprendre comment le site est utilisé et pour
+         mesurer nos campagnes. Aucun ne se déclenche avant votre accord.
+         <a href="https://eperformance.pro/politique-confidentialite.html">Politique de confidentialité</a> ·
+         <a href="https://eperformance.pro/cookies.html">En savoir plus</a></p>
+    </div>
+    <div class="consent-actions">
+      <button type="button" class="btn btn-ghost" data-consent="refuse">Tout refuser</button>
+      <button type="button" class="btn btn-outline" data-consent="customize">Paramétrer</button>
+      <button type="button" class="btn btn-gold" data-consent="accept">Tout accepter</button>
+    </div>
+  </div>
+
+  <div class="consent-detail" id="consent-detail" hidden>
+    <fieldset class="fieldset">
+      <legend>Vos préférences</legend>
+
+      <label class="consent-row consent-row-locked">
+        <input type="checkbox" checked disabled>
+        <span>
+          <strong>Nécessaires</strong>
+          <span class="field-hint">Mémorisation de votre choix de thème et de vos préférences.
+            Toujours actifs : le site ne peut pas fonctionner sans.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-analytics">
+        <span>
+          <strong>Mesure d'audience</strong>
+          <span class="field-hint">Google Analytics 4 et Microsoft Clarity. Nous aide à voir
+            quelles pages sont utiles et où les visiteurs abandonnent.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-ads">
+        <span>
+          <strong>Publicité</strong>
+          <span class="field-hint">Meta Pixel. Mesure l'efficacité de nos campagnes
+            Facebook et Instagram.</span>
+        </span>
+      </label>
+    </fieldset>
+
+    <div class="consent-actions">
+      <button type="button" class="btn btn-outline" data-consent="back">Retour</button>
+      <button type="button" class="btn btn-gold" data-consent="save">Enregistrer mes choix</button>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/js/consent.js" defer></script>
+<script src="/assets/js/eperf.js" defer></script>
+<script src="/assets/js/blog.js" defer></script>
+</body>
+</html>

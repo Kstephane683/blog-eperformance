@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+(function(){try{var t=localStorage.getItem('eperf-theme');
+if(t!=='dark'&&t!=='light'){t='light';}
+document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+  <title>Le boost de publication est-il encore utile</title>
+  <meta name="description" content="Ce que le boost d&#x27;une publication fait, ce qu&#x27;il ne mesure pas, les cas où il rend service et le test simple pour savoir s&#x27;il a rapporté quelque chose.">
+  <meta name="robots" content="noindex,follow">
+  <link rel="canonical" href="https://blog.eperformance.pro/articles/boost-publication/index.html">
+  <meta name="theme-color" content="#fdfcfa">
+  <meta name="author" content="K. Stéphane">
+
+  <!-- Icônes -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="icon" href="/assets/img/favicon-16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ePerformance">
+  <meta property="og:locale" content="fr_CI">
+  <meta property="og:title" content="Le boost de publication est-il encore utile">
+  <meta property="og:description" content="Ce que le boost d&#x27;une publication fait, ce qu&#x27;il ne mesure pas, les cas où il rend service et le test simple pour savoir s&#x27;il a rapporté quelque chose.">
+  <meta property="og:url" content="https://blog.eperformance.pro/articles/boost-publication/index.html">
+  <meta property="og:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ePerformance — ePerformance">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Le boost de publication est-il encore utile">
+  <meta name="twitter:description" content="Ce que le boost d&#x27;une publication fait, ce qu&#x27;il ne mesure pas, les cas où il rend service et le test simple pour savoir s&#x27;il a rapporté quelque chose.">
+  <meta name="twitter:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta name="twitter:creator" content="@eperformancepro">
+
+  <!-- Polices : préconnexion, préchargement des deux polices critiques,
+       puis chargement non bloquant de la feuille complète -->
+  <!-- Polices : auto-hébergées, déclarées dans eperf.css.
+       On précharge les deux graisses du premier écran pour que le
+       texte soit peint dans la bonne police dès le premier rendu. -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/cormorant-garamond-700.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/dm-sans-400.woff2">
+
+  <!-- Design system : la MEME feuille que le site, a l'identique. -->
+  <link rel="stylesheet" href="/assets/css/eperf.css">
+  <!-- Composants editoriaux du blog : corps d'article, largeur de
+       lecture, cartes d'article. Ils consomment les jetons d'eperf.css
+       et ne redefinissent aucune couleur. -->
+  <link rel="stylesheet" href="/assets/css/blog.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://blog.eperformance.pro/#organization",
+      "name": "ePerformance",
+      "alternateName": "ePerformance par K. Stéphane",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "founder": {
+        "@type": "Person",
+        "@id": "https://blog.eperformance.pro/#founder",
+        "name": "K. Stéphane",
+        "jobTitle": "Fondateur, stratège acquisition",
+        "url": "https://blog.eperformance.pro/kstephane.html"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Côte d'Ivoire"
+        },
+        {
+          "@type": "Country",
+          "name": "Burkina Faso"
+        },
+        {
+          "@type": "Place",
+          "name": "Afrique de l'Ouest"
+        }
+      ],
+      "knowsLanguage": "fr",
+      "sameAs": [
+        "https://blog.eperformance.pro/"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://blog.eperformance.pro/#localbusiness",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "parentOrganization": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Abidjan",
+        "addressCountry": "CI"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Côte d'Ivoire"
+      },
+      "priceRange": "100000-350000 XOF",
+      "currenciesAccepted": "XOF",
+      "paymentAccepted": "Orange Money, Wave, MTN MoMo, Moov Money, Visa, Mastercard",
+      "availableLanguage": "fr"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://blog.eperformance.pro/#website",
+      "url": "https://blog.eperformance.pro",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "publisher": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://blog.eperformance.pro/articles/boost-publication/index.html#webpage",
+      "url": "https://blog.eperformance.pro/articles/boost-publication/index.html",
+      "name": "Le boost de publication est-il encore utile",
+      "description": "Ce que le boost d'une publication fait, ce qu'il ne mesure pas, les cas où il rend service et le test simple pour savoir s'il a rapporté quelque chose.",
+      "isPartOf": {
+        "@id": "https://blog.eperformance.pro/#website"
+      },
+      "about": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://blog.eperformance.pro/articles/boost-publication/index.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://blog.eperformance.pro/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Acquisition",
+          "item": "https://blog.eperformance.pro/acquisition/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Le boost de publication est-il encore utile",
+          "item": "https://blog.eperformance.pro/articles/boost-publication/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Le boost de publication est-il encore utile",
+  "description":"Ce que le boost d'une publication fait, ce qu'il ne mesure pas, les cas où il rend service et le test simple pour savoir s'il a rapporté quelque chose.",
+  "image":"https://blog.eperformance.pro/assets/img/og-image.jpg",
+  "datePublished":"2027-03-04T09:00:00+00:00",
+  "dateModified":"2027-03-04T09:00:00+00:00",
+  "inLanguage":"fr-CI",
+  "wordCount":2352,
+  "articleSection":"Acquisition",
+  "keywords":["booster publication facebook","coup de boost","sponsoriser","publication sponsorisée","campagne publicitaire","Côte d'Ivoire","Burkina Faso"],
+  "author":{"@type":"Person","name":"K. STEPHANE","jobTitle":"Fondateur ePerformance","url":"https://blog.eperformance.pro/a-propos/"},
+  "publisher":{"@type":"Organization","name":"ePerformance","logo":{"@type":"ImageObject","url":"https://eperformance.pro/assets/img/logo-light.webp"}},
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.eperformance.pro/articles/boost-publication/"}
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Blog","item":"https://blog.eperformance.pro/"},
+    {"@type":"ListItem","position":2,"name":"Acquisition","item":"https://blog.eperformance.pro/acquisition/"},
+    {"@type":"ListItem","position":3,"name":"Le boost de publication est-il encore utile","item":"https://blog.eperformance.pro/articles/boost-publication/"}
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Quelle est la différence entre booster une publication et lancer une campagne ?","acceptedAnswer":{"@type":"Answer","text":"Une campagne se règle sur un objectif à obtenir et se mesure : on sait combien de messages ou d'achats elle a produits, et on peut la modifier en cours de route. Le boost achète de la visibilité sur une publication, avec un montant et une durée : il ne vise aucun résultat précis et ne laisse aucun suivi derrière lui."}},
+    {"@type":"Question","name":"Le boost est-il payant ?","acceptedAnswer":{"@type":"Answer","text":"Oui. C'est un achat de visibilité : vous fixez un montant et une durée, et la publication est montrée à une audience réglée grossièrement. Il n'y a pas d'autre coût, mais il n'y a pas de contrepartie en résultat non plus : ce qui est acheté, c'est de l'affichage."}},
+    {"@type":"Question","name":"Peut-on booster une publication sans compte publicitaire ?","acceptedAnswer":{"@type":"Answer","text":"Oui, le réglage se fait depuis la page, et c'est ce qui explique que tant d'entreprises commencent par là. C'est aussi la limite : sans compte publicitaire, il n'y a ni suivi installé, ni historique de campagne, ni audience conservée. La facilité du départ se paie au moment de mesurer."}},
+    {"@type":"Question","name":"Comment savoir si un boost a rapporté quelque chose ?","acceptedAnswer":{"@type":"Answer","text":"En comparant. Notez les messages et les commandes reçus pendant la période poussée, puis pendant une période équivalente sans boost, à jours comparables. Refaites l'essai sur deux ou trois cycles. Les vues et les réactions ne remplacent pas cette comparaison."}},
+    {"@type":"Question","name":"Faut-il booster toutes ses publications ?","acceptedAnswer":{"@type":"Answer","text":"Non. Une publication qui n'a pas convaincu vos propres abonnés ne convaincra pas des inconnus. Le boost amplifie ce qui existe : un message clair avec un appel précis peut être poussé, un message flou gagne d'abord à être réécrit."}},
+    {"@type":"Question","name":"Le boost peut-il remplacer une campagne publicitaire ?","acceptedAnswer":{"@type":"Answer","text":"Pas comme méthode d'acquisition. Une campagne se pilote et se mesure, le boost se règle et s'oublie. Le boost reste utile pour amplifier une publication qui marche ou couvrir une annonce datée, mais un canal unique et non mesuré ne dit jamais ce qu'il rapporte."}}
+  ]
+}
+  </script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a class="logo" href="/" aria-label="ePerformance — accueil">
+      <img class="logo-img-light" src="/assets/img/logo-light.webp"
+           srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+           width="182" height="30" alt="ePerformance" fetchpriority="high">
+      <img class="logo-img-dark" src="/assets/img/logo-dark.webp"
+           srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+           width="188" height="30" alt="" aria-hidden="true">
+    </a>
+
+    <nav class="nav" id="primary-nav" aria-label="Navigation principale">
+      <a href="/">Accueil</a>
+      <a href="/acquisition/" aria-current="page">Acquisition</a>
+      <a href="/site-web/">Site web</a>
+      <a href="/seo/">SEO</a>
+      <a href="/business/">Business</a>
+      <a href="/articles/ia-generative-pme-africaine/">IA</a>
+      <a href="/articles/automatisation-marketing-debuter/">Automatisation</a>
+      <a href="/a-propos/">À propos</a>
+      <a href="https://eperformance.pro" rel="noopener">Site principal</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" data-theme-toggle
+              aria-pressed="false" aria-label="Activer le thème sombre">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+        </svg>
+      </button>
+
+      <a class="btn btn-gold btn-desktop" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false"
+              aria-controls="primary-nav" aria-label="Ouvrir le menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<nav class="breadcrumb container" aria-label="Fil d'Ariane">
+  <ol>
+    <li><a href="/">Accueil</a></li>
+    <li><a href="/acquisition/">Acquisition</a></li>
+    <li aria-current="page">Le boost de publication est-il encore utile</li>
+  </ol>
+</nav>
+
+<main id="main">
+
+
+<section class="article-hero">
+  <div class="container-reading">
+
+    <nav class="article-breadcrumb" aria-label="Fil d'Ariane">
+      <a href="/">Blog</a>
+      <span class="sep">/</span>
+      <a href="/acquisition/">Acquisition</a>
+      <span class="sep">/</span>
+      <span>Le boost de publication</span>
+    </nav>
+
+    <span class="article-category">Acquisition</span>
+    <h1>Le boost de publication <span class="text-gold">est-il encore utile</span></h1>
+    <p class="lead">Booster une publication achète de la visibilité sur un contenu précis, auprès d'une audience réglée grossièrement. Cela ne mesure pas les ventes et ne laisse rien à réutiliser. Voici les cas où le bouton rend service, ceux où il coûte, et le test qui tranche.</p>
+
+    <div class="article-meta">
+      <div class="author">
+        <div class="author-avatar">KS</div>
+        <div>
+          <div class="article-author-name">K. STEPHANE</div>
+          <div class="small">Fondateur ePerformance</div>
+        </div>
+      </div>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg> 4 mars 2027</span>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.6 2.1"/></svg> 11 min de lecture</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section-flush-top">
+  <div class="article-body container-reading">
+
+    <p>Sous chaque publication de votre page, il y a un bouton : « Booster la publication ». Un montant, une durée, une audience suggérée, et l'affichage part. Le bouton fait ce qu'il annonce. La question est ailleurs : ce qu'il annonce sert-il à quelque chose quand on cherche des clients ?</p>
+
+    <p>La réponse tient en deux phrases. Le boost achète de la visibilité sur une publication précise. Il n'installe aucun suivi, ne laisse rien à réutiliser et ne dit pas si la publication a rapporté. Dans certains cas, c'est exactement l'outil qu'il faut ; comme méthode d'acquisition, non.</p>
+
+    <p>Ce qui suit sépare les deux usages : ce que le bouton fait, ce qu'il ne fait pas, les situations où il rend service, celles où il coûte, et le test à faire pour trancher avec vos propres chiffres.</p>
+
+    <h2>Ce que le bouton fait réellement</h2>
+
+    <p>Le boost achète de la visibilité. Vous choisissez une publication, un montant, une durée courte, et une audience réglée grossièrement : une zone, une tranche d'âge, quelques centres d'intérêt. La publication est ensuite montrée à des personnes qui ne vous suivent pas encore.</p>
+
+    <p>C'est tout, et c'est déjà quelque chose : une publication qui ne tourne que dans votre audience habituelle en sort. Mais le boost ne change rien au contenu. Il ne réécrit pas le texte, ne remplace pas l'image, ne rend pas l'offre plus claire. Il montre la même publication, à plus de monde.</p>
+
+    <p>Une conséquence qu'on oublie : ce qui est montré davantage, c'est ce que vous avez écrit. Si la publication ne donne envie à personne, le boost fait circuler une publication qui ne donne envie à personne, auprès de gens qui ne vous connaissent pas et qui n'ont aucune raison de vous accorder plus d'attention que vos propres abonnés.</p>
+
+    <div class="callout">
+      <p><strong>Le repère.</strong> Le boost ne fabrique pas un message, il achète des regards. Ce que ces regards trouvent en arrivant, c'est votre publication, dans l'état où vous l'avez écrite.</p>
+    </div>
+
+    <h2>Ce qu'il ne fait pas</h2>
+
+    <p>Trois absences expliquent la plupart des déceptions.</p>
+
+    <p><strong>Il n'installe pas de suivi des conversions.</strong> Une campagne se règle sur un objectif mesurable : un message reçu, une commande, une visite. Ce chantier — relier les clics et les commandes à la publicité — n'est pas ouvert par un boost. Rien ne se branche sur votre site, rien ne remonte vos ventes, et la plateforme n'a aucun moyen de savoir ce qui se passe après la vue.</p>
+
+    <p><strong>Il ne construit pas d'audience réutilisable.</strong> Une campagne garde la trace des personnes touchées, ce qui permet de les relancer plus tard ou de les exclure. Avec un boost, rien ne s'accumule : la fois suivante, le réglage est à refaire à la main, et aucune liste ne vous attend. Le sujet rejoint celui du <a href="/articles/pixel-meta-capi/">suivi des conversions</a> : ce qui n'est pas installé ne se mesure pas.</p>
+
+    <p><strong>Il ne dit pas si la publication a rapporté.</strong> Vous verrez des vues, des réactions, des partages, parfois des commentaires. Ce sont des signes de circulation. Le rapport s'arrête au moment précis où commence votre question : ce que cela a vendu.</p>
+
+    <div class="callout">
+      <p><strong>Le repère.</strong> Une vue n'est pas un visiteur, une réaction n'est pas un client, un partage n'est pas une commande. Le boost mesure ce qu'il produit, de la visibilité. Il ne mesure pas ce que vous attendez.</p>
+    </div>
+
+    <h2>La différence avec une campagne publicitaire</h2>
+
+    <p>La différence tient en trois mots : objectif, mesure, pilotage.</p>
+
+    <p><strong>Une campagne se règle sur un objectif.</strong> Vous dites ce que vous voulez obtenir — des messages, des achats, des visites — et la plateforme cherche les personnes les plus susceptibles de le faire. Le boost se règle sur un montant : vous dites combien dépenser, et il dépense, sans autre critère que la visibilité.</p>
+
+    <p><strong>Une campagne se mesure.</strong> Les résultats arrivent dans un rapport relié à quelque chose de vérifiable, ce qui permet de comparer deux versions d'une annonce et de trancher : c'est la base de <a href="/articles/test-ab-methode/">la méthode de test</a>. Un boost ne vous donne pas de quoi comparer deux annonces entre elles, il produit un résultat de circulation.</p>
+
+    <p><strong>Une campagne se pilote.</strong> On coupe une annonce qui ne marche pas, on déplace le budget vers celle qui marche, on change l'audience, on recommence. Le boost, lui, se laisse finir : le réglage est fait une fois, et la seule décision qui reste est de recommencer ou d'arrêter.</p>
+
+    <p>Ce ne sont pas les mêmes outils, et ce n'est pas une question de taille de budget. Une campagne peut démarrer avec une enveloppe modeste. Ce qui les sépare n'est pas le montant, c'est ce qui reste après.</p>
+
+    <h2>Les cas où le boost est un bon choix</h2>
+
+    <p>Le bouton a de vrais usages. Quatre situations reviennent.</p>
+
+    <p><strong>Une publication qui fonctionne déjà.</strong> Si une publication a amené des messages ou des commandes par elle-même, la montrer à plus de monde prolonge un résultat observé. Vous amplifiez quelque chose qui a déjà convaincu, avec un message dont vous savez qu'il fonctionne.</p>
+
+    <p><strong>Une annonce locale et datée.</strong> Une promotion de trois jours, un événement, un arrivage, une journée portes ouvertes : les messages qui ont une date de fin se prêtent bien au boost. La visibilité se paie pour quelques jours, et l'annonce s'arrête avec la date.</p>
+
+    <p><strong>Un premier test d'audience.</strong> Pour savoir si une commune ou un profil réagit à votre offre, un boost court donne une première indication. Ce n'est pas une preuve, c'est un signe : il dit si le sujet intéresse quelqu'un, pas combien il rapporte.</p>
+
+    <p><strong>Une structure qui n'a pas encore de compte publicitaire.</strong> Le réglage se fait depuis la page, sans ouvrir de gestionnaire. Pour une activité qui n'a jamais touché à la publicité, c'est une porte d'entrée — à condition de savoir ce qu'on vient y chercher.</p>
+
+    <h2>Les cas où il fait perdre de l'argent</h2>
+
+    <p><strong>Amplifier une publication qui ne convainc personne.</strong> Un texte flou, une image sans produit, un appel à l'action absent : le boost fait circuler le problème plus vite et plus loin. Si vos propres abonnés n'ont pas réagi, le manque n'est pas la visibilité, c'est le message. Les critères d'une <a href="/articles/creas-publicitaires-afrique/">créa qui fonctionne ici</a> se travaillent avant de payer.</p>
+
+    <p><strong>Pousser une page qui ne reçoit pas de messages.</strong> Le boost amène des gens vers une page. Si cette page n'obtient pas de demandes, la question n'est pas le budget : le parcours s'arrête entre l'annonce et la conversation. Les <a href="/articles/ameliorer-taux-conversion/">fuites d'un parcours client</a> se réparent avant d'acheter du trafic.</p>
+
+    <p><strong>Répéter le boost chaque semaine en espérant un effet cumulé.</strong> Rien ne s'accumule : pas de suivi, pas de liste, pas d'apprentissage conservé. Le même budget, réengagé chaque semaine, refait le même travail sans capitaliser. C'est le geste le plus fréquent et le plus coûteux, parce qu'il donne l'impression d'agir.</p>
+
+    <p><strong>En faire le seul canal d'acquisition.</strong> Un canal sans mesure ne peut pas être le seul canal. Tant que vous ne savez pas ce qu'il apporte, il occupe la place d'un canal que vous pourriez piloter. C'est cette place, plus que son montant, qui coûte.</p>
+
+    <h2>Le test honnête, sur quelques semaines</h2>
+
+    <p>Pour savoir si un boost a servi, il faut une comparaison. Une seule question : qu'est-ce qui est arrivé pendant que la publication était poussée, et qu'est-ce qui arrive quand elle ne l'est pas ?</p>
+
+    <p>Le protocole tient en quatre étapes.</p>
+
+    <p>Choisissez une publication qui porte un appel clair : demandez un message, une commande, une visite. Une publication sans demande ne se mesure pas.</p>
+
+    <p>Notez chaque jour les messages et les commandes reçus, pas les vues ni les mentions. Ce qui compte, c'est ce qui arrive dans votre téléphone.</p>
+
+    <p>Poussez la publication sur une période courte, puis laissez passer une période équivalente sans rien pousser. Comparez les deux à jours comparables : un mardi ne se compare pas à un dimanche.</p>
+
+    <p>Refaites l'essai sur deux ou trois cycles. Un seul résultat ne dit rien ; trois résultats dans le même sens commencent à dire quelque chose.</p>
+
+    <p>Le support de notation n'a pas d'importance : un cahier, une note dans le téléphone, deux colonnes. Ce qui compte, c'est de noter le jour même. On oublie vite ce qui est arrivé la semaine dernière, et on se souvient surtout de ce qui arrange.</p>
+
+    <p>Trois issues possibles. Les demandes montent pendant les boosts et retombent sans eux : le boost apporte quelque chose, et vous savez de quel ordre. Les demandes ne bougent pas : le boost n'apporte rien, et la somme est mieux placée ailleurs. Les demandes montent dans les deux périodes : la publication travaille seule, et le boost n'y est peut-être pour rien.</p>
+
+    <div class="callout">
+      <p><strong>Le repère.</strong> Si vous ne pouvez pas dire ce que le dernier boost a apporté, refaire le même geste ne vous le dira pas davantage. Notez d'abord, décidez ensuite.</p>
+    </div>
+
+    <h2>Où part le budget quand on booste chaque semaine</h2>
+
+    <p>Le boost est rarement décidé une fois. Il devient une habitude : une publication poussée par semaine, puis deux, puis une par jour pendant une période chargée. Chaque geste pris isolément paraît petit. Additionnez douze mois et regardez la somme.</p>
+
+    <p>Le compte se fait en cinq minutes, et il vaut la peine d'être fait une fois : reprenez les six derniers mois et additionnez ce qui est parti en boosts. Le total surprend souvent, parce qu'aucune de ces dépenses n'a été décidée comme un budget. Elles ont été décidées une par une, sur une publication qu'on trouvait bonne ce jour-là.</p>
+
+    <p>La question n'est pas « combien coûte un boost », mais « qu'est-ce que cette somme aurait donné ailleurs ». La même enveloppe, engagée sur une campagne réglée sur un objectif, laisse derrière elle trois choses que le boost ne laisse pas : un suivi installé, un historique de résultats comparables, et des audiences à réutiliser. Elle laisse aussi des apprentissages : quels messages font réagir, quels profils répondent, à quel prix les gens achètent.</p>
+
+    <p>Le point de départ d'une campagne à budget serré est décrit dans <a href="/articles/budget-publicitaire-debuter/">le calcul du budget publicitaire</a>, et le choix du canal dans <a href="/articles/meta-ads-ou-google-ads/">Meta Ads ou Google Ads</a>. Les deux articles partent du même principe : une somme engagée doit laisser une trace exploitable.</p>
+
+    <p>Cela ne veut pas dire qu'il faut tout basculer. Cela veut dire que le boost et la campagne ne s'achètent pas avec le même argent : l'un paie des vues, l'autre paie une méthode. Si l'enveloppe est petite, mieux vaut choisir que payer les deux à moitié.</p>
+
+    <h2>Alors, encore utile ?</h2>
+
+    <p>Oui, dans des cas précis : une publication qui fonctionne déjà, une annonce locale datée, un premier test d'audience, une structure qui n'a pas encore de compte publicitaire. Non comme méthode d'acquisition : le boost n'installe ni mesure, ni audience, ni pilotage, et une acquisition qui ne se mesure pas ne se pilote pas.</p>
+
+    <p>Le critère de décision tient en une phrase. Si vous pouvez écrire, avant de lancer, ce que le boost doit apporter et comment vous le vérifierez ensuite, alors boostez. Si vous ne pouvez pas répondre à ces deux questions, remettez la somme dans une campagne réglée sur un objectif, ou gardez-la pour autre chose.</p>
+
+    <p>Reste une raison de ne pas enterrer le bouton : il est immédiat, accessible, et il ne demande aucune compétence. C'est exactement pour cela qu'il faut le traiter comme une décision et non comme un réflexe. Le calcul qui dit ce qu'une vente laisse après tout payer se trouve du côté de <a href="/articles/marge-nette-acquisition/">la marge nette d'acquisition</a> : c'est lui qui dira si les vues achetées ont produit autre chose que des vues.</p>
+
+    <div class="cta-block">
+      <h2>Passer du clic au pilotage</h2>
+      <p>La formation reprend la mécanique d'une campagne : objectif, budget, mesure et lecture des résultats, avec des cas locaux et des exercices sur vos propres chiffres.</p>
+      <a class="btn btn-gold" href="https://eperformance.pro/formation.html">Voir la formation
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <h2>FAQ — Le boost de publication</h2>
+
+    <div class="faq-section">
+      <details>
+        <summary>Quelle est la différence entre booster une publication et lancer une campagne ?</summary>
+        <p>Une campagne se règle sur un objectif à obtenir et se mesure : on sait combien de messages ou d'achats elle a produits, et on peut la modifier en cours de route. Le boost achète de la visibilité sur une publication, avec un montant et une durée : il ne vise aucun résultat précis et ne laisse aucun suivi derrière lui.</p>
+      </details>
+
+      <details>
+        <summary>Le boost est-il payant ?</summary>
+        <p>Oui. C'est un achat de visibilité : vous fixez un montant et une durée, et la publication est montrée à une audience réglée grossièrement. Il n'y a pas d'autre coût, mais il n'y a pas de contrepartie en résultat non plus : ce qui est acheté, c'est de l'affichage.</p>
+      </details>
+
+      <details>
+        <summary>Peut-on booster une publication sans compte publicitaire ?</summary>
+        <p>Oui, le réglage se fait depuis la page, et c'est ce qui explique que tant d'entreprises commencent par là. C'est aussi la limite : sans compte publicitaire, il n'y a ni suivi installé, ni historique de campagne, ni audience conservée. La facilité du départ se paie au moment de mesurer.</p>
+      </details>
+
+      <details>
+        <summary>Comment savoir si un boost a rapporté quelque chose ?</summary>
+        <p>En comparant. Notez les messages et les commandes reçus pendant la période poussée, puis pendant une période équivalente sans boost, à jours comparables. Refaites l'essai sur deux ou trois cycles. Les vues et les réactions ne remplacent pas cette comparaison.</p>
+      </details>
+
+      <details>
+        <summary>Faut-il booster toutes ses publications ?</summary>
+        <p>Non. Une publication qui n'a pas convaincu vos propres abonnés ne convaincra pas des inconnus. Le boost amplifie ce qui existe : un message clair avec un appel précis peut être poussé, un message flou gagne d'abord à être réécrit.</p>
+      </details>
+
+      <details>
+        <summary>Le boost peut-il remplacer une campagne publicitaire ?</summary>
+        <p>Pas comme méthode d'acquisition. Une campagne se pilote et se mesure, le boost se règle et s'oublie. Le boost reste utile pour amplifier une publication qui marche ou couvrir une annonce datée, mais un canal unique et non mesuré ne dit jamais ce qu'il rapporte.</p>
+      </details>
+    </div>
+
+    <div class="tags-row">
+      <a href="/acquisition/" class="tag">Acquisition</a>
+      <a href="/articles/lire-statistiques-meta-ads/" class="tag">Statistiques Meta</a>
+      <a href="/articles/meta-ads-ou-google-ads/" class="tag">Choisir son canal</a>
+    </div>
+
+    <div class="share-row">
+      <span class="small">Partager</span>
+      <a href="#" class="share-btn" onclick="return sharePage('whatsapp')" data-share="whatsapp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.6-4.5A8.4 8.4 0 1 1 8 20.4z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('linkedin')" data-share="linkedin" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('facebook')" data-share="facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('copy')" data-share="copy" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></a>
+    </div>
+
+    <div class="related">
+      <h2>Articles à lire ensuite</h2>
+      <a href="/articles/budget-publicitaire-debuter/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">Acquisition</span>
+          <h3>Budget publicitaire : combien prévoir pour commencer</h3>
+          <p class="small">Partir du CAC cible plutôt que d'un montant choisi au hasard.</p>
+        </div>
+      </a>
+      <a href="/articles/marge-nette-acquisition/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">Acquisition</span>
+          <h3>Marge nette d'acquisition : le chiffre qui dit vrai</h3>
+          <p class="small">Publicité, marchandise, livraison et frais retirés : ce qui reste sur chaque vente.</p>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-col">
+        <img class="footer-logo logo-img-light" src="/assets/img/logo-light.webp"
+             srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+             width="152" height="25" alt="ePerformance" loading="lazy">
+        <img class="footer-logo logo-img-dark" src="/assets/img/logo-dark.webp"
+             srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+             width="157" height="25" alt="" aria-hidden="true" loading="lazy">
+        <p class="card-text mt-3" style="max-width:34ch">Stratégie d&#x27;acquisition, IA générative, automatisation et développement web premium. Basé en Côte d&#x27;Ivoire, 100 % en ligne.</p>
+      </div>
+
+      <div class="footer-col">
+        <h2>Services</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/index.html#methode" rel="noopener">stratégie d&#x27;acquisition</a></li>
+          <li><a href="https://eperformance.pro/ia.html" rel="noopener">IA générative</a></li>
+          <li><a href="https://eperformance.pro/automatisation.html" rel="noopener">Automatisation</a></li>
+          <li><a href="https://eperformance.pro/site-web.html" rel="noopener">Création de site web</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Ressources</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/diagnostic_eperformance.html" rel="noopener">Diagnostic gratuit</a></li>
+          <li><a href="https://eperformance.pro/formation.html" rel="noopener">Formations</a></li>
+          <li><a href="https://eperformance.pro/ebook.html" rel="noopener">Ebooks</a></li>
+          <li><a href="https://blog.eperformance.pro/" rel="noopener">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="https://wa.me/2250151170666" rel="noopener">+225 01 51 17 06 66</a></li>
+          <li><a href="mailto:bonjour@eperformance.pro">bonjour@eperformance.pro</a></li>
+          <li><a href="https://api.eperformance.pro/connexion.php" rel="noopener">Espace client</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 ePerformance — par K. Stéphane. Tous droits réservés.</p>
+      <p><a href="https://eperformance.pro/mentions-legales.html">Mentions légales</a> · <a href="https://eperformance.pro/politique-confidentialite.html">Confidentialité</a> · <a href="https://eperformance.pro/cookies.html">Cookies</a> · <a href="https://eperformance.pro/cgv.html">CGV</a></p>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a class="btn btn-gold" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+  <a class="btn btn-wa" href="https://wa.me/2250151170666" style="flex:0 0 auto" rel="noopener">WhatsApp</a>
+</div>
+
+<div class="consent" id="consent-banner" hidden>
+  <div class="consent-inner">
+    <div class="consent-text">
+      <p><strong>Vous choisissez ce que nous mesurons.</strong></p>
+      <p>Nous utilisons des traceurs pour comprendre comment le site est utilisé et pour
+         mesurer nos campagnes. Aucun ne se déclenche avant votre accord.
+         <a href="https://eperformance.pro/politique-confidentialite.html">Politique de confidentialité</a> ·
+         <a href="https://eperformance.pro/cookies.html">En savoir plus</a></p>
+    </div>
+    <div class="consent-actions">
+      <button type="button" class="btn btn-ghost" data-consent="refuse">Tout refuser</button>
+      <button type="button" class="btn btn-outline" data-consent="customize">Paramétrer</button>
+      <button type="button" class="btn btn-gold" data-consent="accept">Tout accepter</button>
+    </div>
+  </div>
+
+  <div class="consent-detail" id="consent-detail" hidden>
+    <fieldset class="fieldset">
+      <legend>Vos préférences</legend>
+
+      <label class="consent-row consent-row-locked">
+        <input type="checkbox" checked disabled>
+        <span>
+          <strong>Nécessaires</strong>
+          <span class="field-hint">Mémorisation de votre choix de thème et de vos préférences.
+            Toujours actifs : le site ne peut pas fonctionner sans.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-analytics">
+        <span>
+          <strong>Mesure d'audience</strong>
+          <span class="field-hint">Google Analytics 4 et Microsoft Clarity. Nous aide à voir
+            quelles pages sont utiles et où les visiteurs abandonnent.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-ads">
+        <span>
+          <strong>Publicité</strong>
+          <span class="field-hint">Meta Pixel. Mesure l'efficacité de nos campagnes
+            Facebook et Instagram.</span>
+        </span>
+      </label>
+    </fieldset>
+
+    <div class="consent-actions">
+      <button type="button" class="btn btn-outline" data-consent="back">Retour</button>
+      <button type="button" class="btn btn-gold" data-consent="save">Enregistrer mes choix</button>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/js/consent.js" defer></script>
+<script src="/assets/js/eperf.js" defer></script>
+<script src="/assets/js/blog.js" defer></script>
+</body>
+</html>

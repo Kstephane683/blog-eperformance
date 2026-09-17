@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+(function(){try{var t=localStorage.getItem('eperf-theme');
+if(t!=='dark'&&t!=='light'){t='light';}
+document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+  <title>Les erreurs qui font fuir un visiteur en dix secondes</title>
+  <meta name="description" content="Page lente, message incompréhensible, absence de preuve, navigation introuvable, contact invisible : repérer ces cinq défauts, et les corriger.">
+  <meta name="robots" content="noindex,follow">
+  <link rel="canonical" href="https://blog.eperformance.pro/articles/erreurs-qui-font-fuir/index.html">
+  <meta name="theme-color" content="#fdfcfa">
+  <meta name="author" content="K. Stéphane">
+
+  <!-- Icônes -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="icon" href="/assets/img/favicon-16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ePerformance">
+  <meta property="og:locale" content="fr_CI">
+  <meta property="og:title" content="Les erreurs qui font fuir un visiteur en dix secondes">
+  <meta property="og:description" content="Page lente, message incompréhensible, absence de preuve, navigation introuvable, contact invisible : repérer ces cinq défauts, et les corriger.">
+  <meta property="og:url" content="https://blog.eperformance.pro/articles/erreurs-qui-font-fuir/index.html">
+  <meta property="og:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ePerformance — ePerformance">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Les erreurs qui font fuir un visiteur en dix secondes">
+  <meta name="twitter:description" content="Page lente, message incompréhensible, absence de preuve, navigation introuvable, contact invisible : repérer ces cinq défauts, et les corriger.">
+  <meta name="twitter:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta name="twitter:creator" content="@eperformancepro">
+
+  <!-- Polices : préconnexion, préchargement des deux polices critiques,
+       puis chargement non bloquant de la feuille complète -->
+  <!-- Polices : auto-hébergées, déclarées dans eperf.css.
+       On précharge les deux graisses du premier écran pour que le
+       texte soit peint dans la bonne police dès le premier rendu. -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/cormorant-garamond-700.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/dm-sans-400.woff2">
+
+  <!-- Design system : la MEME feuille que le site, a l'identique. -->
+  <link rel="stylesheet" href="/assets/css/eperf.css">
+  <!-- Composants editoriaux du blog : corps d'article, largeur de
+       lecture, cartes d'article. Ils consomment les jetons d'eperf.css
+       et ne redefinissent aucune couleur. -->
+  <link rel="stylesheet" href="/assets/css/blog.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://blog.eperformance.pro/#organization",
+      "name": "ePerformance",
+      "alternateName": "ePerformance par K. Stéphane",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "founder": {
+        "@type": "Person",
+        "@id": "https://blog.eperformance.pro/#founder",
+        "name": "K. Stéphane",
+        "jobTitle": "Fondateur, stratège acquisition",
+        "url": "https://blog.eperformance.pro/kstephane.html"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Côte d'Ivoire"
+        },
+        {
+          "@type": "Country",
+          "name": "Burkina Faso"
+        },
+        {
+          "@type": "Place",
+          "name": "Afrique de l'Ouest"
+        }
+      ],
+      "knowsLanguage": "fr",
+      "sameAs": [
+        "https://blog.eperformance.pro/"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://blog.eperformance.pro/#localbusiness",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "parentOrganization": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Abidjan",
+        "addressCountry": "CI"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Côte d'Ivoire"
+      },
+      "priceRange": "100000-350000 XOF",
+      "currenciesAccepted": "XOF",
+      "paymentAccepted": "Orange Money, Wave, MTN MoMo, Moov Money, Visa, Mastercard",
+      "availableLanguage": "fr"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://blog.eperformance.pro/#website",
+      "url": "https://blog.eperformance.pro",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "publisher": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://blog.eperformance.pro/articles/erreurs-qui-font-fuir/index.html#webpage",
+      "url": "https://blog.eperformance.pro/articles/erreurs-qui-font-fuir/index.html",
+      "name": "Les erreurs qui font fuir un visiteur en dix secondes",
+      "description": "Page lente, message incompréhensible, absence de preuve, navigation introuvable, contact invisible : repérer ces cinq défauts, et les corriger.",
+      "isPartOf": {
+        "@id": "https://blog.eperformance.pro/#website"
+      },
+      "about": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://blog.eperformance.pro/articles/erreurs-qui-font-fuir/index.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://blog.eperformance.pro/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Site web",
+          "item": "https://blog.eperformance.pro/site-web/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Erreurs qui font fuir",
+          "item": "https://blog.eperformance.pro/articles/erreurs-qui-font-fuir/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Les erreurs qui font fuir un visiteur en dix secondes",
+  "description":"Page lente, message incompréhensible, absence de preuve, navigation introuvable, contact invisible : repérer ces cinq défauts sur son site, et les corriger.",
+  "image":"https://blog.eperformance.pro/assets/img/og-image.jpg",
+  "datePublished":"2027-01-20T09:00:00+00:00",
+  "dateModified":"2027-01-20T09:00:00+00:00",
+  "inLanguage":"fr-CI",
+  "wordCount":2319,
+  "articleSection":"Site Web",
+  "keywords":["erreurs site web","visiteur qui part","page lente","message incompréhensible","preuve sur un site","navigation site web","contact visible","Abidjan"],
+  "author":{"@type":"Person","name":"K. STEPHANE","jobTitle":"Fondateur ePerformance","url":"https://blog.eperformance.pro/a-propos/"},
+  "publisher":{"@type":"Organization","name":"ePerformance","logo":{"@type":"ImageObject","url":"https://eperformance.pro/assets/img/logo-light.webp"}},
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.eperformance.pro/articles/erreurs-qui-font-fuir/"}
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Blog","item":"https://blog.eperformance.pro/"},
+    {"@type":"ListItem","position":2,"name":"Site Web","item":"https://blog.eperformance.pro/site-web/"},
+    {"@type":"ListItem","position":3,"name":"Les erreurs qui font fuir un visiteur en dix secondes","item":"https://blog.eperformance.pro/articles/erreurs-qui-font-fuir/"}
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Combien de temps un visiteur reste-t-il avant de partir ?","acceptedAnswer":{"@type":"Answer","text":"Il n'existe pas de durée valable pour tous les sites : tout dépend de ce que la personne cherche. Ce qui s'observe, c'est qu'elle accorde quelques secondes à chaque page pour décider si elle reste ou si elle ouvre l'onglet suivant. Une page qui n'affiche rien dans ce délai, ou qui ne dit pas ce qu'elle vend, est fermée avant d'avoir été lue."}},
+    {"@type":"Question","name":"Comment savoir si mon site est trop lent ?","acceptedAnswer":{"@type":"Answer","text":"Ouvrez-le sur votre téléphone, en données mobiles, en navigation privée, et comptez les secondes jusqu'à ce que la page soit lisible. Refaites le test trois fois, la première mesure étant souvent faussée par le cache. L'outil PageSpeed Insights, gratuit, donne aussi une note mobile à comparer dans le temps."}},
+    {"@type":"Question","name":"Pourquoi un visiteur part-il sans rien dire ?","acceptedAnswer":{"@type":"Answer","text":"Presque toujours pour l'une de ces raisons : la page n'était pas encore affichée, il n'a pas compris ce qui était vendu, rien ne prouvait que l'entreprise existe, il n'a pas trouvé où cliquer, ou il n'a pas pu vous joindre. Ces cinq causes sont visibles depuis l'extérieur, et un test avec trois personnes extérieures suffit à les repérer."}},
+    {"@type":"Question","name":"Combien de temps prend la correction de ces cinq défauts ?","acceptedAnswer":{"@type":"Answer","text":"Les images à redimensionner, le titre à réécrire, les photos à remplacer et le menu à simplifier se traitent en général sur quelques jours. Le temps d'affichage et la navigation demandent parfois l'intervention de votre prestataire, mais rarement une refonte complète. Le test des dix secondes, lui, se refait en une heure pour vérifier que chaque correction a produit un effet."}},
+    {"@type":"Question","name":"Faut-il refaire le site ou le corriger ?","acceptedAnswer":{"@type":"Answer","text":"Corrigez d'abord. Les cinq défauts décrits ici se traitent sur un site existant, sans changer de technologie. Une refonte se justifie quand la structure ne correspond plus à l'activité, ou quand le contenu n'a jamais été pensé pour un visiteur. Tant que ce n'est pas le cas, les corrections coûtent moins cher et se voient immédiatement."}},
+    {"@type":"Question","name":"Comment obtenir des preuves quand on vient de se lancer ?","acceptedAnswer":{"@type":"Answer","text":"Utilisez ce qui est vrai plutôt que ce qui est flatteur : des photos de votre propre travail, même prises au téléphone, une adresse et des horaires réels, la date d'ouverture, la spécialité pour laquelle on vient vous voir. Pour les avis, attendez d'en avoir un vrai et citez-le avec l'accord de la personne. Un témoignage inventé coûte plus cher le jour où il se remarque qu'il n'a jamais rapporté."}}
+  ]
+}
+  </script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a class="logo" href="/" aria-label="ePerformance — accueil">
+      <img class="logo-img-light" src="/assets/img/logo-light.webp"
+           srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+           width="182" height="30" alt="ePerformance" fetchpriority="high">
+      <img class="logo-img-dark" src="/assets/img/logo-dark.webp"
+           srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+           width="188" height="30" alt="" aria-hidden="true">
+    </a>
+
+    <nav class="nav" id="primary-nav" aria-label="Navigation principale">
+      <a href="/">Accueil</a>
+      <a href="/acquisition/">Acquisition</a>
+      <a href="/site-web/" aria-current="page">Site web</a>
+      <a href="/seo/">SEO</a>
+      <a href="/business/">Business</a>
+      <a href="/articles/ia-generative-pme-africaine/">IA</a>
+      <a href="/articles/automatisation-marketing-debuter/">Automatisation</a>
+      <a href="/a-propos/">À propos</a>
+      <a href="https://eperformance.pro" rel="noopener">Site principal</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" data-theme-toggle
+              aria-pressed="false" aria-label="Activer le thème sombre">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+        </svg>
+      </button>
+
+      <a class="btn btn-gold btn-desktop" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false"
+              aria-controls="primary-nav" aria-label="Ouvrir le menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<nav class="breadcrumb container" aria-label="Fil d'Ariane">
+  <ol>
+    <li><a href="/">Accueil</a></li>
+    <li><a href="/site-web/">Site web</a></li>
+    <li aria-current="page">Erreurs qui font fuir</li>
+  </ol>
+</nav>
+
+<main id="main">
+
+
+<section class="article-hero">
+  <div class="container-reading">
+
+    <nav class="article-breadcrumb" aria-label="Fil d'Ariane">
+      <a href="/">Blog</a>
+      <span class="sep">/</span>
+      <a href="/site-web/">Site Web</a>
+      <span class="sep">/</span>
+      <span>Erreurs qui font fuir</span>
+    </nav>
+
+    <span class="article-category">Site Web</span>
+    <h1>Les erreurs qui font fuir un visiteur en <span class="text-gold">dix secondes</span></h1>
+    <p class="lead">Un visiteur qui arrive sur votre site décide en quelques secondes s'il reste ou s'il retourne à ses résultats de recherche. Cinq défauts visibles font partir la plupart des gens. Voici comment les repérer sur votre propre site, et comment les corriger.</p>
+
+    <div class="article-meta">
+      <div class="author">
+        <div class="author-avatar">KS</div>
+        <div>
+          <div class="article-author-name">K. STEPHANE</div>
+          <div class="small">Fondateur ePerformance</div>
+        </div>
+      </div>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg> 20 janvier 2027</span>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.6 2.1"/></svg> 12 min de lecture</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section-flush-top">
+  <div class="article-body container-reading">
+
+    <p>Un visiteur ne lit pas votre site, il le survole. Dans les premières secondes, il cherche trois réponses : qu'est-ce que c'est, est-ce que c'est pour moi, et qu'est-ce que je fais maintenant ? Quand l'une des trois manque, il revient à ses résultats de recherche et ouvre la page suivante.</p>
+
+    <p>Ce départ ne laisse aucune trace dans vos statistiques, sinon un chiffre de rebond que personne ne regarde. Et si la visite venait d'une publicité, elle a été payée pour rien. Bonne nouvelle : les cinq défauts qui provoquent le départ sont visibles de l'extérieur. Vous pouvez les trouver vous-même, sans outil particulier, avec un téléphone et une personne de bonne volonté.</p>
+
+    <div class="callout">
+      <p><strong>En une phrase.</strong> Un site ne perd pas ses visiteurs parce qu'il est laid, mais parce qu'il laisse trois questions sans réponse : ce que vous vendez, pourquoi vous croire, et comment vous joindre.</p>
+    </div>
+
+    <h2>Dix secondes, et la décision est prise</h2>
+
+    <p>La comparaison est toujours la même. La personne a ouvert trois onglets sur la même recherche, et elle leur accorde quelques secondes à chacun. Celui qui explique son activité en premier garde sa visite, les deux autres sont fermés. Ce n'est pas une question de goût, c'est une question de temps accordé.</p>
+
+    <p>Les cinq défauts ci-dessous se cumulent rarement au même niveau, mais ils s'enchaînent. Une page lente n'affiche rien, donc le message n'est pas lu ; un message flou décourage même si la page est rapide ; une absence de preuve laisse le doute ; une navigation introuvable empêche d'aller plus loin ; un contact invisible transforme l'intérêt en rien. Chacun se corrige indépendamment, et l'ordre de traitement a son importance.</p>
+
+    <h2>Erreur 1 : la page met trop de temps à s'afficher</h2>
+
+    <p>C'est le seul défaut qui empêche tout le reste. Tant que la page n'est pas lisible, ni le message, ni les preuves, ni le contact ne servent à quelque chose.</p>
+
+    <h3>Comment le repérer</h3>
+
+    <p>Prenez votre propre téléphone, coupez le wifi, ouvrez votre site en données mobiles dans une fenêtre de navigation privée, et comptez les secondes jusqu'à ce que la page soit lisible — pas complètement chargée, lisible. Refaites l'opération trois fois : la première mesure est souvent faussée par le cache. L'outil PageSpeed Insights, gratuit et public, donne aussi une note mobile pour votre adresse : c'est la note mobile qu'il faut regarder, pas celle de l'ordinateur.</p>
+
+    <h3>Comment le corriger</h3>
+
+    <p>Les causes sont presque toujours les mêmes, et elles viennent des images. Une photo prise au téléphone pèse plusieurs mégaoctets, alors qu'une version redimensionnée à la largeur de l'écran et compressée pèse quelques dizaines de kilo-octets pour un résultat identique à l'œil. Ajoutez à cela une vidéo qui démarre toute seule, trois polices d'écriture chargées pour deux paragraphes, et un modèle de site qui embarque des scripts dont vous n'utilisez rien.</p>
+
+    <p>La correction se demande à votre prestataire, avec une phrase simple : redimensionner les images, supprimer la vidéo automatique, garder une seule police, et viser une note mobile correcte. Le sujet est détaillé dans <a href="/articles/site-trop-lent/">les causes d'un site trop lent et ce qui les corrige</a>.</p>
+
+    <h2>Erreur 2 : on ne comprend pas ce qui est vendu</h2>
+
+    <p>La page s'affiche, et la personne ne sait toujours pas ce que vous faites. C'est le défaut le plus fréquent, et le plus coûteux, parce qu'il fait fuir des visiteurs qui cherchaient exactement ce que vous vendez.</p>
+
+    <h3>Comment le repérer</h3>
+
+    <p>Faites lire la page d'accueil à quelqu'un d'extérieur à votre activité pendant cinq secondes, puis retirez l'écran et posez trois questions : que vend cette entreprise, à qui, et où. Si la personne hésite ou répond à côté, votre message n'est pas clair. Un second test se fait seul : cachez tout sauf le titre et le premier paragraphe, et lisez-les. Savent-ils dire ce que vous vendez ?</p>
+
+    <p>Les symptômes sont reconnaissables : un slogan qui pourrait convenir à n'importe quelle entreprise, une photo de poignée de main achetée en banque d'images, un « Bienvenue sur notre site » en haut de page, et le nom de l'activité uniquement présent dans le logo.</p>
+
+    <h3>Comment le corriger</h3>
+
+    <p>Écrivez le titre en clair, avec le métier et la ville : ce que vous faites, pour qui, et où vous intervenez. Remplacez le slogan par une phrase qui nomme le produit ou le service, et gardez deux ou trois lignes en dessous pour préciser ce que la personne peut faire — commander, demander un devis, appeler. Mettez une photo de votre réel : votre atelier, votre boutique, votre équipe, vos produits. Cela règle d'un coup le message et une partie de la preuve.</p>
+
+    <p>Un dernier point, souvent négligé : indiquez la zone que vous couvrez et la façon de commander. Une personne qui ne sait pas si vous livrez chez elle ne le devine pas, elle cherche ailleurs.</p>
+
+    <h2>Erreur 3 : aucune preuve</h2>
+
+    <p>Le visiteur a compris ce que vous vendez. Il ne sait pas encore s'il peut vous faire confiance, et c'est ce doute qui fait fermer l'onglet.</p>
+
+    <h3>Comment le repérer</h3>
+
+    <p>Parcourez votre site en cherchant ce qui prouve que l'entreprise existe et travaille. Une adresse, un nom, un numéro de téléphone, des photos de réalisations, des prix, des horaires, un extrait du registre du commerce. Si la page ne contient que des images achetées et des phrases générales, elle ne prouve rien.</p>
+
+    <h3>Comment le corriger</h3>
+
+    <p>Trois éléments se mettent en place sans budget. Des photos de votre propre travail, même prises au téléphone, à condition qu'elles soient nettes et bien cadrées : un chantier terminé, un plat servi, une commande prête à livrer. Une adresse et des horaires réels, qui montrent que l'entreprise a une existence physique. Et des prix ou des fourchettes, quand votre activité le permet : afficher un ordre de grandeur écarte les demandes hors budget et rassure les autres.</p>
+
+    <p>Pour les avis, une règle simple : rien d'inventé. Un témoignage fabriqué se repère, et le jour où il se repère, la confiance perdue coûte plus cher que le témoignage n'a rapporté. Demandez plutôt à un client satisfait l'autorisation de citer son message, avec son prénom et son activité. Un seul avis vrai vaut mieux qu'une page entière de compliments anonymes.</p>
+
+    <p>Si vous débutez, utilisez ce qui est vrai plutôt que ce qui est flatteur : la date d'ouverture, le quartier où vous êtes installé, le nombre de commandes traitées la semaine dernière si vous le suivez, la spécialité pour laquelle on vient vous voir.</p>
+
+    <h2>Erreur 4 : la navigation introuvable</h2>
+
+    <p>La personne est convaincue. Elle veut voir vos prix, ou un autre produit. Et elle ne trouve pas où cliquer. C'est le défaut le plus frustrant, parce qu'il intervient au moment où le visiteur était prêt à avancer.</p>
+
+    <h3>Comment le repérer</h3>
+
+    <p>Sur votre téléphone, chronométrez-vous : combien de secondes pour trouver le menu, et combien de clics pour aller de la page d'accueil à la page des prix. Vérifiez ensuite que le menu s'ouvre correctement, qu'il propose les mêmes entrées sur toutes les pages, que le logo ramène à l'accueil, et qu'aucune page ne se termine sans issue — un cul-de-sac où la seule option est le bouton retour du navigateur.</p>
+
+    <p>Les symptômes habituels : un menu à dix ou douze entrées, où chaque choix demande de réfléchir. Des noms qui changent d'une page à l'autre pour désigner la même chose. Un menu absent sur mobile. Un logo qui ne ramène nulle part.</p>
+
+    <h3>Comment le corriger</h3>
+
+    <p>Quatre à six entrées suffisent : accueil, ce que vous vendez, réalisations, à propos, contact. Les intitulés doivent être ceux que vos clients emploient, pas ceux du métier. Une seule page regroupe les informations secondaires plutôt que six entrées distinctes. Le logo ramène à l'accueil, partout. Le pied de page reprend les liens principaux pour ceux qui arrivent en bas de page. Et chaque page propose une suite : vers une autre page, vers le contact, vers la commande.</p>
+
+    <h2>Erreur 5 : le contact invisible</h2>
+
+    <p>Le visiteur veut vous parler, et il n'y arrive pas. C'est l'erreur qui transforme une visite intéressée en rien du tout, alors que tout le travail précédent a été fait.</p>
+
+    <h3>Comment le repérer</h3>
+
+    <p>Partez de la page d'accueil et comptez les gestes nécessaires pour trouver un numéro ou un bouton WhatsApp. L'objectif est zéro : joignable depuis n'importe quelle page, sans chercher. Regardez ensuite si le numéro est écrit en texte — donc cliquable et copiable — ou s'il se trouve à l'intérieur d'une image, auquel cas personne ne peut l'appeler d'un geste. Vérifiez enfin les horaires : un visiteur qui ne sait pas quand vous êtes ouvert hésite à écrire un dimanche soir.</p>
+
+    <h3>Comment le corriger</h3>
+
+    <p>Trois éléments à rendre visibles en permanence : le numéro de téléphone cliquable dans l'en-tête, un bouton WhatsApp fixe en bas d'écran, et les horaires près du contact. Le formulaire complète l'ensemble, à condition de ne pas être le seul chemin : c'est un canal parmi d'autres, et ses défauts propres sont décrits dans <a href="/articles/formulaire-contact-efficace/">les raisons pour lesquelles un formulaire ne reçoit rien</a>.</p>
+
+    <p>Un détail qui compte localement : le numéro doit être cliquable au format international, sinon l'appel ne part pas depuis un téléphone qui n'est pas du pays. Cela se vérifie en trente secondes sur votre propre mobile.</p>
+
+    <h2>Le test des dix secondes</h2>
+
+    <p>Ce test reprend les cinq erreurs dans l'ordre, et se fait en une heure, sans outil payant.</p>
+
+    <ol>
+      <li>Ouvrez votre page d'accueil sur un téléphone, en données mobiles, en navigation privée. Comptez jusqu'à ce qu'elle soit lisible.</li>
+      <li>Montrez la même page à trois personnes extérieures à votre activité, dix secondes chacune, puis retirez l'écran.</li>
+      <li>Demandez à chacune : que vend cette entreprise, à qui, et que peut-on faire sur ce site ?</li>
+      <li>Notez les réponses sans les corriger. Deux réponses floues sur trois indiquent un message à revoir.</li>
+      <li>Cherchez ensuite un numéro joignable, puis une réalisation, puis la page des prix : comptez les clics.</li>
+      <li>Classez les problèmes trouvés dans cet ordre : temps d'affichage, message, preuve, navigation, contact.</li>
+    </ol>
+
+    <p>Cet ordre n'est pas une préférence, c'est une dépendance. Corriger le message d'une page qui met huit secondes à s'afficher ne sert à rien : le message ne sera pas lu. De même, améliorer la navigation d'un site où l'on ne comprend pas ce qui est vendu revient à guider quelqu'un dans une pièce qu'il ne veut pas visiter.</p>
+
+    <p>Reste la question la plus fréquente : faut-il tout refaire ? Rarement. Les cinq défauts décrits ici se corrigent sur un site existant, sans changer de technologie ni repartir de zéro. Ce qui demande une refonte, c'est un site dont la structure ne correspond plus à l'activité, ou dont le contenu n'a jamais été pensé pour un visiteur. Tant que ce n'est pas le cas, commencez par ces cinq corrections : elles se voient immédiatement, et elles ne coûtent pas un nouveau site.</p>
+
+    <div class="cta-block">
+      <h2>Un site dont on comprend l'usage en dix secondes</h2>
+      <p>La page site web présente ce qui est mis en place à la livraison : temps d'affichage surveillé, message clair, preuves réelles, navigation courte et contact accessible depuis chaque page.</p>
+      <a class="btn btn-gold" href="https://eperformance.pro/site-web.html">Voir la page site web
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <h2>FAQ — Ce qui fait partir un visiteur</h2>
+
+    <div class="faq-section">
+      <details>
+        <summary>Combien de temps un visiteur reste-t-il avant de partir ?</summary>
+        <p>Il n'existe pas de durée valable pour tous les sites : tout dépend de ce que la personne cherche. Ce qui s'observe, c'est qu'elle accorde quelques secondes à chaque page pour décider si elle reste ou si elle ouvre l'onglet suivant. Une page qui n'affiche rien dans ce délai, ou qui ne dit pas ce qu'elle vend, est fermée avant d'avoir été lue.</p>
+      </details>
+
+      <details>
+        <summary>Comment savoir si mon site est trop lent ?</summary>
+        <p>Ouvrez-le sur votre téléphone, en données mobiles, en navigation privée, et comptez les secondes jusqu'à ce que la page soit lisible. Refaites le test trois fois, la première mesure étant souvent faussée par le cache. L'outil PageSpeed Insights, gratuit, donne aussi une note mobile à comparer dans le temps.</p>
+      </details>
+
+      <details>
+        <summary>Pourquoi un visiteur part-il sans rien dire ?</summary>
+        <p>Presque toujours pour l'une de ces raisons : la page n'était pas encore affichée, il n'a pas compris ce qui était vendu, rien ne prouvait que l'entreprise existe, il n'a pas trouvé où cliquer, ou il n'a pas pu vous joindre. Ces cinq causes sont visibles depuis l'extérieur, et un test avec trois personnes extérieures suffit à les repérer.</p>
+      </details>
+
+      <details>
+        <summary>Combien de temps prend la correction de ces cinq défauts ?</summary>
+        <p>Les images à redimensionner, le titre à réécrire, les photos à remplacer et le menu à simplifier se traitent en général sur quelques jours. Le temps d'affichage et la navigation demandent parfois l'intervention de votre prestataire, mais rarement une refonte complète. Le test des dix secondes, lui, se refait en une heure pour vérifier que chaque correction a produit un effet.</p>
+      </details>
+
+      <details>
+        <summary>Faut-il refaire le site ou le corriger ?</summary>
+        <p>Corrigez d'abord. Les cinq défauts décrits ici se traitent sur un site existant, sans changer de technologie. Une refonte se justifie quand la structure ne correspond plus à l'activité, ou quand le contenu n'a jamais été pensé pour un visiteur. Tant que ce n'est pas le cas, les corrections coûtent moins cher et se voient immédiatement.</p>
+      </details>
+
+      <details>
+        <summary>Comment obtenir des preuves quand on vient de se lancer ?</summary>
+        <p>Utilisez ce qui est vrai plutôt que ce qui est flatteur : des photos de votre propre travail, même prises au téléphone, une adresse et des horaires réels, la date d'ouverture, la spécialité pour laquelle on vient vous voir. Pour les avis, attendez d'en avoir un vrai et citez-le avec l'accord de la personne. Un témoignage inventé coûte plus cher le jour où il se remarque qu'il n'a jamais rapporté.</p>
+      </details>
+    </div>
+
+    <div class="tags-row">
+      <a href="/site-web/" class="tag">Site web</a>
+      <a href="/articles/site-trop-lent/" class="tag">Vitesse</a>
+      <a href="/articles/formulaire-contact-efficace/" class="tag">Contact</a>
+    </div>
+
+    <div class="share-row">
+      <span class="small">Partager</span>
+      <a href="#" class="share-btn" onclick="return sharePage('whatsapp')" data-share="whatsapp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.6-4.5A8.4 8.4 0 1 1 8 20.4z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('linkedin')" data-share="linkedin" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('facebook')" data-share="facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('copy')" data-share="copy" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></a>
+    </div>
+
+    <div class="related">
+      <h2>Articles à lire ensuite</h2>
+      <a href="/articles/site-trop-lent/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">Site Web</span>
+          <h3>Pourquoi votre site met trop de temps à s'afficher</h3>
+          <p class="small">Les causes réelles, et ce qui les corrige.</p>
+        </div>
+      </a>
+      <a href="/articles/formulaire-contact-efficace/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">Site Web</span>
+          <h3>Formulaire de contact : pourquoi le vôtre ne reçoit rien</h3>
+          <p class="small">Six causes réelles, et le test à faire vous-même.</p>
+        </div>
+      </a>
+      <a href="/articles/bouton-whatsapp-site/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">Site Web</span>
+          <h3>Bouton WhatsApp : bien le placer pour qu'on clique</h3>
+          <p class="small">Emplacement, libellé, message pré-rempli.</p>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-col">
+        <img class="footer-logo logo-img-light" src="/assets/img/logo-light.webp"
+             srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+             width="152" height="25" alt="ePerformance" loading="lazy">
+        <img class="footer-logo logo-img-dark" src="/assets/img/logo-dark.webp"
+             srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+             width="157" height="25" alt="" aria-hidden="true" loading="lazy">
+        <p class="card-text mt-3" style="max-width:34ch">Stratégie d&#x27;acquisition, IA générative, automatisation et développement web premium. Basé en Côte d&#x27;Ivoire, 100 % en ligne.</p>
+      </div>
+
+      <div class="footer-col">
+        <h2>Services</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/index.html#methode" rel="noopener">stratégie d&#x27;acquisition</a></li>
+          <li><a href="https://eperformance.pro/ia.html" rel="noopener">IA générative</a></li>
+          <li><a href="https://eperformance.pro/automatisation.html" rel="noopener">Automatisation</a></li>
+          <li><a href="https://eperformance.pro/site-web.html" rel="noopener">Création de site web</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Ressources</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/diagnostic_eperformance.html" rel="noopener">Diagnostic gratuit</a></li>
+          <li><a href="https://eperformance.pro/formation.html" rel="noopener">Formations</a></li>
+          <li><a href="https://eperformance.pro/ebook.html" rel="noopener">Ebooks</a></li>
+          <li><a href="https://blog.eperformance.pro/" rel="noopener">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="https://wa.me/2250151170666" rel="noopener">+225 01 51 17 06 66</a></li>
+          <li><a href="mailto:bonjour@eperformance.pro">bonjour@eperformance.pro</a></li>
+          <li><a href="https://api.eperformance.pro/connexion.php" rel="noopener">Espace client</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 ePerformance — par K. Stéphane. Tous droits réservés.</p>
+      <p><a href="https://eperformance.pro/mentions-legales.html">Mentions légales</a> · <a href="https://eperformance.pro/politique-confidentialite.html">Confidentialité</a> · <a href="https://eperformance.pro/cookies.html">Cookies</a> · <a href="https://eperformance.pro/cgv.html">CGV</a></p>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a class="btn btn-gold" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+  <a class="btn btn-wa" href="https://wa.me/2250151170666" style="flex:0 0 auto" rel="noopener">WhatsApp</a>
+</div>
+
+<div class="consent" id="consent-banner" hidden>
+  <div class="consent-inner">
+    <div class="consent-text">
+      <p><strong>Vous choisissez ce que nous mesurons.</strong></p>
+      <p>Nous utilisons des traceurs pour comprendre comment le site est utilisé et pour
+         mesurer nos campagnes. Aucun ne se déclenche avant votre accord.
+         <a href="https://eperformance.pro/politique-confidentialite.html">Politique de confidentialité</a> ·
+         <a href="https://eperformance.pro/cookies.html">En savoir plus</a></p>
+    </div>
+    <div class="consent-actions">
+      <button type="button" class="btn btn-ghost" data-consent="refuse">Tout refuser</button>
+      <button type="button" class="btn btn-outline" data-consent="customize">Paramétrer</button>
+      <button type="button" class="btn btn-gold" data-consent="accept">Tout accepter</button>
+    </div>
+  </div>
+
+  <div class="consent-detail" id="consent-detail" hidden>
+    <fieldset class="fieldset">
+      <legend>Vos préférences</legend>
+
+      <label class="consent-row consent-row-locked">
+        <input type="checkbox" checked disabled>
+        <span>
+          <strong>Nécessaires</strong>
+          <span class="field-hint">Mémorisation de votre choix de thème et de vos préférences.
+            Toujours actifs : le site ne peut pas fonctionner sans.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-analytics">
+        <span>
+          <strong>Mesure d'audience</strong>
+          <span class="field-hint">Google Analytics 4 et Microsoft Clarity. Nous aide à voir
+            quelles pages sont utiles et où les visiteurs abandonnent.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-ads">
+        <span>
+          <strong>Publicité</strong>
+          <span class="field-hint">Meta Pixel. Mesure l'efficacité de nos campagnes
+            Facebook et Instagram.</span>
+        </span>
+      </label>
+    </fieldset>
+
+    <div class="consent-actions">
+      <button type="button" class="btn btn-outline" data-consent="back">Retour</button>
+      <button type="button" class="btn btn-gold" data-consent="save">Enregistrer mes choix</button>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/js/consent.js" defer></script>
+<script src="/assets/js/eperf.js" defer></script>
+<script src="/assets/js/blog.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+(function(){try{var t=localStorage.getItem('eperf-theme');
+if(t!=='dark'&&t!=='light'){t='light';}
+document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+  <title>Test A/B : la méthode minimale pour décider</title>
+  <meta name="description" content="Ce qui se teste en une semaine, ce qui ne se teste pas sans volume, comment fixer la durée et lire un résultat. La version minimale, sans outil payant.">
+  <meta name="robots" content="noindex,follow">
+  <link rel="canonical" href="https://blog.eperformance.pro/articles/test-ab-methode/index.html">
+  <meta name="theme-color" content="#fdfcfa">
+  <meta name="author" content="K. Stéphane">
+
+  <!-- Icônes -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="icon" href="/assets/img/favicon-16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ePerformance">
+  <meta property="og:locale" content="fr_CI">
+  <meta property="og:title" content="Test A/B : la méthode minimale pour décider">
+  <meta property="og:description" content="Ce qui se teste en une semaine, ce qui ne se teste pas sans volume, comment fixer la durée et lire un résultat. La version minimale, sans outil payant.">
+  <meta property="og:url" content="https://blog.eperformance.pro/articles/test-ab-methode/index.html">
+  <meta property="og:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ePerformance — ePerformance">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Test A/B : la méthode minimale pour décider">
+  <meta name="twitter:description" content="Ce qui se teste en une semaine, ce qui ne se teste pas sans volume, comment fixer la durée et lire un résultat. La version minimale, sans outil payant.">
+  <meta name="twitter:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta name="twitter:creator" content="@eperformancepro">
+
+  <!-- Polices : préconnexion, préchargement des deux polices critiques,
+       puis chargement non bloquant de la feuille complète -->
+  <!-- Polices : auto-hébergées, déclarées dans eperf.css.
+       On précharge les deux graisses du premier écran pour que le
+       texte soit peint dans la bonne police dès le premier rendu. -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/cormorant-garamond-700.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/dm-sans-400.woff2">
+
+  <!-- Design system : la MEME feuille que le site, a l'identique. -->
+  <link rel="stylesheet" href="/assets/css/eperf.css">
+  <!-- Composants editoriaux du blog : corps d'article, largeur de
+       lecture, cartes d'article. Ils consomment les jetons d'eperf.css
+       et ne redefinissent aucune couleur. -->
+  <link rel="stylesheet" href="/assets/css/blog.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://blog.eperformance.pro/#organization",
+      "name": "ePerformance",
+      "alternateName": "ePerformance par K. Stéphane",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "founder": {
+        "@type": "Person",
+        "@id": "https://blog.eperformance.pro/#founder",
+        "name": "K. Stéphane",
+        "jobTitle": "Fondateur, stratège acquisition",
+        "url": "https://blog.eperformance.pro/kstephane.html"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Côte d'Ivoire"
+        },
+        {
+          "@type": "Country",
+          "name": "Burkina Faso"
+        },
+        {
+          "@type": "Place",
+          "name": "Afrique de l'Ouest"
+        }
+      ],
+      "knowsLanguage": "fr",
+      "sameAs": [
+        "https://blog.eperformance.pro/"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://blog.eperformance.pro/#localbusiness",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "parentOrganization": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Abidjan",
+        "addressCountry": "CI"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Côte d'Ivoire"
+      },
+      "priceRange": "100000-350000 XOF",
+      "currenciesAccepted": "XOF",
+      "paymentAccepted": "Orange Money, Wave, MTN MoMo, Moov Money, Visa, Mastercard",
+      "availableLanguage": "fr"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://blog.eperformance.pro/#website",
+      "url": "https://blog.eperformance.pro",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "publisher": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://blog.eperformance.pro/articles/test-ab-methode/index.html#webpage",
+      "url": "https://blog.eperformance.pro/articles/test-ab-methode/index.html",
+      "name": "Test A/B : la méthode minimale pour décider",
+      "description": "Ce qui se teste en une semaine, ce qui ne se teste pas sans volume, comment fixer la durée et lire un résultat. La version minimale, sans outil payant.",
+      "isPartOf": {
+        "@id": "https://blog.eperformance.pro/#website"
+      },
+      "about": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://blog.eperformance.pro/articles/test-ab-methode/index.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://blog.eperformance.pro/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Acquisition",
+          "item": "https://blog.eperformance.pro/acquisition/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Test A/B",
+          "item": "https://blog.eperformance.pro/articles/test-ab-methode/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Test A/B : la méthode minimale pour décider",
+  "description":"Ce qui se teste en une semaine, ce qui ne se teste pas sans volume, comment fixer la durée et lire un résultat. La version minimale, sans outil payant.",
+  "image":"https://blog.eperformance.pro/assets/img/og-image.jpg",
+  "datePublished":"2026-12-22",
+  "dateModified":"2026-12-22",
+  "inLanguage":"fr-CI",
+  "wordCount":2392,
+  "articleSection":"Acquisition",
+  "keywords":["test ab","test a/b","optimiser page de vente","tester un prix","volume conversions","Côte d'Ivoire","Abidjan"],
+  "author":{"@type":"Person","name":"K. STEPHANE","jobTitle":"Fondateur ePerformance","url":"https://blog.eperformance.pro/a-propos/"},
+  "publisher":{"@type":"Organization","name":"ePerformance","logo":{"@type":"ImageObject","url":"https://eperformance.pro/assets/img/logo-light.webp"}},
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.eperformance.pro/articles/test-ab-methode/"}
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Blog","item":"https://blog.eperformance.pro/"},
+    {"@type":"ListItem","position":2,"name":"Acquisition","item":"https://blog.eperformance.pro/acquisition/"},
+    {"@type":"ListItem","position":3,"name":"Test A/B : la méthode minimale pour décider","item":"https://blog.eperformance.pro/articles/test-ab-methode/"}
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Combien de visiteurs faut-il pour qu'un test A/B veuille dire quelque chose ?","acceptedAnswer":{"@type":"Answer","text":"La règle pratique est de viser trente à quarante conversions par variante, pas un nombre de visiteurs fixe. À 2 % de conversion, cela demande environ 1 500 visiteurs par variante. Si votre trafic ne permet pas d'atteindre ce seuil en quelques semaines, mieux vaut corriger les fuites évidentes que lancer le test."}},
+    {"@type":"Question","name":"Peut-on tester deux changements en même temps ?","acceptedAnswer":{"@type":"Answer","text":"Non, sauf à renoncer à comprendre le résultat. Si vous modifiez le titre et l'image dans la même version, un gain vous laisse sans savoir lequel des deux a produit l'effet, et vous ne pourrez pas réutiliser l'enseignement ailleurs. Un test, un changement."}},
+    {"@type":"Question","name":"Combien de temps doit durer un test ?","acceptedAnswer":{"@type":"Answer","text":"Une semaine complète au minimum, deux semaines pour une page d'arrivée, et toujours un nombre entier de semaines pour couvrir les mêmes jours de la semaine dans les deux versions. Fixez la durée avant de commencer et ne l'écourtez pas, même si un écart apparaît dès le deuxième jour."}},
+    {"@type":"Question","name":"Faut-il un logiciel de test pour commencer ?","acceptedAnswer":{"@type":"Answer","text":"Non. Deux campagnes identiques avec des versions différentes, une alternance de page par jour, ou deux messages d'accueil successifs suffisent pour un premier test. Ce qui compte est de compter la même chose des deux côtés et de tenir la durée fixée. Un outil devient utile quand vous enchaînez plusieurs tests par mois."}},
+    {"@type":"Question","name":"Puis-je arrêter le test dès qu'une version prend l'avantage ?","acceptedAnswer":{"@type":"Answer","text":"C'est le moyen le plus sûr d'obtenir un faux résultat. Un écart apparu le premier jour se réduit souvent à mesure que le volume arrive, parce qu'il tient à quelques personnes. Sauf écart très large et volume déjà atteint, allez au bout de la durée prévue avant de conclure."}},
+    {"@type":"Question","name":"Que faire quand le test ne donne aucun résultat ?","acceptedAnswer":{"@type":"Answer","text":"Vous gardez la version en place et vous considérez la question comme fermée. Un test sans différence lisible signifie que l'élément testé n'a pas d'effet mesurable sur votre trafic actuel : vous avez économisé une refonte inutile. Notez le test dans votre archive et passez à une question plus large."}}
+  ]
+}
+  </script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a class="logo" href="/" aria-label="ePerformance — accueil">
+      <img class="logo-img-light" src="/assets/img/logo-light.webp"
+           srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+           width="182" height="30" alt="ePerformance" fetchpriority="high">
+      <img class="logo-img-dark" src="/assets/img/logo-dark.webp"
+           srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+           width="188" height="30" alt="" aria-hidden="true">
+    </a>
+
+    <nav class="nav" id="primary-nav" aria-label="Navigation principale">
+      <a href="/">Accueil</a>
+      <a href="/acquisition/" aria-current="page">Acquisition</a>
+      <a href="/site-web/">Site web</a>
+      <a href="/seo/">SEO</a>
+      <a href="/business/">Business</a>
+      <a href="/articles/ia-generative-pme-africaine/">IA</a>
+      <a href="/articles/automatisation-marketing-debuter/">Automatisation</a>
+      <a href="/a-propos/">À propos</a>
+      <a href="https://eperformance.pro" rel="noopener">Site principal</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" data-theme-toggle
+              aria-pressed="false" aria-label="Activer le thème sombre">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+        </svg>
+      </button>
+
+      <a class="btn btn-gold btn-desktop" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false"
+              aria-controls="primary-nav" aria-label="Ouvrir le menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<nav class="breadcrumb container" aria-label="Fil d'Ariane">
+  <ol>
+    <li><a href="/">Accueil</a></li>
+    <li><a href="/acquisition/">Acquisition</a></li>
+    <li aria-current="page">Test A/B</li>
+  </ol>
+</nav>
+
+<main id="main">
+
+
+<section class="article-hero">
+  <div class="container-reading">
+
+    <nav class="article-breadcrumb" aria-label="Fil d'Ariane">
+      <a href="/">Blog</a>
+      <span class="sep">/</span>
+      <a href="/acquisition/">Acquisition</a>
+      <span class="sep">/</span>
+      <span>Test A/B minimal</span>
+    </nav>
+
+    <span class="article-category">Acquisition</span>
+    <h1>Test A/B : <span class="text-gold">la méthode minimale pour décider</span></h1>
+    <p class="lead">Un test A/B ne sert pas à trancher des goûts, mais à sortir d'une hésitation. Ce qui se teste en une semaine, ce qui ne se teste pas faute de volume, comment fixer la durée, et comment lire un résultat sans se raconter d'histoires.</p>
+
+    <div class="article-meta">
+      <div class="author">
+        <div class="author-avatar">KS</div>
+        <div>
+          <div class="article-author-name">K. STEPHANE</div>
+          <div class="small">Fondateur ePerformance</div>
+        </div>
+      </div>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg> 22 décembre 2026</span>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.6 2.1"/></svg> 12 min de lecture</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section-flush-top">
+  <div class="article-body container-reading">
+
+    <p>« Cette image ou celle-là ? » La question se règle en général par une discussion, entre deux personnes qui ont chacune leur préférence et aucun chiffre à avancer. Un test A/B remplace cet échange par une mesure : deux versions d'un même élément, montrées en parallèle, et un résultat comparé.</p>
+
+    <p>La méthode donne des réponses solides quand elle s'applique à un volume suffisant. En dessous, elle produit surtout de la fausse confiance : un écart de deux commandes lu comme une tendance. Cet article décrit la version minimale, celle qui se lance sans outil payant, avec ses limites annoncées avant ses promesses.</p>
+
+    <p>Le parcours à corriger avant de tester quoi que ce soit est détaillé dans <a href="/articles/ameliorer-taux-conversion/">améliorer le taux de conversion sans toucher au budget pub</a>. Un test A/B vient après : il sert à choisir entre deux options, quand il reste une hésitation que la lecture des chiffres ne tranche pas.</p>
+
+    <h2>Ce qu'un test A/B démontre, et ce qu'il ne démontre pas</h2>
+
+    <p>Un test A/B compare deux versions d'une même chose auprès de deux groupes de personnes comparables, sur la même période. La version A reste en place, la version B prend sa place pour une partie du trafic. À la fin, on compare les taux, puis on garde la version qui produit le plus de résultats utiles.</p>
+
+    <p>Ce qu'il démontre, dans de bonnes conditions : que sur votre trafic et sur cette période, une version a produit plus de commandes que l'autre. C'est une information locale, valable pour votre activité, votre audience et votre offre. C'est précisément ce qui la rend utile, puisqu'aucun article ne peut répondre à votre place.</p>
+
+    <p>Ce qu'il ne démontre pas : que la même version fonctionnera au mois de mars, sur un autre canal, ou avec un autre prix. Un test mesure une différence dans un contexte, il ne produit pas de règle générale. Il ne dit rien non plus sur les causes : si l'annonce B gagne, vous saurez qu'elle gagne, sans savoir exactement quel mot ou quelle couleur a produit l'effet.</p>
+
+    <p>Une règle précède tout le reste : une seule modification par test. Si vous changez le titre et l'image en même temps, un résultat positif ne vous apprend rien de réutilisable, et un résultat négatif non plus.</p>
+
+    <h2>Ce qui se teste en une semaine</h2>
+
+    <p>Cinq éléments se prêtent au test rapide, parce qu'ils sont faciles à produire en deux versions et qu'ils influencent directement la décision d'achat.</p>
+
+    <ul>
+      <li><strong>Le titre ou l'accroche.</strong> Deux formulations du même argument : le prix mis en avant d'un côté, le délai de livraison de l'autre. C'est le test le moins cher à lancer, parce qu'il ne demande aucune production.</li>
+      <li><strong>Le visuel.</strong> Une photo de produit seule contre la même photo avec une main ou un contexte d'usage. Le format compte autant que le contenu : une image carrée et une image verticale ne se comportent pas pareil.</li>
+      <li><strong>Le premier message.</strong> Un message d'accueil WhatsApp qui commence par une question contre un message qui annonce un prix et un délai. Deux variantes s'écrivent en dix minutes et se testent sur les conversations entrantes.</li>
+      <li><strong>La page d'arrivée.</strong> Deux ordres de présentation : le prix et le bouton en haut contre la preuve et les photos en haut, bouton plus bas. Le test se fait sur le même trafic, en alternant une journée sur deux.</li>
+      <li><strong>Le prix.</strong> Il se teste, à condition de disposer du volume et d'accepter une règle claire : le prix affiché au moment de la commande est celui que le client paie, sans exception.</li>
+    </ul>
+
+    <p>Le point commun de ces cinq éléments : ils se modifient sans toucher à la structure du site, et ils se mesurent sur une action précise — un clic vers WhatsApp, un formulaire envoyé, une commande. Un élément dont l'effet ne se mesure pas sur une action n'est pas testable.</p>
+
+    <h2>Ce qui ne se teste pas sans volume</h2>
+
+    <p>Un test compare des taux, et un taux calculé sur vingt personnes ne veut rien dire. C'est la limite principale de la méthode, et elle est arithmétique avant d'être technique.</p>
+
+    <p>Exemple arithmétique, volontairement rond. Une page reçoit 1 000 visiteurs par mois et convertit à 2 %, soit 20 commandes. Vous voulez tester deux versions du titre. Chaque version reçoit 500 visiteurs, et à 2 % chacune produit 10 commandes. Une seule commande de plus d'un côté affiche un écart de 10 % entre les deux versions, deux commandes un écart de 20 %. Ce n'est pas un résultat : c'est le hasard d'un client en avance ou en retard.</p>
+
+    <p>Trois familles de tests tombent dans ce piège. Les tests sur les segments étroits : un test par ville, par tranche d'âge ou par produit peu vendu disperse tellement le trafic qu'aucune version n'atteint le volume nécessaire. Les tests sur des événements rares : le taux de rachat à trois mois, par exemple, demande des mois d'observation avant de produire un chiffre lisible. Et les tests sur les micro-variations : la couleur d'un bouton, la ponctuation d'un titre, l'emplacement d'une icône. Ces changements produisent des écarts trop petits pour être détectés avec un trafic ordinaire.</p>
+
+    <p>Quand le volume manque, deux voies restent ouvertes. La comparaison avant-après, sur deux périodes de même durée, avec la même campagne : moins solide qu'un test parallèle, mais lisible si aucun autre changement n'a eu lieu en même temps. Et la correction des fuites évidentes, qui ne demande aucun test : une page lente, un prix caché, un numéro non cliquable se réparent sur observation directe.</p>
+
+    <h2>La règle du pouce : combien de conversions par variante</h2>
+
+    <p>Il existe une règle simple, employée en pratique et suffisante pour décider d'un test : viser au minimum trente à quarante conversions par variante. En dessous, un écart entre deux versions peut tenir à quelques personnes, et le résultat n'est pas exploitable.</p>
+
+    <p>Reprenons l'exemple. Pour obtenir 30 conversions par variante à un taux de 2 %, il faut 1 500 visiteurs par variante, donc 3 000 visiteurs pendant la durée du test. Une boutique qui reçoit 1 000 visiteurs par mois ne peut donc pas tester une page d'arrivée sur ses commandes. Elle peut en revanche tester un message d'accueil WhatsApp si elle reçoit 200 conversations par mois : à 20 % de conversion en commande, chaque variante reçoit 100 conversations par mois et produit 20 commandes, soit 40 sur deux mois.</p>
+
+    <p>Le calcul se fait donc à l'envers, en partant de la conversion observée. Divisez le nombre de conversions visées par votre taux actuel, et vous obtenez le nombre de visiteurs nécessaires. Comparez ce nombre à votre trafic réel : si le test demanderait six mois, ce n'est pas un test à lancer, c'est une révision de la page à faire sur la base des fuites identifiées.</p>
+
+    <p>Un point technique : le taux de conversion seul ne suffit pas à conclure. Comptez toujours les conversions en nombre absolu, en plus du pourcentage. 40 conversions sur 2 000 visiteurs et 40 sur 2 200 ne disent pas la même chose du volume que vous pourrez reproduire ensuite.</p>
+
+    <h2>Lancer le test sans outil payant</h2>
+
+    <p>Un premier test se monte avec ce que vous avez déjà. Le principe tient en trois décisions : qui voit quelle version, pendant combien de temps, et comment on compte.</p>
+
+    <p>Pour une annonce publicitaire, la méthode la plus simple consiste à dupliquer la campagne existante avec la nouvelle version, en laissant les deux tourner avec le même budget et le même ciblage. Les deux versions tournent alors dans des conditions comparables, et la plateforme affiche les résultats côte à côte.</p>
+
+    <p>Pour une page d'arrivée sans outil de test, l'alternance par jour fonctionne : la version A le lundi, mercredi et vendredi, la version B le mardi, jeudi et samedi du même mois. Cette méthode ne corrige pas les différences de comportement entre les jours, mais elle les répartit entre les deux versions sur une durée de deux semaines.</p>
+
+    <p>Pour les conversations, le test se fait sur le message d'accueil : une version pendant une semaine, l'autre la semaine suivante, avec le même volume de trafic et le même type d'annonces. Le comptage se fait dans le cahier : conversations reçues, commandes conclues, et le rapport entre les deux.</p>
+
+    <p>Deux règles de comptage valent pour tous les cas. Décidez avant de commencer ce que vous compterez — un clic, un formulaire envoyé, une commande payée — et ne changez pas de définition en cours de route. Fixez aussi la durée à l'avance, et tenez-la : l'envie d'arrêter au premier jour favorable est le principal ennemi d'un test.</p>
+
+    <h2>Lire le résultat sans se raconter d'histoires</h2>
+
+    <p>La lecture commence avant le test, avec une règle écrite : « je garde la version B si elle produit au moins X commandes de plus que la version A ». Fixer ce seuil à l'avance évite l'ajustement après coup, qui consiste à trouver une justification à la version qu'on préférait déjà.</p>
+
+    <p>Ensuite, quatre vérifications avant de conclure. Le volume atteint : chaque variante a-t-elle reçu le nombre de conversions visé ? La durée : le test a-t-il couvert au moins une semaine complète, week-end inclus, et un nombre entier de semaines ? La simultanéité : les deux versions ont-elles tourné sur la même période, avec le même budget ? Les perturbations : une rupture de stock, une panne, une fête, un changement de prix extérieur ont-ils touché une seule des deux versions ?</p>
+
+    <p>Si une seule de ces vérifications échoue, la bonne conclusion est souvent « pas de conclusion », et ce n'est pas un échec. Un test qui ne tranche pas vous apprend qu'il faudra plus de volume, ou que la différence entre les deux versions est trop faible pour valoir un effort de production. Dans les deux cas, vous gardez la version en place et vous passez à autre chose.</p>
+
+    <p>Attention à l'écart de pourcentage. Un passage de 1,8 % à 2,4 % se lit comme « 33 % de mieux », ce qui impressionne, alors que l'écart absolu est de six commandes sur 1 000 visiteurs. Traduisez toujours l'écart en commandes et en francs avant de décider : ce sont ces unités qui financent l'activité.</p>
+
+    <h2>Après le test : garder, jeter, ou recommencer</h2>
+
+    <p>Trois issues possibles, et une action pour chacune. Si une version gagne nettement, elle devient la version par défaut, et les autres supports qui présentent l'ancienne formulation sont mis à jour dans la foulée : annonces, catalogue, réponses rapides. Un gain perdu dans un support oublié ne sert à rien.</p>
+
+    <p>Si le test ne montre pas de différence lisible, vous gardez la version en place et vous fermez la question pour l'année. Ce point mérite d'être répété : un test non concluant a coûté une semaine et vous a évité de refaire votre page sur une intuition.</p>
+
+    <p>Si le résultat est négatif, la version B est abandonnée, mais la question qu'elle posait reste notée. Un message d'accueil qui n'a pas fonctionné indique souvent que l'objection des clients n'est pas celle qu'on croyait : le test devient une information sur le client, plus qu'une information sur la version.</p>
+
+    <p>Reste la cadence. Un test à la fois, un test par mois suffit pour progresser sur un an, et une ligne d'archive par test : la question posée, les deux versions, le volume, le résultat, la décision. C'est cette ligne, relue douze mois plus tard, qui évite de retester deux fois la même chose. Et si vous ne savez pas quel test lancer en premier, la grille de lecture des <a href="/articles/lire-statistiques-meta-ads/">six chiffres du gestionnaire de publicités</a> désigne souvent la colonne à travailler.</p>
+
+    <div class="cta-block">
+      <h2>Quelle question vaut la peine d'un test ?</h2>
+      <p>Le diagnostic gratuit reprend vos chiffres, identifie l'élément à tester en premier et vous donne le volume nécessaire pour que le résultat soit lisible. Cinq minutes, résultat immédiat.</p>
+      <a class="btn btn-gold" href="https://eperformance.pro/diagnostic_eperformance.html">Faire mon diagnostic gratuit
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <h2>FAQ — Ce qu'on me demande sur les tests A/B</h2>
+
+    <div class="faq-section">
+      <details>
+        <summary>Combien de visiteurs faut-il pour qu'un test A/B veuille dire quelque chose ?</summary>
+        <p>La règle pratique est de viser trente à quarante conversions par variante, pas un nombre de visiteurs fixe. À 2 % de conversion, cela demande environ 1 500 visiteurs par variante. Si votre trafic ne permet pas d'atteindre ce seuil en quelques semaines, mieux vaut corriger les fuites évidentes que lancer le test.</p>
+      </details>
+
+      <details>
+        <summary>Peut-on tester deux changements en même temps ?</summary>
+        <p>Non, sauf à renoncer à comprendre le résultat. Si vous modifiez le titre et l'image dans la même version, un gain vous laisse sans savoir lequel des deux a produit l'effet, et vous ne pourrez pas réutiliser l'enseignement ailleurs. Un test, un changement.</p>
+      </details>
+
+      <details>
+        <summary>Combien de temps doit durer un test ?</summary>
+        <p>Une semaine complète au minimum, deux semaines pour une page d'arrivée, et toujours un nombre entier de semaines pour couvrir les mêmes jours de la semaine dans les deux versions. Fixez la durée avant de commencer et ne l'écourtez pas, même si un écart apparaît dès le deuxième jour.</p>
+      </details>
+
+      <details>
+        <summary>Faut-il un logiciel de test pour commencer ?</summary>
+        <p>Non. Deux campagnes identiques avec des versions différentes, une alternance de page par jour, ou deux messages d'accueil successifs suffisent pour un premier test. Ce qui compte est de compter la même chose des deux côtés et de tenir la durée fixée. Un outil devient utile quand vous enchaînez plusieurs tests par mois.</p>
+      </details>
+
+      <details>
+        <summary>Puis-je arrêter le test dès qu'une version prend l'avantage ?</summary>
+        <p>C'est le moyen le plus sûr d'obtenir un faux résultat. Un écart apparu le premier jour se réduit souvent à mesure que le volume arrive, parce qu'il tient à quelques personnes. Sauf écart très large et volume déjà atteint, allez au bout de la durée prévue avant de conclure.</p>
+      </details>
+
+      <details>
+        <summary>Que faire quand le test ne donne aucun résultat ?</summary>
+        <p>Vous gardez la version en place et vous considérez la question comme fermée. Un test sans différence lisible signifie que l'élément testé n'a pas d'effet mesurable sur votre trafic actuel : vous avez économisé une refonte inutile. Notez le test dans votre archive et passez à une question plus large.</p>
+      </details>
+    </div>
+
+    <div class="tags-row">
+      <a href="/acquisition/" class="tag">Acquisition</a>
+      <a href="/articles/ameliorer-taux-conversion/" class="tag">Conversion</a>
+      <a href="/articles/lire-statistiques-meta-ads/" class="tag">Statistiques</a>
+    </div>
+
+    <div class="share-row">
+      <span class="small">Partager</span>
+      <a href="#" class="share-btn" onclick="return sharePage('whatsapp')" data-share="whatsapp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.6-4.5A8.4 8.4 0 1 1 8 20.4z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('linkedin')" data-share="linkedin" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('facebook')" data-share="facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('copy')" data-share="copy" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></a>
+    </div>
+
+    <div class="related">
+      <h2>Articles à lire ensuite</h2>
+      <a href="/articles/ameliorer-taux-conversion/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">Acquisition</span>
+          <h3>Améliorer le taux de conversion sans toucher au budget pub</h3>
+          <p class="small">Les cinq fuites d'un parcours de commande, comment les repérer et comment les réparer.</p>
+        </div>
+      </a>
+      <a href="/articles/lire-statistiques-meta-ads/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">Acquisition</span>
+          <h3>Lire ses statistiques Meta sans se noyer</h3>
+          <p class="small">Six chiffres suffisent pour lire un gestionnaire de publicités. Ceux à ignorer, et pourquoi.</p>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-col">
+        <img class="footer-logo logo-img-light" src="/assets/img/logo-light.webp"
+             srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+             width="152" height="25" alt="ePerformance" loading="lazy">
+        <img class="footer-logo logo-img-dark" src="/assets/img/logo-dark.webp"
+             srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+             width="157" height="25" alt="" aria-hidden="true" loading="lazy">
+        <p class="card-text mt-3" style="max-width:34ch">Stratégie d&#x27;acquisition, IA générative, automatisation et développement web premium. Basé en Côte d&#x27;Ivoire, 100 % en ligne.</p>
+      </div>
+
+      <div class="footer-col">
+        <h2>Services</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/index.html#methode" rel="noopener">stratégie d&#x27;acquisition</a></li>
+          <li><a href="https://eperformance.pro/ia.html" rel="noopener">IA générative</a></li>
+          <li><a href="https://eperformance.pro/automatisation.html" rel="noopener">Automatisation</a></li>
+          <li><a href="https://eperformance.pro/site-web.html" rel="noopener">Création de site web</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Ressources</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/diagnostic_eperformance.html" rel="noopener">Diagnostic gratuit</a></li>
+          <li><a href="https://eperformance.pro/formation.html" rel="noopener">Formations</a></li>
+          <li><a href="https://eperformance.pro/ebook.html" rel="noopener">Ebooks</a></li>
+          <li><a href="https://blog.eperformance.pro/" rel="noopener">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="https://wa.me/2250151170666" rel="noopener">+225 01 51 17 06 66</a></li>
+          <li><a href="mailto:bonjour@eperformance.pro">bonjour@eperformance.pro</a></li>
+          <li><a href="https://api.eperformance.pro/connexion.php" rel="noopener">Espace client</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 ePerformance — par K. Stéphane. Tous droits réservés.</p>
+      <p><a href="https://eperformance.pro/mentions-legales.html">Mentions légales</a> · <a href="https://eperformance.pro/politique-confidentialite.html">Confidentialité</a> · <a href="https://eperformance.pro/cookies.html">Cookies</a> · <a href="https://eperformance.pro/cgv.html">CGV</a></p>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a class="btn btn-gold" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+  <a class="btn btn-wa" href="https://wa.me/2250151170666" style="flex:0 0 auto" rel="noopener">WhatsApp</a>
+</div>
+
+<div class="consent" id="consent-banner" hidden>
+  <div class="consent-inner">
+    <div class="consent-text">
+      <p><strong>Vous choisissez ce que nous mesurons.</strong></p>
+      <p>Nous utilisons des traceurs pour comprendre comment le site est utilisé et pour
+         mesurer nos campagnes. Aucun ne se déclenche avant votre accord.
+         <a href="https://eperformance.pro/politique-confidentialite.html">Politique de confidentialité</a> ·
+         <a href="https://eperformance.pro/cookies.html">En savoir plus</a></p>
+    </div>
+    <div class="consent-actions">
+      <button type="button" class="btn btn-ghost" data-consent="refuse">Tout refuser</button>
+      <button type="button" class="btn btn-outline" data-consent="customize">Paramétrer</button>
+      <button type="button" class="btn btn-gold" data-consent="accept">Tout accepter</button>
+    </div>
+  </div>
+
+  <div class="consent-detail" id="consent-detail" hidden>
+    <fieldset class="fieldset">
+      <legend>Vos préférences</legend>
+
+      <label class="consent-row consent-row-locked">
+        <input type="checkbox" checked disabled>
+        <span>
+          <strong>Nécessaires</strong>
+          <span class="field-hint">Mémorisation de votre choix de thème et de vos préférences.
+            Toujours actifs : le site ne peut pas fonctionner sans.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-analytics">
+        <span>
+          <strong>Mesure d'audience</strong>
+          <span class="field-hint">Google Analytics 4 et Microsoft Clarity. Nous aide à voir
+            quelles pages sont utiles et où les visiteurs abandonnent.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-ads">
+        <span>
+          <strong>Publicité</strong>
+          <span class="field-hint">Meta Pixel. Mesure l'efficacité de nos campagnes
+            Facebook et Instagram.</span>
+        </span>
+      </label>
+    </fieldset>
+
+    <div class="consent-actions">
+      <button type="button" class="btn btn-outline" data-consent="back">Retour</button>
+      <button type="button" class="btn btn-gold" data-consent="save">Enregistrer mes choix</button>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/js/consent.js" defer></script>
+<script src="/assets/js/eperf.js" defer></script>
+<script src="/assets/js/blog.js" defer></script>
+</body>
+</html>

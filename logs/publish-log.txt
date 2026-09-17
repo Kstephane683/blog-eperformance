@@ -1,0 +1,175 @@
+# Journal de publication — blog ePerformance
+# Format : date ISO | commit | périmètre | résultat
+
+2026-09-17T04:30Z | — | Infrastructure : CONVENTIONS.md, script de vérification, analyse GSC | OK
+2026-09-17T12:00Z | 556a2c8 | Pilote : 1 article (IA générative pour une PME africaine) | OK — 2391 mots, 14 H2, 6 FAQ, 0 échec
+
+# État : 1 article produit sur 78.
+# Prochain lot : articles 2 à 10 (fin du cluster IA générative, début Automatisation).
+2026-09-17T12:45Z | lot 1 | Articles 2 à 11 (cluster IA complet + début Automatisation) | OK
+  - 10 articles, 10/10 conformes au script de vérification
+  - 2 243 à 2 397 mots · 10 H2 · 6 FAQ chacun
+  - 0 référence cassée, 0 ancre morte, 56 blocs JSON-LD valides
+  - 5 titres raccourcis (dépassaient 60 caractères)
+  - Sitemap complété de 10 URL
+
+# État : 11 articles produits sur 78 (1 pilote + 10 du lot 1).
+# Prochain lot : articles 12 à 21 (fin Automatisation + Acquisition).
+2026-09-17T13:20Z | lot 2 | Articles 12 à 21 (fin Automatisation + début Acquisition) | OK
+  - 10 articles, 10/10 conformes — 2 211 à 2 393 mots · 10 H2 · 6 FAQ
+  - 0 référence cassée sur 31 pages · 0 titre hors limite
+  - anti-cannibalisation respectée : les articles 19-21 complètent
+    l'article existant sur le CAC, ils ne le redoublent pas
+  - Sitemap complété de 10 URL
+
+# État : 21 articles produits sur 78 (15 existants/lots précédents + 10 du lot 2)
+# Prochain lot : articles 22 à 31 (Acquisition)
+2026-09-17T14:05Z | lot 3 | Articles 22 à 31 (Acquisition — publicité et mesure) | OK
+  - 10 articles, 10/10 conformes — 2 240 à 2 393 mots · 10 H2 · 6 FAQ
+  - 0 référence cassée sur 41 pages · 0 cible d'article morte · 0 ancre morte
+  - anti-cannibalisation tenue : l'article 22 complète le guide CAC existant
+    (les coûts oubliés, pas la méthode), renvoi explicite
+  - Sitemap complété de 10 URL
+
+# État : 34 articles sur 78. Prochain lot : 32 à 41.
+2026-09-17T14:50Z | lot 4 | Articles 32 à 41 (fin Acquisition + début Site web) | OK
+  - 10 articles, 10/10 conformes — 2 235 à 2 392 mots · 10 H2 · 6 FAQ
+  - 0 référence cassée sur 51 pages · 0 cible morte · 0 titre hors limite
+  - article 37 (prix d'un site web) : fourchettes 75-200k / 200-600k / 600k-1,5M
+    annoncées 12 fois comme observations de marché, aucun tarif ePerformance,
+    CTA vers site-web.html. Le montant 100 000 FCFA apparaît une fois, en FAQ,
+    comme borne de marché — pas comme un tarif.
+  - Sitemap complété de 10 URL
+
+# État : 44 articles sur 78. Prochain lot : 42 à 51 (Site web).
+2026-09-17T15:35Z | lot 5 | Articles 42 à 51 (fin Site web + ouverture SEO) | OK
+  - 10 articles, 10/10 conformes — 2 251 à 2 399 mots · 10 H2 · 6 FAQ
+  - 0 référence cassée · 0 cible morte · 0 ancre morte · 0 titre hors limite
+  - 42/43 distingués : vue d'ensemble des causes vs mode opératoire sur les images
+  - 49 vs 37 : décision de refonte (aucun montant) vs fourchettes de prix, renvoi
+  - 51 vs guide SEO existant : la fiche champ par champ vs la méthode d'ensemble
+  - lien mort /articles/avis-google/ retiré (article prévu au lot 6)
+  - titre de l'article 49 raccourci (61 → 43 caractères)
+  - Sitemap complété de 10 URL
+
+# État : 54 articles sur 78. Prochain lot : 52 à 61 (SEO).
+
+2026-09-17T12:08Z | correctif | Article 37 — retrait du montant 100 000 FCFA de la FAQ
+  - Question visible « Un site à 100 000 FCFA peut-il suffire ? » devenue
+    « Un site en bas de fourchette peut-il suffire ? ». Réponse inchangée.
+  - 2 occurrences remplacées, pas une : la question visible ET son miroir dans
+    le JSON-LD FAQPage. Divergence = une question affichée, une autre déclarée.
+  - Fourchettes de marché (75-200k / 200-600k / 600k-1,5M) intactes.
+  - 0 occurrence de « 100 000 » restante. Commit e616263.
+
+2026-09-17T12:08Z | lot 6 | Articles 54 à 63 (cluster SEO & visibilité) | OK
+  - 10 articles, 10/10 conformes — 2 106 à 2 422 mots · 12 à 15 H2 · 6 FAQ
+  - 0 référence cassée · 0 cible morte · 0 ancre morte · 0 titre hors limite
+  - 2 951 liens absolus résolus sur 72 pages · 272 blocs JSON-LD valides
+  - 0 eyebrow · 0 card-icon · 0 carte de maillage dupliquée
+  - Sitemap complété de 10 URL : 71 entrées, 0 manquante, 0 obsolète
+
+  # Points de vigilance du lot
+  - 54 (avis Google) : aucune promesse de résultat, aucune technique
+    manipulatoire. Achat d'avis, faux avis, contrepartie et filtrage sont
+    présentés comme contraires aux règles et sanctionnables.
+  - 59 (données structurées) : aucune invention. Six types cités, tous
+    autorisés (LocalBusiness, Organization, Product, Article, BreadcrumbList,
+    FAQPage). L'article dit aussi quand un balisage ne sert à rien.
+  - 62 (être cité par ChatGPT) : l'article applique sa propre méthode.
+    Chaque H2 est une question, le premier paragraphe y répond directement,
+    les faits sont datés (GPTBot, août 2023 ; llms.txt, septembre 2024).
+    Réserve écrite noir sur blanc : aucune méthode ne garantit une citation.
+  - 63 (llms.txt) : sujet court, longueur ajustée à 2 106 mots au lieu de
+    2 400. Le plancher du script est 1 900, la cible 2 200 du lot est
+    inatteignable sans remplir sur ce sujet. Décision documentée.
+  - 56 (annuaires) : méthode de sélection plutôt que liste inventée. Aucun
+    nom d'annuaire local ni URL externe non vérifiable.
+
+  # Maillage
+  - carte de l'article 53 (fiche GBP) rebranchée : elle annonçait « Avis
+    Google » mais pointait vers le guide SEO. Le lien mort signalé au lot 5
+    est maintenant rattaché à sa vraie cible, produite dans ce lot.
+
+  # État : 64 articles sur 78. Prochain lot : 64 à 73 (fin SEO + Business).
+
+2026-09-17T12:56Z | chore | Seuil minimal abaissé à 1 800 mots
+  - scripts/verify-articles.py : mots_min 1900 → 1800. Certains sujets ne
+    portent pas 2 200 mots ; 1 800 denses valent mieux que 2 300 dilués.
+    La cible de rédaction reste 2 200-2 400 pour la majorité.
+  - Aucun article existant n'était entre 1 800 et 1 900 : le changement ne
+    desserre rien rétroactivement. 64/64 conformes après modification.
+  - Commit 5d1d06d.
+
+2026-09-17T12:56Z | lot 7 | Articles 64 à 73 (fin SEO + ouverture Business) | OK
+  - 10 articles, 10/10 conformes — 2 024 à 2 442 mots · 12 à 15 H2 · 6 FAQ
+  - 0 référence cassée · 0 cible morte · 0 ancre morte · 0 titre hors limite
+  - 3 391 liens absolus résolus sur 82 pages · 0 carte de maillage dupliquée
+  - 0 eyebrow · 0 card-icon · 0 marqueur IA textuel
+  - Sitemap complété de 10 URL : 81 entrées, 0 manquante, 0 obsolète
+  - Les 7 articles Business ouvrent la catégorie : aucun article n'y existait
+
+  # Points de vigilance du lot
+  - 64 (contenu dupliqué) : la distinction demandée est le cœur de l'article.
+    Ce qui n'est PAS de la duplication (même produit dans dix villes, variantes
+    de couleur) est traité avant les 4 cas réels. Le tri de Google est expliqué
+    comme un tri, pas comme une sanction.
+  - 68 (diaspora) : confiance, paiement, livraison, rythme du calendrier
+    (rentrée, Tabaski, Noël, cérémonies), service après. Pas de généralités.
+  - 69 (mobile money) : aucun tarif d'opérateur, aucune API ni endpoint
+    inventé, aucune URL externe. Les 2 montants présents sont un coût de
+    main-d'œuvre interne (vérification manuelle des paiements), pas une grille.
+    L'automatisation est présentée comme « un contrat avant une ligne de code ».
+  - 73 (statut d'entreprise) : 0 montant, 0 délai chiffré, 0 procédure
+    administrative détaillée, 0 nom d'organisme. Aucune formule prescriptive.
+    La phrase de cadrage (juriste ou comptable) figure une seule fois.
+    Les trois terrains du plan sont traités : publicité et comptes, paiements,
+    séparation du patrimoine — avec les réserves qui évitent la demi-vérité.
+  - 72 (emprunter ou autofinancer) : 0 taux, 0 montant, 0 durée de prêt.
+    Comparatif équilibré, aucune recommandation. Le cœur est le fonds de
+    roulement, pas le capital.
+
+  # État : 74 articles sur 78. Prochain lot : 74 à 78 (fin Business).
+
+2026-09-17T13:32Z | lot 8 | Articles 74 à 78 + 2 articles manquants du plan | OK
+  - 7 articles publiés (5 prévus + 2 retrouvés), 7/7 conformes
+  - 2 352 à 2 456 mots · 11 à 15 H2 · 6 FAQ
+  - 0 référence cassée · 0 cible morte · 0 ancre morte · 0 titre hors limite
+  - 3 714 liens absolus résolus sur 89 pages · 324 blocs JSON-LD valides
+  - 0 eyebrow · 0 card-icon · 0 carte de maillage dupliquée
+  - Sitemap : 88 URL, 0 manquante, 0 obsolète
+
+  # DÉCOUVERTE EN FIN DE MISSION — 2 articles du plan n'avaient jamais été produits
+  La vérification de clôture a montré que le blog comptait 79 articles mais que
+  seuls 76 correspondaient au plan éditorial. Les 3 autres sont les articles
+  préexistants que le plan lui-même liste comme acquis (calculer-cac-cote-ivoire,
+  seo-local-abidjan-guide, site-web-professionnel-abidjan-guide).
+
+  Deux titres du plan étaient donc absents, sautés lors d'un lot antérieur :
+    #22  Marge nette d'acquisition : le seul chiffre qui dit la vérité
+    #33  Le boost de publication est-il encore utile
+
+  La cause : la numérotation des lots a dérivé de 1 à partir du lot 3, qui a
+  pris les articles 23 à 32 du plan en les appelant 22 à 31. Chaque lot a
+  ensuite été vérifié contre SA propre liste, jamais contre le plan — les
+  contrôles de lot ne pouvaient pas voir le trou.
+
+  Les deux articles ont été produits et sont conformes :
+    - marge-nette-acquisition  2 396 mots · 12 H2 · 6 FAQ
+    - boost-publication        2 352 mots · 11 H2 · 6 FAQ
+
+  Le blog couvre maintenant les 78 articles du plan + les 3 préexistants = 81.
+
+  # Points de vigilance du lot
+  - 74 (Burkina Faso) : aucun montant de marché, aucune donnée statistique
+    non garantie. Wave volontairement non nommé — une vérification a montré
+    qu'il opère au Burkina, contrairement à ce que supposait le brief.
+  - 75 et 76 (chiffres) : tous les montants viennent d'exemples explicites
+    (« prenons un atelier… »), aucun présenté comme un repère de marché.
+    Aucun taux, aucune charge patronale chiffrée.
+  - 78 (clôture) : la boucle mesure → décision → action est traitée, avec
+    la réserve qui compte — un chiffre réduit les options défendables, il
+    ne décide pas à votre place. Renvoie vers 11 articles de la boucle.
+    Aucune formule de conclusion triomphale.
+
+  # État : 81 articles (78 du plan + 3 préexistants). Plan éditorial complet.
