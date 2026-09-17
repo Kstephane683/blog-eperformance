@@ -15,3 +15,12 @@
 
 # État : 11 articles produits sur 78 (1 pilote + 10 du lot 1).
 # Prochain lot : articles 12 à 21 (fin Automatisation + Acquisition).
+2026-09-17T13:20Z | lot 2 | Articles 12 à 21 (fin Automatisation + début Acquisition) | OK
+  - 10 articles, 10/10 conformes — 2 211 à 2 393 mots · 10 H2 · 6 FAQ
+  - 0 référence cassée sur 31 pages · 0 titre hors limite
+  - anti-cannibalisation respectée : les articles 19-21 complètent
+    l'article existant sur le CAC, ils ne le redoublent pas
+  - Sitemap complété de 10 URL
+
+# État : 21 articles produits sur 78 (15 existants/lots précédents + 10 du lot 2)
+# Prochain lot : articles 22 à 31 (Acquisition)

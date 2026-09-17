@@ -175,6 +175,76 @@ PAGES = {
     # ── Les 3 articles ───────────────────────────────────────────────────
     # Pas de hero : le fragment porte son propre en-tête éditorial
     # (.article-hero avec catégorie, <h1>, date, temps de lecture).
+    "articles/capturer-qualifier-demandes/index.html": {
+        "title": 'Capturer et qualifier ses demandes entrantes',
+        "description": "Le parcours d'une demande entrante, étape par étape : accusé de réception, trois questions de qualification, fiche créée, bonne personne prévenue.",
+        "fragment": "articles-capturer-qualifier-demandes.html",
+        "nav_active": "automatisation",
+        "breadcrumb": [("Automatisation", "/articles/automatisation-marketing-debuter/"), ("Capturer ses demandes entrantes", "/articles/capturer-qualifier-demandes/")],
+    },
+    "articles/relance-client-automatique/index.html": {
+        "title": 'Relance automatique : la séquence J+1, J+3, J+7',
+        "description": "J+1, J+3, J+7, puis l'arrêt immédiat dès que la personne répond : comment régler une séquence de relance et écrire un message qui donne envie de répondre.",
+        "fragment": "articles-relance-client-automatique.html",
+        "nav_active": "automatisation",
+        "breadcrumb": [("Automatisation", "/articles/automatisation-marketing-debuter/"), ("Relance automatique", "/articles/relance-client-automatique/")],
+    },
+    "articles/reporting-automatise/index.html": {
+        "title": 'Un reporting qui se remplit tout seul chaque mois',
+        "description": "Quelles données collecter, d'où elles viennent, à quelle fréquence, et les contrôles qui empêchent un rapport faux d'arriver à l'heure.",
+        "fragment": "articles-reporting-automatise.html",
+        "nav_active": "automatisation",
+        "breadcrumb": [("Automatisation", "/articles/automatisation-marketing-debuter/"), ("Reporting automatisé", "/articles/reporting-automatise/")],
+    },
+    "articles/synchroniser-outils-commerciaux/index.html": {
+        "title": 'Synchroniser site, WhatsApp et suivi commercial',
+        "description": 'Un seul statut par contact, partagé entre site, WhatsApp et suivi : la mécanique de synchronisation, les règles à écrire et les pièges du numéro.',
+        "fragment": "articles-synchroniser-outils-commerciaux.html",
+        "nav_active": "automatisation",
+        "breadcrumb": [("Automatisation", "/articles/automatisation-marketing-debuter/"), ("Synchroniser ses outils", "/articles/synchroniser-outils-commerciaux/")],
+    },
+    "articles/cout-automatisation/index.html": {
+        "title": 'Combien coûte une automatisation, et que rapporte-t-elle',
+        "description": "Les cinq postes de coût, la mise en place comptée en jours de travail et la division qui donne le seuil de rentabilité d'une automatisation.",
+        "fragment": "articles-cout-automatisation.html",
+        "nav_active": "automatisation",
+        "breadcrumb": [("Automatisation", "/articles/automatisation-marketing-debuter/"), ("Coût d'une automatisation", "/articles/cout-automatisation/")],
+    },
+    "articles/automatisation-dependance/index.html": {
+        "title": "Automatiser sans dépendre d'un prestataire",
+        "description": "Accès à votre nom, propriété des workflows, documentation, réversibilité : ce qui doit rester chez vous et ce qu'il faut exiger par écrit.",
+        "fragment": "articles-automatisation-dependance.html",
+        "nav_active": "automatisation",
+        "breadcrumb": [("Automatisation", "/articles/automatisation-marketing-debuter/"), ("Garder la main", "/articles/automatisation-dependance/")],
+    },
+    "articles/erreurs-automatisation/index.html": {
+        "title": 'Trois automatisations à ne pas faire',
+        "description": 'Relancer des prospects mal qualifiés, automatiser sans volume, automatiser une réclamation : trois chantiers à refuser, et pourquoi.',
+        "fragment": "articles-erreurs-automatisation.html",
+        "nav_active": "automatisation",
+        "breadcrumb": [("Automatisation", "/articles/automatisation-marketing-debuter/"), ("Ce qu'il ne faut pas automatiser", "/articles/erreurs-automatisation/")],
+    },
+    "articles/calculer-ltv/index.html": {
+        "title": "Calculer sa LTV sans se raconter d'histoires",
+        "description": 'La LTV se calcule sur des achats réels : méthode par cohorte, taux de rachat, erreurs qui gonflent le chiffre et décisions publicitaires.',
+        "fragment": "articles-calculer-ltv.html",
+        "nav_active": "acquisition",
+        "breadcrumb": [("Acquisition", "/acquisition/"), ("Calculer sa LTV", "/articles/calculer-ltv/")],
+    },
+    "articles/payback-period/index.html": {
+        "title": 'Payback period : le ratio qui tue les trésoreries',
+        "description": 'Le payback mesure le délai de récupération du CAC. Calcul, cible des 90 jours, exemple chiffré et cinq leviers pour le raccourcir.',
+        "fragment": "articles-payback-period.html",
+        "nav_active": "acquisition",
+        "breadcrumb": [("Acquisition", "/acquisition/"), ("Payback period", "/articles/payback-period/")],
+    },
+    "articles/ratio-ltv-cac/index.html": {
+        "title": 'Ratio LTV:CAC : quel seuil viser vraiment',
+        "description": 'Le 3:1 est un point de départ, pas une loi. Calcul en marge, lecture par zone, seuils de décision et alerte du ratio trop élevé.',
+        "fragment": "articles-ratio-ltv-cac.html",
+        "nav_active": "acquisition",
+        "breadcrumb": [("Acquisition", "/acquisition/"), ("Ratio LTV:CAC", "/articles/ratio-ltv-cac/")],
+    },
     "articles/cinq-taches-ia-entreprise/index.html": {
         "title": "Cinq tâches que l'IA fait mieux que vous | ePerformance",
         "description": "Cinq tâches que l'IA générative fait mieux que vous, classées par temps gagné mesurable. Ce que chacune remplace, ce qu'elle produit, comment la traiter.",
