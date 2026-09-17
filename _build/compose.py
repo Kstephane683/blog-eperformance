@@ -312,10 +312,10 @@ def header(active=""):
 
     <a class="logo" href="/" aria-label="ePerformance — accueil">
       <img class="logo-img-light" src="/assets/img/logo-light.webp"
-           srcset="assets/img/logo-light.webp 1x, assets/img/logo-light@2x.webp 2x"
+           srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
            width="182" height="30" alt="ePerformance" fetchpriority="high">
       <img class="logo-img-dark" src="/assets/img/logo-dark.webp"
-           srcset="assets/img/logo-dark.webp 1x, assets/img/logo-dark@2x.webp 2x"
+           srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
            width="188" height="30" alt="" aria-hidden="true">
     </a>
 
@@ -379,10 +379,10 @@ def footer():
 
       <div class="footer-col">
         <img class="footer-logo logo-img-light" src="/assets/img/logo-light.webp"
-             srcset="assets/img/logo-light.webp 1x, assets/img/logo-light@2x.webp 2x"
+             srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
              width="152" height="25" alt="ePerformance" loading="lazy">
         <img class="footer-logo logo-img-dark" src="/assets/img/logo-dark.webp"
-             srcset="assets/img/logo-dark.webp 1x, assets/img/logo-dark@2x.webp 2x"
+             srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
              width="157" height="25" alt="" aria-hidden="true" loading="lazy">
         <p class="card-text mt-3" style="max-width:34ch">{html.escape(SITE_DESC)}</p>
       </div>
