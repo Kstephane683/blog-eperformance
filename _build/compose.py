@@ -62,7 +62,7 @@ NAV = [
 
 FOOTER_COLS = [
     ("Services", [
-        ("stratégie d'acquisition", SITE_URL + "/index.html#programmes"),
+        ("stratégie d'acquisition", SITE_URL + "/index.html#methode"),
         ("IA générative",           SITE_URL + "/ia.html"),
         ("Automatisation",          SITE_URL + "/automatisation.html"),
         ("Création de site web",    SITE_URL + "/site-web.html"),
