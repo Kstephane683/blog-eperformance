@@ -130,3 +130,46 @@
     roulement, pas le capital.
 
   # État : 74 articles sur 78. Prochain lot : 74 à 78 (fin Business).
+
+2026-09-17T13:32Z | lot 8 | Articles 74 à 78 + 2 articles manquants du plan | OK
+  - 7 articles publiés (5 prévus + 2 retrouvés), 7/7 conformes
+  - 2 352 à 2 456 mots · 11 à 15 H2 · 6 FAQ
+  - 0 référence cassée · 0 cible morte · 0 ancre morte · 0 titre hors limite
+  - 3 714 liens absolus résolus sur 89 pages · 324 blocs JSON-LD valides
+  - 0 eyebrow · 0 card-icon · 0 carte de maillage dupliquée
+  - Sitemap : 88 URL, 0 manquante, 0 obsolète
+
+  # DÉCOUVERTE EN FIN DE MISSION — 2 articles du plan n'avaient jamais été produits
+  La vérification de clôture a montré que le blog comptait 79 articles mais que
+  seuls 76 correspondaient au plan éditorial. Les 3 autres sont les articles
+  préexistants que le plan lui-même liste comme acquis (calculer-cac-cote-ivoire,
+  seo-local-abidjan-guide, site-web-professionnel-abidjan-guide).
+
+  Deux titres du plan étaient donc absents, sautés lors d'un lot antérieur :
+    #22  Marge nette d'acquisition : le seul chiffre qui dit la vérité
+    #33  Le boost de publication est-il encore utile
+
+  La cause : la numérotation des lots a dérivé de 1 à partir du lot 3, qui a
+  pris les articles 23 à 32 du plan en les appelant 22 à 31. Chaque lot a
+  ensuite été vérifié contre SA propre liste, jamais contre le plan — les
+  contrôles de lot ne pouvaient pas voir le trou.
+
+  Les deux articles ont été produits et sont conformes :
+    - marge-nette-acquisition  2 396 mots · 12 H2 · 6 FAQ
+    - boost-publication        2 352 mots · 11 H2 · 6 FAQ
+
+  Le blog couvre maintenant les 78 articles du plan + les 3 préexistants = 81.
+
+  # Points de vigilance du lot
+  - 74 (Burkina Faso) : aucun montant de marché, aucune donnée statistique
+    non garantie. Wave volontairement non nommé — une vérification a montré
+    qu'il opère au Burkina, contrairement à ce que supposait le brief.
+  - 75 et 76 (chiffres) : tous les montants viennent d'exemples explicites
+    (« prenons un atelier… »), aucun présenté comme un repère de marché.
+    Aucun taux, aucune charge patronale chiffrée.
+  - 78 (clôture) : la boucle mesure → décision → action est traitée, avec
+    la réserve qui compte — un chiffre réduit les options défendables, il
+    ne décide pas à votre place. Renvoie vers 11 articles de la boucle.
+    Aucune formule de conclusion triomphale.
+
+  # État : 81 articles (78 du plan + 3 préexistants). Plan éditorial complet.
