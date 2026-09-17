@@ -1,0 +1,15 @@
+# OS / éditeurs
+.DS_Store
+Thumbs.db
+*.swp
+*.bak
+*.backup
+.vscode/
+.idea/
+
+# Dépendances
+node_modules/
+
+# Build artefacts (au cas où)
+dist/
+.tmp/
