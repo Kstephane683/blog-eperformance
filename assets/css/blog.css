@@ -1,0 +1,769 @@
+/* ==========================================================================
+   Blog ePerformance — composants éditoriaux
+   assets/css/blog.css
+
+   Ce fichier ne contient QUE ce que le design system du site principal
+   (assets/css/eperf.css) ne fournit pas : la largeur de lecture, le corps
+   d'article, l'en-tête d'article, les cartes d'article et de pilier, les
+   étiquettes et le partage. Tout le reste — en-tête, pied de page, boutons,
+   encadrés, FAQ, sections, cartes, sur-titres — vient d'eperf.css.
+
+   Règles de tenue de ce fichier :
+     · aucune couleur, aucun rayon, aucune ombre en dur : tout passe par les
+       jetons d'eperf.css. Un « # » suivi de 3 ou 6 hexadécimaux ici est un bug.
+     · aucun @keyframes, aucune animation en boucle : uniquement des
+       transitions (var(--t), var(--ease-out)), neutralisées en fin de fichier
+       quand le visiteur demande moins de mouvement.
+     · les composants du site (.btn, .callout, .faq, .card, .section,
+       .container, .eyebrow, .lead) ne sont pas redéfinis : les fragments les
+       consomment tels quels. Seul .tag est défini ici parce qu'eperf.css n'en
+       fournit pas encore — à retirer le jour où le design system en aura un.
+     · tout est posé dans la couche « components », comme eperf.css, pour que
+       les utilitaires du design system (.mt-0, .mt-2, .text-center,
+       .text-gold…) gardent la priorité sur ces règles.
+
+   Icônes : plus aucune police d'icônes. Les 18 icônes des fragments sont des
+   <svg> en ligne (24×24, tracé en currentColor, donc thémable) : recherche,
+   recherche + graphique, globe, calculatrice, courbe, pièces, calendrier,
+   horloge, information, avertissement, citation, ampoule, lien, lien externe,
+   WhatsApp, LinkedIn, Facebook, X.
+   ========================================================================== */
+
+@layer components {
+
+  /* ========================================================================
+     LARGEUR DE LECTURE
+     ======================================================================== */
+
+  /* Colonne des pages éditoriales et des articles. C'est le jeton --reading
+     d'eperf.css qui fixe la mesure (les 760 px de l'ancienne charte du blog). */
+  .container-reading {
+    width: 100%;
+    max-width: var(--reading);
+    margin-inline: auto;
+    padding-inline: var(--gutter-x);
+  }
+
+  /* ========================================================================
+     ICÔNES EN LIGNE
+     ======================================================================== */
+
+  /* Un <svg> sans width/height n'a pas de dimensions intrinsèques : sans
+     taille explicite, il occupe toute la largeur disponible. */
+  .icon {
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
+  }
+
+  /* même cote que les icônes de bouton du site principal (16 × 16) */
+  .btn .icon { width: 16px; height: 16px; }
+
+  /* ========================================================================
+     CORPS D'ARTICLE
+
+     Composant critique : il doit rester lisible en thème clair comme en thème
+     sombre, sur des textes longs. D'où l'interlignage aéré, les marges
+     généreuses entre les blocs et le retrait des marges hautes du premier
+     élément (la section qui le porte a déjà son padding).
+     ======================================================================== */
+
+  .article-body {
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    color: var(--soft);
+  }
+
+  .article-body > :first-child { margin-top: 0; }
+
+  .article-body p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    text-wrap: pretty;
+  }
+
+  .article-body h2,
+  .article-body h3 {
+    text-wrap: balance;
+  }
+
+  /* Les respirations suivent l'échelle du design system (rem), pas celle du
+     titre : sinon un h2 en clamp() creuse des blancs de 100 px. */
+  .article-body h2 {
+    margin-top: 2.75rem;
+    margin-bottom: 0.7rem;
+    color: var(--text);
+  }
+
+  /* h3 garde la police de corps : la donnée et les sous-titres se lisent comme
+     un instrument, le serif reste réservé à la voix éditoriale des titres. */
+  .article-body h3 {
+    margin-top: 2rem;
+    margin-bottom: 0.55rem;
+    color: var(--text);
+  }
+
+  .article-body h4 {
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+  }
+
+  /* la reset d'eperf.css retire les puces : on les rétablit ici */
+  .article-body ul,
+  .article-body ol {
+    margin: 0 0 1.5rem 1.4em;
+  }
+
+  .article-body ul { list-style: disc; }
+  .article-body ol { list-style: decimal; }
+  .article-body ul ul { list-style: circle; }
+
+  .article-body li {
+    margin-bottom: 0.5rem;
+    line-height: 1.75;
+    padding-left: 0.2em;
+  }
+
+  .article-body li::marker { color: var(--gold); }
+
+  .article-body strong { color: var(--text); font-weight: 600; }
+
+  .article-body em { font-style: italic; }
+
+  /* Les liens du corps se distinguent du texte courant : couleur or ET
+     soulignement, avec un soulignement plus discret que le texte. */
+  .article-body p a,
+  .article-body li a,
+  .article-body td a,
+  .article-body th a,
+  .article-body h2 a,
+  .article-body h3 a,
+  .article-body h4 a,
+  .article-body blockquote a,
+  .article-body figcaption a {
+    color: var(--gold);
+    text-decoration: underline;
+    text-decoration-color: var(--gold-border);
+    text-underline-offset: 3px;
+    transition: color var(--t) var(--ease-out),
+                text-decoration-color var(--t) var(--ease-out);
+  }
+
+  .article-body p a:hover,
+  .article-body li a:hover,
+  .article-body td a:hover,
+  .article-body th a:hover,
+  .article-body h2 a:hover,
+  .article-body h3 a:hover,
+  .article-body h4 a:hover,
+  .article-body blockquote a:hover,
+  .article-body figcaption a:hover {
+    color: var(--gold2);
+    text-decoration-color: var(--gold);
+  }
+
+  .article-body blockquote {
+    margin: 1.9rem 0;
+    padding: 18px 24px;
+    background: var(--gold-bg);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 var(--r-sm) var(--r-sm) 0;
+    color: var(--text);
+    font-style: italic;
+  }
+
+  .article-body blockquote p {
+    margin-bottom: 0;
+    color: var(--text);
+  }
+
+  .article-body blockquote p + p { margin-top: 0.9em; }
+
+  /* Tableaux : lisibles en clair comme en sombre, sans débordement sur mobile.
+     border-collapse: separate + overflow: hidden pour que les coins arrondis
+     rognent réellement l'en-tête. */
+  .article-body table {
+    width: 100%;
+    margin: 1.9rem 0;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--r-sm);
+    overflow: hidden;
+    font-size: 0.9375rem;
+  }
+
+  .article-body th {
+    padding: 14px 16px;
+    background: var(--card2);
+    color: var(--gold);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .article-body td {
+    padding: 14px 16px;
+    color: var(--soft);
+    vertical-align: top;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .article-body tr:last-child td { border-bottom: 0; }
+
+  .article-body tbody tr { transition: background-color var(--t) var(--ease-out); }
+  .article-body tbody tr:hover { background: var(--gold-bg); }
+
+  @media (max-width: 620px) {
+    /* le tableau devient une zone défilante : les colonnes restent lisibles
+       au lieu d'être comprimées */
+    .article-body table { display: block; overflow-x: auto; }
+  }
+
+  .article-body code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.875em;
+    padding: 2px 6px;
+    background: var(--card2);
+    border: 1px solid var(--border);
+    border-radius: var(--r-sm);
+    color: var(--text);
+  }
+
+  .article-body pre {
+    margin: 1.9rem 0;
+    padding: 18px 20px;
+    background: var(--card2);
+    border: 1px solid var(--border);
+    border-radius: var(--r-sm);
+    overflow-x: auto;
+    line-height: 1.6;
+  }
+
+  .article-body pre code {
+    padding: 0;
+    background: none;
+    border: 0;
+    font-size: 0.875rem;
+  }
+
+  .article-body hr {
+    margin: 2.75rem 0;
+    border: 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .article-body img {
+    margin: 1.9rem 0;
+    border: 1px solid var(--border);
+    border-radius: var(--r-sm);
+  }
+
+  .article-body figure { margin: 2rem 0; }
+
+  .article-body figcaption {
+    margin-top: 9px;
+    font-size: 0.8125rem;
+    color: var(--muted);
+    text-align: center;
+  }
+
+  /* ========================================================================
+     EN-TÊTE D'ARTICLE
+     ======================================================================== */
+
+  .article-hero {
+    padding-block: clamp(3rem, 7vw, 6rem) clamp(2rem, 4vw, 3rem);
+  }
+
+  .article-breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 22px;
+    font-size: 0.8125rem;
+    color: var(--muted);
+  }
+
+  .article-breadcrumb a {
+    color: var(--soft);
+    transition: color var(--t) var(--ease-out);
+  }
+  .article-breadcrumb a:hover { color: var(--gold); }
+
+  /* les separateurs restent discrets : ils structurent sans peser */
+  .article-breadcrumb .sep,
+  .article-meta .meta-sep { color: var(--border2); }
+
+  .article-meta .read-time {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* Même forme que le sur-titre .eyebrow d'eperf.css : la catégorie d'article
+     et le sur-titre du site doivent être indiscernables. */
+  .article-category {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 14px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--gold);
+    background: var(--gold-bg);
+    border: 1px solid var(--gold-border);
+    border-radius: var(--r-pill);
+  }
+
+  .article-hero h1 { margin-top: 22px; }
+
+  .article-hero .lead { margin-top: 20px; }
+
+  .article-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 18px;
+    margin-top: 30px;
+    padding-block: 16px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    font-size: 0.8125rem;
+    color: var(--muted);
+  }
+
+  .article-meta > span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .article-meta .icon { width: 14px; height: 14px; }
+
+  .article-meta .author {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+  }
+
+  /* Reprend le motif .quote-avatar d'eperf.css : pastille d'initiales sur or. */
+  .article-meta .author-avatar {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--gold-bg);
+    border: 1px solid var(--gold-border);
+    color: var(--gold);
+    font-size: 0.8125rem;
+    font-weight: 700;
+  }
+
+  .article-author-name {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  /* ========================================================================
+     ENCADRÉ, APPEL À L'ACTION
+     .callout et .faq viennent d'eperf.css : on n'habille ici que leurs
+     enfants, que le design system ne connaît pas.
+     ======================================================================== */
+
+  /* La FAQ d'eperf.css est posée sur le fond de page : dans un corps
+     d'article, ses questions doivent garder leur couleur de titre. */
+  .article-body .faq summary { color: var(--text); }
+
+  /* Même raison pour le <strong> d'un encadré, qui est or sur le site. */
+  .article-body .callout strong { color: var(--gold); }
+
+  .callout-icon {
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+
+  .callout-icon .icon { width: 20px; height: 20px; }
+
+  .callout-content h4 {
+    margin: 0 0 6px;
+    color: var(--text);
+  }
+
+  .callout-content p {
+    margin: 0;
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: var(--soft);
+  }
+
+  .cta-block {
+    margin-block: 2.75rem;
+    padding: clamp(24px, 4vw, 40px);
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--arrondi-carte);
+    text-align: center;
+  }
+
+  .cta-block h3 {
+    margin: 0 0 12px;
+    color: var(--text);
+    font-family: var(--police-titres);
+    font-weight: 600;
+  }
+
+  .cta-block p {
+    max-width: 48ch;
+    margin: 0 auto 22px;
+    color: var(--soft);
+  }
+
+  .cta-block .btn { margin: 4px 3px; }
+
+  /* ========================================================================
+     PIED D'ARTICLE — étiquettes et partage
+     ======================================================================== */
+
+  .article-footer {
+    margin-top: 3rem;
+    padding-top: 26px;
+    border-top: 1px solid var(--border);
+  }
+
+  .tags-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  /* Défini ici et non dans eperf.css : le design system n'a pas encore
+     d'étiquette. Le jour où il en aura une, supprimer ce bloc. */
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 13px;
+    font-size: 0.75rem;
+    border-radius: var(--r-pill);
+    background: var(--card);
+    color: var(--soft);
+    border: 1px solid var(--border);
+    transition: color var(--t) var(--ease-out),
+                border-color var(--t) var(--ease-out),
+                background-color var(--t) var(--ease-out);
+  }
+
+  .tag:hover {
+    border-color: var(--gold-border);
+    background: var(--gold-bg);
+    color: var(--gold);
+  }
+
+  .share-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.8125rem;
+    color: var(--muted);
+  }
+
+  /* Même pastille que le bouton de thème du site : rond, carte + bordure. */
+  .share-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    border-radius: var(--r-pill);
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--soft);
+    transition: color var(--t) var(--ease-out),
+                border-color var(--t) var(--ease-out),
+                background-color var(--t) var(--ease-out);
+  }
+
+  .share-btn:hover {
+    border-color: var(--gold-border);
+    background: var(--gold-bg);
+    color: var(--gold);
+  }
+
+  .share-btn .icon { width: 17px; height: 17px; }
+
+  /* ========================================================================
+     CARTES D'ARTICLE
+     ======================================================================== */
+
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .article-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--arrondi-carte);
+    transition: border-color var(--t) var(--ease-out),
+                box-shadow var(--t) var(--ease-out),
+                transform var(--t) var(--ease-out);
+  }
+
+  .article-card:hover {
+    border-color: var(--gold-border);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+  }
+
+  .article-card-thumb {
+    position: relative;
+    display: grid;
+    place-items: center;
+    height: 180px;
+    background: var(--card2);
+  }
+
+  .thumb-icon {
+    width: 44px;
+    height: 44px;
+    color: var(--gold);
+    opacity: 0.55;
+  }
+
+  .thumb-cat {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    padding: 5px 11px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    background: var(--card);
+    border: 1px solid var(--gold-border);
+    border-radius: var(--r-pill);
+  }
+
+  .article-card-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 24px;
+  }
+
+  .article-card-body h3 {
+    margin-bottom: 9px;
+    color: var(--text);
+    font-family: var(--police-titres);
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1.22;
+  }
+
+  .article-card-body p {
+    flex: 1;
+    margin-bottom: 18px;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--soft);
+  }
+
+  .article-card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: auto;
+    padding-top: 15px;
+    border-top: 1px solid var(--border);
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+
+  .article-card-meta > span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+  }
+
+  .article-card-meta .icon { width: 14px; height: 14px; }
+
+  /* ========================================================================
+     PILIERS
+     ======================================================================== */
+
+  .pillar-hero {
+    padding-block: clamp(3rem, 7vw, 6rem) clamp(2rem, 4vw, 3rem);
+  }
+
+  .pillar-hero .lead { margin-top: 20px; }
+
+  .piliers-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  /* Variante d'une seule colonne (page Contact) */
+  .piliers-grid.is-single {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .pilier-card {
+    display: block;
+    padding: 28px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--arrondi-carte);
+    transition: border-color var(--t) var(--ease-out),
+                box-shadow var(--t) var(--ease-out),
+                transform var(--t) var(--ease-out);
+  }
+
+  a.pilier-card:hover {
+    border-color: var(--gold-border);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+  }
+
+  /* Mêmes cotes que .card-icon d'eperf.css : pastille d'icône identique. */
+  .pilier-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    margin-bottom: 18px;
+    flex-shrink: 0;
+    background: var(--gold-bg);
+    border: 1px solid var(--gold-border);
+    border-radius: var(--r-sm);
+    color: var(--gold);
+  }
+
+  .pilier-icon .icon { width: 21px; height: 21px; }
+
+  .pilier-card h3 {
+    margin-bottom: 10px;
+    color: var(--text);
+    font-family: var(--police-titres);
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1.22;
+  }
+
+  .pilier-card p {
+    margin-bottom: 16px;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--soft);
+  }
+
+  .pilier-count {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+  }
+
+  .pilier-inline {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .pilier-inline-body { flex: 1; min-width: 0; }
+
+  /* ========================================================================
+     ARTICLES LIÉS
+     ======================================================================== */
+
+  /* Bande légèrement détachée du fond, comme le pied de page du site. */
+  .related {
+    padding-block: clamp(2.5rem, 5vw, 4rem);
+    background: var(--bg2);
+  }
+
+  /* ========================================================================
+     BANDES DE SECTION
+     ======================================================================== */
+
+  /* Anciennes mises en forme en ligne des pages du blog. */
+  .section-alt { background: var(--bg2); }
+  .section-flush-top { padding-top: 0; }
+
+  /* ========================================================================
+     UTILITAIRE PROPRE AU BLOG
+     ======================================================================== */
+
+  .small { font-size: 0.875rem; }
+
+  /* ========================================================================
+     PLANS DE TRAVAIL ÉTROITS
+     ======================================================================== */
+
+  @media (max-width: 900px) {
+    .piliers-grid { grid-template-columns: repeat(2, 1fr); }
+    .articles-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 620px) {
+    .piliers-grid { grid-template-columns: 1fr; }
+    .articles-grid { grid-template-columns: 1fr; }
+    .article-card-thumb { height: 150px; }
+  }
+}
+
+/* ==========================================================================
+   MOUVEMENT RÉDUIT
+   Aucune animation ne porte d'information dans ce fichier : tout est
+   transition décorative. On les neutralise entièrement.
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .pilier-card,
+  .article-card,
+  .article-body tbody tr,
+  .article-body p a,
+  .article-body li a,
+  .tag,
+  .share-btn,
+  .article-breadcrumb a {
+    transition: none;
+  }
+
+  .pilier-card:hover,
+  .article-card:hover {
+    transform: none;
+  }
+}
+
+/* ==========================================================================
+   Ce fichier est propre au blog : il décrit des composants éditoriaux
+   (corps d'article, largeur de lecture, cartes d'article et de pilier) qui
+   n'existent pas sur eperformance.pro. Ne pas le copier vers le site
+   principal — le site ne doit dépendre que d'assets/css/eperf.css.
+   ========================================================================== */
