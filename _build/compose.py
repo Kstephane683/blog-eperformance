@@ -225,7 +225,7 @@ PAGES = {
         "breadcrumb": [("Site web", "/site-web/"), ("Monétiser sans boutique", "/articles/monetiser-sans-ecommerce/")],
     },
     "articles/refonte-site-quand/index.html": {
-        "title": "Refonte de site : quand c'est nécessaire, quand c'est du luxe",
+        "title": "Refonte de site : nécessaire, ou du luxe ?",
         "description": 'Les signaux qui justifient une refonte, ceux qui ne la justifient pas, et les cinq chiffres à relever avant de décider entre réparer et tout refaire.',
         "fragment": "articles-refonte-site-quand.html",
         "nav_active": "site-web",
