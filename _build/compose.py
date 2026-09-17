@@ -51,12 +51,12 @@ YEAR = "2026"
 # ---------------------------------------------------------------------------
 
 NAV = [
-    ("Accueil",        "index.html",   "accueil"),
-    ("Acquisition",    "acquisition/", "acquisition"),
-    ("Site web",       "site-web/",    "site-web"),
-    ("SEO",            "seo/",         "seo"),
-    ("Business",       "business/",    "business"),
-    ("À propos",       "a-propos/",    "a-propos"),
+    ("Accueil",        "/",            "accueil"),
+    ("Acquisition",    "/acquisition/", "acquisition"),
+    ("Site web",       "/site-web/",   "site-web"),
+    ("SEO",            "/seo/",        "seo"),
+    ("Business",       "/business/",   "business"),
+    ("À propos",       "/a-propos/",   "a-propos"),
     ("Site principal", SITE_URL,       "site"),
 ]
 
@@ -102,7 +102,7 @@ PAGES = {
         "description": "Méthodes concrètes sur le CAC, la création de sites web professionnels et le SEO local à Abidjan. Par K. Stéphane, fondateur d'ePerformance.",
         "h1": 'Piloter l\'acquisition <em>sans piloter à l\'aveugle.</em>',
         "lead": "Articles concrets sur le calcul du vrai CAC, la création de sites web professionnels en Côte d'Ivoire, le SEO local à Abidjan et la stratégie d'acquisition rentable. Que des méthodes appliquées, chiffres à l'appui.",
-        "cta": ("Voir le pilier Acquisition", "acquisition/"),
+        "cta": ("Voir le pilier Acquisition", "/acquisition/"),
         "cta2": ("Site principal", SITE_URL),
         "fragment": "index.html",
         "nav_active": "accueil",
@@ -116,7 +116,7 @@ PAGES = {
         "cta": ("Faire mon diagnostic gratuit", SITE_URL + "/diagnostic_eperformance.html"),
         "fragment": "acquisition.html",
         "nav_active": "acquisition",
-        "breadcrumb": [("Acquisition", "acquisition/")],
+        "breadcrumb": [("Acquisition", "/acquisition/")],
     },
     "site-web/index.html": {
         "title": "Site web professionnel en Côte d'Ivoire | Blog ePerformance",
@@ -127,7 +127,7 @@ PAGES = {
         "cta": ("Voir les formules", SITE_URL + "/site-web.html"),
         "fragment": "site-web.html",
         "nav_active": "site-web",
-        "breadcrumb": [("Site web", "site-web/")],
+        "breadcrumb": [("Site web", "/site-web/")],
     },
     "seo/index.html": {
         "title": "SEO local à Abidjan et référencement | Blog ePerformance",
@@ -135,10 +135,10 @@ PAGES = {
         "h1": 'Apparaître <em>quand vos clients vous cherchent.</em>',
         "eyebrow": "Pilier 03 · SEO",
         "lead": "Le SEO n'est pas un luxe d'agence. C'est le canal le moins cher pour ramener des clients qualifiés, mois après mois, sans budget publicitaire.",
-        "cta": ("Guide SEO local à Abidjan", "articles/seo-local-abidjan-guide/"),
+        "cta": ("Guide SEO local à Abidjan", "/articles/seo-local-abidjan-guide/"),
         "fragment": "seo.html",
         "nav_active": "seo",
-        "breadcrumb": [("SEO", "seo/")],
+        "breadcrumb": [("SEO", "/seo/")],
     },
     "business/index.html": {
         "title": "Business et modèle économique | Blog ePerformance",
@@ -155,7 +155,7 @@ PAGES = {
         "description": "K. Stéphane accompagne les entrepreneurs de Côte d'Ivoire sur leur acquisition depuis 2017. Parcours, méthode et raison d'être de ce blog.",
         "h1": 'K. Stéphane, <em>fondateur d\'ePerformance.</em>',
         "lead": "J'accompagne des entrepreneurs qui vendent déjà et qui veulent savoir ce que chaque client leur coûte vraiment. Basé en Côte d'Ivoire, 100 % en ligne.",
-        "cta": ("Me contacter", "contact/"),
+        "cta": ("Me contacter", "/contact/"),
         "fragment": "a-propos.html",
         "nav_active": "a-propos",
         "breadcrumb": [("À propos", "a-propos/")],
@@ -310,7 +310,7 @@ def header(active=""):
 <header class="site-header">
   <div class="container header-inner">
 
-    <a class="logo" href="index.html" aria-label="ePerformance — accueil">
+    <a class="logo" href="/" aria-label="ePerformance — accueil">
       <img class="logo-img-light" src="/assets/img/logo-light.webp"
            srcset="assets/img/logo-light.webp 1x, assets/img/logo-light@2x.webp 2x"
            width="182" height="30" alt="ePerformance" fetchpriority="high">
@@ -336,7 +336,7 @@ def header(active=""):
         </svg>
       </button>
 
-      <a class="btn btn-gold btn-desktop" href="diagnostic_eperformance.html">Diagnostic gratuit</a>
+      <a class="btn btn-gold btn-desktop" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
 
       <button class="nav-toggle" type="button" aria-expanded="false"
               aria-controls="primary-nav" aria-label="Ouvrir le menu">
@@ -399,7 +399,7 @@ def footer():
 </footer>
 
 <div class="sticky-cta">
-  <a class="btn btn-gold" href="diagnostic_eperformance.html">Diagnostic gratuit</a>
+  <a class="btn btn-gold" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
   <a class="btn btn-wa" href="{WHATSAPP}" style="flex:0 0 auto" rel="noopener">WhatsApp</a>
 </div>"""
 
@@ -415,8 +415,8 @@ CONSENT_BANNER = """<div class="consent" id="consent-banner" hidden>
       <p><strong>Vous choisissez ce que nous mesurons.</strong></p>
       <p>Nous utilisons des traceurs pour comprendre comment le site est utilisé et pour
          mesurer nos campagnes. Aucun ne se déclenche avant votre accord.
-         <a href="politique-confidentialite.html">Politique de confidentialité</a> ·
-         <a href="cookies.html">En savoir plus</a></p>
+         <a href="https://eperformance.pro/politique-confidentialite.html">Politique de confidentialité</a> ·
+         <a href="https://eperformance.pro/cookies.html">En savoir plus</a></p>
     </div>
     <div class="consent-actions">
       <button type="button" class="btn btn-ghost" data-consent="refuse">Tout refuser</button>
@@ -584,7 +584,7 @@ def strip_schema(raw):
 def breadcrumb_html(meta):
     if not meta.get("breadcrumb"):
         return ""
-    items = ['<li><a href="index.html">Accueil</a></li>']
+    items = ['<li><a href="/">Accueil</a></li>']
     for i, (name, href) in enumerate(meta["breadcrumb"]):
         last = i == len(meta["breadcrumb"]) - 1
         if last:
@@ -637,6 +637,8 @@ def hero(meta):
 # ---------------------------------------------------------------------------
 
 def compose_page(page_key, meta):
+    # Les fragments peuvent référencer https://eperformance.pro : ils sont rendus ici.
+    meta = dict(meta)
     frag_path = os.path.join(CONTENT, meta["fragment"])
     if not os.path.exists(frag_path):
         raise FileNotFoundError(f"fragment manquant : {frag_path}")
