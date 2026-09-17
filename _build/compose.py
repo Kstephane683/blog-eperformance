@@ -1326,6 +1326,23 @@ def controler(page_key, html_produit):
 # PROGRAMME
 # ---------------------------------------------------------------------------
 
+def articles_differe():
+    """Slugs des articles planifiés qui ne sont pas encore publiés.
+
+    Lit _schedule.json : un article dont le drapeau published est faux n'est
+    pas encore en ligne. Sa page est composée quand même — sinon les liens des
+    articles déjà publiés vers lui casseraient — mais elle porte
+    « noindex,follow » et reste hors du sitemap et de l'index. Un lien qui
+    résout vers une page noindex vaut mieux qu'un lien vers une 404.
+    """
+    chemin = os.path.join(PREVIEW, "_schedule.json")
+    if not os.path.exists(chemin):
+        return set()
+    with open(chemin, encoding="utf-8") as f:
+        sched = json.load(f)
+    return {a["slug"] for a in sched.get("articles", []) if not a.get("published")}
+
+
 def main():
     ap = argparse.ArgumentParser(description="Compose les pages statiques ePerformance.")
     ap.add_argument("--check", action="store_true", help="vérifie sans écrire")
@@ -1335,10 +1352,16 @@ def main():
     os.makedirs(PREVIEW, exist_ok=True)
 
     written, skipped, errors = 0, [], []
+    differes = articles_differe()
+    noindexes = 0
 
     for page_key, meta in PAGES.items():
         if args.only and page_key != args.only:
             continue
+        meta = dict(meta)
+        if page_key.startswith("articles/") and page_key.split("/")[1] in differes:
+            meta["noindex"] = True
+            noindexes += 1
         frag = os.path.join(CONTENT, meta["fragment"])
         if not os.path.exists(frag):
             skipped.append((page_key, meta["fragment"]))
@@ -1362,6 +1385,8 @@ def main():
 
     label = "vérifiées" if args.check else "écrites"
     print(f"  {written} page(s) {label}")
+    if noindexes:
+        print(f"  dont {noindexes} article(s) planifié(s) en noindex — hors sitemap, hors index")
     if written and not errors:
         print(f"  ressources vérifiées : feuille de style, JS, polices")
 

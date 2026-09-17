@@ -1,0 +1,112 @@
+name: Publication planifiée du blog
+
+# Le blog publie cinq articles par jour, du 18 septembre au 3 octobre 2026.
+# Ce workflow fait passer en ligne ce qui est dû, puis committe. Le push
+# déclenche le déploiement GitHub Pages du blog.
+
+on:
+  schedule:
+    # 10h00 UTC = 10h00 à Abidjan (UTC+0). Les articles du jour portent des
+    # heures de 10h00 à 12h00, mais c'est la DATE qui décide de la parution.
+    - cron: '0 10 * * *'
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 'Simuler une date (AAAA-MM-JJ). Vide = date du jour.'
+        required: false
+        type: string
+      dry_run:
+        description: 'Simulation seule, sans écriture'
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: publication-planifiee
+  cancel-in-progress: false
+
+jobs:
+  publier:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Publier les articles dus
+        id: publication
+        run: |
+          set +e
+          ARGS=""
+          if [ -n "${{ inputs.date }}" ]; then ARGS="$ARGS --date ${{ inputs.date }}"; fi
+          if [ "${{ inputs.dry_run }}" = "true" ]; then ARGS="$ARGS --dry-run"; fi
+          python3 scripts/publish-scheduled.py $ARGS
+          code=$?
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          if [ "$code" = "0" ]; then
+            echo "publie=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "publie=false" >> "$GITHUB_OUTPUT"
+          fi
+          exit 0
+
+      - name: Vérifier la cohérence avant commit
+        if: steps.publication.outputs.publie == 'true'
+        run: |
+          python3 scripts/verify-articles.py | tail -3
+
+      - name: Committer et pousser
+        if: steps.publication.outputs.publie == 'true' && inputs.dry_run != true
+        run: |
+          git config user.name  "ePerformance"
+          git config user.email "bonjour@eperformance.pro"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "aucun changement à committer"
+          else
+            N=$(python3 -c "import json;d=json.load(open('_schedule.json'));print(sum(1 for a in d['articles'] if a.get('published')))")
+            git commit -m "chore(publication): articles dus au $(date -u +%Y-%m-%d)" -m "Publication automatique. $N article(s) en ligne au total. Calendrier : _schedule.json. Script : scripts/publish-scheduled.py."
+            git push
+          fi
+
+      - name: Créer une issue si la publication a échoué
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const titre = `Publication du blog en échec — ${new Date().toISOString().slice(0,10)}`;
+            const corps = [
+              "Le workflow de publication planifiée a échoué.",
+              "",
+              `Exécution : ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
+              "",
+              "Les articles du jour ne sont pas en ligne. Vérifier `scripts/publish-scheduled.py`",
+              "et `_schedule.json`, puis relancer le workflow manuellement depuis l'onglet Actions",
+              "(bouton « Run workflow »).",
+            ].join("\n");
+            const existantes = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo,
+              state: "open", labels: "publication-blog",
+            });
+            if (existantes.data.length === 0) {
+              await github.rest.issues.create({
+                owner: context.repo.owner, repo: context.repo.repo,
+                title: titre, body: corps, labels: ["publication-blog"],
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: existantes.data[0].number, body: corps,
+              });
+            }
