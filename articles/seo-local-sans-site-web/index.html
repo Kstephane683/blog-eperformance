@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+(function(){try{var t=localStorage.getItem('eperf-theme');
+if(t!=='dark'&&t!=='light'){t='light';}
+document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+  <title>SEO local pour un commerce sans site web</title>
+  <meta name="description" content="Une fiche Google bien tenue ramène des appels et des visites, sans site. Voici ce qu&#x27;elle permet vraiment, et le point exact où elle plafonne.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://blog.eperformance.pro/articles/seo-local-sans-site-web/index.html">
+  <meta name="theme-color" content="#fdfcfa">
+  <meta name="author" content="K. Stéphane">
+
+  <!-- Icônes -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="icon" href="/assets/img/favicon-16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ePerformance">
+  <meta property="og:locale" content="fr_CI">
+  <meta property="og:title" content="SEO local pour un commerce sans site web">
+  <meta property="og:description" content="Une fiche Google bien tenue ramène des appels et des visites, sans site. Voici ce qu&#x27;elle permet vraiment, et le point exact où elle plafonne.">
+  <meta property="og:url" content="https://blog.eperformance.pro/articles/seo-local-sans-site-web/index.html">
+  <meta property="og:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ePerformance — ePerformance">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SEO local pour un commerce sans site web">
+  <meta name="twitter:description" content="Une fiche Google bien tenue ramène des appels et des visites, sans site. Voici ce qu&#x27;elle permet vraiment, et le point exact où elle plafonne.">
+  <meta name="twitter:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta name="twitter:creator" content="@eperformancepro">
+
+  <!-- Polices : préconnexion, préchargement des deux polices critiques,
+       puis chargement non bloquant de la feuille complète -->
+  <!-- Polices : auto-hébergées, déclarées dans eperf.css.
+       On précharge les deux graisses du premier écran pour que le
+       texte soit peint dans la bonne police dès le premier rendu. -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/cormorant-garamond-700.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/dm-sans-400.woff2">
+
+  <!-- Design system : la MEME feuille que le site, a l'identique. -->
+  <link rel="stylesheet" href="/assets/css/eperf.css">
+  <!-- Composants editoriaux du blog : corps d'article, largeur de
+       lecture, cartes d'article. Ils consomment les jetons d'eperf.css
+       et ne redefinissent aucune couleur. -->
+  <link rel="stylesheet" href="/assets/css/blog.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://blog.eperformance.pro/#organization",
+      "name": "ePerformance",
+      "alternateName": "ePerformance par K. Stéphane",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "founder": {
+        "@type": "Person",
+        "@id": "https://blog.eperformance.pro/#founder",
+        "name": "K. Stéphane",
+        "jobTitle": "Fondateur, stratège acquisition",
+        "url": "https://blog.eperformance.pro/kstephane.html"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Côte d'Ivoire"
+        },
+        {
+          "@type": "Country",
+          "name": "Burkina Faso"
+        },
+        {
+          "@type": "Place",
+          "name": "Afrique de l'Ouest"
+        }
+      ],
+      "knowsLanguage": "fr",
+      "sameAs": [
+        "https://blog.eperformance.pro/"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://blog.eperformance.pro/#localbusiness",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "parentOrganization": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Abidjan",
+        "addressCountry": "CI"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Côte d'Ivoire"
+      },
+      "priceRange": "100000-350000 XOF",
+      "currenciesAccepted": "XOF",
+      "paymentAccepted": "Orange Money, Wave, MTN MoMo, Moov Money, Visa, Mastercard",
+      "availableLanguage": "fr"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://blog.eperformance.pro/#website",
+      "url": "https://blog.eperformance.pro",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "publisher": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://blog.eperformance.pro/articles/seo-local-sans-site-web/index.html#webpage",
+      "url": "https://blog.eperformance.pro/articles/seo-local-sans-site-web/index.html",
+      "name": "SEO local pour un commerce sans site web",
+      "description": "Une fiche Google bien tenue ramène des appels et des visites, sans site. Voici ce qu'elle permet vraiment, et le point exact où elle plafonne.",
+      "isPartOf": {
+        "@id": "https://blog.eperformance.pro/#website"
+      },
+      "about": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://blog.eperformance.pro/articles/seo-local-sans-site-web/index.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://blog.eperformance.pro/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "SEO",
+          "item": "https://blog.eperformance.pro/seo/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "SEO local pour un commerce sans site web",
+          "item": "https://blog.eperformance.pro/articles/seo-local-sans-site-web/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"SEO local pour un commerce sans site web",
+  "description":"Une fiche Google bien tenue ramène des appels et des visites, sans site. Voici ce qu'elle permet vraiment, et le point exact où elle plafonne.",
+  "image":"https://blog.eperformance.pro/assets/img/og-seo-local.jpg",
+  "datePublished":"2027-02-05T09:00:00+00:00",
+  "dateModified":"2027-02-05T09:00:00+00:00",
+  "inLanguage":"fr-CI",
+  "wordCount":2414,
+  "articleSection":"SEO",
+  "keywords":["seo local sans site","google maps commerce","visibilité locale","fiche Google","Abidjan","Ouagadougou"],
+  "author":{"@type":"Person","name":"K. STEPHANE","jobTitle":"Fondateur ePerformance","url":"https://blog.eperformance.pro/a-propos/"},
+  "publisher":{"@type":"Organization","name":"ePerformance","logo":{"@type":"ImageObject","url":"https://eperformance.pro/assets/img/logo-light.webp"}},
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.eperformance.pro/articles/seo-local-sans-site-web/"}
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Blog","item":"https://blog.eperformance.pro/"},
+    {"@type":"ListItem","position":2,"name":"SEO","item":"https://blog.eperformance.pro/seo/"},
+    {"@type":"ListItem","position":3,"name":"SEO local pour un commerce sans site web","item":"https://blog.eperformance.pro/articles/seo-local-sans-site-web/"}
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Peut-on apparaître sur Google sans site web ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Une fiche Google bien remplie apparaît dans le pack local et sur Google Maps, sans site et sans publicité. La limite est ailleurs : vous sortez sur les recherches de proximité et sur votre nom, pas sur les recherches de service précises, parce que Google n'a alors aucune page à classer pour vous."}},
+    {"@type":"Question","name":"La fiche seule suffit-elle pour un commerce qui se déplace ?","acceptedAnswer":{"@type":"Answer","text":"Elle suffit pour être trouvé dans la commune où vous êtes enregistré, et pour donner envie d'appeler. Elle ne suffit pas pour couvrir plusieurs zones : une fiche porte une adresse et une zone de service, pas une page par quartier. Si vous intervenez dans toute une ville, le site devient le complément naturel."}},
+    {"@type":"Question","name":"Faut-il un site pour figurer sur Google Maps ?","acceptedAnswer":{"@type":"Answer","text":"Non, la fiche suffit pour Maps, y compris pour l'itinéraire, les horaires et les photos. Ce que le site apporte, c'est la confirmation : mêmes nom, adresse et téléphone, plus des pages qui décrivent vos services. Cette cohérence renforce la fiche, elle ne la remplace pas."}},
+    {"@type":"Question","name":"Qu'est-ce qu'on perd vraiment quand on n'a pas de site ?","acceptedAnswer":{"@type":"Answer","text":"Trois choses. Les recherches de service précises, où seul un site peut se classer. Les réponses longues : délais, conditions, détails techniques, qui ne tiennent pas dans une fiche. Et la mesure : sans site, vous ne savez pas d'où viennent vos visiteurs ni ce qu'ils ont cherché avant de vous appeler."}},
+    {"@type":"Question","name":"Peut-on mesurer les appels venus de la fiche ?","acceptedAnswer":{"@type":"Answer","text":"Oui, partiellement. La fiche compte les appels, les demandes d'itinéraire et les recherches utilisées, visibles dans ses statistiques. Ce qu'elle ne dit pas : qui a appelé sans laisser de trace, ce que la personne a lu, et pourquoi d'autres ont renoncé. Complétez avec un suivi manuel des demandes WhatsApp."}},
+    {"@type":"Question","name":"Que faire si la fiche est suspendue ?","acceptedAnswer":{"@type":"Answer","text":"D'abord vérifier les causes les plus fréquentes : un nom qui contient des mots-clés, une adresse qui ne correspond pas à une adresse réelle, deux fiches pour la même entreprise. Ensuite, demander le rétablissement depuis l'interface, en répondant aux questions posées. C'est précisément le moment où un site et un domaine à votre nom changent la donne : vous gardez une porte d'entrée."}}
+  ]
+}
+  </script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a class="logo" href="/" aria-label="ePerformance — accueil">
+      <img class="logo-img-light" src="/assets/img/logo-light.webp"
+           srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+           width="182" height="30" alt="ePerformance" fetchpriority="high">
+      <img class="logo-img-dark" src="/assets/img/logo-dark.webp"
+           srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+           width="188" height="30" alt="" aria-hidden="true">
+    </a>
+
+    <nav class="nav" id="primary-nav" aria-label="Navigation principale">
+      <a href="/">Accueil</a>
+      <a href="/acquisition/">Acquisition</a>
+      <a href="/site-web/">Site web</a>
+      <a href="/seo/" aria-current="page">SEO</a>
+      <a href="/business/">Business</a>
+      <a href="/articles/ia-generative-pme-africaine/">IA</a>
+      <a href="/articles/automatisation-marketing-debuter/">Automatisation</a>
+      <a href="/a-propos/">À propos</a>
+      <a href="https://eperformance.pro" rel="noopener">Site principal</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" data-theme-toggle
+              aria-pressed="false" aria-label="Activer le thème sombre">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+        </svg>
+      </button>
+
+      <a class="btn btn-gold btn-desktop" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false"
+              aria-controls="primary-nav" aria-label="Ouvrir le menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<nav class="breadcrumb container" aria-label="Fil d'Ariane">
+  <ol>
+    <li><a href="/">Accueil</a></li>
+    <li><a href="/seo/">SEO</a></li>
+    <li aria-current="page">SEO local pour un commerce sans site web</li>
+  </ol>
+</nav>
+
+<main id="main">
+
+
+<section class="article-hero">
+  <div class="container-reading">
+
+    <nav class="article-breadcrumb" aria-label="Fil d'Ariane">
+      <a href="/">Blog</a>
+      <span class="sep">/</span>
+      <a href="/seo/">SEO</a>
+      <span class="sep">/</span>
+      <span>Commerce sans site web</span>
+    </nav>
+
+    <span class="article-category">SEO</span>
+    <h1>SEO local pour un commerce <span class="text-gold">sans site web</span></h1>
+    <p class="lead">Une fiche Google bien tenue ramène des appels, des itinéraires et des visites, sans site et sans budget publicitaire. Mais elle plafonne, et il faut savoir où. Voici ce qui est atteignable avec une fiche seule à Abidjan comme à Ouagadougou, et ce qui ne le sera jamais.</p>
+
+    <div class="article-meta">
+      <div class="author">
+        <div class="author-avatar">KS</div>
+        <div>
+          <div class="article-author-name">K. STEPHANE</div>
+          <div class="small">Fondateur ePerformance</div>
+        </div>
+      </div>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg> 5 février 2027</span>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.6 2.1"/></svg> 12 min de lecture</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section-flush-top">
+  <div class="article-body container-reading">
+
+    <p>Beaucoup de commerces vivent très bien avec une fiche Google et un numéro WhatsApp. Pas de site, pas de budget publicitaire, et le téléphone sonne quand même. Pour une recherche du type « maquis près de moi », le bloc de trois entreprises s'affiche avant tout le reste, et beaucoup de clients ne descendent jamais plus bas.</p>
+
+    <p>La question n'est donc pas de savoir si une fiche seule sert à quelque chose. Elle sert. La question est de savoir où elle plafonne, et ce guide trace cette limite.</p>
+
+    <h2>Ce qu'une fiche seule ramène déjà</h2>
+
+    <p>Le pack local affiche trois entreprises avec une carte, une note, des horaires et un bouton d'appel. Il répond à la question « qui est ouvert près d'ici, maintenant ». Une fiche complète y suffit, sans site et sans publicité.</p>
+
+    <p>Ce qu'elle porte déjà : l'appel en un geste, l'itinéraire calculé depuis la position du client, les horaires du jour, la note et trois avis récents, des photos, les moyens de paiement acceptés, parfois un bouton WhatsApp. Sur un téléphone d'entrée de gamme avec une connexion lente, cette fiche s'affiche plus vite que n'importe quel site.</p>
+
+    <div class="callout">
+      <p><strong>Le repère.</strong> Une fiche répond à une question de proximité : qui est près d'ici, ouvert, et joignable. Tant que vos clients cherchent sur ce mode, vous n'avez pas besoin d'autre chose.</p>
+    </div>
+
+    <h2>Les trois recherches qui amènent des appels</h2>
+
+    <p>Un commerce local est cherché de trois façons. Deux se traitent avec une fiche, la troisième non.</p>
+
+    <h3>La recherche de proximité</h3>
+    <p>« Pharmacie de garde », « garage ouvert maintenant », « restaurant près d'ici » : la personne ne cherche pas une entreprise en particulier, elle cherche la plus proche qui fasse l'affaire. La fiche est imbattable sur ce terrain. Votre travail se limite à trois choses : la bonne catégorie, des horaires justes, des avis récents.</p>
+
+    <h3>La recherche par nom</h3>
+    <p>Quelqu'un a entendu votre nom et le tape dans Google pour récupérer l'adresse. Là encore, la fiche suffit : elle est le premier résultat dans presque tous les cas. Un site n'ajoute rien à ce moment précis.</p>
+
+    <h3>La recherche de service</h3>
+    <p>« Menuiserie bois massif Abidjan », « cabinet comptable PME Ouagadougou », « réparation frigo Cocody ». Ici, la personne sait ce qu'elle veut et cherche à comparer. C'est la recherche qui amène les demandes les plus sérieuses, et celle où la fiche seule s'arrête : les entreprises qui sortent sur ces requêtes ont presque toujours une page à elles, parce que Google a besoin d'une page à classer.</p>
+
+    <h2>La limite, dite clairement</h2>
+
+    <p>Une fiche n'est pas une page. Vous n'y écrivez que ce que Google a prévu : un nom, une catégorie, une zone, des horaires, une description de 750 caractères, des photos, des publications courtes. Quatre conséquences méritent d'être regardées en face.</p>
+
+    <h3>Vous ne répondez pas aux questions détaillées</h3>
+    <p>Un client veut savoir ce que comprend votre devis, combien de temps prend une réparation, quels modèles sont en stock. La fiche ne porte pas ces réponses. Il appellera — ou il ira voir ailleurs.</p>
+
+    <h3>Vous ne ciblez ni un service ni un quartier</h3>
+    <p>Un commerce a une fiche, une catégorie principale, une zone. Vous ne pouvez pas créer une entrée pour la livraison, une pour l'installation, une pour chaque quartier où vous intervenez. Or c'est ce découpage qui permet d'apparaître sur des recherches précises.</p>
+
+    <h3>Vous ne mesurez presque rien</h3>
+    <p>Les statistiques donnent des appels, des demandes d'itinéraire et les recherches utilisées. Elles ne disent pas ce que la personne a lu, ni pourquoi elle n'a pas appelé. Impossible de savoir si c'est la photo, l'horaire ou le manque d'avis qui a fait la différence.</p>
+
+    <h3>Vous ne possédez rien</h3>
+    <p>La fiche appartient à Google. Elle peut être suspendue pour une raison que vous ne verrez pas venir : un nom modifié, une adresse disputée, une catégorie changée par un tiers. Pendant le rétablissement, vous n'avez ni page, ni copie, ni autre porte d'entrée.</p>
+
+    <div class="callout">
+      <p><strong>Autrement dit.</strong> Une fiche vous rend visible là où vous êtes. Elle ne vous rend pas visible sur ce que vous savez faire, ni sur les questions qu'un client se pose avant de vous choisir.</p>
+    </div>
+
+    <h2>Les champs qui décident, et ce qu'on y met</h2>
+
+    <p>Tant que vous n'avez qu'une fiche, elle doit être complète. Chaque champ vide est une recherche perdue.</p>
+
+    <p>Le <strong>nom</strong> s'écrit exactement comme sur votre enseigne, sans mots-clés ajoutés. La <strong>catégorie principale</strong> se choisit la plus précise possible : « Menuiserie » plutôt que « Commerce ». La <strong>zone de service</strong> couvre les communes où vous vous déplacez réellement. Les <strong>horaires</strong> incluent la pause de midi et les jours fermés. Les <strong>photos</strong> montrent la façade, l'intérieur, l'équipe et deux ou trois réalisations.</p>
+
+    <p>Le détail de chaque champ est traité dans <a href="/articles/fiche-google-business-profile/">la configuration de la fiche Google Business Profile</a>. Ce qu'il faut retenir ici : tant que la fiche n'est pas complète, tout le reste — avis, citations, publications — travaille sur une base faible.</p>
+
+    <h2>Les avis : le seul contenu que vous produisez</h2>
+
+    <p>Sans site, l'avis client devient votre page de vente. C'est lui qui rassure, qui donne le ton, qui lève les doutes. Un commerce avec quinze avis récents et des réponses du patron inspire plus confiance qu'une fiche impeccable et vide.</p>
+
+    <p>Trois gestes suffisent. Demander juste après que le client a été servi. Demander par WhatsApp, avec un lien court qui ouvre le formulaire d'avis. Répondre à tout, y compris aux mauvais avis, en quelques lignes calmes.</p>
+
+    <p>Les demandes en masse à des clients qui ne vous reconnaissent plus et les avis achetés fonctionnent mal : ces derniers se repèrent et se paient. La méthode est détaillée dans <a href="/articles/avis-google-sans-forcer/">obtenir des avis Google sans forcer</a>.</p>
+
+    <h2>Les citations : faire confirmer votre existence ailleurs</h2>
+
+    <p>Votre fiche dit que vous existez. Encore faut-il que d'autres sources le confirment. C'est le rôle des citations : votre nom, votre adresse et votre numéro écrits sur d'autres sites — annuaires professionnels, pages Facebook, associations de métier, presse locale.</p>
+
+    <p>Sans site, ces mentions comptent double : elles remplacent la page qui porterait vos coordonnées. Une seule graphie pour le nom, une seule adresse, un seul numéro. Une inscription restée avec un ancien numéro crée de la confusion, et la confusion coûte des appels. Les plateformes qui comptent en Côte d'Ivoire sont listées dans <a href="/articles/annuaires-citations-cote-ivoire/">les annuaires et citations ivoiriens</a>.</p>
+
+    <h2>WhatsApp comme vitrine de remplacement</h2>
+
+    <p>Pour beaucoup de commerces de la sous-région, WhatsApp Business joue déjà le rôle du site : catalogue, prix, prise de commande, suivi de livraison. Bien réglé, il couvre une bonne partie de ce qu'un client veut savoir avant de se déplacer.</p>
+
+    <p>À y mettre : une description claire de l'activité et de la zone couverte, un catalogue avec prix et disponibilité, un message d'accueil, des réponses rapides, et un lien du type wa.me affiché dans la biographie Facebook, dans la fiche Google et sur vos factures.</p>
+
+    <p>Ce qu'il ne couvre pas : on ne vous trouve pas dessus quand on cherche un service sur Google. Il ne se classe pas dans les résultats, et une conversation ne se retrouve pas par une recherche. Le canal convertit une demande déjà arrivée ; il ne fait pas venir la demande. Voir <a href="/articles/whatsapp-business-conversion/">WhatsApp Business comme canal de conversion</a>.</p>
+
+    <h2>Ce qu'un site ajoute, et que rien ne remplace</h2>
+
+    <p>À partir d'un certain volume, une fiche seule devient un plafond de verre.</p>
+
+    <p><strong>Une page par service.</strong> Menuiserie, pose, réparation, sur-mesure : chaque service devient une page, donc une chance de plus d'être trouvé sur la recherche correspondante. Une fiche ne se multiplie pas ; un site, oui.</p>
+
+    <p><strong>Une page par quartier.</strong> Un plombier qui intervient à Cocody, Yopougon et Marcory le dit sur trois pages distinctes, avec les repères de chacune. C'est ce que la fiche ne permet pas. La méthode d'ensemble est dans <a href="/articles/seo-local-abidjan-guide/">le guide du SEO local à Abidjan</a>, et sa transposition au marché burkinabè dans <a href="/articles/pack-local-ouagadougou/">le pack local à Ouagadougou</a>.</p>
+
+    <p><strong>Le contenu long.</strong> Délais, conditions de fabrication, entretien, questions techniques : tout ce qui dépasse 750 caractères vit sur un site, pas sur une fiche.</p>
+
+    <p><strong>La mesure et la propriété.</strong> Un site relié à un outil de mesure dit d'où viennent les visiteurs, quelles pages ils lisent, ce qu'ils cherchent avant d'appeler. Et le nom de domaine, les contenus et les accès restent chez vous : c'est la seule partie de votre présence en ligne que personne ne peut vous retirer. Ce point est repris dans <a href="/articles/domaine-hebergement-propriete/">nom de domaine et hébergement</a>.</p>
+
+    <h2>Mesurer ce que la fiche rapporte, même sans site</h2>
+
+    <p>Une fiche n'est pas aveugle : elle produit des chiffres. Trois se relèvent chaque mois dans ses statistiques. Le nombre d'appels partis de la fiche. Les demandes d'itinéraire, qui indiquent combien de personnes ont décidé de se déplacer. Les recherches utilisées, qui montrent les services que les gens attendent de vous. Ajoutez deux colonnes tenues à la main : les demandes reçues par WhatsApp et les ventes que vous rattachez à la fiche.</p>
+
+    <p>Le repère utile n'est pas le chiffre brut, c'est son évolution. Une fiche qui passe de vingt à huit appels par mois signale quelque chose : un horaire devenu faux, une photo qui vieillit, une note qui baisse.</p>
+
+    <h2>Le calcul, quand le site commence à se justifier</h2>
+
+    <p>La décision de faire un site se prend sur un ordre de grandeur, pas sur une impression. À gauche, le coût : conception, nom de domaine, hébergement annuel, maintenance. Les fourchettes pratiquées sur le marché ivoirien sont détaillées dans <a href="/articles/prix-site-web-cote-ivoire/">le prix d'un site web en Côte d'Ivoire</a>. À droite, la valeur d'un client supplémentaire, multipliée par le nombre de clients nécessaires pour couvrir ce coût sur douze mois.</p>
+
+    <p>Un exemple. Un site coûte 400 000 FCFA à produire et 60 000 FCFA par an à héberger. Votre marge moyenne par client est de 25 000 FCFA. Le site se rembourse donc à partir de dix-sept clients obtenus en plus, la première année. La vraie question devient : combien de demandes ne sont jamais arrivées parce que le client n'a trouvé qu'une fiche ? Personne ne peut y répondre à votre place.</p>
+
+    <p>Un site n'est pas forcément une boutique en ligne. Pour beaucoup d'activités, la bonne version est une vitrine qui explique les services et ramène vers WhatsApp ou un rendez-vous. Le choix est traité dans <a href="/articles/vitrine-ou-ecommerce/">site vitrine ou e-commerce</a>.</p>
+
+    <h2>Par quoi commencer, et dans quel ordre</h2>
+
+    <p>L'ordre compte, parce que chaque étape rend la suivante plus facile.</p>
+
+    <p><strong>Un : la fiche.</strong> Nom exact, catégorie précise, zone juste, horaires réels, description qui dit ce que vous faites et où, photos récentes. Une soirée de travail, puis quinze minutes par mois.</p>
+
+    <p><strong>Deux : les avis.</strong> Après chaque client satisfait, un message WhatsApp avec le lien d'avis. Cinq à dix demandes par mois suffisent. Répondez à tout ce qui arrive.</p>
+
+    <p><strong>Trois : les citations.</strong> Dix inscriptions exactes dans des annuaires sérieux, la même semaine. Puis une vérification tous les six mois.</p>
+
+    <p><strong>Quatre : WhatsApp Business.</strong> Catalogue, message d'accueil, réponses rapides, lien affiché partout où votre nom apparaît.</p>
+
+    <p><strong>Cinq : le site.</strong> Quand le calcul de la section précédente passe, ou quand les questions de vos clients deviennent trop longues pour un message. Commencez par trois pages : accueil, service principal, contact — avec le même nom, la même adresse et le même numéro que la fiche, à la virgule près.</p>
+
+    <p>Le jour où le site existe, la fiche ne disparaît pas : elle reste votre entrée sur les recherches de proximité. Les deux se renforcent, à une condition non négociable : partout, les mêmes coordonnées.</p>
+
+    <div class="cta-block">
+      <h2>Une fiche seule, ou une fiche soutenue par un site</h2>
+      <p>La page site web présente ce qui est remis avec un site : pages qui décrivent vos services, coordonnées identiques à celles de votre fiche, et accès qui restent entre vos mains.</p>
+      <a class="btn btn-gold" href="https://eperformance.pro/site-web.html">Voir la page site web
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <h2>FAQ — Commerce local et site web</h2>
+
+    <div class="faq-section">
+      <details>
+        <summary>Peut-on apparaître sur Google sans site web ?</summary>
+        <p>Oui. Une fiche Google bien remplie apparaît dans le pack local et sur Google Maps, sans site et sans publicité. La limite est ailleurs : vous sortez sur les recherches de proximité et sur votre nom, pas sur les recherches de service précises, parce que Google n'a alors aucune page à classer pour vous.</p>
+      </details>
+
+      <details>
+        <summary>La fiche seule suffit-elle pour un commerce qui se déplace ?</summary>
+        <p>Elle suffit pour être trouvé dans la commune où vous êtes enregistré, et pour donner envie d'appeler. Elle ne suffit pas pour couvrir plusieurs zones : une fiche porte une adresse et une zone de service, pas une page par quartier. Si vous intervenez dans toute une ville, le site devient le complément naturel.</p>
+      </details>
+
+      <details>
+        <summary>Faut-il un site pour figurer sur Google Maps ?</summary>
+        <p>Non, la fiche suffit pour Maps, y compris pour l'itinéraire, les horaires et les photos. Ce que le site apporte, c'est la confirmation : mêmes nom, adresse et téléphone, plus des pages qui décrivent vos services. Cette cohérence renforce la fiche, elle ne la remplace pas.</p>
+      </details>
+
+      <details>
+        <summary>Qu'est-ce qu'on perd vraiment quand on n'a pas de site ?</summary>
+        <p>Trois choses. Les recherches de service précises, où seul un site peut se classer. Les réponses longues : délais, conditions, détails techniques, qui ne tiennent pas dans une fiche. Et la mesure : sans site, vous ne savez pas d'où viennent vos visiteurs ni ce qu'ils ont cherché avant de vous appeler.</p>
+      </details>
+
+      <details>
+        <summary>Peut-on mesurer les appels venus de la fiche ?</summary>
+        <p>Oui, partiellement. La fiche compte les appels, les demandes d'itinéraire et les recherches utilisées, visibles dans ses statistiques. Ce qu'elle ne dit pas : qui a appelé sans laisser de trace, ce que la personne a lu, et pourquoi d'autres ont renoncé. Complétez avec un suivi manuel des demandes WhatsApp.</p>
+      </details>
+
+      <details>
+        <summary>Que faire si la fiche est suspendue ?</summary>
+        <p>D'abord vérifier les causes les plus fréquentes : un nom qui contient des mots-clés, une adresse qui ne correspond pas à une adresse réelle, deux fiches pour la même entreprise. Ensuite, demander le rétablissement depuis l'interface, en répondant aux questions posées. C'est précisément le moment où un site et un domaine à votre nom changent la donne : vous gardez une porte d'entrée.</p>
+      </details>
+    </div>
+
+    <div class="tags-row">
+      <a href="/seo/" class="tag">SEO</a>
+      <a href="/articles/fiche-google-business-profile/" class="tag">Fiche Google</a>
+      <a href="/articles/avis-google-sans-forcer/" class="tag">Avis Google</a>
+    </div>
+
+    <div class="share-row">
+      <span class="small">Partager</span>
+      <a href="#" class="share-btn" onclick="return sharePage('whatsapp')" data-share="whatsapp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.6-4.5A8.4 8.4 0 1 1 8 20.4z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('linkedin')" data-share="linkedin" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('facebook')" data-share="facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('copy')" data-share="copy" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></a>
+    </div>
+
+    <div class="related">
+      <h2>Articles à lire ensuite</h2>
+      <a href="/articles/fiche-google-business-profile/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">SEO</span>
+          <h3>Fiche Google Business Profile : la configuration qui compte</h3>
+          <p class="small">Champ par champ, ce qu'il faut remplir et l'erreur qui revient sur chacun.</p>
+        </div>
+      </a>
+      <a href="/articles/seo-local-abidjan-guide/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">SEO</span>
+          <h3>SEO local à Abidjan : apparaître sur Google quand vos clients vous cherchent</h3>
+          <p class="small">La méthode d'ensemble : citations, pages par quartier, contenu local et suivi.</p>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-col">
+        <img class="footer-logo logo-img-light" src="/assets/img/logo-light.webp"
+             srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+             width="152" height="25" alt="ePerformance" loading="lazy">
+        <img class="footer-logo logo-img-dark" src="/assets/img/logo-dark.webp"
+             srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+             width="157" height="25" alt="" aria-hidden="true" loading="lazy">
+        <p class="card-text mt-3" style="max-width:34ch">Stratégie d&#x27;acquisition, IA générative, automatisation et développement web premium. Basé en Côte d&#x27;Ivoire, 100 % en ligne.</p>
+      </div>
+
+      <div class="footer-col">
+        <h2>Services</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/index.html#methode" rel="noopener">stratégie d&#x27;acquisition</a></li>
+          <li><a href="https://eperformance.pro/ia.html" rel="noopener">IA générative</a></li>
+          <li><a href="https://eperformance.pro/automatisation.html" rel="noopener">Automatisation</a></li>
+          <li><a href="https://eperformance.pro/site-web.html" rel="noopener">Création de site web</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Ressources</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/diagnostic_eperformance.html" rel="noopener">Diagnostic gratuit</a></li>
+          <li><a href="https://eperformance.pro/formation.html" rel="noopener">Formations</a></li>
+          <li><a href="https://eperformance.pro/ebook.html" rel="noopener">Ebooks</a></li>
+          <li><a href="https://blog.eperformance.pro/" rel="noopener">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="https://wa.me/2250151170666" rel="noopener">+225 01 51 17 06 66</a></li>
+          <li><a href="mailto:bonjour@eperformance.pro">bonjour@eperformance.pro</a></li>
+          <li><a href="https://api.eperformance.pro/connexion.php" rel="noopener">Espace client</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 ePerformance — par K. Stéphane. Tous droits réservés.</p>
+      <p><a href="https://eperformance.pro/mentions-legales.html">Mentions légales</a> · <a href="https://eperformance.pro/politique-confidentialite.html">Confidentialité</a> · <a href="https://eperformance.pro/cookies.html">Cookies</a> · <a href="https://eperformance.pro/cgv.html">CGV</a></p>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a class="btn btn-gold" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+  <a class="btn btn-wa" href="https://wa.me/2250151170666" style="flex:0 0 auto" rel="noopener">WhatsApp</a>
+</div>
+
+<div class="consent" id="consent-banner" hidden>
+  <div class="consent-inner">
+    <div class="consent-text">
+      <p><strong>Vous choisissez ce que nous mesurons.</strong></p>
+      <p>Nous utilisons des traceurs pour comprendre comment le site est utilisé et pour
+         mesurer nos campagnes. Aucun ne se déclenche avant votre accord.
+         <a href="https://eperformance.pro/politique-confidentialite.html">Politique de confidentialité</a> ·
+         <a href="https://eperformance.pro/cookies.html">En savoir plus</a></p>
+    </div>
+    <div class="consent-actions">
+      <button type="button" class="btn btn-ghost" data-consent="refuse">Tout refuser</button>
+      <button type="button" class="btn btn-outline" data-consent="customize">Paramétrer</button>
+      <button type="button" class="btn btn-gold" data-consent="accept">Tout accepter</button>
+    </div>
+  </div>
+
+  <div class="consent-detail" id="consent-detail" hidden>
+    <fieldset class="fieldset">
+      <legend>Vos préférences</legend>
+
+      <label class="consent-row consent-row-locked">
+        <input type="checkbox" checked disabled>
+        <span>
+          <strong>Nécessaires</strong>
+          <span class="field-hint">Mémorisation de votre choix de thème et de vos préférences.
+            Toujours actifs : le site ne peut pas fonctionner sans.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-analytics">
+        <span>
+          <strong>Mesure d'audience</strong>
+          <span class="field-hint">Google Analytics 4 et Microsoft Clarity. Nous aide à voir
+            quelles pages sont utiles et où les visiteurs abandonnent.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-ads">
+        <span>
+          <strong>Publicité</strong>
+          <span class="field-hint">Meta Pixel. Mesure l'efficacité de nos campagnes
+            Facebook et Instagram.</span>
+        </span>
+      </label>
+    </fieldset>
+
+    <div class="consent-actions">
+      <button type="button" class="btn btn-outline" data-consent="back">Retour</button>
+      <button type="button" class="btn btn-gold" data-consent="save">Enregistrer mes choix</button>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/js/consent.js" defer></script>
+<script src="/assets/js/eperf.js" defer></script>
+<script src="/assets/js/blog.js" defer></script>
+</body>
+</html>

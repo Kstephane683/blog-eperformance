@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+(function(){try{var t=localStorage.getItem('eperf-theme');
+if(t!=='dark'&&t!=='light'){t='light';}
+document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+  <title>Erreurs d&#x27;indexation : pourquoi votre page n&#x27;apparaît pas</title>
+  <meta name="description" content="Diagnostiquer une page absente de Google avec Search Console : les sept causes par ordre de fréquence, le symptôme exact et la correction.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://blog.eperformance.pro/articles/erreurs-indexation-google/index.html">
+  <meta name="theme-color" content="#fdfcfa">
+  <meta name="author" content="K. Stéphane">
+
+  <!-- Icônes -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="icon" href="/assets/img/favicon-16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ePerformance">
+  <meta property="og:locale" content="fr_CI">
+  <meta property="og:title" content="Erreurs d&#x27;indexation : pourquoi votre page n&#x27;apparaît pas">
+  <meta property="og:description" content="Diagnostiquer une page absente de Google avec Search Console : les sept causes par ordre de fréquence, le symptôme exact et la correction.">
+  <meta property="og:url" content="https://blog.eperformance.pro/articles/erreurs-indexation-google/index.html">
+  <meta property="og:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ePerformance — ePerformance">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Erreurs d&#x27;indexation : pourquoi votre page n&#x27;apparaît pas">
+  <meta name="twitter:description" content="Diagnostiquer une page absente de Google avec Search Console : les sept causes par ordre de fréquence, le symptôme exact et la correction.">
+  <meta name="twitter:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta name="twitter:creator" content="@eperformancepro">
+
+  <!-- Polices : préconnexion, préchargement des deux polices critiques,
+       puis chargement non bloquant de la feuille complète -->
+  <!-- Polices : auto-hébergées, déclarées dans eperf.css.
+       On précharge les deux graisses du premier écran pour que le
+       texte soit peint dans la bonne police dès le premier rendu. -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/cormorant-garamond-700.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/dm-sans-400.woff2">
+
+  <!-- Design system : la MEME feuille que le site, a l'identique. -->
+  <link rel="stylesheet" href="/assets/css/eperf.css">
+  <!-- Composants editoriaux du blog : corps d'article, largeur de
+       lecture, cartes d'article. Ils consomment les jetons d'eperf.css
+       et ne redefinissent aucune couleur. -->
+  <link rel="stylesheet" href="/assets/css/blog.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://blog.eperformance.pro/#organization",
+      "name": "ePerformance",
+      "alternateName": "ePerformance par K. Stéphane",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "founder": {
+        "@type": "Person",
+        "@id": "https://blog.eperformance.pro/#founder",
+        "name": "K. Stéphane",
+        "jobTitle": "Fondateur, stratège acquisition",
+        "url": "https://blog.eperformance.pro/kstephane.html"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Côte d'Ivoire"
+        },
+        {
+          "@type": "Country",
+          "name": "Burkina Faso"
+        },
+        {
+          "@type": "Place",
+          "name": "Afrique de l'Ouest"
+        }
+      ],
+      "knowsLanguage": "fr",
+      "sameAs": [
+        "https://blog.eperformance.pro/"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://blog.eperformance.pro/#localbusiness",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "parentOrganization": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Abidjan",
+        "addressCountry": "CI"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Côte d'Ivoire"
+      },
+      "priceRange": "100000-350000 XOF",
+      "currenciesAccepted": "XOF",
+      "paymentAccepted": "Orange Money, Wave, MTN MoMo, Moov Money, Visa, Mastercard",
+      "availableLanguage": "fr"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://blog.eperformance.pro/#website",
+      "url": "https://blog.eperformance.pro",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "publisher": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://blog.eperformance.pro/articles/erreurs-indexation-google/index.html#webpage",
+      "url": "https://blog.eperformance.pro/articles/erreurs-indexation-google/index.html",
+      "name": "Erreurs d'indexation : pourquoi votre page n'apparaît pas",
+      "description": "Diagnostiquer une page absente de Google avec Search Console : les sept causes par ordre de fréquence, le symptôme exact et la correction.",
+      "isPartOf": {
+        "@id": "https://blog.eperformance.pro/#website"
+      },
+      "about": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://blog.eperformance.pro/articles/erreurs-indexation-google/index.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://blog.eperformance.pro/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "SEO",
+          "item": "https://blog.eperformance.pro/seo/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Erreurs d'indexation : pourquoi votre page n'apparaît pas",
+          "item": "https://blog.eperformance.pro/articles/erreurs-indexation-google/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Erreurs d'indexation : pourquoi votre page n'apparaît pas",
+  "description":"Diagnostiquer une page absente de Google avec Search Console : les sept causes par ordre de fréquence, le symptôme exact et la correction.",
+  "image":"https://blog.eperformance.pro/assets/img/og-seo-local.jpg",
+  "datePublished":"2027-02-11T09:00:00+00:00",
+  "dateModified":"2027-02-11T09:00:00+00:00",
+  "inLanguage":"fr-CI",
+  "wordCount":2320,
+  "articleSection":"SEO",
+  "keywords":["page pas indexée google","indexation","search console","noindex","robots.txt","canonique","Abidjan"],
+  "author":{"@type":"Person","name":"K. STEPHANE","jobTitle":"Fondateur ePerformance","url":"https://blog.eperformance.pro/a-propos/"},
+  "publisher":{"@type":"Organization","name":"ePerformance","logo":{"@type":"ImageObject","url":"https://eperformance.pro/assets/img/logo-light.webp"}},
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.eperformance.pro/articles/erreurs-indexation-google/"}
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Blog","item":"https://blog.eperformance.pro/"},
+    {"@type":"ListItem","position":2,"name":"SEO","item":"https://blog.eperformance.pro/seo/"},
+    {"@type":"ListItem","position":3,"name":"Erreurs d'indexation : pourquoi votre page n'apparaît pas","item":"https://blog.eperformance.pro/articles/erreurs-indexation-google/"}
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Combien de temps prend l'indexation d'une nouvelle page ?","acceptedAnswer":{"@type":"Answer","text":"De quelques heures à quelques semaines. Une page liée depuis une page déjà indexée et publiée sur un site connu peut être indexée en quelques jours. Sur un site récent ou peu cité, comptez plusieurs semaines. Passé un mois sans trace dans l'index, il y a une cause à chercher, pas seulement un délai à attendre."}},
+    {"@type":"Question","name":"Comment savoir si une page est indexée sur Google ?","acceptedAnswer":{"@type":"Answer","text":"Deux méthodes. Tapez site:votredomaine.ci/ma-page/ dans Google : si l'adresse apparaît, la page est indexée. La méthode fiable reste l'inspection d'URL dans Search Console, qui affiche la ligne « Disponibilité sur Google » et la date du dernier passage du robot. L'opérateur site: n'est pas exhaustif et peut omettre une page indexée."}},
+    {"@type":"Question","name":"Pourquoi ma page est-elle « Explorée, actuellement non indexée » ?","acceptedAnswer":{"@type":"Answer","text":"Google a lu la page et a choisi de ne pas l'indexer pour le moment. Trois causes dominent : un contenu trop proche d'une autre page du site, une page trop pauvre pour apporter quelque chose, et un manque de liens entrants. La correction consiste à enrichir la page, à la fusionner avec une autre, ou à la lier depuis des pages importantes."}},
+    {"@type":"Question","name":"Le sitemap suffit-il à faire indexer une page ?","acceptedAnswer":{"@type":"Answer","text":"Non. Le sitemap sert à signaler une adresse, pas à obtenir son indexation. Une page déclarée dans le fichier mais sans aucun lien interne reste souvent « Détectée, actuellement non indexée » pendant des semaines. Les liens internes restent le premier facteur de découverte et d'indexation."}},
+    {"@type":"Question","name":"Faut-il demander l'indexation plusieurs fois ?","acceptedAnswer":{"@type":"Answer","text":"Non. Une demande après la correction suffit. Le bouton place la page en file d'attente et consomme un quota limité par jour. Répéter la demande ne rend pas Google plus rapide et ne change pas sa décision. Si la page n'est toujours pas indexée trois semaines plus tard, cherchez la cause au lieu de recliquer."}},
+    {"@type":"Question","name":"Une page indexée peut-elle disparaître de l'index ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Une page peut être retirée si elle devient inaccessible, si elle porte une balise noindex, si elle est redirigée, ou si Google juge son contenu trop proche d'une autre. Une chute du nombre de pages indexées se vérifie toujours dans cet ordre : robots.txt, balise noindex, codes de retour, canoniques."}}
+  ]
+}
+  </script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a class="logo" href="/" aria-label="ePerformance — accueil">
+      <img class="logo-img-light" src="/assets/img/logo-light.webp"
+           srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+           width="182" height="30" alt="ePerformance" fetchpriority="high">
+      <img class="logo-img-dark" src="/assets/img/logo-dark.webp"
+           srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+           width="188" height="30" alt="" aria-hidden="true">
+    </a>
+
+    <nav class="nav" id="primary-nav" aria-label="Navigation principale">
+      <a href="/">Accueil</a>
+      <a href="/acquisition/">Acquisition</a>
+      <a href="/site-web/">Site web</a>
+      <a href="/seo/" aria-current="page">SEO</a>
+      <a href="/business/">Business</a>
+      <a href="/articles/ia-generative-pme-africaine/">IA</a>
+      <a href="/articles/automatisation-marketing-debuter/">Automatisation</a>
+      <a href="/a-propos/">À propos</a>
+      <a href="https://eperformance.pro" rel="noopener">Site principal</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" data-theme-toggle
+              aria-pressed="false" aria-label="Activer le thème sombre">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+        </svg>
+      </button>
+
+      <a class="btn btn-gold btn-desktop" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false"
+              aria-controls="primary-nav" aria-label="Ouvrir le menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<nav class="breadcrumb container" aria-label="Fil d'Ariane">
+  <ol>
+    <li><a href="/">Accueil</a></li>
+    <li><a href="/seo/">SEO</a></li>
+    <li aria-current="page">Erreurs d&#x27;indexation : pourquoi votre page n&#x27;apparaît pas</li>
+  </ol>
+</nav>
+
+<main id="main">
+
+
+<section class="article-hero">
+  <div class="container-reading">
+
+    <nav class="article-breadcrumb" aria-label="Fil d'Ariane">
+      <a href="/">Blog</a>
+      <span class="sep">/</span>
+      <a href="/seo/">SEO</a>
+      <span class="sep">/</span>
+      <span>Erreurs d'indexation</span>
+    </nav>
+
+    <span class="article-category">SEO</span>
+    <h1>Erreurs d'indexation : <span class="text-gold">pourquoi votre page n'apparaît pas</span></h1>
+    <p class="lead">Une page peut être en ligne, rapide et bien écrite, et rester absente de Google. La réponse se lit dans Search Console, dans un ordre précis. Voici les sept causes, classées de la plus fréquente à la plus rare, avec le symptôme exact et la correction.</p>
+
+    <div class="article-meta">
+      <div class="author">
+        <div class="author-avatar">KS</div>
+        <div>
+          <div class="article-author-name">K. STEPHANE</div>
+          <div class="small">Fondateur ePerformance</div>
+        </div>
+      </div>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg> 11 février 2027</span>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.6 2.1"/></svg> 12 min de lecture</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section-flush-top">
+  <div class="article-body container-reading">
+
+    <p>Vous avez publié une page. Elle s'ouvre normalement dans le navigateur. Deux semaines plus tard, elle ne sort sur aucune recherche, même en tapant son titre exact. Il y a une explication technique, et elle est presque toujours lisible en clair dans Search Console.</p>
+
+    <p>Ce guide suit un ordre de diagnostic : d'abord vérifier que la page est réellement absente, ensuite lire ce que Google en dit, puis dérouler les sept causes possibles, de la plus fréquente à la plus rare. Comptez vingt minutes pour faire le tour.</p>
+
+    <h2>D'abord, vérifier que la page est vraiment absente</h2>
+
+    <p>Avant de chercher une erreur, écartez le faux diagnostic. Tapez dans Google <code>site:votredomaine.ci/ma-page/</code>. Si l'adresse apparaît, la page est indexée : votre problème est un problème de position, pas d'indexation, et le travail à faire est ailleurs.</p>
+
+    <p>Si rien ne s'affiche, méfiez-vous quand même. L'opérateur <code>site:</code> n'est pas exhaustif : il peut omettre une page indexée. Faites un second test en tapant le titre exact de la page entre guillemets. Et rappelez-vous qu'une page indexée peut n'apparaître sur aucun mot-clé si Google la juge moins pertinente que d'autres pages du même sujet.</p>
+
+    <div class="callout">
+      <p><strong>Le repère.</strong> « Ma page n'apparaît pas » veut dire deux choses très différentes : elle n'est pas dans l'index, ou elle est dans l'index mais mal classée. Le diagnostic et le travail à faire n'ont rien à voir.</p>
+    </div>
+
+    <h2>L'inspection d'URL : le seul endroit qui donne la réponse</h2>
+
+    <p>Search Console contient un outil qui répond exactement à la question. En haut de n'importe quel écran, collez l'adresse complète de la page dans la barre de recherche et validez. L'écran qui s'ouvre affiche ce que Google sait de cette adresse.</p>
+
+    <p>Trois blocs sont à lire, dans cet ordre. La ligne « Disponibilité sur Google » dit si la page est indexée. Le bloc « Exploration » donne la date du dernier passage du robot. Le bloc « Page d'indexation » donne la raison, quand il y en a une.</p>
+
+    <p>Un détail compte : l'onglet « Indexation » affiche le dernier état connu, qui peut dater de plusieurs jours. L'onglet « Test de l'indexation en direct » explore la page maintenant. Quand les deux se contredisent, c'est le test en direct qui dit la vérité du jour — mais il ne déclenche aucune indexation.</p>
+
+    <h2>Cause 1 : la balise noindex oubliée</h2>
+
+    <p>C'est la cause la plus fréquente, et la plus simple à corriger. Le symptôme s'affiche en toutes lettres : « Exclue par la balise noindex ».</p>
+
+    <p>La balise se cache à trois endroits. Dans le code de la page, sous la forme <code>&lt;meta name="robots" content="noindex"&gt;</code>. Dans un en-tête HTTP, sous la forme <code>X-Robots-Tag: noindex</code> — invisible dans le code source, ce qui explique bien des heures perdues. Et dans une extension ou un réglage de CMS, qui l'ajoute automatiquement à certaines catégories de pages, souvent celles que l'on veut indexer.</p>
+
+    <p>Deux commandes suffisent pour lever le doute :</p>
+
+    <pre><code>curl -I https://votresite.ci/ma-page/ | grep -i x-robots
+curl -s https://votresite.ci/ma-page/ | grep -i 'name="robots"'</code></pre>
+
+    <p>Correction : retirez la balise ou l'en-tête, puis demandez une nouvelle indexation. Si la page a été mise en ligne en recopiant un environnement de test, vérifiez toutes les pages copiées en même temps : le défaut est presque toujours groupé.</p>
+
+    <h2>Cause 2 : la page est bloquée par robots.txt</h2>
+
+    <p>Le symptôme est tout aussi explicite : « Bloquée par le fichier robots.txt ». Google n'a pas le droit d'explorer la page, donc il ne peut ni la lire ni l'indexer.</p>
+
+    <p>Vérifiez le fichier à l'adresse <code>https://votredomaine.ci/robots.txt</code>. Cherchez un <code>Disallow: /</code> seul, puis une règle trop large qui attrape votre dossier sans le viser, du type <code>Disallow: /p/</code> sur un site dont les pages sont rangées dans <code>/produits/</code>. Le détail de ce fichier, et de sa vérification, est traité dans <a href="/articles/sitemap-robots-txt/">sitemap et robots.txt</a>.</p>
+
+    <p>Un piège d'ordre à connaître : si votre page porte à la fois un <code>noindex</code> et un blocage par robots.txt, Google ne verra jamais le <code>noindex</code>, puisqu'il ne peut pas ouvrir la page. Retirez d'abord le blocage, laissez le <code>noindex</code> en place quelques jours, puis retirez-le et demandez l'indexation.</p>
+
+    <h2>Cause 3 : la page est orpheline, sans lien entrant</h2>
+
+    <p>Symptôme : « Détectée, actuellement non indexée ». La page est connue — souvent par le sitemap — mais Google ne lui a jamais accordé de visite. Une date de découverte s'affiche, aucune date d'exploration.</p>
+
+    <p>La cause est presque toujours la même : aucun lien interne ne pointe vers cette page. Google explore en suivant des liens. Une adresse isolée, sans lien depuis une page importante, reste en attente. Le sitemap aide à la découverte, il ne remplace pas les liens.</p>
+
+    <p>Correction : ajoutez trois ou quatre liens réels depuis des pages en rapport avec le sujet — votre page de service, un article proche, la page d'accueil si c'est justifié. Évitez les liens « ici » en bas de page, qui se remarquent et n'apportent aucun contexte. Un lien doit dire ce qu'il y a derrière.</p>
+
+    <h2>Cause 4 : le contenu est trop proche d'une autre page</h2>
+
+    <p>Symptôme : « Doublon, Google a choisi une autre page canonique », ou « Autre page avec balise canonique ». Deux adresses du site traitent le même sujet avec les mêmes mots.</p>
+
+    <p>Le cas classique : une page de service et un article de blog qui promettent la même chose. Google en choisit une, ignore l'autre, et vous n'avez aucun moyen de lui forcer la main. Le second cas, plus discret : le même contenu accessible sous deux adresses, avec et sans <code>www</code>, en <code>http</code> et en <code>https</code>, ou avec des paramètres de suivi.</p>
+
+    <p>Correction : pour deux pages réellement identiques, fusionnez-les et redirigez l'ancienne vers la nouvelle. Pour deux pages différentes mais proches, donnez à chacune un angle distinct et un titre qui l'annonce — c'est le travail décrit dans <a href="/articles/balises-title-description/">title et description</a>. Et assurez-vous que chaque page porte une balise canonique qui pointe vers elle-même.</p>
+
+    <h2>Cause 5 : la page est simplement trop récente</h2>
+
+    <p>Symptôme : « Détectée, actuellement non indexée », avec une date de découverte de quelques jours. Il n'y a rien à réparer : Google n'a pas encore eu l'occasion de la traiter.</p>
+
+    <p>Sur un site récent, comptez de quelques jours à quelques semaines. Sur un site dont l'autorité est faible, la même page peut attendre plus longtemps, parce que Google explore en priorité ce qui lui paraît utile. Sur un site de dix pages très liées entre elles, à l'inverse, l'indexation prend souvent quelques heures.</p>
+
+    <p>Ce qu'il faut faire : rien pendant une semaine. Le bouton « Demander une indexation » existe, mais il consomme un quota limité et il déclenche une visite, pas une décision. Demander tous les jours ne rend pas Google plus rapide.</p>
+
+    <h2>Cause 6 : une erreur serveur, ou un mauvais code de retour</h2>
+
+    <p>Symptôme : « Erreur serveur (5xx) », « Introuvable (404) », « Page avec redirection », ou la mention « soft 404 » pour une page qui affiche un contenu vide avec un code 200.</p>
+
+    <p>Contrôlez le code de retour avant de chercher ailleurs :</p>
+
+    <pre><code>curl -I https://votresite.ci/ma-page/</code></pre>
+
+    <p>Chaque code a sa correction. Un <code>500</code> signale un problème serveur ou une extension en panne : faites corriger, puis relancez. Un <code>404</code> signifie que l'adresse a changé : redirigez l'ancienne vers la nouvelle. Un <code>301</code> ou <code>302</code> en chaîne — l'adresse A redirige vers B qui redirige vers C — affaiblit la page : supprimez les étapes intermédiaires et gardez une seule redirection, vers l'adresse finale. Un soft 404, enfin, signale une page qui répond en 200 mais affiche un contenu vide ou un message d'erreur : c'est le cas des pages de catégorie sans produit.</p>
+
+    <h2>Cause 7 : la balise canonique pointe vers une autre page</h2>
+
+    <p>Symptôme : vous inspectez une page et Search Console répond « Autre page avec balise canonique », en désignant une autre adresse. Votre page déclare elle-même qu'elle n'est pas la version à retenir.</p>
+
+    <p>La cause vient presque toujours d'un modèle de page mal réglé, ou d'une extension qui pose la même canonique sur toutes les pages. Ouvrez le code source et vérifiez :</p>
+
+    <pre><code>curl -s https://votresite.ci/ma-page/ | grep -i canonical</code></pre>
+
+    <p>La balise doit renvoyer l'adresse exacte de la page, en <code>https</code>, avec ou sans <code>www</code> selon la version choisie, et sans paramètre. Si elle pointe vers une autre adresse du site, corrigez-la page par page. Ce que la page déclare ainsi se lit dans <a href="/articles/donnees-structurees-schema-org/">les données structurées</a>, qui précisent noir sur blanc ce que la page est et à qui elle appartient.</p>
+
+    <h2>Les cas qui ne sont pas des erreurs</h2>
+
+    <p>Toutes les pages absentes de l'index ne sont pas des problèmes. Une page de confirmation de commande, une page de résultats de recherche interne, une page de filtre, une adresse avec paramètres de suivi : ces pages doivent rester dehors, et leur exclusion est une réussite.</p>
+
+    <p>Deux mentions à reconnaître pour ne pas perdre de temps : « Exclusion demandée » signifie que quelqu'un a retiré la page des résultats depuis Search Console — vérifiez qui, et si c'était volontaire. Une page « Explorée, actuellement non indexée » depuis des mois, avec un contenu très court et aucun lien entrant, n'est souvent pas un bug : c'est le signe qu'il faut soit enrichir la page, soit la fusionner avec une autre.</p>
+
+    <h2>Demander une nouvelle indexation, sans en abuser</h2>
+
+    <p>Une fois la correction faite, ouvrez l'inspection d'URL, lancez le test en direct pour confirmer que la page est bien explorable, puis cliquez sur « Demander une indexation ». Un clic suffit.</p>
+
+    <p>Le bouton est limité en nombre d'usages par jour, et il ne force rien : il place la page en file d'attente prioritaire. Comptez de quelques jours à deux semaines pour voir le changement, et vérifiez avec une recherche <code>site:</code> ou une nouvelle inspection. Si rien n'a bougé au bout de trois semaines, reprenez le diagnostic depuis le début : une cause a été manquée, souvent un en-tête <code>X-Robots-Tag</code> ou une canonique posée par un modèle.</p>
+
+    <h2>Suivre le résultat, et savoir quand s'inquiéter</h2>
+
+    <p>Le rapport « Pages » de Search Console, dans la section Indexation, donne la vue d'ensemble : les pages indexées d'un côté, les pages non indexées de l'autre, chacune avec sa raison. C'est le tableau de bord de ce travail, et il se lit une fois par mois.</p>
+
+    <p>Une chute brutale du nombre de pages indexées n'est jamais un accident de contenu : cherchez du côté du robots.txt, d'un <code>noindex</code> ajouté par une mise à jour, ou d'un certificat expiré. Le cas typique est la refonte de site : on remplace les adresses sans rediriger les anciennes, ou on laisse le fichier de test en ligne. Le contrôle à faire dans ce cas est décrit dans <a href="/articles/refonte-site-quand/">le contrôle post-refonte</a>.</p>
+
+    <p>Enfin, une précaution de méthode : un changement à la fois, et le même contrôle une semaine plus tard. Modifier trois paramètres le même jour vous laisse sans explication le jour où la page revient dans l'index.</p>
+
+    <div class="cta-block">
+      <h2>Besoin de savoir où votre site est bloqué ?</h2>
+      <p>La page site web détaille ce qui est remis avec un site : Search Console branchée, indexation vérifiée page par page, et accès qui restent entre vos mains.</p>
+      <a class="btn btn-gold" href="https://eperformance.pro/site-web.html">Voir la page site web
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <h2>FAQ — Erreurs d'indexation</h2>
+
+    <div class="faq-section">
+      <details>
+        <summary>Combien de temps prend l'indexation d'une nouvelle page ?</summary>
+        <p>De quelques heures à quelques semaines. Une page liée depuis une page déjà indexée et publiée sur un site connu peut être indexée en quelques jours. Sur un site récent ou peu cité, comptez plusieurs semaines. Passé un mois sans trace dans l'index, il y a une cause à chercher, pas seulement un délai à attendre.</p>
+      </details>
+
+      <details>
+        <summary>Comment savoir si une page est indexée sur Google ?</summary>
+        <p>Deux méthodes. Tapez site:votredomaine.ci/ma-page/ dans Google : si l'adresse apparaît, la page est indexée. La méthode fiable reste l'inspection d'URL dans Search Console, qui affiche la ligne « Disponibilité sur Google » et la date du dernier passage du robot. L'opérateur site: n'est pas exhaustif et peut omettre une page indexée.</p>
+      </details>
+
+      <details>
+        <summary>Pourquoi ma page est-elle « Explorée, actuellement non indexée » ?</summary>
+        <p>Google a lu la page et a choisi de ne pas l'indexer pour le moment. Trois causes dominent : un contenu trop proche d'une autre page du site, une page trop pauvre pour apporter quelque chose, et un manque de liens entrants. La correction consiste à enrichir la page, à la fusionner avec une autre, ou à la lier depuis des pages importantes.</p>
+      </details>
+
+      <details>
+        <summary>Le sitemap suffit-il à faire indexer une page ?</summary>
+        <p>Non. Le sitemap sert à signaler une adresse, pas à obtenir son indexation. Une page déclarée dans le fichier mais sans aucun lien interne reste souvent « Détectée, actuellement non indexée » pendant des semaines. Les liens internes restent le premier facteur de découverte et d'indexation.</p>
+      </details>
+
+      <details>
+        <summary>Faut-il demander l'indexation plusieurs fois ?</summary>
+        <p>Non. Une demande après la correction suffit. Le bouton place la page en file d'attente et consomme un quota limité par jour. Répéter la demande ne rend pas Google plus rapide et ne change pas sa décision. Si la page n'est toujours pas indexée trois semaines plus tard, cherchez la cause au lieu de recliquer.</p>
+      </details>
+
+      <details>
+        <summary>Une page indexée peut-elle disparaître de l'index ?</summary>
+        <p>Oui. Une page peut être retirée si elle devient inaccessible, si elle porte une balise noindex, si elle est redirigée, ou si Google juge son contenu trop proche d'une autre. Une chute du nombre de pages indexées se vérifie toujours dans cet ordre : robots.txt, balise noindex, codes de retour, canoniques.</p>
+      </details>
+    </div>
+
+    <div class="tags-row">
+      <a href="/seo/" class="tag">SEO</a>
+      <a href="/articles/sitemap-robots-txt/" class="tag">Sitemap et robots.txt</a>
+      <a href="/articles/balises-title-description/" class="tag">Title et description</a>
+    </div>
+
+    <div class="share-row">
+      <span class="small">Partager</span>
+      <a href="#" class="share-btn" onclick="return sharePage('whatsapp')" data-share="whatsapp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.6-4.5A8.4 8.4 0 1 1 8 20.4z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('linkedin')" data-share="linkedin" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('facebook')" data-share="facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('copy')" data-share="copy" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></a>
+    </div>
+
+    <div class="related">
+      <h2>Articles à lire ensuite</h2>
+      <a href="/articles/sitemap-robots-txt/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">SEO</span>
+          <h3>Sitemap et robots.txt : les deux fichiers qu'on oublie</h3>
+          <p class="small">Les deux adresses à tester, les commandes, et les erreurs qui bloquent l'exploration.</p>
+        </div>
+      </a>
+      <a href="/articles/balises-title-description/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">SEO</span>
+          <h3>Title et description : réécrire pour gagner des clics</h3>
+          <p class="small">La méthode en quatre questions, trois exemples avant/après, et ce que Google réécrit.</p>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-col">
+        <img class="footer-logo logo-img-light" src="/assets/img/logo-light.webp"
+             srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+             width="152" height="25" alt="ePerformance" loading="lazy">
+        <img class="footer-logo logo-img-dark" src="/assets/img/logo-dark.webp"
+             srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+             width="157" height="25" alt="" aria-hidden="true" loading="lazy">
+        <p class="card-text mt-3" style="max-width:34ch">Stratégie d&#x27;acquisition, IA générative, automatisation et développement web premium. Basé en Côte d&#x27;Ivoire, 100 % en ligne.</p>
+      </div>
+
+      <div class="footer-col">
+        <h2>Services</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/index.html#methode" rel="noopener">stratégie d&#x27;acquisition</a></li>
+          <li><a href="https://eperformance.pro/ia.html" rel="noopener">IA générative</a></li>
+          <li><a href="https://eperformance.pro/automatisation.html" rel="noopener">Automatisation</a></li>
+          <li><a href="https://eperformance.pro/site-web.html" rel="noopener">Création de site web</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Ressources</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/diagnostic_eperformance.html" rel="noopener">Diagnostic gratuit</a></li>
+          <li><a href="https://eperformance.pro/formation.html" rel="noopener">Formations</a></li>
+          <li><a href="https://eperformance.pro/ebook.html" rel="noopener">Ebooks</a></li>
+          <li><a href="https://blog.eperformance.pro/" rel="noopener">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="https://wa.me/2250151170666" rel="noopener">+225 01 51 17 06 66</a></li>
+          <li><a href="mailto:bonjour@eperformance.pro">bonjour@eperformance.pro</a></li>
+          <li><a href="https://api.eperformance.pro/connexion.php" rel="noopener">Espace client</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 ePerformance — par K. Stéphane. Tous droits réservés.</p>
+      <p><a href="https://eperformance.pro/mentions-legales.html">Mentions légales</a> · <a href="https://eperformance.pro/politique-confidentialite.html">Confidentialité</a> · <a href="https://eperformance.pro/cookies.html">Cookies</a> · <a href="https://eperformance.pro/cgv.html">CGV</a></p>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a class="btn btn-gold" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+  <a class="btn btn-wa" href="https://wa.me/2250151170666" style="flex:0 0 auto" rel="noopener">WhatsApp</a>
+</div>
+
+<div class="consent" id="consent-banner" hidden>
+  <div class="consent-inner">
+    <div class="consent-text">
+      <p><strong>Vous choisissez ce que nous mesurons.</strong></p>
+      <p>Nous utilisons des traceurs pour comprendre comment le site est utilisé et pour
+         mesurer nos campagnes. Aucun ne se déclenche avant votre accord.
+         <a href="https://eperformance.pro/politique-confidentialite.html">Politique de confidentialité</a> ·
+         <a href="https://eperformance.pro/cookies.html">En savoir plus</a></p>
+    </div>
+    <div class="consent-actions">
+      <button type="button" class="btn btn-ghost" data-consent="refuse">Tout refuser</button>
+      <button type="button" class="btn btn-outline" data-consent="customize">Paramétrer</button>
+      <button type="button" class="btn btn-gold" data-consent="accept">Tout accepter</button>
+    </div>
+  </div>
+
+  <div class="consent-detail" id="consent-detail" hidden>
+    <fieldset class="fieldset">
+      <legend>Vos préférences</legend>
+
+      <label class="consent-row consent-row-locked">
+        <input type="checkbox" checked disabled>
+        <span>
+          <strong>Nécessaires</strong>
+          <span class="field-hint">Mémorisation de votre choix de thème et de vos préférences.
+            Toujours actifs : le site ne peut pas fonctionner sans.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-analytics">
+        <span>
+          <strong>Mesure d'audience</strong>
+          <span class="field-hint">Google Analytics 4 et Microsoft Clarity. Nous aide à voir
+            quelles pages sont utiles et où les visiteurs abandonnent.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-ads">
+        <span>
+          <strong>Publicité</strong>
+          <span class="field-hint">Meta Pixel. Mesure l'efficacité de nos campagnes
+            Facebook et Instagram.</span>
+        </span>
+      </label>
+    </fieldset>
+
+    <div class="consent-actions">
+      <button type="button" class="btn btn-outline" data-consent="back">Retour</button>
+      <button type="button" class="btn btn-gold" data-consent="save">Enregistrer mes choix</button>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/js/consent.js" defer></script>
+<script src="/assets/js/eperf.js" defer></script>
+<script src="/assets/js/blog.js" defer></script>
+</body>
+</html>

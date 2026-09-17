@@ -53,3 +53,42 @@
   - Sitemap complété de 10 URL
 
 # État : 54 articles sur 78. Prochain lot : 52 à 61 (SEO).
+
+2026-09-17T12:08Z | correctif | Article 37 — retrait du montant 100 000 FCFA de la FAQ
+  - Question visible « Un site à 100 000 FCFA peut-il suffire ? » devenue
+    « Un site en bas de fourchette peut-il suffire ? ». Réponse inchangée.
+  - 2 occurrences remplacées, pas une : la question visible ET son miroir dans
+    le JSON-LD FAQPage. Divergence = une question affichée, une autre déclarée.
+  - Fourchettes de marché (75-200k / 200-600k / 600k-1,5M) intactes.
+  - 0 occurrence de « 100 000 » restante. Commit e616263.
+
+2026-09-17T12:08Z | lot 6 | Articles 54 à 63 (cluster SEO & visibilité) | OK
+  - 10 articles, 10/10 conformes — 2 106 à 2 422 mots · 12 à 15 H2 · 6 FAQ
+  - 0 référence cassée · 0 cible morte · 0 ancre morte · 0 titre hors limite
+  - 2 951 liens absolus résolus sur 72 pages · 272 blocs JSON-LD valides
+  - 0 eyebrow · 0 card-icon · 0 carte de maillage dupliquée
+  - Sitemap complété de 10 URL : 71 entrées, 0 manquante, 0 obsolète
+
+  # Points de vigilance du lot
+  - 54 (avis Google) : aucune promesse de résultat, aucune technique
+    manipulatoire. Achat d'avis, faux avis, contrepartie et filtrage sont
+    présentés comme contraires aux règles et sanctionnables.
+  - 59 (données structurées) : aucune invention. Six types cités, tous
+    autorisés (LocalBusiness, Organization, Product, Article, BreadcrumbList,
+    FAQPage). L'article dit aussi quand un balisage ne sert à rien.
+  - 62 (être cité par ChatGPT) : l'article applique sa propre méthode.
+    Chaque H2 est une question, le premier paragraphe y répond directement,
+    les faits sont datés (GPTBot, août 2023 ; llms.txt, septembre 2024).
+    Réserve écrite noir sur blanc : aucune méthode ne garantit une citation.
+  - 63 (llms.txt) : sujet court, longueur ajustée à 2 106 mots au lieu de
+    2 400. Le plancher du script est 1 900, la cible 2 200 du lot est
+    inatteignable sans remplir sur ce sujet. Décision documentée.
+  - 56 (annuaires) : méthode de sélection plutôt que liste inventée. Aucun
+    nom d'annuaire local ni URL externe non vérifiable.
+
+  # Maillage
+  - carte de l'article 53 (fiche GBP) rebranchée : elle annonçait « Avis
+    Google » mais pointait vers le guide SEO. Le lien mort signalé au lot 5
+    est maintenant rattaché à sa vraie cible, produite dans ce lot.
+
+  # État : 64 articles sur 78. Prochain lot : 64 à 73 (fin SEO + Business).

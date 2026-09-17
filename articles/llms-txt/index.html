@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+(function(){try{var t=localStorage.getItem('eperf-theme');
+if(t!=='dark'&&t!=='light'){t='light';}
+document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+  <title>llms.txt : à quoi ça sert, et si ça sert vraiment</title>
+  <meta name="description" content="Le llms.txt se pose à la racine d&#x27;un site. Ce qu&#x27;il contient, ce qu&#x27;il ne fait pas encore, et pourquoi il ne remplace ni robots.txt ni vos pages.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://blog.eperformance.pro/articles/llms-txt/index.html">
+  <meta name="theme-color" content="#fdfcfa">
+  <meta name="author" content="K. Stéphane">
+
+  <!-- Icônes -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="icon" href="/assets/img/favicon-16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ePerformance">
+  <meta property="og:locale" content="fr_CI">
+  <meta property="og:title" content="llms.txt : à quoi ça sert, et si ça sert vraiment">
+  <meta property="og:description" content="Le llms.txt se pose à la racine d&#x27;un site. Ce qu&#x27;il contient, ce qu&#x27;il ne fait pas encore, et pourquoi il ne remplace ni robots.txt ni vos pages.">
+  <meta property="og:url" content="https://blog.eperformance.pro/articles/llms-txt/index.html">
+  <meta property="og:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ePerformance — ePerformance">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="llms.txt : à quoi ça sert, et si ça sert vraiment">
+  <meta name="twitter:description" content="Le llms.txt se pose à la racine d&#x27;un site. Ce qu&#x27;il contient, ce qu&#x27;il ne fait pas encore, et pourquoi il ne remplace ni robots.txt ni vos pages.">
+  <meta name="twitter:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta name="twitter:creator" content="@eperformancepro">
+
+  <!-- Polices : préconnexion, préchargement des deux polices critiques,
+       puis chargement non bloquant de la feuille complète -->
+  <!-- Polices : auto-hébergées, déclarées dans eperf.css.
+       On précharge les deux graisses du premier écran pour que le
+       texte soit peint dans la bonne police dès le premier rendu. -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/cormorant-garamond-700.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/dm-sans-400.woff2">
+
+  <!-- Design system : la MEME feuille que le site, a l'identique. -->
+  <link rel="stylesheet" href="/assets/css/eperf.css">
+  <!-- Composants editoriaux du blog : corps d'article, largeur de
+       lecture, cartes d'article. Ils consomment les jetons d'eperf.css
+       et ne redefinissent aucune couleur. -->
+  <link rel="stylesheet" href="/assets/css/blog.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://blog.eperformance.pro/#organization",
+      "name": "ePerformance",
+      "alternateName": "ePerformance par K. Stéphane",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "founder": {
+        "@type": "Person",
+        "@id": "https://blog.eperformance.pro/#founder",
+        "name": "K. Stéphane",
+        "jobTitle": "Fondateur, stratège acquisition",
+        "url": "https://blog.eperformance.pro/kstephane.html"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Côte d'Ivoire"
+        },
+        {
+          "@type": "Country",
+          "name": "Burkina Faso"
+        },
+        {
+          "@type": "Place",
+          "name": "Afrique de l'Ouest"
+        }
+      ],
+      "knowsLanguage": "fr",
+      "sameAs": [
+        "https://blog.eperformance.pro/"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://blog.eperformance.pro/#localbusiness",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "parentOrganization": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Abidjan",
+        "addressCountry": "CI"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Côte d'Ivoire"
+      },
+      "priceRange": "100000-350000 XOF",
+      "currenciesAccepted": "XOF",
+      "paymentAccepted": "Orange Money, Wave, MTN MoMo, Moov Money, Visa, Mastercard",
+      "availableLanguage": "fr"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://blog.eperformance.pro/#website",
+      "url": "https://blog.eperformance.pro",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "publisher": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://blog.eperformance.pro/articles/llms-txt/index.html#webpage",
+      "url": "https://blog.eperformance.pro/articles/llms-txt/index.html",
+      "name": "llms.txt : à quoi ça sert, et si ça sert vraiment",
+      "description": "Le llms.txt se pose à la racine d'un site. Ce qu'il contient, ce qu'il ne fait pas encore, et pourquoi il ne remplace ni robots.txt ni vos pages.",
+      "isPartOf": {
+        "@id": "https://blog.eperformance.pro/#website"
+      },
+      "about": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://blog.eperformance.pro/articles/llms-txt/index.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://blog.eperformance.pro/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "SEO",
+          "item": "https://blog.eperformance.pro/seo/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "llms.txt : à quoi ça sert, et si ça sert vraiment",
+          "item": "https://blog.eperformance.pro/articles/llms-txt/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"llms.txt : à quoi ça sert, et si ça sert vraiment",
+  "description":"Le llms.txt se pose à la racine d'un site. Ce qu'il contient, ce qu'il ne fait pas encore, et pourquoi il ne remplace ni robots.txt ni vos pages.",
+  "image":"https://blog.eperformance.pro/assets/img/og-seo-local.jpg",
+  "datePublished":"2027-02-15T09:00:00+00:00",
+  "dateModified":"2027-02-15T09:00:00+00:00",
+  "inLanguage":"fr-CI",
+  "wordCount":2106,
+  "articleSection":"SEO",
+  "keywords":["llms txt","fichier llms","citation ia","robots.txt","GPTBot","moteurs IA","Abidjan"],
+  "author":{"@type":"Person","name":"K. STEPHANE","jobTitle":"Fondateur ePerformance","url":"https://blog.eperformance.pro/a-propos/"},
+  "publisher":{"@type":"Organization","name":"ePerformance","logo":{"@type":"ImageObject","url":"https://eperformance.pro/assets/img/logo-light.webp"}},
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.eperformance.pro/articles/llms-txt/"}
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Blog","item":"https://blog.eperformance.pro/"},
+    {"@type":"ListItem","position":2,"name":"SEO","item":"https://blog.eperformance.pro/seo/"},
+    {"@type":"ListItem","position":3,"name":"llms.txt : à quoi ça sert, et si ça sert vraiment","item":"https://blog.eperformance.pro/articles/llms-txt/"}
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Le fichier llms.txt est-il obligatoire ?","acceptedAnswer":{"@type":"Answer","text":"Non. Aucun moteur de recherche, aucun éditeur de modèle et aucun organisme ne l'exige. Son absence ne produit aucune erreur, ni dans Search Console, ni dans vos journaux. C'est un fichier facultatif, et rien de plus."}},
+    {"@type":"Question","name":"Où faut-il placer le fichier llms.txt ?","acceptedAnswer":{"@type":"Answer","text":"À la racine du site, à l'adresse votresite.ci/llms.txt, au même niveau que robots.txt et sitemap.xml. Si votre site vit sur un sous-domaine, c'est la racine de ce sous-domaine. Le fichier s'envoie comme un fichier texte classique."}},
+    {"@type":"Question","name":"Est-ce que llms.txt améliore le référencement Google ?","acceptedAnswer":{"@type":"Answer","text":"Non. Google ne mentionne pas ce fichier dans sa documentation et n'a jamais annoncé le lire. Pour apparaître dans les résultats, ce qui compte reste le contenu des pages, un robots.txt qui autorise l'exploration, un sitemap déclaré et des liens qui pointent vers votre site. Le fichier n'agit sur aucun de ces quatre points."}},
+    {"@type":"Question","name":"Peut-on interdire un robot d'IA depuis llms.txt ?","acceptedAnswer":{"@type":"Answer","text":"Non. Le blocage se fait dans robots.txt, avec une règle Disallow visant le nom de l'agent. Un llms.txt ne contient aucune directive de ce type, et une consigne écrite en français dans le fichier n'a pas d'effet : elle n'est lue par aucun mécanisme."}},
+    {"@type":"Question","name":"Un outil en ligne peut-il générer mon llms.txt ?","acceptedAnswer":{"@type":"Answer","text":"Oui, et la plupart partent de votre sitemap pour produire la liste. Le résultat demande une relecture : une machine ne sait pas quelles pages comptent pour vous, ni lesquelles sont obsolètes. Un fichier faux est plus gênant qu'un fichier absent."}},
+    {"@type":"Question","name":"Faut-il le poser quand son site fait cinq pages ?","acceptedAnswer":{"@type":"Answer","text":"Rien ne l'interdit, mais l'intérêt est faible : le fichier sert à trier un site large. Sur cinq pages, votre menu dit déjà l'essentiel. Posez-le si vous voulez, mais la fiche Google, la vitesse du site et le contenu des pages pèsent beaucoup plus lourd."}}
+  ]
+}
+  </script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a class="logo" href="/" aria-label="ePerformance — accueil">
+      <img class="logo-img-light" src="/assets/img/logo-light.webp"
+           srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+           width="182" height="30" alt="ePerformance" fetchpriority="high">
+      <img class="logo-img-dark" src="/assets/img/logo-dark.webp"
+           srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+           width="188" height="30" alt="" aria-hidden="true">
+    </a>
+
+    <nav class="nav" id="primary-nav" aria-label="Navigation principale">
+      <a href="/">Accueil</a>
+      <a href="/acquisition/">Acquisition</a>
+      <a href="/site-web/">Site web</a>
+      <a href="/seo/" aria-current="page">SEO</a>
+      <a href="/business/">Business</a>
+      <a href="/articles/ia-generative-pme-africaine/">IA</a>
+      <a href="/articles/automatisation-marketing-debuter/">Automatisation</a>
+      <a href="/a-propos/">À propos</a>
+      <a href="https://eperformance.pro" rel="noopener">Site principal</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" data-theme-toggle
+              aria-pressed="false" aria-label="Activer le thème sombre">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+        </svg>
+      </button>
+
+      <a class="btn btn-gold btn-desktop" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false"
+              aria-controls="primary-nav" aria-label="Ouvrir le menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<nav class="breadcrumb container" aria-label="Fil d'Ariane">
+  <ol>
+    <li><a href="/">Accueil</a></li>
+    <li><a href="/seo/">SEO</a></li>
+    <li aria-current="page">llms.txt : à quoi ça sert, et si ça sert vraiment</li>
+  </ol>
+</nav>
+
+<main id="main">
+
+
+<section class="article-hero">
+  <div class="container-reading">
+
+    <nav class="article-breadcrumb" aria-label="Fil d'Ariane">
+      <a href="/">Blog</a>
+      <span class="sep">/</span>
+      <a href="/seo/">SEO</a>
+      <span class="sep">/</span>
+      <span>llms.txt</span>
+    </nav>
+
+    <span class="article-category">SEO</span>
+    <h1>llms.txt : à quoi ça sert, <span class="text-gold">et si ça sert vraiment</span></h1>
+    <p class="lead">Le fichier llms.txt se dépose à la racine d'un site et liste vos pages importantes en markdown. Aucun moteur IA n'a confirmé le lire. Voici ce qu'il fait, ce qu'il ne fait pas, et pourquoi il ne remplace ni robots.txt ni un sitemap.</p>
+
+    <div class="article-meta">
+      <div class="author">
+        <div class="author-avatar">KS</div>
+        <div>
+          <div class="article-author-name">K. STEPHANE</div>
+          <div class="small">Fondateur ePerformance</div>
+        </div>
+      </div>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg> 15 février 2027</span>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.6 2.1"/></svg> 10 min de lecture</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section-flush-top">
+  <div class="article-body container-reading">
+
+    <p>Le fichier <code>llms.txt</code> se dépose à la racine d'un site, à l'adresse <code>votresite.ci/llms.txt</code>. Il contient une liste de vos pages importantes, écrite en markdown, avec une phrase pour dire ce que chacune contient. L'idée est simple : offrir à un moteur IA une version courte et propre de votre site, au lieu de le laisser deviner ce qui compte.</p>
+
+    <p>Le fichier a été proposé en septembre 2024 par Jeremy Howard, sur le site llmstxt.org. Plus de deux ans après, aucun moteur de recherche ni aucun grand modèle de langage ne s'est engagé publiquement à le lire. Cette page dit ce que le fichier contient, ce qu'il ne fait pas, et à quelle place il arrive dans une PME d'Abidjan.</p>
+
+    <h2>Un fichier texte, proposé en septembre 2024</h2>
+
+    <p>La proposition tient en une page. Un fichier texte, en markdown, à la racine du site. Un titre de niveau 1 avec le nom de l'entreprise. Une citation courte qui résume ce que fait le site. Puis des sections de niveau 2, chacune suivie d'une liste de liens, chaque lien accompagné d'une phrase de description. Une dernière section, <code>## Optional</code>, peut porter les pages secondaires qu'un outil peut ignorer sans perdre l'essentiel.</p>
+
+    <p>C'est tout. Il n'y a pas de schéma XML à respecter, pas de balise à fermer, pas de champ obligatoire au-delà du titre. Le format est une convention de rédaction, publiée sur un site de proposition.</p>
+
+    <p>Un point de vocabulaire : ce fichier n'est pas un standard. Il n'a été validé ni par le W3C, ni par l'IETF, ni par un groupe de travail. C'est une proposition ouverte, avec une spécification courte, et rien de plus.</p>
+
+    <h2>À quoi ressemble un llms.txt</h2>
+
+    <p>Voici un exemple court, celui d'une boulangerie de Yopougon qui vend aussi des gâteaux sur commande.</p>
+
+    <pre><code># Boulangerie Chez Awa
+
+&gt; Boulangerie et pâtisserie à Yopougon, Abidjan. Pains, viennoiseries
+&gt; et commandes de gâteaux pour les cérémonies.
+
+## Pages principales
+
+- [Produits et prix](https://chezawa.ci/produits/): la gamme complète, livrée à Yopougon et à Adjamé.
+- [Commander un gâteau](https://chezawa.ci/gateaux/): délai de 48 heures, acompte par Wave ou Orange Money.
+- [Nous trouver](https://chezawa.ci/contact/): horaires, adresse et numéro WhatsApp.
+
+## Optional
+
+- [Recettes maison](https://chezawa.ci/recettes/): fiches courtes pour le grand public.</code></pre>
+
+    <p>Trois choses à retenir sur la forme. Le fichier s'écrit en markdown brut : des dièses pour les titres, des crochets pour les liens, aucun HTML. Il se dépose à la racine du site, au même niveau que <code>robots.txt</code> et <code>sitemap.xml</code>. Et il ne se déclare nulle part : il n'existe pas de champ à remplir dans Search Console, ni de ligne à ajouter dans <code>robots.txt</code>. Le fichier vit seul, à une adresse que personne ne visite à la main.</p>
+
+    <h2>Ce que le fichier ne fait pas</h2>
+
+    <p>Il ne bloque rien. Le <code>robots.txt</code> est le seul document qui autorise ou interdit l'exploration, et c'est là que se règle le sort des robots d'IA. Un <code>llms.txt</code> ne contient aucune directive de blocage, et une phrase du genre « merci de ne pas utiliser ce contenu » n'a aucun effet mécanique : elle s'adresse à un lecteur humain, s'il passe par là.</p>
+
+    <p>Il n'indexe rien. Le <code>sitemap.xml</code> déclare vos adresses aux moteurs de recherche et reste le canal officiel pour cela. Google n'attend pas de <code>llms.txt</code>, ne le mentionne pas dans sa documentation, et son absence ne produit aucune erreur.</p>
+
+    <p>Il n'oblige personne. Le fichier propose une sélection de pages ; rien ne contraint un moteur à ouvrir l'adresse, à lire le contenu, ni à suivre l'ordre proposé. Une proposition sans lecteur reste une proposition.</p>
+
+    <div class="callout">
+      <p><strong>Le repère.</strong> Trois fichiers, trois rôles : <code>robots.txt</code> décide, <code>sitemap.xml</code> déclare, <code>llms.txt</code> propose. Seul le premier a un pouvoir de blocage, et c'est le seul qui peut vous coûter des visiteurs quand il est mal écrit.</p>
+    </div>
+
+    <p>Un fichier faux est pire qu'un fichier absent. Si les adresses listées ne répondent plus, si les descriptions annoncent des services que vous ne faites plus, vous avez publié un document qui se trompe — et son seul lecteur possible est un outil qui parlerait de vous à partir de là.</p>
+
+    <h2>Ce qui est vérifiable aujourd'hui : les robots d'IA</h2>
+
+    <p>Les robots d'IA, eux, sont documentés. Chaque éditeur publie le nom de son agent, ce qu'il collecte et la façon dont il traite les règles d'exclusion : <code>GPTBot</code> chez OpenAI depuis août 2023, <code>Google-Extended</code> chez Google depuis septembre 2023, <code>ClaudeBot</code> chez Anthropic, <code>PerplexityBot</code> chez Perplexity.</p>
+
+    <p>Ces agents laissent leur nom dans vos journaux de serveur, et leur comportement se règle dans le <code>robots.txt</code>. Le point de contrôle est réel : vous autorisez ou vous refusez, puis vous vérifiez ce qui passe. La marche à suivre est décrite dans <a href="/articles/sitemap-robots-txt/">sitemap et robots.txt</a>.</p>
+
+    <p>Pour le <code>llms.txt</code>, il n'existe rien de tel. Aucun éditeur n'a publié de page expliquant qu'il ouvre ce fichier, ce qu'il en fait, ni comment il traite ses consignes. Le test est à votre portée : cherchez « llms.txt » dans la documentation officielle d'OpenAI, d'Anthropic, de Perplexity et de Google. Ce que vous trouverez est l'information : rien.</p>
+
+    <p>La position de Google, elle, a été dite publiquement. En juin 2025, John Mueller, qui y suit le référencement, a indiqué qu'aucun système d'IA n'utilisait ce fichier à ce moment-là. Ce n'est pas une prophétie — la situation peut changer, et c'est bien pourquoi ce fichier existe à proposer — mais c'est la réponse la plus directe disponible à la question posée en titre de cet article.</p>
+
+    <p>Reste un chiffre que vous pouvez produire vous-même, sur votre propre serveur : qui demande ce fichier ? Si votre hébergeur donne accès aux journaux, cette commande compte les passages.</p>
+
+    <pre><code>grep -i "llms.txt" access.log | wc -l</code></pre>
+
+    <p>Le compteur tourne rarement à zéro : des outils de référencement passent, des curieux aussi. Ce qui compte est la comparaison avec le compteur équivalent posé sur vos pages. Un fichier demandé trois fois par mois sur un site exploré trois mille fois n'est pas un levier de visibilité. C'est un fichier qui existe.</p>
+
+    <h2>Ce qui aide vraiment à être cité par un moteur IA</h2>
+
+    <p>Une page est citée pour trois raisons qui se travaillent : elle répond à une question précise dès sa première phrase, elle s'appuie sur des faits datés et vérifiables, et elle appartient à une entité nommée partout de la même façon. La méthode complète, avec les exemples avant-après, est dans <a href="/articles/etre-cite-par-chatgpt/">être cité par ChatGPT, Claude et Perplexity</a>.</p>
+
+    <p>Deux conditions techniques s'y ajoutent : que les robots ne soient pas bloqués, et que le texte important soit présent dans le HTML servi, pas seulement affiché après un clic ou chargé par un script. C'est le même travail que celui décrit dans <a href="/articles/donnees-structurees-schema-org/">les données structurées</a>, qui rendent vos questions-réponses lisibles par une machine.</p>
+
+    <p>Aucun de ces chantiers ne passe par un fichier posé à la racine. Ils passent par vos pages, une par une. C'est pour cette raison que le <code>llms.txt</code> arrive loin dans l'ordre des priorités : il ne porte ni structure, ni faits, ni nom d'entreprise.</p>
+
+    <h2>Le vrai coût : dix minutes</h2>
+
+    <p>Ce que coûte le fichier : dix minutes la première fois, si vous savez déjà quelles pages vous voulez mettre en avant. Un fichier texte, un envoi à la racine, rien à installer. Le poser ne casse aucune mise en page et ne se voit sur aucun écran. Si vous changez d'avis, vous le supprimez, et personne ne s'en aperçoit.</p>
+
+    <p>Alors disons-le franchement. Poser ce fichier ne fait de mal à personne, et il n'y a aucune raison de s'en priver. Mais le présenter comme un levier de visibilité serait mentir. Si quelqu'un vous facture la rédaction de ce fichier comme une stratégie de citation, la facture ne correspond pas au travail fourni.</p>
+
+    <h2>Trois usages qui tiennent debout</h2>
+
+    <p>Malgré tout, trois usages sont défendables, et aucun ne repose sur une promesse.</p>
+
+    <p><strong>Un. Votre propre outillage.</strong> Si vous branchez un assistant sur vos contenus — préparation de réponses, résumé d'un catalogue, base interne —, une liste d'entrée propre vous sert directement. Le lecteur existe, et c'est vous.</p>
+
+    <p><strong>Deux. L'inventaire.</strong> Rédiger ce fichier oblige à trancher : quelles pages comptent, et pourquoi. Cette liste sert ensuite au menu du site, aux campagnes, au sitemap. Ce tri a de la valeur, même sans lecteur.</p>
+
+    <p><strong>Trois. L'anticipation.</strong> Le jour où un éditeur annonce qu'il lit ce format, ceux qui l'ont déjà posé n'auront rien à faire. C'est un pari à dix minutes, pas une stratégie.</p>
+
+    <h2>llms.txt, robots.txt, sitemap : qui fait quoi</h2>
+
+    <p>Cherchez les trois fichiers à la racine de votre site : <code>votresite.ci/robots.txt</code>, <code>votresite.ci/sitemap.xml</code>, <code>votresite.ci/llms.txt</code>. Les deux premiers doivent répondre. S'ils manquent, vous perdez des visiteurs sans le savoir ; la vérification est décrite dans <a href="/articles/sitemap-robots-txt/">le guide des deux fichiers</a>.</p>
+
+    <h3>robots.txt</h3>
+    <p>Il autorise ou interdit l'exploration, robot par robot, et c'est le seul des trois qui agit comme une règle. Un <code>Disallow</code> mal placé vous coûte des visites le jour même.</p>
+
+    <h3>sitemap.xml</h3>
+    <p>Il déclare vos adresses aux moteurs de recherche. C'est le canal d'indexation officiel, il est lu, et il se vérifie au compteur : combien d'adresses, et combien répondent.</p>
+
+    <h3>llms.txt</h3>
+    <p>Il propose une sélection de pages à un moteur IA. Il ne bloque rien, il ne déclare rien, et aucun moteur ne s'est engagé à le lire. C'est un document de courtoisie, pas une règle du jeu.</p>
+
+    <h2>Dans quel ordre faire les choses à Abidjan</h2>
+
+    <p>Pour une PME d'Abidjan — une boutique à Yopougon, un atelier à Koumassi, un cabinet à Cocody —, l'ordre qui produit des résultats est toujours le même.</p>
+
+    <p><strong>Un. La fiche Google.</strong> Nom exact, catégorie principale précise, horaires réels, photos, zone d'intervention. C'est le travail le plus rapide et le plus visible : vos clients la voient avant votre site. Le détail des champs est dans <a href="/articles/fiche-google-business-profile/">la fiche Google Business Profile</a>.</p>
+
+    <p><strong>Deux. Le site.</strong> Des pages qui se chargent sur un téléphone d'entrée de gamme, un bouton WhatsApp visible, un formulaire qui arrive dans une boîte consultée. Sans cela, tout le reste s'appuie sur du vide.</p>
+
+    <p><strong>Trois. Le contenu.</strong> Les questions que vos clients posent au téléphone, écrites noir sur blanc, avec une réponse en première phrase. C'est ce travail qui rend une page citable, et il se fait sur vos pages.</p>
+
+    <p><strong>Quatre. Les fichiers.</strong> D'abord <code>robots.txt</code> et <code>sitemap.xml</code>, qui agissent vraiment. Ensuite, si le cœur vous en dit, le <code>llms.txt</code>. S'il n'est jamais posé, rien ne sera perdu.</p>
+
+    <p>La raison est simple. Un <code>llms.txt</code> sur un site que personne ne cite ne change rien à vos semaines. Un site clair, indexé et rapide les change, avec ou sans ce fichier.</p>
+
+    <div class="cta-block">
+      <h2>Vos pages sont-elles lisibles par un moteur IA ?</h2>
+      <p>La page site web détaille ce qui est remis avec un site : structure de réponse, données structurées, robots autorisés et Search Console branchée.</p>
+      <a class="btn btn-gold" href="https://eperformance.pro/site-web.html">Voir la page site web
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <h2>FAQ — Le fichier llms.txt</h2>
+
+    <div class="faq-section">
+      <details>
+        <summary>Le fichier llms.txt est-il obligatoire ?</summary>
+        <p>Non. Aucun moteur de recherche, aucun éditeur de modèle et aucun organisme ne l'exige. Son absence ne produit aucune erreur, ni dans Search Console, ni dans vos journaux. C'est un fichier facultatif, et rien de plus.</p>
+      </details>
+
+      <details>
+        <summary>Où faut-il placer le fichier llms.txt ?</summary>
+        <p>À la racine du site, à l'adresse votresite.ci/llms.txt, au même niveau que robots.txt et sitemap.xml. Si votre site vit sur un sous-domaine, c'est la racine de ce sous-domaine. Le fichier s'envoie comme un fichier texte classique.</p>
+      </details>
+
+      <details>
+        <summary>Est-ce que llms.txt améliore le référencement Google ?</summary>
+        <p>Non. Google ne mentionne pas ce fichier dans sa documentation et n'a jamais annoncé le lire. Pour apparaître dans les résultats, ce qui compte reste le contenu des pages, un robots.txt qui autorise l'exploration, un sitemap déclaré et des liens qui pointent vers votre site. Le fichier n'agit sur aucun de ces quatre points.</p>
+      </details>
+
+      <details>
+        <summary>Peut-on interdire un robot d'IA depuis llms.txt ?</summary>
+        <p>Non. Le blocage se fait dans robots.txt, avec une règle Disallow visant le nom de l'agent. Un llms.txt ne contient aucune directive de ce type, et une consigne écrite en français dans le fichier n'a pas d'effet : elle n'est lue par aucun mécanisme.</p>
+      </details>
+
+      <details>
+        <summary>Un outil en ligne peut-il générer mon llms.txt ?</summary>
+        <p>Oui, et la plupart partent de votre sitemap pour produire la liste. Le résultat demande une relecture : une machine ne sait pas quelles pages comptent pour vous, ni lesquelles sont obsolètes. Un fichier faux est plus gênant qu'un fichier absent.</p>
+      </details>
+
+      <details>
+        <summary>Faut-il le poser quand son site fait cinq pages ?</summary>
+        <p>Rien ne l'interdit, mais l'intérêt est faible : le fichier sert à trier un site large. Sur cinq pages, votre menu dit déjà l'essentiel. Posez-le si vous voulez, mais la fiche Google, la vitesse du site et le contenu des pages pèsent beaucoup plus lourd.</p>
+      </details>
+    </div>
+
+    <div class="tags-row">
+      <a href="/seo/" class="tag">SEO</a>
+      <a href="/articles/sitemap-robots-txt/" class="tag">robots.txt</a>
+      <a href="/articles/etre-cite-par-chatgpt/" class="tag">Citation IA</a>
+    </div>
+
+    <div class="share-row">
+      <span class="small">Partager</span>
+      <a href="#" class="share-btn" onclick="return sharePage('whatsapp')" data-share="whatsapp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.6-4.5A8.4 8.4 0 1 1 8 20.4z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('linkedin')" data-share="linkedin" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('facebook')" data-share="facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('copy')" data-share="copy" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></a>
+    </div>
+
+    <div class="related">
+      <h2>Articles à lire ensuite</h2>
+      <a href="/articles/etre-cite-par-chatgpt/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">SEO</span>
+          <h3>Être cité par ChatGPT, Claude et Perplexity : la méthode</h3>
+          <p class="small">Structure de réponse, faits datés et vérifiables, entité nommée : le travail qui produit des citations.</p>
+        </div>
+      </a>
+      <a href="/articles/sitemap-robots-txt/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">SEO</span>
+          <h3>Sitemap et robots.txt : les deux fichiers qu'on oublie</h3>
+          <p class="small">Les deux fichiers qui agissent vraiment, et les commandes pour vérifier qu'ils sont en place.</p>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-col">
+        <img class="footer-logo logo-img-light" src="/assets/img/logo-light.webp"
+             srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+             width="152" height="25" alt="ePerformance" loading="lazy">
+        <img class="footer-logo logo-img-dark" src="/assets/img/logo-dark.webp"
+             srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+             width="157" height="25" alt="" aria-hidden="true" loading="lazy">
+        <p class="card-text mt-3" style="max-width:34ch">Stratégie d&#x27;acquisition, IA générative, automatisation et développement web premium. Basé en Côte d&#x27;Ivoire, 100 % en ligne.</p>
+      </div>
+
+      <div class="footer-col">
+        <h2>Services</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/index.html#methode" rel="noopener">stratégie d&#x27;acquisition</a></li>
+          <li><a href="https://eperformance.pro/ia.html" rel="noopener">IA générative</a></li>
+          <li><a href="https://eperformance.pro/automatisation.html" rel="noopener">Automatisation</a></li>
+          <li><a href="https://eperformance.pro/site-web.html" rel="noopener">Création de site web</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Ressources</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/diagnostic_eperformance.html" rel="noopener">Diagnostic gratuit</a></li>
+          <li><a href="https://eperformance.pro/formation.html" rel="noopener">Formations</a></li>
+          <li><a href="https://eperformance.pro/ebook.html" rel="noopener">Ebooks</a></li>
+          <li><a href="https://blog.eperformance.pro/" rel="noopener">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="https://wa.me/2250151170666" rel="noopener">+225 01 51 17 06 66</a></li>
+          <li><a href="mailto:bonjour@eperformance.pro">bonjour@eperformance.pro</a></li>
+          <li><a href="https://api.eperformance.pro/connexion.php" rel="noopener">Espace client</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 ePerformance — par K. Stéphane. Tous droits réservés.</p>
+      <p><a href="https://eperformance.pro/mentions-legales.html">Mentions légales</a> · <a href="https://eperformance.pro/politique-confidentialite.html">Confidentialité</a> · <a href="https://eperformance.pro/cookies.html">Cookies</a> · <a href="https://eperformance.pro/cgv.html">CGV</a></p>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a class="btn btn-gold" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+  <a class="btn btn-wa" href="https://wa.me/2250151170666" style="flex:0 0 auto" rel="noopener">WhatsApp</a>
+</div>
+
+<div class="consent" id="consent-banner" hidden>
+  <div class="consent-inner">
+    <div class="consent-text">
+      <p><strong>Vous choisissez ce que nous mesurons.</strong></p>
+      <p>Nous utilisons des traceurs pour comprendre comment le site est utilisé et pour
+         mesurer nos campagnes. Aucun ne se déclenche avant votre accord.
+         <a href="https://eperformance.pro/politique-confidentialite.html">Politique de confidentialité</a> ·
+         <a href="https://eperformance.pro/cookies.html">En savoir plus</a></p>
+    </div>
+    <div class="consent-actions">
+      <button type="button" class="btn btn-ghost" data-consent="refuse">Tout refuser</button>
+      <button type="button" class="btn btn-outline" data-consent="customize">Paramétrer</button>
+      <button type="button" class="btn btn-gold" data-consent="accept">Tout accepter</button>
+    </div>
+  </div>
+
+  <div class="consent-detail" id="consent-detail" hidden>
+    <fieldset class="fieldset">
+      <legend>Vos préférences</legend>
+
+      <label class="consent-row consent-row-locked">
+        <input type="checkbox" checked disabled>
+        <span>
+          <strong>Nécessaires</strong>
+          <span class="field-hint">Mémorisation de votre choix de thème et de vos préférences.
+            Toujours actifs : le site ne peut pas fonctionner sans.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-analytics">
+        <span>
+          <strong>Mesure d'audience</strong>
+          <span class="field-hint">Google Analytics 4 et Microsoft Clarity. Nous aide à voir
+            quelles pages sont utiles et où les visiteurs abandonnent.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-ads">
+        <span>
+          <strong>Publicité</strong>
+          <span class="field-hint">Meta Pixel. Mesure l'efficacité de nos campagnes
+            Facebook et Instagram.</span>
+        </span>
+      </label>
+    </fieldset>
+
+    <div class="consent-actions">
+      <button type="button" class="btn btn-outline" data-consent="back">Retour</button>
+      <button type="button" class="btn btn-gold" data-consent="save">Enregistrer mes choix</button>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/js/consent.js" defer></script>
+<script src="/assets/js/eperf.js" defer></script>
+<script src="/assets/js/blog.js" defer></script>
+</body>
+</html>
