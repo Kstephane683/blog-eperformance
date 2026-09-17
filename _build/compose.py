@@ -148,7 +148,7 @@ PAGES = {
         "lead": "On peut pirouetter sur Meta Ads : si le modèle économique est mauvais, vous perdrez. Ces articles traitent de ce qui se décide avant la publicité.",
         "fragment": "business.html",
         "nav_active": "business",
-        "breadcrumb": [("Business", "business/")],
+        "breadcrumb": [("Business", "/business/")],
     },
     "a-propos/index.html": {
         "title": "À propos — K. Stéphane, fondateur d'ePerformance",
@@ -158,7 +158,7 @@ PAGES = {
         "cta": ("Me contacter", "/contact/"),
         "fragment": "a-propos.html",
         "nav_active": "a-propos",
-        "breadcrumb": [("À propos", "a-propos/")],
+        "breadcrumb": [("À propos", "/a-propos/")],
     },
     "contact/index.html": {
         "title": "Contact — Blog ePerformance",
@@ -167,7 +167,7 @@ PAGES = {
         "lead": "Le plus simple et le plus rapide : WhatsApp. Réponse en général sous 24 h ouvrées.",
         "fragment": "contact.html",
         "nav_active": "contact",
-        "breadcrumb": [("Contact", "contact/")],
+        "breadcrumb": [("Contact", "/contact/")],
     },
 
     # ── Les 3 articles ───────────────────────────────────────────────────
@@ -178,21 +178,21 @@ PAGES = {
         "description": "Le CAC réel inclut la pub, les outils et votre temps. Méthode de calcul, exemple chiffré et 5 leviers pour le réduire.",
         "fragment": "articles-calculer-cac-cote-ivoire.html",
         "nav_active": "acquisition",
-        "breadcrumb": [("Acquisition", "acquisition/"), ("Calculer son vrai CAC", "articles/calculer-cac-cote-ivoire/")],
+        "breadcrumb": [("Acquisition", "/acquisition/"), ("Calculer son vrai CAC", "/articles/calculer-cac-cote-ivoire/")],
     },
     "articles/site-web-professionnel-abidjan-guide/index.html": {
         "title": "Site web professionnel à Abidjan : 7 critères (2026)",
         "description": "Les 7 critères qui séparent un site rentable d'une carte de visite : vitesse, mobile, schema, capture de leads et SEO local.",
         "fragment": "articles-site-web-professionnel-abidjan-guide.html",
         "nav_active": "site-web",
-        "breadcrumb": [("Site web", "site-web/"), ("Site web professionnel à Abidjan", "articles/site-web-professionnel-abidjan-guide/")],
+        "breadcrumb": [("Site web", "/site-web/"), ("Site web professionnel à Abidjan", "/articles/site-web-professionnel-abidjan-guide/")],
     },
     "articles/seo-local-abidjan-guide/index.html": {
         "title": "SEO local à Abidjan : apparaître sur Google (guide 2026)",
         "description": "Les 7 étapes pour sortir dans le pack local Google à Abidjan : fiche, avis, citations ivoiriennes et contenu local.",
         "fragment": "articles-seo-local-abidjan-guide.html",
         "nav_active": "seo",
-        "breadcrumb": [("SEO", "seo/"), ("SEO local à Abidjan", "articles/seo-local-abidjan-guide/")],
+        "breadcrumb": [("SEO", "/seo/"), ("SEO local à Abidjan", "/articles/seo-local-abidjan-guide/")],
     },
 }
 
@@ -548,7 +548,7 @@ def site_graph(page_key, meta):
         items = [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": f"{BASE_URL}/"}]
         for i, (name, href) in enumerate(meta["breadcrumb"], start=2):
             items.append({"@type": "ListItem", "position": i, "name": name,
-                          "item": f"{BASE_URL}/{href}"})
+                          "item": f"{BASE_URL}{href if href.startswith(chr(47)) else chr(47) + href}"})
         graph.append({
             "@type": "BreadcrumbList",
             "@id": f"{canonical}#breadcrumb",
