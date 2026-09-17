@@ -175,6 +175,76 @@ PAGES = {
     # ── Les 3 articles ───────────────────────────────────────────────────
     # Pas de hero : le fragment porte son propre en-tête éditorial
     # (.article-hero avec catégorie, <h1>, date, temps de lecture).
+    "articles/ameliorer-taux-conversion/index.html": {
+        "title": 'Améliorer le taux de conversion sans toucher au budget pub',
+        "description": 'Cinq fuites du parcours client, du clic à la relance, avec la méthode pour repérer chacune et la correction à appliquer, sans un franc de budget en plus.',
+        "fragment": "articles-ameliorer-taux-conversion.html",
+        "nav_active": "acquisition",
+        "breadcrumb": [("Acquisition", "/acquisition/"), ("Améliorer sa conversion", "/articles/ameliorer-taux-conversion/")],
+    },
+    "articles/cac-par-segment/index.html": {
+        "title": 'Segments clients : arrêter de calculer un CAC moyen',
+        "description": 'Segmenter par canal, produit, type de client et zone. La méthode de calcul du CAC par segment, avec un exemple où un segment en finance un autre.',
+        "fragment": "articles-cac-par-segment.html",
+        "nav_active": "acquisition",
+        "breadcrumb": [("Acquisition", "/acquisition/"), ("CAC par segment", "/articles/cac-par-segment/")],
+    },
+    "articles/test-ab-methode/index.html": {
+        "title": 'Test A/B : la méthode minimale pour décider',
+        "description": 'Ce qui se teste en une semaine, ce qui ne se teste pas sans volume, comment fixer la durée et lire un résultat. La version minimale, sans outil payant.',
+        "fragment": "articles-test-ab-methode.html",
+        "nav_active": "acquisition",
+        "breadcrumb": [("Acquisition", "/acquisition/"), ("Test A/B", "/articles/test-ab-methode/")],
+    },
+    "articles/fidelisation-ltv/index.html": {
+        "title": 'Fidélisation : le levier de LTV le plus rentable',
+        "description": "Faire revenir un client coûte moins cher que d'en acquérir un nouveau. Quatre mécaniques de fidélisation testables, et ce qu'elles déplacent sur votre LTV.",
+        "fragment": "articles-fidelisation-ltv.html",
+        "nav_active": "acquisition",
+        "breadcrumb": [("Acquisition", "/acquisition/"), ("Fidélisation", "/articles/fidelisation-ltv/")],
+    },
+    "articles/upsell-vente-complementaire/index.html": {
+        "title": 'Upsell et vente complémentaire : la méthode simple',
+        "description": 'Le complément à la commande, la montée en gamme, le réassort programmé : trois mécaniques testables pour faire monter le panier moyen.',
+        "fragment": "articles-upsell-vente-complementaire.html",
+        "nav_active": "acquisition",
+        "breadcrumb": [("Acquisition", "/acquisition/"), ("Upsell", "/articles/upsell-vente-complementaire/")],
+    },
+    "articles/prix-site-web-cote-ivoire/index.html": {
+        "title": "Combien coûte un site web professionnel en Côte d'Ivoire",
+        "description": 'Fourchettes observées sur le marché ivoirien, sept éléments qui font monter un devis, et comment lire une proposition de site web avant de signer.',
+        "fragment": "articles-prix-site-web-cote-ivoire.html",
+        "nav_active": "site-web",
+        "breadcrumb": [("Site web", "/site-web/"), ("Prix d'un site web", "/articles/prix-site-web-cote-ivoire/")],
+    },
+    "articles/vitrine-ou-ecommerce/index.html": {
+        "title": 'Site vitrine, e-commerce ou les deux : comment décider',
+        "description": "Vos clients achètent-ils après avoir vu, ou après avoir demandé ? Grille de décision par activité, et coût caché d'un e-commerce qu'on n'utilise pas.",
+        "fragment": "articles-vitrine-ou-ecommerce.html",
+        "nav_active": "site-web",
+        "breadcrumb": [("Site web", "/site-web/"), ("Vitrine ou e-commerce", "/articles/vitrine-ou-ecommerce/")],
+    },
+    "articles/wordpress-shopify-sur-mesure/index.html": {
+        "title": 'WordPress, Shopify ou sur-mesure : lequel choisir',
+        "description": 'Paiement mobile money, connexion, maintenance, liberté de changer : quatre critères locaux pour trancher, et pour qui chaque option est un mauvais choix.',
+        "fragment": "articles-wordpress-shopify-sur-mesure.html",
+        "nav_active": "site-web",
+        "breadcrumb": [("Site web", "/site-web/"), ("Quelle technologie", "/articles/wordpress-shopify-sur-mesure/")],
+    },
+    "articles/questions-prestataire-site-web/index.html": {
+        "title": 'Les questions à poser avant de confier son site',
+        "description": "Douze questions à poser avant de signer, et ce qu'une bonne réponse contient : propriété, délai écrit, support, sauvegardes, sortie de collaboration.",
+        "fragment": "articles-questions-prestataire-site-web.html",
+        "nav_active": "site-web",
+        "breadcrumb": [("Site web", "/site-web/"), ("Questions au prestataire", "/articles/questions-prestataire-site-web/")],
+    },
+    "articles/domaine-hebergement-propriete/index.html": {
+        "title": 'Nom de domaine et hébergement : ce que vous devez posséder',
+        "description": "Le domaine, l'hébergement, les comptes et les accès de mesure doivent être à votre nom. Vérifier ce que vous possédez, et reprendre la main si besoin.",
+        "fragment": "articles-domaine-hebergement-propriete.html",
+        "nav_active": "site-web",
+        "breadcrumb": [("Site web", "/site-web/"), ("Propriété du site", "/articles/domaine-hebergement-propriete/")],
+    },
     "articles/cinq-couts-cac-oublies/index.html": {
         "title": 'Les cinq coûts que votre CAC oublie',
         "description": 'Les cinq coûts absents de votre CAC : temps de traitement, frais mobile money, colis refusés, livraison, outils. Comment les repérer et les chiffrer.',

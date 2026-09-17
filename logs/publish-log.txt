@@ -32,3 +32,13 @@
   - Sitemap complété de 10 URL
 
 # État : 34 articles sur 78. Prochain lot : 32 à 41.
+2026-09-17T14:50Z | lot 4 | Articles 32 à 41 (fin Acquisition + début Site web) | OK
+  - 10 articles, 10/10 conformes — 2 235 à 2 392 mots · 10 H2 · 6 FAQ
+  - 0 référence cassée sur 51 pages · 0 cible morte · 0 titre hors limite
+  - article 37 (prix d'un site web) : fourchettes 75-200k / 200-600k / 600k-1,5M
+    annoncées 12 fois comme observations de marché, aucun tarif ePerformance,
+    CTA vers site-web.html. Le montant 100 000 FCFA apparaît une fois, en FAQ,
+    comme borne de marché — pas comme un tarif.
+  - Sitemap complété de 10 URL
+
+# État : 44 articles sur 78. Prochain lot : 42 à 51 (Site web).

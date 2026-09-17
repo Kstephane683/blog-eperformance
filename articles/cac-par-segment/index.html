@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+(function(){try{var t=localStorage.getItem('eperf-theme');
+if(t!=='dark'&&t!=='light'){t='light';}
+document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+  <title>Segments clients : arrêter de calculer un CAC moyen</title>
+  <meta name="description" content="Segmenter par canal, produit, type de client et zone. La méthode de calcul du CAC par segment, avec un exemple où un segment en finance un autre.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://blog.eperformance.pro/articles/cac-par-segment/index.html">
+  <meta name="theme-color" content="#fdfcfa">
+  <meta name="author" content="K. Stéphane">
+
+  <!-- Icônes -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="icon" href="/assets/img/favicon-16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ePerformance">
+  <meta property="og:locale" content="fr_CI">
+  <meta property="og:title" content="Segments clients : arrêter de calculer un CAC moyen">
+  <meta property="og:description" content="Segmenter par canal, produit, type de client et zone. La méthode de calcul du CAC par segment, avec un exemple où un segment en finance un autre.">
+  <meta property="og:url" content="https://blog.eperformance.pro/articles/cac-par-segment/index.html">
+  <meta property="og:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ePerformance — ePerformance">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Segments clients : arrêter de calculer un CAC moyen">
+  <meta name="twitter:description" content="Segmenter par canal, produit, type de client et zone. La méthode de calcul du CAC par segment, avec un exemple où un segment en finance un autre.">
+  <meta name="twitter:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta name="twitter:creator" content="@eperformancepro">
+
+  <!-- Polices : préconnexion, préchargement des deux polices critiques,
+       puis chargement non bloquant de la feuille complète -->
+  <!-- Polices : auto-hébergées, déclarées dans eperf.css.
+       On précharge les deux graisses du premier écran pour que le
+       texte soit peint dans la bonne police dès le premier rendu. -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/cormorant-garamond-700.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/dm-sans-400.woff2">
+
+  <!-- Design system : la MEME feuille que le site, a l'identique. -->
+  <link rel="stylesheet" href="/assets/css/eperf.css">
+  <!-- Composants editoriaux du blog : corps d'article, largeur de
+       lecture, cartes d'article. Ils consomment les jetons d'eperf.css
+       et ne redefinissent aucune couleur. -->
+  <link rel="stylesheet" href="/assets/css/blog.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://blog.eperformance.pro/#organization",
+      "name": "ePerformance",
+      "alternateName": "ePerformance par K. Stéphane",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "founder": {
+        "@type": "Person",
+        "@id": "https://blog.eperformance.pro/#founder",
+        "name": "K. Stéphane",
+        "jobTitle": "Fondateur, stratège acquisition",
+        "url": "https://blog.eperformance.pro/kstephane.html"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Côte d'Ivoire"
+        },
+        {
+          "@type": "Country",
+          "name": "Burkina Faso"
+        },
+        {
+          "@type": "Place",
+          "name": "Afrique de l'Ouest"
+        }
+      ],
+      "knowsLanguage": "fr",
+      "sameAs": [
+        "https://blog.eperformance.pro/"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://blog.eperformance.pro/#localbusiness",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "parentOrganization": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Abidjan",
+        "addressCountry": "CI"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Côte d'Ivoire"
+      },
+      "priceRange": "100000-350000 XOF",
+      "currenciesAccepted": "XOF",
+      "paymentAccepted": "Orange Money, Wave, MTN MoMo, Moov Money, Visa, Mastercard",
+      "availableLanguage": "fr"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://blog.eperformance.pro/#website",
+      "url": "https://blog.eperformance.pro",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "publisher": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://blog.eperformance.pro/articles/cac-par-segment/index.html#webpage",
+      "url": "https://blog.eperformance.pro/articles/cac-par-segment/index.html",
+      "name": "Segments clients : arrêter de calculer un CAC moyen",
+      "description": "Segmenter par canal, produit, type de client et zone. La méthode de calcul du CAC par segment, avec un exemple où un segment en finance un autre.",
+      "isPartOf": {
+        "@id": "https://blog.eperformance.pro/#website"
+      },
+      "about": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://blog.eperformance.pro/articles/cac-par-segment/index.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://blog.eperformance.pro/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Acquisition",
+          "item": "https://blog.eperformance.pro/acquisition/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "CAC par segment",
+          "item": "https://blog.eperformance.pro/articles/cac-par-segment/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Segments clients : arrêter de calculer un CAC moyen",
+  "description":"Segmenter par canal, produit, type de client et zone. La méthode de calcul du CAC par segment, avec un exemple où un segment en finance un autre.",
+  "image":"https://blog.eperformance.pro/assets/img/og-image.jpg",
+  "datePublished":"2026-12-17",
+  "dateModified":"2026-12-17",
+  "inLanguage":"fr-CI",
+  "wordCount":2392,
+  "articleSection":"Acquisition",
+  "keywords":["cac par segment","segment clients","cac moyen","rentabilité par canal","contribution segment","Côte d'Ivoire","Abidjan"],
+  "author":{"@type":"Person","name":"K. STEPHANE","jobTitle":"Fondateur ePerformance","url":"https://blog.eperformance.pro/a-propos/"},
+  "publisher":{"@type":"Organization","name":"ePerformance","logo":{"@type":"ImageObject","url":"https://eperformance.pro/assets/img/logo-light.webp"}},
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.eperformance.pro/articles/cac-par-segment/"}
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Blog","item":"https://blog.eperformance.pro/"},
+    {"@type":"ListItem","position":2,"name":"Acquisition","item":"https://blog.eperformance.pro/acquisition/"},
+    {"@type":"ListItem","position":3,"name":"Segments clients : arrêter de calculer un CAC moyen","item":"https://blog.eperformance.pro/articles/cac-par-segment/"}
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Pourquoi un CAC moyen peut-il être dangereux ?","acceptedAnswer":{"@type":"Answer","text":"Parce qu'il mélange des clients dont les coûts et les marges n'ont rien à voir, et qu'il donne le plus de poids au segment qui amène le plus de volume. Il peut afficher une moyenne correcte alors qu'une majorité de clients coûte plus qu'elle ne rapporte. La moyenne n'est pas fausse, elle est inutilisable pour décider."}},
+    {"@type":"Question","name":"Combien de segments faut-il suivre en même temps ?","acceptedAnswer":{"@type":"Answer","text":"Trois ou quatre au maximum. Au-delà, chaque segment contient trop peu de clients pour que le chiffre soit lisible, et vous passez plus de temps à tenir le tableau qu'à décider. Commencez par le canal d'acquisition, puis ajoutez le type de client si les profils sont très différents."}},
+    {"@type":"Question","name":"Comment savoir d'où vient un client sans outil de tracking ?","acceptedAnswer":{"@type":"Answer","text":"En posant la question au moment de la commande et en notant la réponse dans la même ligne que la vente. Un code de réduction par canal fonctionne aussi. Ces méthodes attribuent le client au dernier contact connu, ce qui n'est pas parfait, mais elles restent constantes d'un mois à l'autre, et c'est la comparaison qui compte."}},
+    {"@type":"Question","name":"Mon segment le plus cher est aussi le plus rentable, est-ce normal ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Un CAC élevé peut correspondre à un panier moyen élevé, à des commandes plus fréquentes ou à des clients qui commandent pour revendre. Ce qui compte n'est pas le niveau du CAC, mais l'écart entre la marge nette par client et ce CAC. Un segment à 8 600 FCFA de CAC peut être très rentable si chaque client laisse 15 900 FCFA."}},
+    {"@type":"Question","name":"Faut-il couper un segment dont la contribution est négative ?","acceptedAnswer":{"@type":"Answer","text":"Pas dans un premier temps. Vérifiez d'abord les coûts variables : livraison facturée en dessous de son coût, frais de paiement, temps de traitement. Ensuite le prix et le panier minimum. Un segment qui perd quelques centaines de francs par client repasse souvent positif avec une hausse de prix. La coupe vient après, si rien ne corrige le signe."}},
+    {"@type":"Question","name":"Je n'ai que trente nouveaux clients par mois, cela vaut-il la peine de segmenter ?","acceptedAnswer":{"@type":"Answer","text":"Oui, mais sur deux segments seulement et en regroupant trois mois par ligne. Avec trente clients mensuels, un découpage en quatre donne des cases de sept ou huit personnes, trop petites pour conclure. Deux segments trimestriels suffisent à voir lequel finance l'autre, et c'est déjà l'essentiel de la décision."}}
+  ]
+}
+  </script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a class="logo" href="/" aria-label="ePerformance — accueil">
+      <img class="logo-img-light" src="/assets/img/logo-light.webp"
+           srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+           width="182" height="30" alt="ePerformance" fetchpriority="high">
+      <img class="logo-img-dark" src="/assets/img/logo-dark.webp"
+           srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+           width="188" height="30" alt="" aria-hidden="true">
+    </a>
+
+    <nav class="nav" id="primary-nav" aria-label="Navigation principale">
+      <a href="/">Accueil</a>
+      <a href="/acquisition/" aria-current="page">Acquisition</a>
+      <a href="/site-web/">Site web</a>
+      <a href="/seo/">SEO</a>
+      <a href="/business/">Business</a>
+      <a href="/articles/ia-generative-pme-africaine/">IA</a>
+      <a href="/articles/automatisation-marketing-debuter/">Automatisation</a>
+      <a href="/a-propos/">À propos</a>
+      <a href="https://eperformance.pro" rel="noopener">Site principal</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" data-theme-toggle
+              aria-pressed="false" aria-label="Activer le thème sombre">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+        </svg>
+      </button>
+
+      <a class="btn btn-gold btn-desktop" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false"
+              aria-controls="primary-nav" aria-label="Ouvrir le menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<nav class="breadcrumb container" aria-label="Fil d'Ariane">
+  <ol>
+    <li><a href="/">Accueil</a></li>
+    <li><a href="/acquisition/">Acquisition</a></li>
+    <li aria-current="page">CAC par segment</li>
+  </ol>
+</nav>
+
+<main id="main">
+
+
+<section class="article-hero">
+  <div class="container-reading">
+
+    <nav class="article-breadcrumb" aria-label="Fil d'Ariane">
+      <a href="../">Blog</a>
+      <span class="sep">/</span>
+      <a href="/acquisition/">Acquisition</a>
+      <span class="sep">/</span>
+      <span>CAC par segment</span>
+    </nav>
+
+    <span class="article-category">Acquisition</span>
+    <h1>Segments clients : <span class="text-gold">arrêter de calculer un CAC moyen</span></h1>
+    <p class="lead">Un CAC moyen mélange des clients qui rapportent et des clients qui coûtent. Séparé par canal, par produit, par type de client et par zone, le même chiffre devient une décision : quel segment finance l'autre, et lequel faut-il réparer en premier.</p>
+
+    <div class="article-meta">
+      <div class="author">
+        <div class="author-avatar">KS</div>
+        <div>
+          <div class="article-author-name">K. STEPHANE</div>
+          <div class="small">Fondateur ePerformance</div>
+        </div>
+      </div>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg> 17 décembre 2026</span>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.6 2.1"/></svg> 12 min de lecture</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section-flush-top">
+  <div class="article-body container-reading">
+
+    <p>Le coût d'acquisition client se termine presque toujours de la même façon : une dépense publicitaire divisée par un nombre de clients. Le chiffre est juste, la conclusion est fausse. Un CAC moyen décrit la moyenne de comportements qui n'ont rien à voir entre eux.</p>
+
+    <p>Prenez deux clients du même mois. Le premier a vu une publicité, a écrit sur WhatsApp, a commandé un article à 12 000 FCFA. Le second est une revendeuse, entrée par une relance, qui commande pour 80 000 FCFA. Leur coût d'acquisition n'est pas le même, leur marge non plus. Les additionner, c'est mélanger deux activités.</p>
+
+    <p>Ce qui suit explique comment découper utilement, comment calculer par segment sans logiciel, et comment lire le résultat sans se raconter d'histoires. Le calcul de la valeur d'un client, qui donne le plafond à ne pas dépasser sur chaque segment, est détaillé dans <a href="/articles/calculer-ltv/">calculer sa LTV sans se raconter d'histoires</a>.</p>
+
+    <h2>Ce que la moyenne pondérée cache</h2>
+
+    <p>Une moyenne pondérée donne du poids aux gros volumes. C'est exactement ce qui la rend trompeuse. Un segment qui amène 90 clients à 4 000 FCFA de CAC écrase un segment qui en amène 10 à 12 000 FCFA, alors que le second est peut-être celui qui paie les factures.</p>
+
+    <p>Deux mécanismes se combinent. D'abord, la dépense se fait par campagne, donc par segment : elle est répartie par la plateforme, pas par votre activité. Ensuite, les clients ne se ressemblent pas. Un client venu d'une recherche a une intention précise ; un client venu d'une vidéo découvre. Leurs paniers, leurs taux de rachat et leurs coûts de livraison diffèrent, mais tous finissent dans le même total.</p>
+
+    <p>La conséquence pratique est simple à énoncer et désagréable à vivre. Vous pilotez au niveau du compte publicitaire, en augmentant ou en baissant un budget global. Une hausse profite d'abord au segment le plus gourmand en budget, celui qui amène du volume, pas celui qui laisse de la marge. Les moyennes masquent ce déplacement, parce qu'elles bougent peu.</p>
+
+    <p>Un CAC moyen n'est pas inutile : il donne un ordre de grandeur et permet de suivre l'évolution d'un mois sur l'autre. Il devient dangereux quand il sert à décider où mettre l'argent.</p>
+
+    <h2>Quatre découpages qui changent une décision</h2>
+
+    <p>Segmenter n'a d'intérêt que si le découpage change une action. Quatre entrées répondent à cette condition, et suffisent dans la plupart des activités.</p>
+
+    <h3>Par canal d'acquisition</h3>
+    <p>Meta Ads, Google Ads, TikTok, bouche-à-oreille, Instagram organique, WhatsApp d'un partenaire. Chaque canal a sa mécanique et son coût. Ce découpage répond à la question la plus fréquente : lequel alimenter. Attention à ne pas confondre le canal affiché par la plateforme et la véritable origine : demandez à chaque nouveau client comment il vous a connus, et notez la réponse.</p>
+
+    <h3>Par produit ou par gamme</h3>
+    <p>Un produit d'appel à 5 000 FCFA et un produit à 90 000 FCFA n'ont ni la même marge, ni le même délai de décision. Ce découpage sert à vérifier que la publicité pousse ce qui laisse de l'argent, et pas seulement ce qui se clique facilement. Il arrive souvent que la campagne la plus performante en volumes finance un produit à faible marge.</p>
+
+    <h3>Par type de client</h3>
+    <p>Particuliers, revendeurs, entreprises, institutions. Trois lignes suffisent. Un revendeur commande moins souvent mais beaucoup plus gros, et négocie ; un particulier commande peu et revient peut-être plus tard. Ce découpage dit quel modèle vous finance réellement, et donc où porter votre effort de prospection.</p>
+
+    <h3>Par zone géographique</h3>
+    <p>Abidjan, intérieur du pays, sous-région. La livraison change tout : dans une commune dense, elle coûte quelques centaines de francs ; à l'intérieur, elle peut doubler le coût d'une commande. Un même taux de conversion ne vaut pas la même chose selon la zone, et cette ligne se calcule à partir de vos bordereaux de livraison.</p>
+
+    <h2>La méthode : un tableau de sept colonnes</h2>
+
+    <p>Le calcul par segment se fait sur une feuille de tableur ou sur un cahier, une ligne par segment. Sept colonnes, pas une de plus.</p>
+
+    <ul>
+      <li><strong>La dépense publicitaire</strong> du mois pour ce segment, lue dans la plateforme.</li>
+      <li><strong>Les clients acquis</strong> dans le mois, comptés une fois chacun, numéro de téléphone en main.</li>
+      <li><strong>Le CAC du segment</strong> : dépense divisée par clients.</li>
+      <li><strong>Le panier moyen</strong>, calculé sur ce segment uniquement.</li>
+      <li><strong>La marge brute par commande</strong>, une fois le coût de la marchandise déduit.</li>
+      <li><strong>Les coûts variables par client</strong> : livraison non couverte, frais de paiement, temps de traitement, colis refusés.</li>
+      <li><strong>La contribution du segment</strong> : (marge nette par client moins CAC) multiplié par le nombre de clients.</li>
+    </ul>
+
+    <p>La dernière colonne est la seule qui décide. Un segment peut afficher un CAC flatteur et une contribution négative, ou l'inverse. C'est cette multiplication qui tranche, parce qu'elle tient compte du nombre de clients concernés.</p>
+
+    <p>Le point délicat reste l'affectation d'un client à un segment. Sans outil, la méthode la plus fiable tient en une question posée au moment de la commande, avec la réponse notée dans la même ligne du cahier. Un code de réduction différent par canal fonctionne aussi, à condition de tenir un décompte. Aucune de ces méthodes n'est parfaite : elles attribuent toutes le client au dernier contact connu, alors que plusieurs contacts ont souvent contribué. Ce qu'elles perdent en précision, elles le rendent en constance : les mêmes règles, appliquées tous les mois, produisent des chiffres comparables.</p>
+
+    <h2>Exemple arithmétique : deux segments, l'un finance l'autre</h2>
+
+    <p>Exemple arithmétique, volontairement rond, sans lien avec un cas réel. Une boutique a dépensé 400 000 FCFA de publicité dans le mois et acquis 100 clients. Le CAC moyen affiché est de 4 000 FCFA.</p>
+
+    <p><strong>Segment A — particuliers venus d'une campagne large.</strong> 92 clients pour 331 200 FCFA de dépense, soit un CAC de 3 600 FCFA. Panier moyen 14 000 FCFA, marge brute 30 %, soit 4 200 FCFA. Retirez les coûts variables par client : 400 FCFA de livraison non couverte, 280 FCFA de frais mobile money, 500 FCFA de temps de traitement. Reste 3 020 FCFA de marge nette par client. Le CAC de 3 600 est supérieur : chaque client coûte 580 FCFA. Sur 92 clients, la contribution du segment est de <strong>−53 360 FCFA</strong>.</p>
+
+    <p><strong>Segment B — revendeuses venues d'une campagne ciblée.</strong> 8 clientes pour 68 800 FCFA de dépense, soit un CAC de 8 600 FCFA. Panier moyen 80 000 FCFA, marge brute 25 %, soit 20 000 FCFA. Coûts variables : 1 500 FCFA de livraison, 1 600 FCFA de frais de paiement, 1 000 FCFA de temps de traitement, soit 4 100 FCFA. Reste 15 900 FCFA de marge nette par client. Le CAC de 8 600 est couvert plus de 1,8 fois : chaque cliente rapporte 7 300 FCFA. Sur 8 clientes, la contribution du segment est de <strong>+58 400 FCFA</strong>.</p>
+
+    <p>Le mois se termine donc à +5 040 FCFA, et la marge nette moyenne par client, 4 050 FCFA, dépasse le CAC moyen de 4 000 FCFA. Lu ainsi, le compte est équilibré. Lu par segment, il dit autre chose : 92 % des clients détruisent de la valeur, et 8 clientes rattrapent le tout. Près de 53 000 FCFA de marge sont transférés chaque mois du segment des particuliers vers celui des revendeuses.</p>
+
+    <p>Deux enseignements se dégagent de cet exemple. Le segment au CAC le plus élevé est le seul rentable : 8 600 FCFA contre 3 600, et c'est lui qui paie. Et la moyenne pondérée encourage la pire décision possible, augmenter le budget du segment qui perd de l'argent, puisqu'il amène le plus de clients et qu'il affiche le CAC le plus bas.</p>
+
+    <h2>Le piège des petits volumes</h2>
+
+    <p>Un segment calculé sur huit clients ne dit rien de solide. Une commande exceptionnelle suffit à le rendre brillant, un mois creux à le rendre catastrophique. Le détail par segment n'est pas plus fiable que la moyenne quand les volumes sont trop faibles : il est seulement plus fin.</p>
+
+    <p>Trois règles simples limitent le risque. En dessous de quinze clients dans le mois, regroupez trois mois avant de juger un segment. Au-delà de quatre segments, les volumes se dispersent et l'analyse ne se lit plus. Et fixez vos définitions une fois pour toutes : si vous changez les bornes du segment tous les mois, vous comparez des choses différentes et le suivi perd son sens.</p>
+
+    <p>Un segment peu alimenté mérite parfois d'être conservé sans conclusion. Celui des revendeuses, dans l'exemple, tient sur huit clientes : le chiffre reste indicatif, mais l'ordre de grandeur, une marge nette par client quatre fois supérieure, justifie d'y consacrer un budget publicitaire plus important pendant un trimestre avant de trancher. C'est le seul cas où augmenter volontairement un budget sur un segment au CAC élevé se défend.</p>
+
+    <h2>Décider segment par segment, sans casser la machine</h2>
+
+    <p>Un segment dont la contribution est négative n'appelle presque jamais un arrêt immédiat. Dans l'exemple, il suffit de 580 FCFA par client pour repasser à l'équilibre : une hausse de prix de 1 000 FCFA sur le segment A inverse le signe à elle seule, et la livraison facturée à son coût réel en couvre les deux tiers. Couper avant d'avoir essayé la correction revient à se priver d'un volume qui absorbe vos charges fixes.</p>
+
+    <p>L'ordre des décisions est toujours le même. D'abord corriger les coûts variables du segment : livraison, emballage, temps de traitement. Ensuite ajuster le prix ou le panier minimum, en vérifiant que le volume tient. Enfin déplacer le budget, du segment qui perd vers celui qui finance. La coupe pure et simple reste le dernier recours, quand la contribution reste négative après ces trois corrections.</p>
+
+    <p>Le mécanisme de la réaffectation mérite d'être explicité, parce qu'il est contre-intuitif. Déplacer 50 000 FCFA du segment A vers le segment B ne laisse pas la contribution globale au même niveau : les 50 000 FCFA retirés suppriment une perte de 8 000 FCFA dans le segment A, et les 50 000 FCFA ajoutés au segment B, s'ils produisent le même rendement, ajoutent un gain. Le calcul complet de ce rendement se lit avec le <a href="/articles/roas-trompeur/">ROAS affiché et ce qu'il ne dit pas</a> : un segment au chiffre d'affaires flatteur peut être celui qui consomme la marge.</p>
+
+    <h2>Le suivi : une ligne par segment et par mois</h2>
+
+    <p>Le tableau par segment se remplit une fois par mois, avec la même méthode de comptage. Trois mois donnent une tendance, douze donnent une base de décision. Ce qui compte n'est pas la valeur absolue d'un mois, mais la direction : un segment dont la contribution se dégrade trois mois de suite signale une hausse des coûts ou un changement de profil de client.</p>
+
+    <p>Deux chiffres se notent à part, dans la marge du tableau. Le CAC moyen, pour mémoire, et la contribution totale. L'écart entre les deux raconte votre activité mieux qu'un rapport : tant que la contribution totale progresse, augmenter le budget reste finançable. Si elle stagne alors que le CAC moyen baisse, vous gagnez des clients qui ne paient pas leurs propres coûts.</p>
+
+    <p>Un dernier point, et il vaut pour tous les découpages : une segmentation se garde au minimum un an. Changer de grille en cours de route remet le compteur à zéro, sans rien apprendre. Le bon réflexe, quand un découpage ne donne rien, est de le mettre de côté pour l'année suivante.</p>
+
+    <div class="cta-block">
+      <h2>Quel segment finance votre acquisition ?</h2>
+      <p>Le diagnostic gratuit reprend vos chiffres, calcule votre CAC par segment et vous montre lequel tire la rentabilité vers le bas. Cinq minutes, résultat immédiat.</p>
+      <a class="btn btn-gold" href="https://eperformance.pro/diagnostic_eperformance.html">Faire mon diagnostic gratuit
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <h2>FAQ — Ce qu'on me demande sur le CAC par segment</h2>
+
+    <div class="faq-section">
+      <details>
+        <summary>Pourquoi un CAC moyen peut-il être dangereux ?</summary>
+        <p>Parce qu'il mélange des clients dont les coûts et les marges n'ont rien à voir, et qu'il donne le plus de poids au segment qui amène le plus de volume. Il peut afficher une moyenne correcte alors qu'une majorité de clients coûte plus qu'elle ne rapporte. La moyenne n'est pas fausse, elle est inutilisable pour décider.</p>
+      </details>
+
+      <details>
+        <summary>Combien de segments faut-il suivre en même temps ?</summary>
+        <p>Trois ou quatre au maximum. Au-delà, chaque segment contient trop peu de clients pour que le chiffre soit lisible, et vous passez plus de temps à tenir le tableau qu'à décider. Commencez par le canal d'acquisition, puis ajoutez le type de client si les profils sont très différents.</p>
+      </details>
+
+      <details>
+        <summary>Comment savoir d'où vient un client sans outil de tracking ?</summary>
+        <p>En posant la question au moment de la commande et en notant la réponse dans la même ligne que la vente. Un code de réduction par canal fonctionne aussi. Ces méthodes attribuent le client au dernier contact connu, ce qui n'est pas parfait, mais elles restent constantes d'un mois à l'autre, et c'est la comparaison qui compte.</p>
+      </details>
+
+      <details>
+        <summary>Mon segment le plus cher est aussi le plus rentable, est-ce normal ?</summary>
+        <p>Oui. Un CAC élevé peut correspondre à un panier moyen élevé, à des commandes plus fréquentes ou à des clients qui commandent pour revendre. Ce qui compte n'est pas le niveau du CAC, mais l'écart entre la marge nette par client et ce CAC. Un segment à 8 600 FCFA de CAC peut être très rentable si chaque client laisse 15 900 FCFA.</p>
+      </details>
+
+      <details>
+        <summary>Faut-il couper un segment dont la contribution est négative ?</summary>
+        <p>Pas dans un premier temps. Vérifiez d'abord les coûts variables : livraison facturée en dessous de son coût, frais de paiement, temps de traitement. Ensuite le prix et le panier minimum. Un segment qui perd quelques centaines de francs par client repasse souvent positif avec une hausse de prix. La coupe vient après, si rien ne corrige le signe.</p>
+      </details>
+
+      <details>
+        <summary>Je n'ai que trente nouveaux clients par mois, cela vaut-il la peine de segmenter ?</summary>
+        <p>Oui, mais sur deux segments seulement et en regroupant trois mois par ligne. Avec trente clients mensuels, un découpage en quatre donne des cases de sept ou huit personnes, trop petites pour conclure. Deux segments trimestriels suffisent à voir lequel finance l'autre, et c'est déjà l'essentiel de la décision.</p>
+      </details>
+    </div>
+
+    <div class="tags-row">
+      <a href="/acquisition/" class="tag">Acquisition</a>
+      <a href="/articles/calculer-ltv/" class="tag">LTV</a>
+      <a href="/articles/roas-trompeur/" class="tag">Rentabilité</a>
+    </div>
+
+    <div class="share-row">
+      <span class="small">Partager</span>
+      <a href="#" class="share-btn" onclick="return sharePage('whatsapp')" data-share="whatsapp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.6-4.5A8.4 8.4 0 1 1 8 20.4z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('linkedin')" data-share="linkedin" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('facebook')" data-share="facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('copy')" data-share="copy" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></a>
+    </div>
+
+    <div class="related">
+      <h2>Articles à lire ensuite</h2>
+      <a href="/articles/calculer-ltv/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">Acquisition</span>
+          <h3>Calculer sa LTV sans se raconter d'histoires</h3>
+          <p class="small">La méthode par cohorte, les erreurs qui gonflent le chiffre, et le plafond de CAC qui en découle.</p>
+        </div>
+      </a>
+      <a href="/articles/roas-trompeur/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">Acquisition</span>
+          <h3>Pourquoi le ROAS affiché ment sur votre rentabilité</h3>
+          <p class="small">Un ROAS flatteur peut cacher un mois déficitaire. La déduction, ligne par ligne, jusqu'au résultat.</p>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-col">
+        <img class="footer-logo logo-img-light" src="/assets/img/logo-light.webp"
+             srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+             width="152" height="25" alt="ePerformance" loading="lazy">
+        <img class="footer-logo logo-img-dark" src="/assets/img/logo-dark.webp"
+             srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+             width="157" height="25" alt="" aria-hidden="true" loading="lazy">
+        <p class="card-text mt-3" style="max-width:34ch">Stratégie d&#x27;acquisition, IA générative, automatisation et développement web premium. Basé en Côte d&#x27;Ivoire, 100 % en ligne.</p>
+      </div>
+
+      <div class="footer-col">
+        <h2>Services</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/index.html#methode" rel="noopener">stratégie d&#x27;acquisition</a></li>
+          <li><a href="https://eperformance.pro/ia.html" rel="noopener">IA générative</a></li>
+          <li><a href="https://eperformance.pro/automatisation.html" rel="noopener">Automatisation</a></li>
+          <li><a href="https://eperformance.pro/site-web.html" rel="noopener">Création de site web</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Ressources</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/diagnostic_eperformance.html" rel="noopener">Diagnostic gratuit</a></li>
+          <li><a href="https://eperformance.pro/formation.html" rel="noopener">Formations</a></li>
+          <li><a href="https://eperformance.pro/ebook.html" rel="noopener">Ebooks</a></li>
+          <li><a href="https://blog.eperformance.pro/" rel="noopener">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="https://wa.me/2250151170666" rel="noopener">+225 01 51 17 06 66</a></li>
+          <li><a href="mailto:bonjour@eperformance.pro">bonjour@eperformance.pro</a></li>
+          <li><a href="https://api.eperformance.pro/connexion.php" rel="noopener">Espace client</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 ePerformance — par K. Stéphane. Tous droits réservés.</p>
+      <p><a href="https://eperformance.pro/mentions-legales.html">Mentions légales</a> · <a href="https://eperformance.pro/politique-confidentialite.html">Confidentialité</a> · <a href="https://eperformance.pro/cookies.html">Cookies</a> · <a href="https://eperformance.pro/cgv.html">CGV</a></p>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a class="btn btn-gold" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+  <a class="btn btn-wa" href="https://wa.me/2250151170666" style="flex:0 0 auto" rel="noopener">WhatsApp</a>
+</div>
+
+<div class="consent" id="consent-banner" hidden>
+  <div class="consent-inner">
+    <div class="consent-text">
+      <p><strong>Vous choisissez ce que nous mesurons.</strong></p>
+      <p>Nous utilisons des traceurs pour comprendre comment le site est utilisé et pour
+         mesurer nos campagnes. Aucun ne se déclenche avant votre accord.
+         <a href="https://eperformance.pro/politique-confidentialite.html">Politique de confidentialité</a> ·
+         <a href="https://eperformance.pro/cookies.html">En savoir plus</a></p>
+    </div>
+    <div class="consent-actions">
+      <button type="button" class="btn btn-ghost" data-consent="refuse">Tout refuser</button>
+      <button type="button" class="btn btn-outline" data-consent="customize">Paramétrer</button>
+      <button type="button" class="btn btn-gold" data-consent="accept">Tout accepter</button>
+    </div>
+  </div>
+
+  <div class="consent-detail" id="consent-detail" hidden>
+    <fieldset class="fieldset">
+      <legend>Vos préférences</legend>
+
+      <label class="consent-row consent-row-locked">
+        <input type="checkbox" checked disabled>
+        <span>
+          <strong>Nécessaires</strong>
+          <span class="field-hint">Mémorisation de votre choix de thème et de vos préférences.
+            Toujours actifs : le site ne peut pas fonctionner sans.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-analytics">
+        <span>
+          <strong>Mesure d'audience</strong>
+          <span class="field-hint">Google Analytics 4 et Microsoft Clarity. Nous aide à voir
+            quelles pages sont utiles et où les visiteurs abandonnent.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-ads">
+        <span>
+          <strong>Publicité</strong>
+          <span class="field-hint">Meta Pixel. Mesure l'efficacité de nos campagnes
+            Facebook et Instagram.</span>
+        </span>
+      </label>
+    </fieldset>
+
+    <div class="consent-actions">
+      <button type="button" class="btn btn-outline" data-consent="back">Retour</button>
+      <button type="button" class="btn btn-gold" data-consent="save">Enregistrer mes choix</button>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/js/consent.js" defer></script>
+<script src="/assets/js/eperf.js" defer></script>
+<script src="/assets/js/blog.js" defer></script>
+</body>
+</html>
