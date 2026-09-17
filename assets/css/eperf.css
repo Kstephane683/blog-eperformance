@@ -532,6 +532,13 @@
 
   .btn-block { width: 100%; }
 
+  /* L'icône d'un bouton a une taille fixe. Sans cette règle, un <svg> sans
+     attributs width/height s'étire à la taille de son contenu et gonfle le
+     bouton : constaté à 86 px de côté, soit un bouton de 114 px de haut,
+     et une icône invisible dans le header. flex-shrink: 0 évite qu'elle soit
+     comprimée quand le texte est long. */
+  .btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+
   /* --- En-tête --------------------------------------------------------- */
   .site-header {
     position: sticky;
