@@ -1133,6 +1133,52 @@
   .breadcrumb a:hover { color: var(--gold); }
 
   /* --- Bandeau CTA collant (mobile) ------------------------------------ */
+  /* --- Bouton WhatsApp flottant ---------------------------------------
+     Sur mobile, la barre .sticky-cta contient déjà WhatsApp : ce bouton
+     n'apparaît donc qu'au-dessus de 720 px, là où il n'y a aujourd'hui
+     aucun point de contact permanent.
+
+     Position en bas à GAUCHE. Le widget chatbot occupera le bas à droite
+     quand il arrivera : les deux cohabiteront sans se chevaucher, et il
+     n'y aura rien à refaire ce jour-là.
+
+     Tant que le bandeau cookies est ouvert, le bouton s'efface : le
+     bandeau est une décision à prendre, le bouton une commodité. */
+  .wa-float {
+    position: fixed;
+    left: 24px;
+    bottom: 24px;
+    z-index: 80;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--wa);
+    color: var(--on-wa);
+    box-shadow: var(--shadow-lg);
+    transition: transform .18s ease;
+  }
+  .wa-float:hover { transform: translateY(-2px); }
+  .wa-float:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+  .wa-float svg { width: 26px; height: 26px; }
+
+  @media (min-width: 721px) {
+    .wa-float { display: flex; }
+  }
+
+  /* Le bandeau cookies a la priorité : le bouton s'efface tant qu'il est là. */
+  body:has(.consent:not([hidden])) .wa-float { display: none; }
+
+  @media print {
+    .wa-float { display: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .wa-float { transition: none; }
+  }
+
   .sticky-cta {
     position: fixed;
     inset: auto 0 0 0;
