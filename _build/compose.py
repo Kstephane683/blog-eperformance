@@ -56,6 +56,7 @@ NAV = [
     ("Site web",       "/site-web/",   "site-web"),
     ("SEO",            "/seo/",        "seo"),
     ("Business",       "/business/",   "business"),
+    ("IA",             "/articles/ia-generative-pme-africaine/", "ia"),
     ("À propos",       "/a-propos/",   "a-propos"),
     ("Site principal", SITE_URL,       "site"),
 ]
@@ -173,6 +174,13 @@ PAGES = {
     # ── Les 3 articles ───────────────────────────────────────────────────
     # Pas de hero : le fragment porte son propre en-tête éditorial
     # (.article-hero avec catégorie, <h1>, date, temps de lecture).
+    "articles/ia-generative-pme-africaine/index.html": {
+        "title": "IA générative pour une PME africaine : trois tâches concrètes",
+        "description": "Ce que l'IA générative fait vraiment pour une PME : trois tâches qu'elle fait mieux que vous, trois qu'elle ne fera jamais. Guide pratique.",
+        "fragment": "articles-ia-generative-pme-africaine.html",
+        "nav_active": "ia",
+        "breadcrumb": [("IA générative", "/"), ("Qu'est-ce que l'IA générative pour une PME africaine", "/articles/ia-generative-pme-africaine/")],
+    },
     "articles/calculer-cac-cote-ivoire/index.html": {
         "title": "Calculer son vrai CAC en Côte d'Ivoire (guide 2026)",
         "description": "Le CAC réel inclut la pub, les outils et votre temps. Méthode de calcul, exemple chiffré et 5 leviers pour le réduire.",

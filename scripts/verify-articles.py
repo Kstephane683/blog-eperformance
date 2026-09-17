@@ -8,7 +8,7 @@ SEUILS = {'mots_min': 1900, 'mots_max': 2600, 'h2_min': 9, 'h2_max': 16,
 
 # Marqueurs IA et formulations interdites (conformité Google Ads)
 INTERDITS = [
-    r'\bgaranti', r'\bsans blabla', r'\bsans jargon', r'\bà l\'aveugle\b',
+    r'\bgarantis?\b', r'\bsans blabla', r'\bsans jargon', r'\bà l\'aveugle\b',
     r'\ble meilleur\b', r'\bn°1\b', r'\bnuméro 1\b', r'\brévolutionnaire\b',
     r'\bincroyable\b', r'\bmagique\b', r'\bgame changer\b', r'\bdisruptif\b',
     r'[🚀🔍📊✅⭐💡🎯]',           # emoji dans le corps
@@ -57,6 +57,7 @@ def controler(chemin):
     # --- Conformité et ton
     bas = texte(s).lower()
     SUPERLATIFS = (r'\ble meilleur\b', r'\bn°1\b', r'\bnuméro 1\b')
+    A_VERIFIER = (r'\bgarantie?s?\b', r'\bremboursement\b')
     for motif in INTERDITS:
         m = re.search(motif, bas, re.I)
         if not m: continue
@@ -64,6 +65,8 @@ def controler(chemin):
         # ou une promesse commerciale. Avertissement, pas échec.
         if motif in SUPERLATIFS:
             avert.append(f"superlatif à vérifier : « {m.group(0)} »")
+        elif motif in A_VERIFIER:
+            avert.append(f"notion à vérifier : « {m.group(0)} »")
         else:
             pb.append(f"formulation interdite : « {m.group(0)} »")
 
