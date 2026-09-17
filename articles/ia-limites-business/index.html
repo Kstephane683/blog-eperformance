@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+(function(){try{var t=localStorage.getItem('eperf-theme');
+if(t!=='dark'&&t!=='light'){t='light';}
+document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+  <title>Ce que l&#x27;IA ne sait pas faire dans votre business</title>
+  <meta name="description" content="L&#x27;IA ignore votre marge, votre trésorerie et votre capacité de production. Elle amplifie ce que vous faites mal autant que ce que vous faites bien.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://blog.eperformance.pro/articles/ia-limites-business/index.html">
+  <meta name="theme-color" content="#fdfcfa">
+  <meta name="author" content="K. Stéphane">
+
+  <!-- Icônes -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="icon" href="/assets/img/favicon-16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ePerformance">
+  <meta property="og:locale" content="fr_CI">
+  <meta property="og:title" content="Ce que l&#x27;IA ne sait pas faire dans votre business">
+  <meta property="og:description" content="L&#x27;IA ignore votre marge, votre trésorerie et votre capacité de production. Elle amplifie ce que vous faites mal autant que ce que vous faites bien.">
+  <meta property="og:url" content="https://blog.eperformance.pro/articles/ia-limites-business/index.html">
+  <meta property="og:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ePerformance — ePerformance">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ce que l&#x27;IA ne sait pas faire dans votre business">
+  <meta name="twitter:description" content="L&#x27;IA ignore votre marge, votre trésorerie et votre capacité de production. Elle amplifie ce que vous faites mal autant que ce que vous faites bien.">
+  <meta name="twitter:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta name="twitter:creator" content="@eperformancepro">
+
+  <!-- Polices : préconnexion, préchargement des deux polices critiques,
+       puis chargement non bloquant de la feuille complète -->
+  <!-- Polices : auto-hébergées, déclarées dans eperf.css.
+       On précharge les deux graisses du premier écran pour que le
+       texte soit peint dans la bonne police dès le premier rendu. -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/cormorant-garamond-700.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/dm-sans-400.woff2">
+
+  <!-- Design system : la MEME feuille que le site, a l'identique. -->
+  <link rel="stylesheet" href="/assets/css/eperf.css">
+  <!-- Composants editoriaux du blog : corps d'article, largeur de
+       lecture, cartes d'article. Ils consomment les jetons d'eperf.css
+       et ne redefinissent aucune couleur. -->
+  <link rel="stylesheet" href="/assets/css/blog.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://blog.eperformance.pro/#organization",
+      "name": "ePerformance",
+      "alternateName": "ePerformance par K. Stéphane",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "founder": {
+        "@type": "Person",
+        "@id": "https://blog.eperformance.pro/#founder",
+        "name": "K. Stéphane",
+        "jobTitle": "Fondateur, stratège acquisition",
+        "url": "https://blog.eperformance.pro/kstephane.html"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Côte d'Ivoire"
+        },
+        {
+          "@type": "Country",
+          "name": "Burkina Faso"
+        },
+        {
+          "@type": "Place",
+          "name": "Afrique de l'Ouest"
+        }
+      ],
+      "knowsLanguage": "fr",
+      "sameAs": [
+        "https://blog.eperformance.pro/"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://blog.eperformance.pro/#localbusiness",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "parentOrganization": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Abidjan",
+        "addressCountry": "CI"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Côte d'Ivoire"
+      },
+      "priceRange": "100000-350000 XOF",
+      "currenciesAccepted": "XOF",
+      "paymentAccepted": "Orange Money, Wave, MTN MoMo, Moov Money, Visa, Mastercard",
+      "availableLanguage": "fr"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://blog.eperformance.pro/#website",
+      "url": "https://blog.eperformance.pro",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "publisher": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://blog.eperformance.pro/articles/ia-limites-business/index.html#webpage",
+      "url": "https://blog.eperformance.pro/articles/ia-limites-business/index.html",
+      "name": "Ce que l'IA ne sait pas faire dans votre business",
+      "description": "L'IA ignore votre marge, votre trésorerie et votre capacité de production. Elle amplifie ce que vous faites mal autant que ce que vous faites bien.",
+      "isPartOf": {
+        "@id": "https://blog.eperformance.pro/#website"
+      },
+      "about": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://blog.eperformance.pro/articles/ia-limites-business/index.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://blog.eperformance.pro/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "IA générative",
+          "item": "https://blog.eperformance.pro/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Ce que l'IA ne sait pas faire",
+          "item": "https://blog.eperformance.pro/articles/ia-limites-business/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Ce que l'IA ne sait pas faire dans votre business",
+  "description":"L'IA générative ne connaît ni votre marge, ni votre trésorerie, ni votre capacité de production. Quatre informations qu'elle n'aura jamais, et la méthode pour décider sans elle.",
+  "image":"https://blog.eperformance.pro/assets/img/og-image.jpg",
+  "datePublished":"2026-10-21T09:00:00+00:00",
+  "dateModified":"2026-10-21T09:00:00+00:00",
+  "inLanguage":"fr-CI",
+  "wordCount":2397,
+  "articleSection":"IA générative",
+  "keywords":["limites ia entreprise","ia erreurs","ia marge","ia trésorerie","ia pme afrique","intelligence artificielle côte d'ivoire","décision assistée"],
+  "author":{"@type":"Person","name":"K. STEPHANE","jobTitle":"Fondateur ePerformance","url":"https://blog.eperformance.pro/a-propos/"},
+  "publisher":{"@type":"Organization","name":"ePerformance","logo":{"@type":"ImageObject","url":"https://eperformance.pro/assets/img/logo-light.webp"}},
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.eperformance.pro/articles/ia-limites-business/"}
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Blog","item":"https://blog.eperformance.pro/"},
+    {"@type":"ListItem","position":2,"name":"IA générative","item":"https://blog.eperformance.pro/"},
+    {"@type":"ListItem","position":3,"name":"Ce que l'IA ne sait pas faire dans votre business","item":"https://blog.eperformance.pro/articles/ia-limites-business/"}
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Pourquoi l'IA ne connaît-elle pas ma marge ?","acceptedAnswer":{"@type":"Answer","text":"Parce qu'elle ne travaille que sur le texte de la conversation. Vos prix d'achat, vos frais de transport, vos emballages et vos remises ne sont jamais dans cette fenêtre si vous ne les écrivez pas. Elle produira donc des réponses cohérentes avec un prix de vente, pas avec ce qu'il vous reste."}},
+    {"@type":"Question","name":"Puis-je lui donner malgré tout des informations sur mon entreprise ?","acceptedAnswer":{"@type":"Answer","text":"Oui, et c'est la condition pour qu'elle serve à quelque chose. Une dizaine de lignes suffisent : ce que vous vendez, à qui, à quel prix, avec quelle marge, sous quel délai. Ajoutez une consigne de refus quand votre demande s'éloigne de vos seuils."}},
+    {"@type":"Question","name":"Est-ce qu'un outil payant connaît mieux mon activité ?","acceptedAnswer":{"@type":"Answer","text":"Non. Le niveau de l'offre change la longueur des réponses et l'accès à certaines fonctions, pas l'accès à vos données. Aucun outil génératif ne consulte votre comptabilité ou votre stock. Ce qu'il sait, c'est ce que vous tapez."}},
+    {"@type":"Question","name":"Comment savoir si mon offre est le vrai problème ?","acceptedAnswer":{"@type":"Answer","text":"Regardez deux chiffres : le volume de demandes entrantes, et le rapport entre devis envoyés et ventes conclues. Si les demandes augmentent et que ce rapport se dégrade, le problème est la qualification des contacts ou l'offre, pas la rédaction."}},
+    {"@type":"Question","name":"Quelles décisions ne faut-il jamais déléguer ?","acceptedAnswer":{"@type":"Answer","text":"Trois, au minimum : le prix final, le budget engagé et la date de livraison promise. Ce sont les seules qui créent une obligation envers le client. L'outil peut proposer des formulations ou des fourchettes ; l'engagement reste votre signature."}},
+    {"@type":"Question","name":"L'IA est-elle inutile si elle ne connaît rien de mon entreprise ?","acceptedAnswer":{"@type":"Answer","text":"Non. Elle reste rapide sur la forme : reformuler, structurer, résumer, traduire, produire une première version d'un texte que vous repoussez. Le gain se situe sur la page blanche et sur le temps de mise en forme, jamais sur la décision commerciale."}}
+  ]
+}
+  </script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a class="logo" href="/" aria-label="ePerformance — accueil">
+      <img class="logo-img-light" src="/assets/img/logo-light.webp"
+           srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+           width="182" height="30" alt="ePerformance" fetchpriority="high">
+      <img class="logo-img-dark" src="/assets/img/logo-dark.webp"
+           srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+           width="188" height="30" alt="" aria-hidden="true">
+    </a>
+
+    <nav class="nav" id="primary-nav" aria-label="Navigation principale">
+      <a href="/">Accueil</a>
+      <a href="/acquisition/">Acquisition</a>
+      <a href="/site-web/">Site web</a>
+      <a href="/seo/">SEO</a>
+      <a href="/business/">Business</a>
+      <a href="/articles/ia-generative-pme-africaine/" aria-current="page">IA</a>
+      <a href="/articles/automatisation-marketing-debuter/">Automatisation</a>
+      <a href="/a-propos/">À propos</a>
+      <a href="https://eperformance.pro" rel="noopener">Site principal</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" data-theme-toggle
+              aria-pressed="false" aria-label="Activer le thème sombre">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+        </svg>
+      </button>
+
+      <a class="btn btn-gold btn-desktop" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false"
+              aria-controls="primary-nav" aria-label="Ouvrir le menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<nav class="breadcrumb container" aria-label="Fil d'Ariane">
+  <ol>
+    <li><a href="/">Accueil</a></li>
+    <li><a href="/">IA générative</a></li>
+    <li aria-current="page">Ce que l&#x27;IA ne sait pas faire</li>
+  </ol>
+</nav>
+
+<main id="main">
+
+
+<section class="article-hero">
+  <div class="container-reading">
+
+    <nav class="article-breadcrumb" aria-label="Fil d'Ariane">
+      <a href="../">Blog</a>
+      <span class="sep">/</span>
+      <span>IA générative</span>
+    </nav>
+
+    <span class="article-category">IA générative</span>
+    <h1>Ce que l'IA ne sait pas faire dans votre <span class="text-gold">business</span></h1>
+    <p class="lead">L'IA générative ne connaît ni votre marge, ni votre trésorerie, ni votre capacité de production. Elle ne juge pas la qualité de votre offre. Voici les quatre informations qu'elle n'aura jamais, et la méthode pour décider sans elle.</p>
+
+    <div class="article-meta">
+      <div class="author">
+        <div class="author-avatar">KS</div>
+        <div>
+          <div class="article-author-name">K. STEPHANE</div>
+          <div class="small">Fondateur ePerformance</div>
+        </div>
+      </div>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg> 21 octobre 2026</span>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.6 2.1"/></svg> 11 min de lecture</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section-flush-top">
+  <div class="article-body container-reading">
+
+    <p>Un outil d'IA générative répond à ce que vous lui écrivez. Rien de plus. Il n'a pas accès à votre comptabilité, il ne connaît pas le prix auquel vous achetez, il ne sait pas combien de commandes vous pouvez livrer cette semaine. Il produit une réponse plausible à partir des mots que vous venez de taper.</p>
+
+    <p>C'est une qualité et un danger. Une qualité, parce qu'un rédacteur qui ne connaît rien de vous reste disponible à toute heure pour la forme. Un danger, parce qu'un texte bien écrit prend l'apparence d'un conseil informé : le jour où vous le suivez sans vérifier, la facture arrive sur votre table.</p>
+
+    <p>Cet article liste les quatre informations que l'outil n'aura jamais : votre marge, votre trésorerie, votre capacité de production et la qualité réelle de votre offre. Puis comment travailler malgré cela, avec une méthode en cinq étapes. Avant d'y venir, si vous découvrez le sujet, <a href="/articles/ia-generative-pme-africaine/">les trois tâches que l'IA fait mieux que vous</a> donnent le point de départ.</p>
+
+    <h2>Ce que l'outil voit, et ce qu'il ne voit jamais</h2>
+
+    <p>L'outil ne voit qu'une chose : le texte de la conversation en cours. Pas votre historique, pas vos fichiers, pas vos échanges clients du mois dernier. Ce qui n'est pas dans l'énoncé n'existe pas.</p>
+
+    <p>Cela produit une illusion précise. Vous demandez une fiche produit pour un panneau solaire de 3 kW, et vous obtenez un texte propre, avec les bons arguments techniques et une conclusion soignée. Ce texte parle d'un panneau solaire en général. Il ignore combien vous l'avez payé, combien vous coûte le dédouanement, quel délai vous tenez réellement et ce que vos trois derniers clients ont demandé avant d'acheter.</p>
+
+    <p>L'outil amplifie ce que vous lui donnez ; il n'est pas une source d'information sur votre entreprise.</p>
+
+    <div class="callout">
+      <p><strong>Le test à passer avant d'utiliser une réponse.</strong> Trois questions, dans cet ordre. Un : quel chiffre de mon activité rend cette phrase vraie ? Deux : est-ce que je peux tenir cette promesse cette semaine, avec ce que j'ai ? Trois : est-ce que je l'assume devant le client si elle est fausse ? Si une seule réponse manque, la sortie n'est pas utilisable en l'état.</p>
+    </div>
+
+    <h2>Elle ne connaît pas votre marge</h2>
+
+    <p>Un outil peut rédiger une fiche enthousiaste pour un produit que vous vendez à perte. Il peut recommander d'augmenter le budget d'un canal dont le coût d'acquisition dépasse la valeur du client. Rien dans sa réponse ne l'alertera, parce que la notion de marge n'est pas dans la conversation.</p>
+
+    <p>Le cas classique : vous vendez un article 25 000 FCFA. L'outil écrira un argumentaire pour le prix de vente, jamais pour ce qui vous reste. Or ce qui vous reste se calcule sur une ligne que vous êtes seul à connaître.</p>
+
+    <h3>Le calcul à faire avant de demander quoi que ce soit</h3>
+
+    <p>Sur ce même article à 25 000 FCFA : achat 14 000, transport 1 500, emballage 500, frais de transaction mobile money de l'ordre de 1,5 % soit environ 375, remise moyenne accordée — estimez-la sur vos dix dernières ventes — mettons 1 000. Marge avant charges fixes : environ 7 600 FCFA, soit 30 % du prix affiché.</p>
+
+    <p>Ce chiffre change tout ce que vous pouvez demander. À 30 % de marge, une remise de 10 % consentie pour conclure consomme un tiers de votre marge. Un budget publicitaire par client supérieur à 7 600 FCFA fait travailler l'entreprise à perte. L'outil n'a aucun moyen de vous le dire : il ne connaît ni le 7 600, ni le seuil, ni le fait que vous accordez des remises.</p>
+
+    <h3>Ce qu'il faut lui donner, et sous quelle forme</h3>
+
+    <p>Trois chiffres suffisent pour la plupart des demandes : prix de vente, coût complet, marge cible minimale en pourcentage. Écrits une fois, ils se recopient en deux lignes au début de chaque conversation.</p>
+
+    <p>Ajoutez une consigne de refus, formulée simplement : « si ma demande suppose une marge inférieure à 25 %, signale-le avant de rédiger ». Ce genre de consigne ne rend pas l'outil plus intelligent ; il vous rend plus attentif à ce que vous lui demandez.</p>
+
+    <h2>Elle ne connaît pas votre trésorerie</h2>
+
+    <p>Deux entreprises avec la même marge ne vivent pas la même situation. Celle qui encaisse à la livraison finance sa croissance ; celle qui encaisse à 45 jours la subit — et l'outil ne sait pas laquelle vous êtes.</p>
+
+    <h3>Marge n'est pas cash</h3>
+
+    <p>Un exemple simple. Vous engagez 300 000 FCFA de publicité ce mois, payés d'avance par carte. Les ventes arrivent, la marge est bonne, et pourtant votre solde descend jusqu'à ce que les encaissements rentrent. Le problème de ce mois n'est pas la rentabilité, c'est le délai. Une recommandation qui améliore la marge et allonge l'encaissement peut bloquer l'entreprise.</p>
+
+    <p>Aucun outil génératif ne voit ce décalage : il ignore votre solde, vos sorties fixes, et la date à laquelle vos clients paient réellement — pas celle du contrat, celle du virement.</p>
+
+    <h3>Les trois chiffres à lui fournir</h3>
+
+    <p>Un : le solde disponible en banque et en mobile money ce jour. Deux : le total de vos sorties fixes du mois — loyer, salaires, abonnements, échéances. Trois : votre délai moyen d'encaissement constaté, calculé sur vos dix dernières factures.</p>
+
+    <p>Avec ces trois chiffres, l'outil peut vous aider à ordonner des priorités. Sans eux, il proposera le plan le plus efficace en théorie, souvent celui qui épuise la trésorerie avant les premiers résultats.</p>
+
+    <h2>Elle ne connaît pas votre capacité de production</h2>
+
+    <p>Vous demandez à l'outil de rédiger une campagne pour un nouveau service. Il écrit un texte convaincant. Ce que le texte ne dit pas, c'est si vous pouvez livrer trente commandes le mois prochain ou huit.</p>
+
+    <p>Le déséquilibre coûte dans les deux sens. Trop peu de demandes, vous avez payé pour rien. Trop de demandes, vous vendez ce que vous ne pouvez pas livrer — et vous payez la publicité qui a amené ces clients chez votre concurrent après deux semaines d'attente.</p>
+
+    <h3>Le coût réel d'un oui de trop</h3>
+
+    <p>Un client à qui on promet dix jours et qui reçoit à vingt-cinq ne revient pas, et le raconte. Un acompte encaissé puis remboursé faute de stock coûte le temps du remboursement, les frais de transaction, et la confiance. Dans les deux cas, le coût dépasse la marge d'une vente réussie.</p>
+
+    <p>La règle pratique : votre capacité se mesure en unités par semaine, effectif compris. Si vous êtes trois et que la production prend deux heures par unité, votre plafond est atteint bien avant ce que la demande permet.</p>
+
+    <h3>Plafonner la promesse, pas l'ambition</h3>
+
+    <p>Donnez à l'outil le délai que vous tenez dans neuf cas sur dix, pas celui de votre meilleure semaine. Un délai de quinze jours annoncé et respecté vaut mieux qu'un délai de sept jours annoncé et repoussé trois fois.</p>
+
+    <p>Indiquez aussi ce que vous ne pouvez pas produire en même temps : pics saisonniers, périodes de pluies, fermetures.</p>
+
+    <h2>Elle ne sait pas juger la qualité de votre offre</h2>
+
+    <p>Un outil compare des formulations, pas des propositions de valeur. Il ne sait pas si votre offre résout un problème que le client paie déjà pour résoudre ailleurs, ni si votre prix est cohérent avec le marché local.</p>
+
+    <h3>Le signal qui tranche</h3>
+
+    <p>Si les demandes arrivent et que les ventes ne suivent pas, le problème n'est presque jamais le texte. Cherchez dans cet ordre : le prix par rapport à la concurrence, la clarté de ce que le client obtient exactement, la confiance — avis, références, ancienneté — puis le délai. Réécrire l'argumentaire en quatrième position est une perte de temps.</p>
+
+    <p>Un ratio utile : nombre de devis envoyés divisé par nombre de ventes conclues. S'il se dégrade alors que vos demandes augmentent, vous avez un excès de contacts peu qualifiés, pas un déficit de persuasion.</p>
+
+    <h3>Ce qu'on peut quand même lui demander</h3>
+
+    <p>Reformuler votre offre de trois manières différentes, pour comparer ce que chaque version met en avant. Rédiger la réponse à la première objection que vous entendez en clientèle. Mettre en évidence ce qui manque dans votre présentation, en lui donnant celle de deux concurrents.</p>
+
+    <p>Dans tous ces cas, c'est vous qui fournissez la matière et qui jugez : l'outil propose des angles, vous choisissez.</p>
+
+    <h2>Elle amplifie ce que vous faites mal</h2>
+
+    <p>La phrase résume l'essentiel : l'IA accélère ce que vous savez déjà faire et amplifie ce que vous faites mal. Trois mécanismes concrets, tous observés dans des petites structures.</p>
+
+    <h3>Trois mécanismes d'amplification</h3>
+
+    <p><strong>Un fichier client mal tenu produit une campagne visible.</strong> Des doublons, des prénoms mal orthographiés, des personnes qui ont déjà acheté et qu'on relance comme des prospects. Générer deux cents messages prend une heure au lieu de cinq jours. Envoyer deux cents messages faux prend aussi une heure, et abîme une réputation construite sur des mois.</p>
+
+    <p><strong>Un entonnoir qui convertit mal produit plus de déchets.</strong> Si une visite sur cent aboutit à une vente, accélérer la production de contenu augmente surtout le nombre de contacts non qualifiés à traiter. Le temps gagné sur la rédaction se retrouve en conversations inutiles, avec une charge de travail qui n'était pas prévue.</p>
+
+    <p><strong>Un prix trop bas produit une croissance qui appauvrit.</strong> L'outil écrira d'excellents textes pour une offre vendue sous son coût complet. Plus vous en vendez, plus la perte augmente, et le mois où vous vous en apercevez, le rattrapage est difficile.</p>
+
+    <h3>Ce qu'elle sait faire, malgré tout</h3>
+
+    <p>Ces limites ne condamnent pas l'outil. Elles définissent son terrain : la forme. Reformuler une phrase lourde, structurer une proposition en sections, résumer un rapport de quinze pages, traduire, produire une première version d'un texte que vous repoussez depuis des mois.</p>
+
+    <p>Sur un texte qui vous prendrait trois heures, une première version obtenue en une trentaine de minutes est un ordre de grandeur courant — à condition d'avoir rassemblé vos informations avant, et de prévoir la relecture après. Le gain porte sur la page blanche, pas sur le fond.</p>
+
+    <h2>La méthode en cinq étapes, et ce qu'il faut retenir</h2>
+
+    <p>Travailler avec ces limites n'exige pas d'outil supplémentaire : six chiffres, une consigne, une habitude de vérification.</p>
+
+    <h3>Les cinq étapes</h3>
+
+    <p><strong>1. Rassemblez vos six chiffres.</strong> Prix de vente, coût complet, marge cible, solde de trésorerie disponible, sorties fixes du mois, capacité de production hebdomadaire. Notez-les dans un fichier unique, mis à jour une fois par mois.</p>
+
+    <p><strong>2. Écrivez dix lignes de contexte.</strong> Ce que vous vendez, à qui, à quel prix, avec quelle marge, sous quel délai. Ces dix lignes se recopient au début de chaque conversation.</p>
+
+    <p><strong>3. Posez vos consignes de refus.</strong> « Signale-moi si ma demande suppose une marge inférieure à 25 % » ou « si le délai demandé dépasse quinze jours, dis-le avant de rédiger ». L'outil ne connaît pas vos seuils ; vous les lui donnez.</p>
+
+    <p><strong>4. Vérifiez chaque chiffre, un par un.</strong> Prix, délais, quantités, conditions de paiement. Pas en survolant : en lisant. C'est l'étape que l'on saute quand on est pressé.</p>
+
+    <p><strong>5. Gardez trois décisions pour vous.</strong> Le prix final, le budget engagé, la date de livraison promise. Ces trois-là engagent votre entreprise ; aucune réponse générée ne peut les porter à votre place.</p>
+
+    <h3>Ce qu'il faut retenir</h3>
+
+    <p>L'IA ne connaît ni votre marge, ni votre trésorerie, ni votre capacité de production, et elle ne sait pas juger une offre. Ce n'est pas un défaut de l'outil : c'est le périmètre de ce que vous lui confiez. Elle travaille sur la forme, vous fournissez le fond et la décision. Avant d'accélérer une tâche, vérifiez donc que la règle derrière cette tâche est juste.</p>
+
+    <p>Si vous voulez savoir quelles décisions vous prenez aujourd'hui sans chiffres, commencez par vos ratios. Une fois votre marge et votre coût par client connus, l'outil redevient ce qu'il aurait toujours dû être : un exécutant rapide, sous votre contrôle. Et pour savoir ce qui sort de votre entreprise quand vous collez un fichier dans une de ces fenêtres, <a href="/articles/ia-donnees-confidentialite/">le trajet d'une donnée</a> est décrit dans l'article suivant.</p>
+
+    <div class="cta-block">
+      <h2>Combien vous coûte vraiment chaque client ?</h2>
+      <p>Cinq minutes pour calculer votre CAC, votre LTV, votre Payback et un score sur 100. Résultat immédiat, sans engagement.</p>
+      <a class="btn btn-gold" href="https://eperformance.pro/diagnostic_eperformance.html">Faire mon diagnostic gratuit
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <h2>FAQ — Ce que l'IA ne peut pas savoir</h2>
+
+    <div class="faq-section">
+      <details>
+        <summary>Pourquoi l'IA ne connaît-elle pas ma marge ?</summary>
+        <p>Parce qu'elle ne travaille que sur le texte de la conversation. Vos prix d'achat, vos frais de transport, vos emballages et vos remises ne sont jamais dans cette fenêtre si vous ne les écrivez pas. Elle produira donc des réponses cohérentes avec un prix de vente, pas avec ce qu'il vous reste.</p>
+      </details>
+
+      <details>
+        <summary>Puis-je lui donner malgré tout des informations sur mon entreprise ?</summary>
+        <p>Oui, et c'est la condition pour qu'elle serve à quelque chose. Une dizaine de lignes suffisent : ce que vous vendez, à qui, à quel prix, avec quelle marge, sous quel délai. Ajoutez une consigne de refus quand votre demande s'éloigne de vos seuils.</p>
+      </details>
+
+      <details>
+        <summary>Est-ce qu'un outil payant connaît mieux mon activité ?</summary>
+        <p>Non. Le niveau de l'offre change la longueur des réponses et l'accès à certaines fonctions, pas l'accès à vos données. Aucun outil génératif ne consulte votre comptabilité ou votre stock. Ce qu'il sait, c'est ce que vous tapez.</p>
+      </details>
+
+      <details>
+        <summary>Comment savoir si mon offre est le vrai problème ?</summary>
+        <p>Regardez deux chiffres : le volume de demandes entrantes, et le rapport entre devis envoyés et ventes conclues. Si les demandes augmentent et que ce rapport se dégrade, le problème est la qualification des contacts ou l'offre, pas la rédaction.</p>
+      </details>
+
+      <details>
+        <summary>Quelles décisions ne faut-il jamais déléguer ?</summary>
+        <p>Trois, au minimum : le prix final, le budget engagé et la date de livraison promise. Ce sont les seules qui créent une obligation envers le client. L'outil peut proposer des formulations ou des fourchettes ; l'engagement reste votre signature.</p>
+      </details>
+
+      <details>
+        <summary>L'IA est-elle inutile si elle ne connaît rien de mon entreprise ?</summary>
+        <p>Non. Elle reste rapide sur la forme : reformuler, structurer, résumer, traduire, produire une première version d'un texte que vous repoussez. Le gain se situe sur la page blanche et sur le temps de mise en forme, jamais sur la décision commerciale.</p>
+      </details>
+    </div>
+
+    <div class="tags-row">
+      <a href="/articles/ia-generative-pme-africaine/" class="tag">Limites de l'IA</a>
+      <a href="/articles/ia-limites-business/" class="tag">Décision</a>
+      <a href="/articles/ia-donnees-confidentialite/" class="tag">Données</a>
+    </div>
+
+    <div class="share-row">
+      <span class="small">Partager</span>
+      <a href="#" class="share-btn" onclick="return sharePage('whatsapp')" data-share="whatsapp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.6-4.5A8.4 8.4 0 1 1 8 20.4z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('linkedin')" data-share="linkedin" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('facebook')" data-share="facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('copy')" data-share="copy" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></a>
+    </div>
+
+    <div class="related">
+      <h2>Articles à lire ensuite</h2>
+      <a href="/articles/ia-donnees-confidentialite/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">IA générative</span>
+          <h3>Vos données et l'IA : ce qui sort, ce qui reste</h3>
+          <p class="small">Le trajet d'une donnée, étape par étape.</p>
+        </div>
+      </a>
+      <a href="/articles/ia-generative-pme-africaine/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">IA générative</span>
+          <h3>Qu'est-ce que l'IA générative pour une PME africaine, concrètement</h3>
+          <p class="small">Trois tâches réelles, et trois qu'elle ne fera jamais.</p>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-col">
+        <img class="footer-logo logo-img-light" src="/assets/img/logo-light.webp"
+             srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+             width="152" height="25" alt="ePerformance" loading="lazy">
+        <img class="footer-logo logo-img-dark" src="/assets/img/logo-dark.webp"
+             srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+             width="157" height="25" alt="" aria-hidden="true" loading="lazy">
+        <p class="card-text mt-3" style="max-width:34ch">Stratégie d&#x27;acquisition, IA générative, automatisation et développement web premium. Basé en Côte d&#x27;Ivoire, 100 % en ligne.</p>
+      </div>
+
+      <div class="footer-col">
+        <h2>Services</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/index.html#methode" rel="noopener">stratégie d&#x27;acquisition</a></li>
+          <li><a href="https://eperformance.pro/ia.html" rel="noopener">IA générative</a></li>
+          <li><a href="https://eperformance.pro/automatisation.html" rel="noopener">Automatisation</a></li>
+          <li><a href="https://eperformance.pro/site-web.html" rel="noopener">Création de site web</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Ressources</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/diagnostic_eperformance.html" rel="noopener">Diagnostic gratuit</a></li>
+          <li><a href="https://eperformance.pro/formation.html" rel="noopener">Formations</a></li>
+          <li><a href="https://eperformance.pro/ebook.html" rel="noopener">Ebooks</a></li>
+          <li><a href="https://blog.eperformance.pro/" rel="noopener">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="https://wa.me/2250151170666" rel="noopener">+225 01 51 17 06 66</a></li>
+          <li><a href="mailto:bonjour@eperformance.pro">bonjour@eperformance.pro</a></li>
+          <li><a href="https://api.eperformance.pro/connexion.php" rel="noopener">Espace client</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 ePerformance — par K. Stéphane. Tous droits réservés.</p>
+      <p><a href="https://eperformance.pro/mentions-legales.html">Mentions légales</a> · <a href="https://eperformance.pro/politique-confidentialite.html">Confidentialité</a> · <a href="https://eperformance.pro/cookies.html">Cookies</a> · <a href="https://eperformance.pro/cgv.html">CGV</a></p>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a class="btn btn-gold" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+  <a class="btn btn-wa" href="https://wa.me/2250151170666" style="flex:0 0 auto" rel="noopener">WhatsApp</a>
+</div>
+
+<div class="consent" id="consent-banner" hidden>
+  <div class="consent-inner">
+    <div class="consent-text">
+      <p><strong>Vous choisissez ce que nous mesurons.</strong></p>
+      <p>Nous utilisons des traceurs pour comprendre comment le site est utilisé et pour
+         mesurer nos campagnes. Aucun ne se déclenche avant votre accord.
+         <a href="https://eperformance.pro/politique-confidentialite.html">Politique de confidentialité</a> ·
+         <a href="https://eperformance.pro/cookies.html">En savoir plus</a></p>
+    </div>
+    <div class="consent-actions">
+      <button type="button" class="btn btn-ghost" data-consent="refuse">Tout refuser</button>
+      <button type="button" class="btn btn-outline" data-consent="customize">Paramétrer</button>
+      <button type="button" class="btn btn-gold" data-consent="accept">Tout accepter</button>
+    </div>
+  </div>
+
+  <div class="consent-detail" id="consent-detail" hidden>
+    <fieldset class="fieldset">
+      <legend>Vos préférences</legend>
+
+      <label class="consent-row consent-row-locked">
+        <input type="checkbox" checked disabled>
+        <span>
+          <strong>Nécessaires</strong>
+          <span class="field-hint">Mémorisation de votre choix de thème et de vos préférences.
+            Toujours actifs : le site ne peut pas fonctionner sans.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-analytics">
+        <span>
+          <strong>Mesure d'audience</strong>
+          <span class="field-hint">Google Analytics 4 et Microsoft Clarity. Nous aide à voir
+            quelles pages sont utiles et où les visiteurs abandonnent.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-ads">
+        <span>
+          <strong>Publicité</strong>
+          <span class="field-hint">Meta Pixel. Mesure l'efficacité de nos campagnes
+            Facebook et Instagram.</span>
+        </span>
+      </label>
+    </fieldset>
+
+    <div class="consent-actions">
+      <button type="button" class="btn btn-outline" data-consent="back">Retour</button>
+      <button type="button" class="btn btn-gold" data-consent="save">Enregistrer mes choix</button>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/js/consent.js" defer></script>
+<script src="/assets/js/eperf.js" defer></script>
+<script src="/assets/js/blog.js" defer></script>
+</body>
+</html>

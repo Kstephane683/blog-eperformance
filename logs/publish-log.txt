@@ -6,3 +6,12 @@
 
 # État : 1 article produit sur 78.
 # Prochain lot : articles 2 à 10 (fin du cluster IA générative, début Automatisation).
+2026-09-17T12:45Z | lot 1 | Articles 2 à 11 (cluster IA complet + début Automatisation) | OK
+  - 10 articles, 10/10 conformes au script de vérification
+  - 2 243 à 2 397 mots · 10 H2 · 6 FAQ chacun
+  - 0 référence cassée, 0 ancre morte, 56 blocs JSON-LD valides
+  - 5 titres raccourcis (dépassaient 60 caractères)
+  - Sitemap complété de 10 URL
+
+# État : 11 articles produits sur 78 (1 pilote + 10 du lot 1).
+# Prochain lot : articles 12 à 21 (fin Automatisation + Acquisition).

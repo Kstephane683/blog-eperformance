@@ -57,6 +57,7 @@ NAV = [
     ("SEO",            "/seo/",        "seo"),
     ("Business",       "/business/",   "business"),
     ("IA",             "/articles/ia-generative-pme-africaine/", "ia"),
+    ("Automatisation", "/articles/automatisation-marketing-debuter/", "automatisation"),
     ("À propos",       "/a-propos/",   "a-propos"),
     ("Site principal", SITE_URL,       "site"),
 ]
@@ -174,8 +175,78 @@ PAGES = {
     # ── Les 3 articles ───────────────────────────────────────────────────
     # Pas de hero : le fragment porte son propre en-tête éditorial
     # (.article-hero avec catégorie, <h1>, date, temps de lecture).
+    "articles/cinq-taches-ia-entreprise/index.html": {
+        "title": "Cinq tâches que l'IA fait mieux que vous | ePerformance",
+        "description": "Cinq tâches que l'IA générative fait mieux que vous, classées par temps gagné mesurable. Ce que chacune remplace, ce qu'elle produit, comment la traiter.",
+        "fragment": "articles-cinq-taches-ia-entreprise.html",
+        "nav_active": "ia",
+        "breadcrumb": [("IA générative", "/"), ("Cinq tâches que l'IA fait mieux que vous", "/articles/cinq-taches-ia-entreprise/")],
+    },
+    "articles/chatbot-ia-repondre-site/index.html": {
+        "title": "IA conversationnelle : ce qu'elle répond vraiment",
+        "description": "Ce qu'un agent conversationnel peut répondre depuis vos données réelles, et ce qu'il ne peut pas. La mécanique, les limites, le passage à un humain.",
+        "fragment": "articles-chatbot-ia-repondre-site.html",
+        "nav_active": "ia",
+        "breadcrumb": [("IA générative", "/"), ("IA conversationnelle sur votre site", "/articles/chatbot-ia-repondre-site/")],
+    },
+    "articles/rediger-fiches-produits-ia/index.html": {
+        "title": "Rédiger ses fiches produits avec l'IA | ePerformance",
+        "description": "La méthode en quatre étapes pour produire ses fiches produits avec l'IA sans perdre la voix de la marque. Sans informations brutes, le résultat est générique.",
+        "fragment": "articles-rediger-fiches-produits-ia.html",
+        "nav_active": "ia",
+        "breadcrumb": [("IA générative", "/"), ("Rédiger ses fiches produits avec l'IA", "/articles/rediger-fiches-produits-ia/")],
+    },
+    "articles/ia-service-client-nuit/index.html": {
+        "title": 'IA et service client : répondre la nuit | ePerformance',
+        "description": "Trois niveaux d'automatisation du service client comparés : réponse préparée, agent sur le site, agent sur WhatsApp. Ce que chacun couvre et ce qu'il exige.",
+        "fragment": "articles-ia-service-client-nuit.html",
+        "nav_active": "ia",
+        "breadcrumb": [("IA générative", "/"), ("IA et service client", "/articles/ia-service-client-nuit/")],
+    },
+    "articles/ia-analyse-rapports-publicitaires/index.html": {
+        "title": "Analyser ses rapports publicitaires avec l'IA | ePerformance",
+        "description": "Comment faire lire un export publicitaire à un outil d'IA : ce qui a bougé d'un mois sur l'autre, et pourquoi un résumé de données fausses est pire qu'aucun.",
+        "fragment": "articles-ia-analyse-rapports-publicitaires.html",
+        "nav_active": "ia",
+        "breadcrumb": [("IA générative", "/"), ("Analyser ses rapports publicitaires", "/articles/ia-analyse-rapports-publicitaires/")],
+    },
+    "articles/ia-preparation-commerciale/index.html": {
+        "title": "Structurer une offre commerciale avec l'IA | ePerformance",
+        "description": "Structurer une proposition commerciale en une heure : problème, périmètre, livrables, délais. Ce que l'IA rédige et ce qui doit rester de votre main.",
+        "fragment": "articles-ia-preparation-commerciale.html",
+        "nav_active": "ia",
+        "breadcrumb": [("IA générative", "/"), ("Structurer une offre avec l'IA", "/articles/ia-preparation-commerciale/")],
+    },
+    "articles/ia-limites-business/index.html": {
+        "title": "Ce que l'IA ne sait pas faire dans votre business",
+        "description": "L'IA ignore votre marge, votre trésorerie et votre capacité de production. Elle amplifie ce que vous faites mal autant que ce que vous faites bien.",
+        "fragment": "articles-ia-limites-business.html",
+        "nav_active": "ia",
+        "breadcrumb": [("IA générative", "/"), ("Ce que l'IA ne sait pas faire", "/articles/ia-limites-business/")],
+    },
+    "articles/ia-donnees-confidentialite/index.html": {
+        "title": "Vos données et l'IA : ce qui sort, ce qui reste",
+        "description": "Le trajet d'une donnée quand vous l'utilisez dans un outil en ligne : ce qui quitte votre entreprise, ce qui reste local, ce qu'il faut vérifier avant.",
+        "fragment": "articles-ia-donnees-confidentialite.html",
+        "nav_active": "ia",
+        "breadcrumb": [("IA générative", "/"), ("Vos données et l'IA", "/articles/ia-donnees-confidentialite/")],
+    },
+    "articles/automatisation-marketing-debuter/index.html": {
+        "title": 'Automatisation marketing : par où commencer | ePerformance',
+        "description": "Commencer par la tâche qui coûte le plus d'heures, pas la plus spectaculaire. Comment la repérer, la mesurer et la traiter sans y passer plus de temps.",
+        "fragment": "articles-automatisation-marketing-debuter.html",
+        "nav_active": "automatisation",
+        "breadcrumb": [("Automatisation", "/articles/automatisation-marketing-debuter/"), ("Par où commencer", "/articles/automatisation-marketing-debuter/")],
+    },
+    "articles/n8n-afrique-ouest/index.html": {
+        "title": "n8n en Afrique de l'Ouest : pourquoi cet outil",
+        "description": "n8n auto-hébergeable, connecteurs WhatsApp Business, réversibilité des workflows : ce que cela change localement, et pour qui ce n'est pas le bon choix.",
+        "fragment": "articles-n8n-afrique-ouest.html",
+        "nav_active": "automatisation",
+        "breadcrumb": [("Automatisation", "/articles/automatisation-marketing-debuter/"), ("n8n en Afrique de l'Ouest", "/articles/n8n-afrique-ouest/")],
+    },
     "articles/ia-generative-pme-africaine/index.html": {
-        "title": "IA générative pour une PME africaine : trois tâches concrètes",
+        "title": "IA générative pour une PME africaine : trois tâches",
         "description": "Ce que l'IA générative fait vraiment pour une PME : trois tâches qu'elle fait mieux que vous, trois qu'elle ne fera jamais. Guide pratique.",
         "fragment": "articles-ia-generative-pme-africaine.html",
         "nav_active": "ia",

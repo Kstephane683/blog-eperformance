@@ -85,8 +85,12 @@ def controler(chemin):
     # --- CTA et maillage
     # Deux formes de lien WhatsApp coexistent dans les articles en ligne :
     # wa.me et api.whatsapp.com. Les deux sont acceptées.
-    a_cta = ('diagnostic_eperformance.html' in s or 'wa.me' in s
-             or 'api.whatsapp.com' in s or '/site-web.html' in s)
+    # Toute page de service du site vaut CTA : le bon renvoi dépend du sujet
+    # de l'article (automatisation, IA, site web, diagnostic).
+    SERVICES = ('diagnostic_eperformance.html', 'automatisation.html', 'ia.html',
+                '/site-web.html', 'formation.html', 'ebook.html')
+    a_cta = ('wa.me' in s or 'api.whatsapp.com' in s
+             or any(x in s for x in SERVICES))
     if not a_cta:
         pb.append("aucun CTA (diagnostic, WhatsApp ou page de service)")
     if s.count('href="/') < 4:
