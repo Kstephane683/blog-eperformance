@@ -1277,6 +1277,17 @@ def compose_page(page_key, meta):
 <script src="/assets/js/consent.js" defer></script>
 <script src="/assets/js/eperf.js" defer></script>
 <script src="/assets/js/blog.js" defer></script>
+
+<!-- Chatbot Mia — widget ePerformance (backend FastAPI, 27 agents) -->
+<script>
+  window.ePerformanceConfig = {{
+    widgetUrl: 'https://kstephane683.github.io/eperformance-widget/',
+    apiUrl: 'https://web-production-4ab53.up.railway.app',
+    siteId: 'blog_eperformance',
+    position: 'right'
+  }};
+</script>
+<script src="https://kstephane683.github.io/eperformance-widget/eperformance-sdk.js" defer></script>
 </body>
 </html>
 """
