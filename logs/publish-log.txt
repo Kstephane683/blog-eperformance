@@ -92,3 +92,41 @@
     est maintenant rattaché à sa vraie cible, produite dans ce lot.
 
   # État : 64 articles sur 78. Prochain lot : 64 à 73 (fin SEO + Business).
+
+2026-09-17T12:56Z | chore | Seuil minimal abaissé à 1 800 mots
+  - scripts/verify-articles.py : mots_min 1900 → 1800. Certains sujets ne
+    portent pas 2 200 mots ; 1 800 denses valent mieux que 2 300 dilués.
+    La cible de rédaction reste 2 200-2 400 pour la majorité.
+  - Aucun article existant n'était entre 1 800 et 1 900 : le changement ne
+    desserre rien rétroactivement. 64/64 conformes après modification.
+  - Commit 5d1d06d.
+
+2026-09-17T12:56Z | lot 7 | Articles 64 à 73 (fin SEO + ouverture Business) | OK
+  - 10 articles, 10/10 conformes — 2 024 à 2 442 mots · 12 à 15 H2 · 6 FAQ
+  - 0 référence cassée · 0 cible morte · 0 ancre morte · 0 titre hors limite
+  - 3 391 liens absolus résolus sur 82 pages · 0 carte de maillage dupliquée
+  - 0 eyebrow · 0 card-icon · 0 marqueur IA textuel
+  - Sitemap complété de 10 URL : 81 entrées, 0 manquante, 0 obsolète
+  - Les 7 articles Business ouvrent la catégorie : aucun article n'y existait
+
+  # Points de vigilance du lot
+  - 64 (contenu dupliqué) : la distinction demandée est le cœur de l'article.
+    Ce qui n'est PAS de la duplication (même produit dans dix villes, variantes
+    de couleur) est traité avant les 4 cas réels. Le tri de Google est expliqué
+    comme un tri, pas comme une sanction.
+  - 68 (diaspora) : confiance, paiement, livraison, rythme du calendrier
+    (rentrée, Tabaski, Noël, cérémonies), service après. Pas de généralités.
+  - 69 (mobile money) : aucun tarif d'opérateur, aucune API ni endpoint
+    inventé, aucune URL externe. Les 2 montants présents sont un coût de
+    main-d'œuvre interne (vérification manuelle des paiements), pas une grille.
+    L'automatisation est présentée comme « un contrat avant une ligne de code ».
+  - 73 (statut d'entreprise) : 0 montant, 0 délai chiffré, 0 procédure
+    administrative détaillée, 0 nom d'organisme. Aucune formule prescriptive.
+    La phrase de cadrage (juriste ou comptable) figure une seule fois.
+    Les trois terrains du plan sont traités : publicité et comptes, paiements,
+    séparation du patrimoine — avec les réserves qui évitent la demi-vérité.
+  - 72 (emprunter ou autofinancer) : 0 taux, 0 montant, 0 durée de prêt.
+    Comparatif équilibré, aucune recommandation. Le cœur est le fonds de
+    roulement, pas le capital.
+
+  # État : 74 articles sur 78. Prochain lot : 74 à 78 (fin Business).
