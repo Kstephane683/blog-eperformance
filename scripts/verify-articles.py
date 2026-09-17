@@ -71,12 +71,16 @@ def controler(chemin):
             pb.append(f"formulation interdite : « {m.group(0)} »")
 
     # --- Liens : absolus uniquement, et le maillage
+    # Un lien relatif ne passe que s'il résout vers un fichier réel. Un « ../ »
+    # depuis /articles/<slug>/ remonte à /articles/, qui n'a pas d'index :
+    # c'est un 404. Il a été toléré ici parce que les articles en ligne
+    # l'utilisaient — la production portait le même défaut, ce n'était pas
+    # une preuve de validité.
+    slug = nom[len('articles-'):-len('.html')] if nom.startswith('articles-') else ''
     for m in re.findall(r'(?:href|src)="((?!/|http|#|mailto|tel)[^"]+)"', s):
-        # « ../ » est légitime dans le fil d'Ariane : depuis /articles/xxx/,
-        # cela résout vers /articles/. Les 3 articles en ligne l'utilisent.
-        if m in ('../', '../../', '../index.html'):
-            continue
-        pb.append(f"lien relatif : {m}")
+        cible = os.path.normpath(os.path.join('articles', slug, m))
+        if not (os.path.isfile(cible) or os.path.isfile(os.path.join(cible, 'index.html'))):
+            pb.append(f"lien relatif qui ne résout pas : {m} (→ /{cible.replace(os.sep, '/')}/)")
     for m in re.findall(r'srcset="([^"]*)"', s):
         for c in m.split(','):
             if c.strip() and not c.strip().startswith('/'):
