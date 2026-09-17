@@ -22,7 +22,7 @@
   'use strict';
 
   var STORAGE_KEY = 'eperf-consent';
-  var VERSION = 1;   // incrémenter pour redemander le consentement
+  var VERSION = 2;   // incrémenter pour redemander le consentement
 
   // ---------------------------------------------------------------------
   // IDENTIFIANTS DE MESURE
@@ -32,6 +32,51 @@
   var GA4_ID = 'G-Z7QW8BCYQ1';
   var CLARITY_ID = 'w2e89n0biv';
   var META_PIXEL_ID = '1592627695615531';
+
+  // ---------------------------------------------------------------------
+  // CONSENT MODE V2 — état par défaut
+  //
+  // Posé AVANT le chargement de gtag.js, et non après : c'est la condition
+  // pour que Google reçoive un signal anonyme des visiteurs qui refusent,
+  // au lieu de ne rien recevoir du tout.
+  //
+  // Tant qu'aucun choix n'est exprimé, tout est « denied » : pas de cookie,
+  // pas d'identifiant. Seul un ping sans donnée personnelle part vers Google.
+  // ---------------------------------------------------------------------
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function () { window.dataLayer.push(arguments); };
+  window.gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
+    wait_for_update: 500
+  });
+  window.gtag('js', new Date());
+
+  // ---------------------------------------------------------------------
+  // gtag.js EST CHARGÉ MAINTENANT — Consent Mode v2 complet.
+  //
+  // C'est la différence avec le modèle partiel, qui attendait l'accord pour
+  // charger la bibliothèque. Ici, un visiteur qui REFUSE envoie malgré tout
+  // une requête anonyme à Google — sans cookie, sans identifiant — ce qui
+  // permet à Google de modéliser les conversions non consenties.
+  //
+  // Contrepartie assumée : un script tiers part avant tout choix. La page
+  // cookies le dit.
+  //
+  // L'état est en « denied » : rien n'est mesuré tant que le visiteur n'a pas
+  // accepté. `wait_for_update: 500` laisse 500 ms à sa réponse pour arriver
+  // avant que Google ne traite la file — sans ce délai, un visiteur qui
+  // accepte vite serait enregistré comme refusant.
+  // ---------------------------------------------------------------------
+  (function () {
+    var g = document.createElement('script');
+    g.async = true;
+    g.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA4_ID;
+    document.head.appendChild(g);
+    window.__eperfGtagLoaded = true;
+  })();
 
   // ---------------------------------------------------------------------
   // LECTURE / ÉCRITURE DU CHOIX
@@ -86,14 +131,18 @@
     window.__eperfAnalyticsLoaded = true;
 
     // --- Google Analytics 4 ---
-    var ga = document.createElement('script');
-    ga.async = true;
-    ga.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA4_ID;
-    document.head.appendChild(ga);
+    // gtag.js a été chargé en tête de fichier (Consent Mode v2 complet) : on ne
+    // le recharge pas. La mise à jour de consentement a déjà autorisé la mesure.
+    if (!window.__eperfGtagLoaded) {
+      var ga = document.createElement('script');
+      ga.async = true;
+      ga.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA4_ID;
+      document.head.appendChild(ga);
+      window.__eperfGtagLoaded = true;
+    }
 
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = function () { window.dataLayer.push(arguments); };
-    window.gtag('js', new Date());
+    // gtag et dataLayer ont été posés en tête de fichier : on ne les
+    // recrée pas, on configure seulement la propriété.
     window.gtag('config', GA4_ID, { anonymize_ip: true });
 
     // --- Microsoft Clarity ---
@@ -128,6 +177,16 @@
   }
 
   function applyConsent(consent) {
+    // Le choix du visiteur met à jour les quatre signaux du Consent Mode.
+    // La mesure d'audience et la publicité sont séparées : accepter l'une
+    // n'accorde pas l'autre.
+    window.gtag('consent', 'update', {
+      ad_storage: consent.ads ? 'granted' : 'denied',
+      ad_user_data: consent.ads ? 'granted' : 'denied',
+      ad_personalization: consent.ads ? 'granted' : 'denied',
+      analytics_storage: consent.analytics ? 'granted' : 'denied'
+    });
+
     if (consent.analytics) loadAnalytics();
     if (consent.ads) loadAds();
   }
