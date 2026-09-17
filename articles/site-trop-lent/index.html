@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+(function(){try{var t=localStorage.getItem('eperf-theme');
+if(t!=='dark'&&t!=='light'){t='light';}
+document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+  <title>Site trop lent : les cinq causes réelles</title>
+  <meta name="description" content="Serveur, images, scripts, polices, services tiers : les cinq causes d&#x27;un site lent, comment les repérer avec un outil, et dans quel ordre les corriger.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://blog.eperformance.pro/articles/site-trop-lent/index.html">
+  <meta name="theme-color" content="#fdfcfa">
+  <meta name="author" content="K. Stéphane">
+
+  <!-- Icônes -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="icon" href="/assets/img/favicon-16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ePerformance">
+  <meta property="og:locale" content="fr_CI">
+  <meta property="og:title" content="Site trop lent : les cinq causes réelles">
+  <meta property="og:description" content="Serveur, images, scripts, polices, services tiers : les cinq causes d&#x27;un site lent, comment les repérer avec un outil, et dans quel ordre les corriger.">
+  <meta property="og:url" content="https://blog.eperformance.pro/articles/site-trop-lent/index.html">
+  <meta property="og:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ePerformance — ePerformance">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Site trop lent : les cinq causes réelles">
+  <meta name="twitter:description" content="Serveur, images, scripts, polices, services tiers : les cinq causes d&#x27;un site lent, comment les repérer avec un outil, et dans quel ordre les corriger.">
+  <meta name="twitter:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta name="twitter:creator" content="@eperformancepro">
+
+  <!-- Polices : préconnexion, préchargement des deux polices critiques,
+       puis chargement non bloquant de la feuille complète -->
+  <!-- Polices : auto-hébergées, déclarées dans eperf.css.
+       On précharge les deux graisses du premier écran pour que le
+       texte soit peint dans la bonne police dès le premier rendu. -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/cormorant-garamond-700.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/dm-sans-400.woff2">
+
+  <!-- Design system : la MEME feuille que le site, a l'identique. -->
+  <link rel="stylesheet" href="/assets/css/eperf.css">
+  <!-- Composants editoriaux du blog : corps d'article, largeur de
+       lecture, cartes d'article. Ils consomment les jetons d'eperf.css
+       et ne redefinissent aucune couleur. -->
+  <link rel="stylesheet" href="/assets/css/blog.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://blog.eperformance.pro/#organization",
+      "name": "ePerformance",
+      "alternateName": "ePerformance par K. Stéphane",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "founder": {
+        "@type": "Person",
+        "@id": "https://blog.eperformance.pro/#founder",
+        "name": "K. Stéphane",
+        "jobTitle": "Fondateur, stratège acquisition",
+        "url": "https://blog.eperformance.pro/kstephane.html"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Côte d'Ivoire"
+        },
+        {
+          "@type": "Country",
+          "name": "Burkina Faso"
+        },
+        {
+          "@type": "Place",
+          "name": "Afrique de l'Ouest"
+        }
+      ],
+      "knowsLanguage": "fr",
+      "sameAs": [
+        "https://blog.eperformance.pro/"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://blog.eperformance.pro/#localbusiness",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "parentOrganization": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Abidjan",
+        "addressCountry": "CI"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Côte d'Ivoire"
+      },
+      "priceRange": "100000-350000 XOF",
+      "currenciesAccepted": "XOF",
+      "paymentAccepted": "Orange Money, Wave, MTN MoMo, Moov Money, Visa, Mastercard",
+      "availableLanguage": "fr"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://blog.eperformance.pro/#website",
+      "url": "https://blog.eperformance.pro",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "publisher": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://blog.eperformance.pro/articles/site-trop-lent/index.html#webpage",
+      "url": "https://blog.eperformance.pro/articles/site-trop-lent/index.html",
+      "name": "Site trop lent : les cinq causes réelles",
+      "description": "Serveur, images, scripts, polices, services tiers : les cinq causes d'un site lent, comment les repérer avec un outil, et dans quel ordre les corriger.",
+      "isPartOf": {
+        "@id": "https://blog.eperformance.pro/#website"
+      },
+      "about": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://blog.eperformance.pro/articles/site-trop-lent/index.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://blog.eperformance.pro/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Site web",
+          "item": "https://blog.eperformance.pro/site-web/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Site trop lent",
+          "item": "https://blog.eperformance.pro/articles/site-trop-lent/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Site trop lent : les cinq causes réelles",
+  "description":"Serveur, images, scripts, polices, services tiers : les cinq causes d'un site lent, comment les repérer avec un outil, et dans quel ordre les corriger.",
+  "image":"https://blog.eperformance.pro/assets/img/og-image.jpg",
+  "datePublished":"2027-01-07T09:00:00+00:00",
+  "dateModified":"2027-01-07T09:00:00+00:00",
+  "inLanguage":"fr-CI",
+  "wordCount":2359,
+  "articleSection":"Site Web",
+  "keywords":["site web lent","vitesse site","performance web","temps de chargement","core web vitals","optimisation site","Abidjan","Côte d'Ivoire"],
+  "author":{"@type":"Person","name":"K. STEPHANE","jobTitle":"Fondateur ePerformance","url":"https://blog.eperformance.pro/a-propos/"},
+  "publisher":{"@type":"Organization","name":"ePerformance","logo":{"@type":"ImageObject","url":"https://eperformance.pro/assets/img/logo-light.webp"}},
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.eperformance.pro/articles/site-trop-lent/"}
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Blog","item":"https://blog.eperformance.pro/"},
+    {"@type":"ListItem","position":2,"name":"Site Web","item":"https://blog.eperformance.pro/site-web/"},
+    {"@type":"ListItem","position":3,"name":"Site trop lent : les cinq causes réelles","item":"https://blog.eperformance.pro/articles/site-trop-lent/"}
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Pourquoi mon site est lent alors qu'il est beau ?","acceptedAnswer":{"@type":"Answer","text":"Le design et le poids sont deux choses différentes. Une page peut être sobre et lourde, si elle charge quatre fichiers de police, trois scripts de mesure et des photos non redimensionnées. À l'inverse, une page très travaillée peut être rapide si ses images sont préparées et ses scripts limités. Ce qui se mesure, c'est ce que le navigateur doit télécharger et exécuter, pas ce que l'œil perçoit."}},
+    {"@type":"Question","name":"Par quoi commencer quand un site est lent ?","acceptedAnswer":{"@type":"Answer","text":"Par la mesure, toujours. Relevez le chiffre de départ sur mobile, en navigation privée : temps de réponse du serveur, affichage du contenu principal, stabilité de la mise en page. Ensuite, dans la plupart des cas, les images viennent en premier : c'est la cause la plus fréquente, la moins risquée à corriger et la plus rapide à mesurer. Si le temps de réponse du serveur est le seul point rouge, commencez par le serveur."}},
+    {"@type":"Question","name":"Combien d'images une page peut-elle supporter ?","acceptedAnswer":{"@type":"Answer","text":"Il n'existe pas de nombre maximum. Une page peut afficher trente images et rester rapide si chacune est dimensionnée pour sa place à l'écran et compressée correctement. Ce qui compte est le poids total téléchargé et la taille d'affichage réelle de chaque fichier. Une seule photo de 5 Mo affichée en 400 pixels de large fait plus de dégâts que vingt vignettes bien préparées."}},
+    {"@type":"Question","name":"Faut-il changer d'hébergeur pour accélérer mon site ?","acceptedAnswer":{"@type":"Answer","text":"Seulement si le temps de réponse du serveur est la cause identifiée. Un changement d'hébergeur ne réduit pas le poids des images, ne supprime pas les scripts inutiles et ne règle pas les polices trop nombreuses. Commencez par activer le cache et la compression, mettez à jour le moteur du site, puis remesurez. Si le serveur répond encore lentement, la question de l'offre se pose avec des chiffres en main."}},
+    {"@type":"Question","name":"La vitesse influence-t-elle le classement sur Google ?","acceptedAnswer":{"@type":"Answer","text":"Google documente l'expérience de page comme l'un des signaux pris en compte, parmi beaucoup d'autres. L'effet le plus net et le plus immédiat reste sur le visiteur : une page qui met plusieurs secondes à s'afficher perd des lecteurs avant même qu'ils aient vu votre contenu. C'est aussi une question de confort de lecture et de données consommées, deux points sensibles sur une connexion mobile comptée."}},
+    {"@type":"Question","name":"Comment savoir si ma vitesse s'est améliorée ?","acceptedAnswer":{"@type":"Answer","text":"En remesurant dans les mêmes conditions qu'au départ : même page, même outil, sur mobile, en navigation privée. Comparez trois chiffres : le temps de réponse du serveur, l'affichage du contenu principal, la stabilité de la mise en page. Consignez la date de chaque mesure dans un tableau simple. Sans point de comparaison daté, une amélioration réelle peut passer inaperçue, et une régression aussi."}}
+  ]
+}
+  </script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a class="logo" href="/" aria-label="ePerformance — accueil">
+      <img class="logo-img-light" src="/assets/img/logo-light.webp"
+           srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+           width="182" height="30" alt="ePerformance" fetchpriority="high">
+      <img class="logo-img-dark" src="/assets/img/logo-dark.webp"
+           srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+           width="188" height="30" alt="" aria-hidden="true">
+    </a>
+
+    <nav class="nav" id="primary-nav" aria-label="Navigation principale">
+      <a href="/">Accueil</a>
+      <a href="/acquisition/">Acquisition</a>
+      <a href="/site-web/" aria-current="page">Site web</a>
+      <a href="/seo/">SEO</a>
+      <a href="/business/">Business</a>
+      <a href="/articles/ia-generative-pme-africaine/">IA</a>
+      <a href="/articles/automatisation-marketing-debuter/">Automatisation</a>
+      <a href="/a-propos/">À propos</a>
+      <a href="https://eperformance.pro" rel="noopener">Site principal</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" data-theme-toggle
+              aria-pressed="false" aria-label="Activer le thème sombre">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+        </svg>
+      </button>
+
+      <a class="btn btn-gold btn-desktop" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false"
+              aria-controls="primary-nav" aria-label="Ouvrir le menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<nav class="breadcrumb container" aria-label="Fil d'Ariane">
+  <ol>
+    <li><a href="/">Accueil</a></li>
+    <li><a href="/site-web/">Site web</a></li>
+    <li aria-current="page">Site trop lent</li>
+  </ol>
+</nav>
+
+<main id="main">
+
+
+<section class="article-hero">
+  <div class="container-reading">
+
+    <nav class="article-breadcrumb" aria-label="Fil d'Ariane">
+      <a href="../">Blog</a>
+      <span class="sep">/</span>
+      <a href="/site-web/">Site Web</a>
+      <span class="sep">/</span>
+      <span>Site trop lent</span>
+    </nav>
+
+    <span class="article-category">Site Web</span>
+    <h1>Site trop lent : les <span class="text-gold">cinq causes réelles</span></h1>
+    <p class="lead">Vous avez testé votre site, il est lent, et vous ne savez pas pourquoi. Cinq causes expliquent presque tous les cas : le serveur, les images, les scripts, les polices et les services tiers. Voici comment repérer chacune d'elles, et dans quel ordre les corriger.</p>
+
+    <div class="article-meta">
+      <div class="author">
+        <div class="author-avatar">KS</div>
+        <div>
+          <div class="article-author-name">K. STEPHANE</div>
+          <div class="small">Fondateur ePerformance</div>
+        </div>
+      </div>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg> 7 janvier 2027</span>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.6 2.1"/></svg> 12 min de lecture</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section-flush-top">
+  <div class="article-body container-reading">
+
+    <p>Vous avez testé votre site. Le verdict tombe : trop lent. Mais « trop lent » ne dit pas pourquoi, et c'est là que tout se joue. Un site lent n'est pas condamné à être refait : dans la majorité des cas, la lenteur vient de deux ou trois causes précises, identifiables en une heure de mesure.</p>
+
+    <p>Cet article passe en revue les cinq causes qui expliquent presque toutes les lenteurs : comment les repérer avec un outil, ce qu'on observe quand c'est bien celle-là, et par quoi commencer. L'objectif n'est pas de tout reconstruire. C'est de savoir où mettre l'effort en premier, et de vérifier que ça a payé.</p>
+
+    <div class="callout">
+      <div class="callout-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5"/><path d="M12 7.8h.01"/></svg></div>
+      <div class="callout-content">
+        <h4>En une phrase</h4>
+        <p>Un site lent, c'est rarement un problème de code. C'est un problème de <strong>poids</strong> : ce que la page demande au navigateur de télécharger et d'exécuter avant d'afficher quelque chose d'utile.</p>
+      </div>
+    </div>
+
+    <h2>Mesurer avant de corriger : ce que regardent les outils</h2>
+
+    <p>Trois outils suffisent, tous gratuits. PageSpeed Insights donne une note et surtout des conseils classés par temps gagné. Lighthouse, intégré au navigateur Chrome, permet de relancer la mesure quand on veut, sur la page qu'on veut. WebPageTest descend au niveau du détail et montre la cascade des téléchargements, ce qui révèle qui arrive en retard.</p>
+
+    <p>Dans ces rapports, quatre chiffres comptent. Le temps de réponse du serveur, d'abord : c'est le délai entre la demande de la page et le premier octet reçu. Ensuite les trois seuils publics que Google utilise pour ce qu'il appelle les Core Web Vitals : l'affichage du contenu principal sous 2,5 secondes, une stabilité de mise en page sous 0,1, et une réactivité aux interactions sous 200 millisecondes. Ce ne sont pas des objectifs marketing, ce sont les repères publiés par Google.</p>
+
+    <p>Un piège classique fausse la mesure : tester sur l'ordinateur du bureau, en wifi, sur un navigateur déjà rempli de votre site en cache. Ce qui compte, c'est la première visite, sur le réseau de vos visiteurs. Testez sur un téléphone, en navigation privée, en désactivant le wifi. Refaites la mesure deux fois : la première visite est la vraie, la seconde ne dit rien.</p>
+
+    <p>Prenez l'habitude de noter les chiffres dans un tableau, avec la date, la page testée et l'appareil utilisé. Trois lignes suffisent : la date, le chiffre relevé, ce qui a changé depuis la dernière mesure. C'est ce tableau qui vous dira si vos corrections servent à quelque chose, et c'est aussi la pièce à montrer à un prestataire quand vous lui demandez d'intervenir.</p>
+
+    <h2>Cause 1 — le serveur et l'hébergement</h2>
+
+    <p>Vous la reconnaissez à un signe : la page reste blanche un moment, puis tout arrive d'un coup. Rien n'est affiché parce que le serveur n'a pas encore répondu, et aucun travail sur les images n'y changera quoi que ce soit. Dans le rapport, le temps de réponse du serveur dépasse la seconde, alors qu'un serveur correct répond en quelques dixièmes.</p>
+
+    <p>Les origines les plus fréquentes : un hébergement mutualisé où votre site partage la machine avec des dizaines d'autres, un serveur situé à l'autre bout du monde qui ajoute le temps du trajet à chaque fichier, un cache serveur désactivé, une version ancienne du langage qui fait tourner le site, ou l'absence de compression des pages envoyées.</p>
+
+    <p>Ce qui se corrige sans changer d'hébergeur : activer le cache serveur, activer la compression, mettre à jour le moteur du site, retirer les extensions qui tournent à chaque visite sans servir. Ce qui demande une décision : monter d'une gamme d'hébergement, ou placer un service de diffusion devant le site pour rapprocher les fichiers des visiteurs.</p>
+
+    <p>Avant de payer une nouvelle offre, vérifiez que le serveur est bien le coupable. Un serveur lent avec des images de 4 Mo reste un site lent. Demandez trois informations simples à votre hébergeur : où se trouvent physiquement les machines, quel cache serveur est actif sur votre formule, et combien de sites partagent la même machine. Les réponses vous éviteront de payer pour un problème qui n'est pas là.</p>
+
+    <h2>Cause 2 — le poids des images</h2>
+
+    <p>C'est la cause la plus fréquente, et la plus simple à corriger. Vous la repérez de trois façons : le rapport signale des images à redimensionner ou à convertir, le panneau réseau du navigateur montre des fichiers image de plusieurs mégaoctets, ou une photo affichée sur 600 pixels de large a été exportée en 4 000 pixels.</p>
+
+    <p>La méthode complète pour traiter ce point — le passage au WebP, le redimensionnement, le chargement différé, les dimensions déclarées — est détaillée dans <a href="/articles/images-site-webp/">Images de site : le format qui divise le poids par dix</a>. Ici, retenez seulement le principe : une image ne doit jamais être plus grande que la place qu'elle occupe à l'écran, et son format doit correspondre à son contenu.</p>
+
+    <p>Pourquoi ce levier passe avant les autres : il porte souvent sur la moitié du poids total de la page, il se corrige sans toucher au code, et le résultat se mesure immédiatement. C'est le premier endroit où regarder quand un site est lent.</p>
+
+    <h2>Cause 3 — les scripts et le CSS</h2>
+
+    <p>Ici, le symptôme change. La page s'affiche, mais elle ne répond pas : vous cliquez sur le menu et rien ne s'ouvre pendant deux ou trois secondes. Dans le rapport, cherchez le temps de blocage total et la réactivité aux interactions. Un chiffre élevé signifie que le navigateur travaille pendant que le visiteur attend.</p>
+
+    <p>Les coupables habituels : un constructeur visuel qui charge un cadre logiciel complet pour afficher une page qui n'en a pas besoin, des extensions empilées au fil des mois, un gestionnaire de balises qui déclenche plusieurs scripts de mesure au chargement, un carrousel animé en haut de page, ou une bibliothèque d'effets utilisée pour une seule animation.</p>
+
+    <p>Ce qui se corrige : supprimer les extensions qui ne servent plus, charger le JavaScript en différé pour qu'il ne bloque pas l'affichage, n'envoyer à la page que le style dont elle a besoin, remplacer une bibliothèque d'effets par quelques lignes écrites pour l'usage réel. Chaque extension retirée est une connexion en moins et un risque de panne en moins.</p>
+
+    <h2>Cause 4 — les polices de caractères</h2>
+
+    <p>Le symptôme est discret : le texte apparaît en police système, puis il change d'aspect une fois la bonne police téléchargée, ce qui décale aussi la mise en page. Sur une connexion lente, ce basculement peut durer plusieurs secondes, et le visiteur lit dans une police qui n'est pas la vôtre.</p>
+
+    <p>Comment compter : ouvrez le panneau réseau et filtrez sur les polices. Chaque graisse utilisée est un fichier séparé. Un titre en gras, un texte courant, un bouton en demi-gras : trois fichiers, parfois téléchargés depuis un service distant, avec une connexion à établir avant même le premier octet.</p>
+
+    <p>Ce qui se corrige : garder deux graisses au maximum, préférer le format woff2, héberger les fichiers sur votre propre serveur, précharger les polices du premier écran pour qu'elles arrivent plus tôt, et déclarer un affichage de secours qui rend le texte lisible immédiatement. Le gain est rapide, le risque visuel nul quand on garde les mêmes polices.</p>
+
+    <p>Le point à ne pas manquer : une police téléchargée depuis un service distant coûte une connexion supplémentaire vers un serveur que vous ne contrôlez pas, parfois sur un autre continent. Le même fichier posé sur votre hébergement part avec le reste de la page. C'est un des rares chantiers où l'on gagne du temps sans rien changer au rendu.</p>
+
+    <h2>Cause 5 — les extensions et les services tiers</h2>
+
+    <p>Les services tiers sont tous ces éléments qui ne viennent pas de votre serveur : fenêtre de discussion, module de réservation, carte géographique, vidéo intégrée, avis clients, mesures publicitaires, publications importées d'un réseau social. Chacun ajoute sa connexion, son fichier et son temps d'exécution.</p>
+
+    <p>Le rapport les liste dans une section dédiée, avec le temps de blocage de chaque domaine. Comptez-les : au-delà d'une dizaine de domaines externes contactés au chargement d'une page, le navigateur passe plus de temps à négocier des connexions qu'à afficher votre contenu.</p>
+
+    <p>Vouloir tout supprimer n'est pas la bonne réponse : une mesure d'audience et un bouton de contact servent votre activité. Ce qui se corrige, c'est la façon de les charger. Faites arriver les scripts après le contenu principal. Remplacez une carte intégrée par une image qui renvoie vers la carte. Remplacez une vidéo intégrée par une vignette qui ne charge le lecteur qu'au clic. Vérifiez surtout qu'aucun ancien outil abandonné ne tourne encore : c'est le cas le plus fréquent, et le plus facile à régler.</p>
+
+    <h2>Dans quel ordre traiter les cinq causes</h2>
+
+    <p>L'ordre par défaut va du moins risqué au plus lourd. Commencez par ce qui se corrige sans toucher au fonctionnement du site, puis descendez.</p>
+
+    <table>
+      <thead>
+        <tr><th>Cause</th><th>Comment la repérer</th><th>Première action</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Images</td><td>Le rapport signale des images trop lourdes ou surdimensionnées</td><td>Redimensionner, convertir, différer le chargement</td></tr>
+        <tr><td>Polices</td><td>Plus de deux fichiers de police, ou police chargée depuis un service distant</td><td>Deux graisses, woff2, hébergées sur votre serveur</td></tr>
+        <tr><td>Scripts et CSS</td><td>Temps de blocage élevé, page affichée mais boutons inertes</td><td>Retirer les extensions inutiles, différer le JavaScript</td></tr>
+        <tr><td>Serveur</td><td>Temps de réponse supérieur à une seconde avant le premier octet</td><td>Activer le cache et la compression, revoir la formule</td></tr>
+        <tr><td>Services tiers</td><td>Plus de dix domaines externes contactés au chargement</td><td>Charger après le contenu, alléger les intégrations</td></tr>
+      </tbody>
+    </table>
+
+    <p>Cet ordre connaît une exception utile. Si toutes les mesures pointent vers le serveur et que rien d'autre ne ressort, traitez le serveur d'abord, même s'il figure plus bas dans le tableau. L'ordre n'est pas un dogme : il suit la mesure.</p>
+
+    <p>Une règle de méthode compte plus que l'ordre lui-même : un changement à la fois, une mesure après chaque changement. Notez le chiffre de départ, corrigez un point, remesurez dans les mêmes conditions, écrivez le nouveau chiffre. Sans cette discipline, vous ne saurez jamais ce qui a produit le gain, et vous finirez par croire que rien ne marche.</p>
+
+    <p>Prévoyez aussi de mesurer sur un téléphone modeste, pas seulement sur votre ordinateur. Les deux appareils ne réagissent pas aux mêmes causes : un téléphone d'entrée de gamme souffre davantage du poids de la page et des animations que d'un serveur un peu lent. C'est l'objet de <a href="/articles/site-mobile-entree-de-gamme/">Rendre son site utilisable sur un téléphone d'entrée de gamme</a>.</p>
+
+    <p>Reste le cas où tout est rouge : serveur lent, images lourdes, dizaines de scripts, des années d'ajouts empilés sur une base ancienne. Corriger point par point devient alors plus coûteux qu'une remise à plat. Ce n'est pas la majorité des situations, mais cela arrive sur les sites construits par accumulation, sans personne pour retirer ce qui ne sert plus. Dans ce cas précis, la mesure sert à décider où s'arrête la réparation.</p>
+
+    <div class="cta-block">
+      <h2>Faire le point sur la vitesse de votre site</h2>
+      <p>La page site web présente ce qui est mesuré au moment de la livraison, ce qui est remis en votre possession, et la façon dont un projet se déroule.</p>
+      <a class="btn btn-gold" href="https://eperformance.pro/site-web.html">Voir la page site web
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <h2>FAQ — vitesse et causes de lenteur</h2>
+
+    <div class="faq-section">
+      <details>
+        <summary>Pourquoi mon site est lent alors qu'il est beau ?</summary>
+        <p>Le design et le poids sont deux choses différentes. Une page peut être sobre et lourde, si elle charge quatre fichiers de police, trois scripts de mesure et des photos non redimensionnées. À l'inverse, une page très travaillée peut être rapide si ses images sont préparées et ses scripts limités. Ce qui se mesure, c'est ce que le navigateur doit télécharger et exécuter, pas ce que l'œil perçoit.</p>
+      </details>
+
+      <details>
+        <summary>Par quoi commencer quand un site est lent ?</summary>
+        <p>Par la mesure, toujours. Relevez le chiffre de départ sur mobile, en navigation privée : temps de réponse du serveur, affichage du contenu principal, stabilité de la mise en page. Ensuite, dans la plupart des cas, les images viennent en premier : c'est la cause la plus fréquente, la moins risquée à corriger et la plus rapide à mesurer. Si le temps de réponse du serveur est le seul point rouge, commencez par le serveur.</p>
+      </details>
+
+      <details>
+        <summary>Combien d'images une page peut-elle supporter ?</summary>
+        <p>Il n'existe pas de nombre maximum. Une page peut afficher trente images et rester rapide si chacune est dimensionnée pour sa place à l'écran et compressée correctement. Ce qui compte est le poids total téléchargé et la taille d'affichage réelle de chaque fichier. Une seule photo de 5 Mo affichée en 400 pixels de large fait plus de dégâts que vingt vignettes bien préparées.</p>
+      </details>
+
+      <details>
+        <summary>Faut-il changer d'hébergeur pour accélérer mon site ?</summary>
+        <p>Seulement si le temps de réponse du serveur est la cause identifiée. Un changement d'hébergeur ne réduit pas le poids des images, ne supprime pas les scripts inutiles et ne règle pas les polices trop nombreuses. Commencez par activer le cache et la compression, mettez à jour le moteur du site, puis remesurez. Si le serveur répond encore lentement, la question de l'offre se pose avec des chiffres en main.</p>
+      </details>
+
+      <details>
+        <summary>La vitesse influence-t-elle le classement sur Google ?</summary>
+        <p>Google documente l'expérience de page comme l'un des signaux pris en compte, parmi beaucoup d'autres. L'effet le plus net et le plus immédiat reste sur le visiteur : une page qui met plusieurs secondes à s'afficher perd des lecteurs avant même qu'ils aient vu votre contenu. C'est aussi une question de confort de lecture et de données consommées, deux points sensibles sur une connexion mobile comptée.</p>
+      </details>
+
+      <details>
+        <summary>Comment savoir si ma vitesse s'est améliorée ?</summary>
+        <p>En remesurant dans les mêmes conditions qu'au départ : même page, même outil, sur mobile, en navigation privée. Comparez trois chiffres : le temps de réponse du serveur, l'affichage du contenu principal, la stabilité de la mise en page. Consignez la date de chaque mesure dans un tableau simple. Sans point de comparaison daté, une amélioration réelle peut passer inaperçue, et une régression aussi.</p>
+      </details>
+    </div>
+
+    <div class="tags-row">
+      <a href="/site-web/" class="tag">Site web</a>
+      <a href="/articles/images-site-webp/" class="tag">Poids des images</a>
+      <a href="/articles/site-mobile-entree-de-gamme/" class="tag">Site mobile</a>
+    </div>
+
+    <div class="share-row">
+      <span class="small">Partager</span>
+      <a href="#" class="share-btn" onclick="return sharePage('whatsapp')" data-share="whatsapp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.6-4.5A8.4 8.4 0 1 1 8 20.4z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('linkedin')" data-share="linkedin" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('facebook')" data-share="facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('copy')" data-share="copy" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></a>
+    </div>
+
+    <div class="related">
+      <h2>Articles à lire ensuite</h2>
+      <a href="/articles/images-site-webp/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">Site Web</span>
+          <h3>Images de site : le format qui divise le poids par dix</h3>
+          <p class="small">Convertir, redimensionner, différer : la méthode complète.</p>
+        </div>
+      </a>
+      <a href="/articles/site-mobile-entree-de-gamme/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">Site Web</span>
+          <h3>Rendre son site utilisable sur un téléphone d'entrée de gamme</h3>
+          <p class="small">Ce qui casse sur un appareil modeste, et comment le tester pour de vrai.</p>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-col">
+        <img class="footer-logo logo-img-light" src="/assets/img/logo-light.webp"
+             srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+             width="152" height="25" alt="ePerformance" loading="lazy">
+        <img class="footer-logo logo-img-dark" src="/assets/img/logo-dark.webp"
+             srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+             width="157" height="25" alt="" aria-hidden="true" loading="lazy">
+        <p class="card-text mt-3" style="max-width:34ch">Stratégie d&#x27;acquisition, IA générative, automatisation et développement web premium. Basé en Côte d&#x27;Ivoire, 100 % en ligne.</p>
+      </div>
+
+      <div class="footer-col">
+        <h2>Services</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/index.html#methode" rel="noopener">stratégie d&#x27;acquisition</a></li>
+          <li><a href="https://eperformance.pro/ia.html" rel="noopener">IA générative</a></li>
+          <li><a href="https://eperformance.pro/automatisation.html" rel="noopener">Automatisation</a></li>
+          <li><a href="https://eperformance.pro/site-web.html" rel="noopener">Création de site web</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Ressources</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/diagnostic_eperformance.html" rel="noopener">Diagnostic gratuit</a></li>
+          <li><a href="https://eperformance.pro/formation.html" rel="noopener">Formations</a></li>
+          <li><a href="https://eperformance.pro/ebook.html" rel="noopener">Ebooks</a></li>
+          <li><a href="https://blog.eperformance.pro/" rel="noopener">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="https://wa.me/2250151170666" rel="noopener">+225 01 51 17 06 66</a></li>
+          <li><a href="mailto:bonjour@eperformance.pro">bonjour@eperformance.pro</a></li>
+          <li><a href="https://api.eperformance.pro/connexion.php" rel="noopener">Espace client</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 ePerformance — par K. Stéphane. Tous droits réservés.</p>
+      <p><a href="https://eperformance.pro/mentions-legales.html">Mentions légales</a> · <a href="https://eperformance.pro/politique-confidentialite.html">Confidentialité</a> · <a href="https://eperformance.pro/cookies.html">Cookies</a> · <a href="https://eperformance.pro/cgv.html">CGV</a></p>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a class="btn btn-gold" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+  <a class="btn btn-wa" href="https://wa.me/2250151170666" style="flex:0 0 auto" rel="noopener">WhatsApp</a>
+</div>
+
+<div class="consent" id="consent-banner" hidden>
+  <div class="consent-inner">
+    <div class="consent-text">
+      <p><strong>Vous choisissez ce que nous mesurons.</strong></p>
+      <p>Nous utilisons des traceurs pour comprendre comment le site est utilisé et pour
+         mesurer nos campagnes. Aucun ne se déclenche avant votre accord.
+         <a href="https://eperformance.pro/politique-confidentialite.html">Politique de confidentialité</a> ·
+         <a href="https://eperformance.pro/cookies.html">En savoir plus</a></p>
+    </div>
+    <div class="consent-actions">
+      <button type="button" class="btn btn-ghost" data-consent="refuse">Tout refuser</button>
+      <button type="button" class="btn btn-outline" data-consent="customize">Paramétrer</button>
+      <button type="button" class="btn btn-gold" data-consent="accept">Tout accepter</button>
+    </div>
+  </div>
+
+  <div class="consent-detail" id="consent-detail" hidden>
+    <fieldset class="fieldset">
+      <legend>Vos préférences</legend>
+
+      <label class="consent-row consent-row-locked">
+        <input type="checkbox" checked disabled>
+        <span>
+          <strong>Nécessaires</strong>
+          <span class="field-hint">Mémorisation de votre choix de thème et de vos préférences.
+            Toujours actifs : le site ne peut pas fonctionner sans.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-analytics">
+        <span>
+          <strong>Mesure d'audience</strong>
+          <span class="field-hint">Google Analytics 4 et Microsoft Clarity. Nous aide à voir
+            quelles pages sont utiles et où les visiteurs abandonnent.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-ads">
+        <span>
+          <strong>Publicité</strong>
+          <span class="field-hint">Meta Pixel. Mesure l'efficacité de nos campagnes
+            Facebook et Instagram.</span>
+        </span>
+      </label>
+    </fieldset>
+
+    <div class="consent-actions">
+      <button type="button" class="btn btn-outline" data-consent="back">Retour</button>
+      <button type="button" class="btn btn-gold" data-consent="save">Enregistrer mes choix</button>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/js/consent.js" defer></script>
+<script src="/assets/js/eperf.js" defer></script>
+<script src="/assets/js/blog.js" defer></script>
+</body>
+</html>

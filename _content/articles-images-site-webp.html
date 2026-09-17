@@ -1,0 +1,270 @@
+<section class="article-hero">
+  <div class="container-reading">
+
+    <nav class="article-breadcrumb" aria-label="Fil d'Ariane">
+      <a href="../">Blog</a>
+      <span class="sep">/</span>
+      <a href="/site-web/">Site Web</a>
+      <span class="sep">/</span>
+      <span>Images et format WebP</span>
+    </nav>
+
+    <span class="article-category">Site Web</span>
+    <h1>Images de site : le format qui <span class="text-gold">divise le poids par dix</span></h1>
+    <p class="lead">Une photo prise au téléphone pèse plusieurs mégaoctets et s'affiche sur quelques centaines de pixels. Entre les deux, il y a une énergie gaspillée que vos visiteurs paient en attente. Voici la méthode pour convertir, redimensionner et charger les images au bon moment.</p>
+
+    <div class="article-meta">
+      <div class="author">
+        <div class="author-avatar">KS</div>
+        <div>
+          <div class="article-author-name">K. STEPHANE</div>
+          <div class="small">Fondateur ePerformance</div>
+        </div>
+      </div>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg> 12 janvier 2027</span>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.6 2.1"/></svg> 12 min de lecture</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section-flush-top">
+  <div class="article-body container-reading">
+
+    <p>Une photo prise avec un téléphone pèse plusieurs mégaoctets. Sur la page, elle s'affiche sur 600 ou 800 pixels de large. Tout ce qui se trouve entre ces deux nombres est du poids que votre visiteur télécharge sans jamais le voir, sur une connexion qu'il paie souvent au forfait.</p>
+
+    <p>Cet article traite un seul levier : les images, leur format, leurs dimensions et le moment de leur chargement. Pour situer ce levier parmi les autres causes de lenteur — serveur, scripts, polices, services tiers — <a href="/articles/site-trop-lent/">Site trop lent : les cinq causes réelles</a> donne la vue d'ensemble et l'ordre de traitement.</p>
+
+    <div class="callout">
+      <div class="callout-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5"/><path d="M12 7.8h.01"/></svg></div>
+      <div class="callout-content">
+        <h4>En une phrase</h4>
+        <p>Le poids d'une image dépend de deux choses : le nombre de pixels qu'elle contient et la façon dont ce contenu est compressé. Agir sur une seule des deux ne suffit jamais.</p>
+      </div>
+    </div>
+
+    <h2>Pourquoi une image pèse trop lourd</h2>
+
+    <p>Une image lourde l'est pour trois raisons, souvent cumulées. Les dimensions d'abord : une photo de 4 000 pixels de large affichée dans une colonne de 700 pixels transporte cinq à six fois plus de pixels que nécessaire. Le format ensuite : un logo enregistré en PNG transparent ou une photo exportée en PNG pèsent bien plus lourd que le même contenu dans un format conçu pour la photographie. La compression enfin : un export réglé au maximum de qualité, ou un fichier recompressé trois fois au fil des retouches.</p>
+
+    <p>Le format se choisit selon ce que l'image contient.</p>
+
+    <table>
+      <thead>
+        <tr><th>Format</th><th>Pour quoi</th><th>Ce qu'il pèse</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>JPEG</td><td>Photos, sans transparence</td><td>Correct : c'est l'ancien standard du web</td></tr>
+        <tr><td>PNG</td><td>Transparence, captures d'écran, aplats de couleur</td><td>Lourd dès qu'il y a des nuances ou une photo</td></tr>
+        <tr><td>WebP</td><td>Photos, avec ou sans transparence</td><td>Plus léger que le JPEG à qualité comparable</td></tr>
+        <tr><td>SVG</td><td>Logos et icônes dessinés</td><td>Quelques kilo-octets, net à toutes les tailles</td></tr>
+      </tbody>
+    </table>
+
+    <p>Sur l'écart entre le JPEG et le WebP, les chiffres publiés par Google sur son propre format annoncent un quart à un tiers de poids en moins, à qualité comparable. C'est utile, mais ce n'est pas là que se trouve le facteur dix. Il vient de l'addition des gestes décrits plus bas.</p>
+
+    <h2>Convertir ses images en WebP : la méthode</h2>
+
+    <p>Le WebP est lu par tous les navigateurs courants depuis plusieurs années. La question ne porte donc plus sur la compatibilité générale, mais sur les appareils anciens qui subsistent chez une partie de votre audience. On verra comment couvrir ce cas avec un format de repli.</p>
+
+    <h3>Un outil en ligne pour commencer</h3>
+
+    <p>Squoosh, l'outil de conversion de Google, fonctionne directement dans le navigateur, sans installation. Vous déposez une image, vous choisissez le format WebP, vous réglez la qualité, et le poids avant et après s'affiche côte à côte. Commencez par trois images représentatives de votre site : une photo, un visuel avec du texte, une vignette de produit. Si la différence se voit dans l'aperçu, remontez la qualité d'un cran.</p>
+
+    <h3>En ligne de commande, quand il y en a beaucoup</h3>
+
+    <p>Pour un catalogue de plusieurs centaines d'images, un utilitaire en ligne de commande fait le travail sans intervention. La commande de base tient sur une ligne.</p>
+
+    <pre><code>cwebp -q 80 photo.jpg -o photo.webp</code></pre>
+
+    <p>Le paramètre <code>-q 80</code> règle la qualité, et le fichier de sortie porte le même nom avec la nouvelle extension. Pour traiter un dossier entier d'un coup, une boucle suffit.</p>
+
+    <pre><code>for f in *.jpg; do cwebp -q 80 "$f" -o "${f%.jpg}.webp"; done</code></pre>
+
+    <p>Deux précautions avant de lancer ce genre de commande. Travaillez sur une copie du dossier, jamais sur l'unique exemplaire de vos images, et vérifiez le résultat sur un échantillon avant de convertir le reste.</p>
+
+    <h3>Dans un CMS ou un logiciel de gestion de contenu</h3>
+
+    <p>Les extensions de conversion existent pour WordPress et les autres logiciels courants. Deux points se vérifient avant d'en installer une. D'abord, l'extension convertit-elle seulement les nouveaux envois, ou propose-t-elle de convertir la bibliothèque existante ? Beaucoup ne traitent que les images suivantes, ce qui laisse vos anciennes photos aussi lourdes qu'avant. Ensuite, l'extension sert-elle réellement le fichier WebP aux visiteurs, ou convertit-elle dans un coin sans que la page change ? Le test est simple : ouvrez une page et cherchez les fichiers <code>.webp</code> dans le panneau réseau.</p>
+
+    <p>Le format de repli, pour les appareils les plus anciens, se déclare dans le code de la page : une balise d'image à deux sources, le WebP proposé en premier, le JPEG ensuite. Le navigateur prend le premier format qu'il comprend, et les dimensions comme le texte alternatif restent portés par la balise d'image finale.</p>
+
+    <pre><code>&lt;picture&gt;
+  &lt;source srcset="/assets/img/photo.webp" type="image/webp"&gt;
+  &lt;img src="/assets/img/photo.jpg" width="800" height="600" alt="Description"&gt;
+&lt;/picture&gt;</code></pre>
+
+    <p>Cette écriture n'est utile que si vous gardez les fichiers JPEG d'origine. Si vous les supprimez, le repli ne protège plus rien.</p>
+
+    <h2>Redimensionner à la taille d'affichage réelle</h2>
+
+    <p>La règle est simple à énoncer : la largeur en pixels d'un fichier ne devrait pas dépasser le double de la largeur qu'il occupe à l'écran. Le double, parce que les écrans denses affichent deux pixels physiques par pixel logique ; au-delà, vous payez pour des pixels que personne ne verra jamais.</p>
+
+    <p>Le cas le plus fréquent est la photo prise au téléphone : 4 000 pixels de large, affichée dans une colonne de 700. Redimensionnée à 1 400 pixels, elle conserve toute sa netteté sur les écrans denses et perd l'essentiel de son poids. C'est souvent ce seul geste qui produit le plus gros écart, avant même de parler de format.</p>
+
+    <h3>Comment trouver la bonne largeur</h3>
+
+    <p>Ouvrez la page, faites un clic droit sur l'image, puis inspectez l'élément : la largeur d'affichage apparaît dans le panneau. Multipliez par deux, et vous avez la largeur d'export. Trois tailles couvrent la plupart des sites : la grande image d'en-tête d'un article, l'image courante dans le texte, et la vignette d'une carte. Notez ces trois largeurs une fois pour toutes, et exportez toujours à l'une de ces trois valeurs.</p>
+
+    <p>L'ordre compte : redimensionnez d'abord, convertissez ensuite, pour ne jamais manipuler un fichier inutilement lourd.</p>
+
+    <p>Prenons un exemple, à vérifier sur vos propres fichiers. Une photo de 4 000 pixels exportée en JPEG peut peser plusieurs mégaoctets. La même photo redimensionnée à 1 400 pixels puis convertie en WebP à qualité 80 descend souvent sous les quelques centaines de kilo-octets. Le facteur dix du titre vient de là : du cumul du redimensionnement, du format et du chargement différé, sur une page qui contient plusieurs images. Sur vos images, mesurez les deux étapes séparément, vous verrez laquelle pèse le plus dans votre cas.</p>
+
+    <h2>Déclarer les dimensions pour éviter les décalages</h2>
+
+    <p>Une image sans dimensions déclarées réserve zéro espace avant son arrivée. Le texte se place, puis l'image arrive et pousse tout vers le bas. Le visiteur qui lisait perd sa ligne, et s'il s'apprêtait à cliquer, il clique à côté. Google mesure ces décalages sous le nom de stabilité de mise en page, avec un seuil public de 0,1.</p>
+
+    <p>La correction tient en deux attributs : <code>width</code> et <code>height</code>, renseignés avec les dimensions réelles du fichier. Le navigateur calcule le rapport entre les deux et réserve la place avant même de télécharger l'image. Le style de la page continue de gérer la largeur fluide : les attributs servent au calcul, pas à l'affichage.</p>
+
+    <p>Pour les éléments qui ne sont pas des images — une vidéo intégrée, une carte, un cadre de réservation — la même logique s'applique avec un rapport d'aspect déclaré. Et si vos attributs sont faux, le résultat est pire que leur absence : la place réservée ne correspond pas à l'image, et le décalage se produit quand même. Recopiez les dimensions du fichier, pas celles que vous croyez avoir exportées.</p>
+
+    <h2>Différer le chargement des images hors écran</h2>
+
+    <p>La plupart des visiteurs ne descendent pas jusqu'au bas de la page. L'attribut <code>loading="lazy"</code> demande au navigateur d'attendre que l'image approche de la zone visible pour la télécharger.</p>
+
+    <p>Une règle ne doit jamais être enfreinte : l'image principale du premier écran ne se diffère pas. C'est elle qui donne au visiteur l'impression que la page est arrivée, et c'est elle que mesure l'indicateur d'affichage du contenu principal. Sur cette image-là, on fait l'inverse : on la déclare prioritaire pour qu'elle parte en premier.</p>
+
+    <p>Un autre attribut, <code>decoding="async"</code>, évite que le décodage d'une image bloque l'affichage du reste. Le piège le plus courant vient des extensions qui appliquent le chargement différé à toutes les images, y compris le logo de l'en-tête. Le symptôme est trompeur : la page semble se construire plus vite, mais l'image principale arrive plus tard qu'avant.</p>
+
+    <h2>Utiliser srcset quand c'est utile</h2>
+
+    <p>L'attribut <code>srcset</code> permet de proposer plusieurs largeurs de fichier et de laisser le navigateur choisir celle qui correspond à l'écran. Un téléphone prend la version légère, un grand écran dense prend la version large. C'est utile sur les images dont la largeur d'affichage change selon l'appareil : la grande image d'un article, une bannière pleine largeur.</p>
+
+    <p>Ce n'est pas utile partout. Sur un logo de largeur fixe ou une vignette de carte qui ne bouge pas, un seul fichier bien dimensionné fait le travail, et il est plus simple à maintenir. Multiplier les versions d'une image, c'est multiplier le stockage et les fichiers à regénérer à chaque changement.</p>
+
+    <p>Quand vous l'utilisez, faites-le complètement. Trois largeurs suffisent en général — une pour le téléphone, une pour la tablette, une pour l'ordinateur. À côté de <code>srcset</code>, il faut décrire la largeur d'affichage dans l'attribut <code>sizes</code>. Sans cette description, le navigateur suppose que l'image occupe toute la largeur de l'écran et choisit le fichier le plus lourd : exactement l'inverse du but recherché. C'est l'erreur la plus fréquente sur ce point.</p>
+
+    <p>Si votre site publie beaucoup d'images, la génération de ces versions se fait à l'envoi, par le logiciel ou l'extension, plutôt qu'à la main. Un geste automatisé une fois vaut mieux qu'une discipline qui s'oublie au troisième article.</p>
+
+    <h2>Vérifier le résultat sans rien casser</h2>
+
+    <p>La vérification commence par une mesure, dans le panneau réseau du navigateur, en filtrant sur les images : additionnez le poids transféré et comparez avec le chiffre relevé avant vos changements. Regardez ensuite l'indicateur d'affichage du contenu principal sur mobile.</p>
+
+    <p>Vient le contrôle visuel, et il ne se fait pas sur un écran de téléphone. Une image trop compressée se voit sur les visages, sur les dégradés de ciel et sur le texte incrusté dans un visuel. Ouvrez l'ancienne et la nouvelle version à leur taille réelle, côte à côte, et comparez. Si la différence se voit, remontez la qualité d'un cran : quelques kilo-octets ne valent pas un visuel abîmé.</p>
+
+    <p>Pensez à vider le cache. Si un service de diffusion se trouve devant votre site, il continue de servir les anciens fichiers tant qu'on ne lui demande pas de les oublier : vous compareriez deux fois la même chose. Les visiteurs déjà venus peuvent aussi garder l'ancienne version un moment.</p>
+
+    <p>Gardez enfin vos originaux dans un dossier hors du site. Une image recompressée plusieurs fois perd de la qualité à chaque passage, et il n'existe aucun moyen de revenir en arrière sans le fichier de départ. Une fois le travail terminé sur l'ordinateur, il reste une dernière épreuve, celle du terrain : <a href="/articles/site-mobile-entree-de-gamme/">Rendre son site utilisable sur un téléphone d'entrée de gamme</a> explique comment tester sur un vrai appareil modeste, celui de vos visiteurs.</p>
+
+    <div class="cta-block">
+      <h2>Alléger les images de votre site</h2>
+      <p>La page site web présente ce qui est préparé et remis avec un site : images dimensionnées, format adapté, et mesures de vitesse relevées à la livraison.</p>
+      <a class="btn btn-gold" href="https://eperformance.pro/site-web.html">Voir la page site web
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <h2>FAQ — images, formats et poids</h2>
+
+    <div class="faq-section">
+      <details>
+        <summary>Le WebP est-il lu par tous les navigateurs ?</summary>
+        <p>Tous les navigateurs courants le lisent depuis plusieurs années, sur ordinateur comme sur téléphone. Le risque se limite aux appareils et aux systèmes très anciens, encore présents chez une partie de l'audience. Pour couvrir ce cas, la balise d'image à deux sources propose le WebP en premier et le JPEG en repli. Il faut alors conserver les fichiers JPEG d'origine.</p>
+      </details>
+
+      <details>
+        <summary>Faut-il convertir les logos et les icônes en WebP ?</summary>
+        <p>Non, pas ceux qui sont dessinés : un logo ou une icône au trait se décline en SVG, un format vectoriel de quelques kilo-octets, net à toutes les tailles. Le WebP convient aux photographies, y compris celles qui comportent de la transparence. Le PNG reste utile pour les captures d'écran contenant du texte, là où le vectoriel n'est pas disponible.</p>
+      </details>
+
+      <details>
+        <summary>Quelle qualité choisir pour une image WebP ?</summary>
+        <p>Entre 75 et 85 dans la plupart des cas, ce qui donne un fichier nettement plus léger sans différence perceptible. En dessous de 70, les défauts deviennent visibles sur les visages, les dégradés et les contours nets. Le seul juge fiable est votre œil, sur vos propres images, comparées à leur taille réelle avant et après conversion.</p>
+      </details>
+
+      <details>
+        <summary>Que faire des images déjà en ligne depuis des années ?</summary>
+        <p>Elles se convertissent en masse, mais l'opération se prépare. Sauvegardez la bibliothèque avant de commencer, convertissez, puis vérifiez sur plusieurs pages que les fichiers servis portent bien la nouvelle extension. Videz le cache du site pour que les visiteurs reçoivent les nouveaux fichiers. Certaines extensions ne traitent que les nouveaux envois : dans ce cas, prévoyez un traitement séparé pour l'existant.</p>
+      </details>
+
+      <details>
+        <summary>Le chargement différé retarde-t-il l'affichage de mes images ?</summary>
+        <p>Il ne concerne que les images situées hors du premier écran : celles-là arrivent au moment où le visiteur s'en approche, ce qui ne se voit pas. Appliqué par erreur à l'image principale, il produit l'effet inverse de celui recherché : la page paraît se construire plus vite, mais l'image qui comptait arrive plus tard.</p>
+      </details>
+
+      <details>
+        <summary>Comment savoir si mes images sont trop lourdes ?</summary>
+        <p>Ouvrez le panneau réseau du navigateur, filtrez sur les images et triez par taille. Deux repères suffisent : le poids de chaque fichier, et sa largeur comparée à sa largeur d'affichage. Une photo de plusieurs mégaoctets dans une vignette, ou un fichier deux fois plus large que sa place réelle, sont les signes les plus nets. Regardez aussi le poids total des images de la page.</p>
+      </details>
+    </div>
+
+    <div class="tags-row">
+      <a href="/site-web/" class="tag">Site web</a>
+      <a href="/articles/site-trop-lent/" class="tag">Vitesse du site</a>
+      <a href="/articles/site-mobile-entree-de-gamme/" class="tag">Site mobile</a>
+    </div>
+
+    <div class="share-row">
+      <span class="small">Partager</span>
+      <a href="#" class="share-btn" onclick="return sharePage('whatsapp')" data-share="whatsapp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.6-4.5A8.4 8.4 0 1 1 8 20.4z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('linkedin')" data-share="linkedin" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('facebook')" data-share="facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('copy')" data-share="copy" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></a>
+    </div>
+
+    <div class="related">
+      <h2>Articles à lire ensuite</h2>
+      <a href="/articles/site-trop-lent/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">Site Web</span>
+          <h3>Site trop lent : les cinq causes réelles</h3>
+          <p class="small">Repérer chaque cause, et savoir dans quel ordre les corriger.</p>
+        </div>
+      </a>
+      <a href="/articles/site-mobile-entree-de-gamme/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">Site Web</span>
+          <h3>Rendre son site utilisable sur un téléphone d'entrée de gamme</h3>
+          <p class="small">Ce qui casse sur un appareil modeste, et comment le tester pour de vrai.</p>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Images de site : le format qui divise le poids par dix",
+  "description":"Convertir en WebP, redimensionner à la taille d'affichage, différer le chargement : la méthode pour alléger les images d'un site sans casser la mise en page.",
+  "image":"https://blog.eperformance.pro/assets/img/og-image.jpg",
+  "datePublished":"2027-01-12T09:00:00+00:00",
+  "dateModified":"2027-01-12T09:00:00+00:00",
+  "inLanguage":"fr-CI",
+  "wordCount":2399,
+  "articleSection":"Site Web",
+  "keywords":["optimiser images site web","webp","poids image","redimensionner image","chargement différé","srcset","vitesse site","Abidjan"],
+  "author":{"@type":"Person","name":"K. STEPHANE","jobTitle":"Fondateur ePerformance","url":"https://blog.eperformance.pro/a-propos/"},
+  "publisher":{"@type":"Organization","name":"ePerformance","logo":{"@type":"ImageObject","url":"https://eperformance.pro/assets/img/logo-light.webp"}},
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.eperformance.pro/articles/images-site-webp/"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Blog","item":"https://blog.eperformance.pro/"},
+    {"@type":"ListItem","position":2,"name":"Site Web","item":"https://blog.eperformance.pro/site-web/"},
+    {"@type":"ListItem","position":3,"name":"Images de site : le format qui divise le poids par dix","item":"https://blog.eperformance.pro/articles/images-site-webp/"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Le WebP est-il lu par tous les navigateurs ?","acceptedAnswer":{"@type":"Answer","text":"Tous les navigateurs courants le lisent depuis plusieurs années, sur ordinateur comme sur téléphone. Le risque se limite aux appareils et aux systèmes très anciens, encore présents chez une partie de l'audience. Pour couvrir ce cas, la balise d'image à deux sources propose le WebP en premier et le JPEG en repli. Il faut alors conserver les fichiers JPEG d'origine."}},
+    {"@type":"Question","name":"Faut-il convertir les logos et les icônes en WebP ?","acceptedAnswer":{"@type":"Answer","text":"Non, pas ceux qui sont dessinés : un logo ou une icône au trait se décline en SVG, un format vectoriel de quelques kilo-octets, net à toutes les tailles. Le WebP convient aux photographies, y compris celles qui comportent de la transparence. Le PNG reste utile pour les captures d'écran contenant du texte, là où le vectoriel n'est pas disponible."}},
+    {"@type":"Question","name":"Quelle qualité choisir pour une image WebP ?","acceptedAnswer":{"@type":"Answer","text":"Entre 75 et 85 dans la plupart des cas, ce qui donne un fichier nettement plus léger sans différence perceptible. En dessous de 70, les défauts deviennent visibles sur les visages, les dégradés et les contours nets. Le seul juge fiable est votre œil, sur vos propres images, comparées à leur taille réelle avant et après conversion."}},
+    {"@type":"Question","name":"Que faire des images déjà en ligne depuis des années ?","acceptedAnswer":{"@type":"Answer","text":"Elles se convertissent en masse, mais l'opération se prépare. Sauvegardez la bibliothèque avant de commencer, convertissez, puis vérifiez sur plusieurs pages que les fichiers servis portent bien la nouvelle extension. Videz le cache du site pour que les visiteurs reçoivent les nouveaux fichiers. Certaines extensions ne traitent que les nouveaux envois : dans ce cas, prévoyez un traitement séparé pour l'existant."}},
+    {"@type":"Question","name":"Le chargement différé retarde-t-il l'affichage de mes images ?","acceptedAnswer":{"@type":"Answer","text":"Il ne concerne que les images situées en dehors du premier écran : celles-là arrivent au moment où le visiteur s'en approche, ce qui ne se voit pas. Appliqué par erreur à l'image principale, il produit l'effet inverse de celui recherché : la page paraît se construire plus vite, mais l'image qui comptait arrive plus tard. Vérifiez que les images du premier écran ne portent pas cet attribut."}},
+    {"@type":"Question","name":"Comment savoir si mes images sont trop lourdes ?","acceptedAnswer":{"@type":"Answer","text":"Ouvrez le panneau réseau du navigateur, filtrez sur les images et triez par taille. Deux repères suffisent : le poids de chaque fichier, et sa largeur comparée à sa largeur d'affichage. Une photo de plusieurs mégaoctets dans une vignette, ou un fichier deux fois plus large que sa place réelle, sont les signes les plus nets. Regardez aussi le poids total des images de la page."}}
+  ]
+}
+</script>

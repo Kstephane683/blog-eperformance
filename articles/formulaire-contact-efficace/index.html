@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+(function(){try{var t=localStorage.getItem('eperf-theme');
+if(t!=='dark'&&t!=='light'){t='light';}
+document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+  <title>Formulaire de contact : pourquoi le vôtre ne reçoit rien</title>
+  <meta name="description" content="Trop de champs, libellés flous, formulaire cassé, notifications en spam : les six causes qui vident une boîte de réception, et comment tester la vôtre.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://blog.eperformance.pro/articles/formulaire-contact-efficace/index.html">
+  <meta name="theme-color" content="#fdfcfa">
+  <meta name="author" content="K. Stéphane">
+
+  <!-- Icônes -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="icon" href="/assets/img/favicon-16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ePerformance">
+  <meta property="og:locale" content="fr_CI">
+  <meta property="og:title" content="Formulaire de contact : pourquoi le vôtre ne reçoit rien">
+  <meta property="og:description" content="Trop de champs, libellés flous, formulaire cassé, notifications en spam : les six causes qui vident une boîte de réception, et comment tester la vôtre.">
+  <meta property="og:url" content="https://blog.eperformance.pro/articles/formulaire-contact-efficace/index.html">
+  <meta property="og:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ePerformance — ePerformance">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Formulaire de contact : pourquoi le vôtre ne reçoit rien">
+  <meta name="twitter:description" content="Trop de champs, libellés flous, formulaire cassé, notifications en spam : les six causes qui vident une boîte de réception, et comment tester la vôtre.">
+  <meta name="twitter:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta name="twitter:creator" content="@eperformancepro">
+
+  <!-- Polices : préconnexion, préchargement des deux polices critiques,
+       puis chargement non bloquant de la feuille complète -->
+  <!-- Polices : auto-hébergées, déclarées dans eperf.css.
+       On précharge les deux graisses du premier écran pour que le
+       texte soit peint dans la bonne police dès le premier rendu. -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/cormorant-garamond-700.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/dm-sans-400.woff2">
+
+  <!-- Design system : la MEME feuille que le site, a l'identique. -->
+  <link rel="stylesheet" href="/assets/css/eperf.css">
+  <!-- Composants editoriaux du blog : corps d'article, largeur de
+       lecture, cartes d'article. Ils consomment les jetons d'eperf.css
+       et ne redefinissent aucune couleur. -->
+  <link rel="stylesheet" href="/assets/css/blog.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://blog.eperformance.pro/#organization",
+      "name": "ePerformance",
+      "alternateName": "ePerformance par K. Stéphane",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "founder": {
+        "@type": "Person",
+        "@id": "https://blog.eperformance.pro/#founder",
+        "name": "K. Stéphane",
+        "jobTitle": "Fondateur, stratège acquisition",
+        "url": "https://blog.eperformance.pro/kstephane.html"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Côte d'Ivoire"
+        },
+        {
+          "@type": "Country",
+          "name": "Burkina Faso"
+        },
+        {
+          "@type": "Place",
+          "name": "Afrique de l'Ouest"
+        }
+      ],
+      "knowsLanguage": "fr",
+      "sameAs": [
+        "https://blog.eperformance.pro/"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://blog.eperformance.pro/#localbusiness",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "parentOrganization": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Abidjan",
+        "addressCountry": "CI"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Côte d'Ivoire"
+      },
+      "priceRange": "100000-350000 XOF",
+      "currenciesAccepted": "XOF",
+      "paymentAccepted": "Orange Money, Wave, MTN MoMo, Moov Money, Visa, Mastercard",
+      "availableLanguage": "fr"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://blog.eperformance.pro/#website",
+      "url": "https://blog.eperformance.pro",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "publisher": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://blog.eperformance.pro/articles/formulaire-contact-efficace/index.html#webpage",
+      "url": "https://blog.eperformance.pro/articles/formulaire-contact-efficace/index.html",
+      "name": "Formulaire de contact : pourquoi le vôtre ne reçoit rien",
+      "description": "Trop de champs, libellés flous, formulaire cassé, notifications en spam : les six causes qui vident une boîte de réception, et comment tester la vôtre.",
+      "isPartOf": {
+        "@id": "https://blog.eperformance.pro/#website"
+      },
+      "about": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://blog.eperformance.pro/articles/formulaire-contact-efficace/index.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://blog.eperformance.pro/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Site web",
+          "item": "https://blog.eperformance.pro/site-web/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Formulaire de contact",
+          "item": "https://blog.eperformance.pro/articles/formulaire-contact-efficace/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Formulaire de contact : pourquoi le vôtre ne reçoit rien",
+  "description":"Trop de champs, libellés flous, formulaire cassé, notifications en spam : les six causes qui vident une boîte de réception, et comment tester la vôtre.",
+  "image":"https://blog.eperformance.pro/assets/img/og-image.jpg",
+  "datePublished":"2027-01-14T09:00:00+00:00",
+  "dateModified":"2027-01-14T09:00:00+00:00",
+  "inLanguage":"fr-CI",
+  "wordCount":2371,
+  "articleSection":"Site Web",
+  "keywords":["formulaire de contact","formulaire qui ne reçoit rien","nombre de champs formulaire","message envoyé dans les spams","tester son formulaire","Abidjan","Côte d'Ivoire"],
+  "author":{"@type":"Person","name":"K. STEPHANE","jobTitle":"Fondateur ePerformance","url":"https://blog.eperformance.pro/a-propos/"},
+  "publisher":{"@type":"Organization","name":"ePerformance","logo":{"@type":"ImageObject","url":"https://eperformance.pro/assets/img/logo-light.webp"}},
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.eperformance.pro/articles/formulaire-contact-efficace/"}
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Blog","item":"https://blog.eperformance.pro/"},
+    {"@type":"ListItem","position":2,"name":"Site Web","item":"https://blog.eperformance.pro/site-web/"},
+    {"@type":"ListItem","position":3,"name":"Formulaire de contact : pourquoi le vôtre ne reçoit rien","item":"https://blog.eperformance.pro/articles/formulaire-contact-efficace/"}
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Combien de champs doit avoir un formulaire de contact ?","acceptedAnswer":{"@type":"Answer","text":"Trois : un nom, un numéro de téléphone ou WhatsApp, et un champ libre pour décrire le besoin. Chaque champ supplémentaire ajoute une décision à prendre et un moment où la personne peut renoncer. Le budget, la société et la ville se demandent dans la conversation qui suit, quand la personne est déjà engagée."}},
+    {"@type":"Question","name":"Mon formulaire affiche « message envoyé » mais je ne reçois rien. Pourquoi ?","acceptedAnswer":{"@type":"Answer","text":"Trois causes reviennent : une adresse de réception mal orthographiée, un envoi de courrier désactivé par l'hébergeur, ou des notifications classées en indésirables par votre messagerie. Faites le test depuis un téléphone en données mobiles, avec une adresse que vous consultez rarement, et regardez le dossier des indésirables avant d'accuser le formulaire."}},
+    {"@type":"Question","name":"Faut-il demander l'adresse e-mail dans un formulaire de contact ?","acceptedAnswer":{"@type":"Answer","text":"Pas en champ obligatoire. Le numéro de téléphone suffit pour répondre, et beaucoup de personnes consultent leur messagerie personnelle rarement. Si vous voulez une adresse e-mail, marquez le champ comme facultatif : ceux qui l'utilisent la laisseront, les autres ne seront pas bloqués."}},
+    {"@type":"Question","name":"Comment savoir si les messages partent dans les spams ?","acceptedAnswer":{"@type":"Answer","text":"Un signal simple : des personnes affirment vous avoir écrit et vous ne trouvez rien, puis vous découvrez leurs messages dans le dossier des indésirables. Vérifiez aussi que les notifications partent d'une adresse liée à votre nom de domaine, et non d'une adresse personnelle. Les clés d'authentification d'envoi du domaine se contrôlent avec votre prestataire, en une seule intervention."}},
+    {"@type":"Question","name":"Un formulaire sert-il encore quand on a WhatsApp ?","acceptedAnswer":{"@type":"Answer","text":"Oui, parce que les deux canaux ne touchent pas les mêmes personnes au même moment. Le formulaire convient à ceux qui écrivent depuis un ordinateur ou qui préparent une demande détaillée, WhatsApp à ceux qui veulent une réponse immédiate. La question n'est pas de choisir, mais de rendre les deux accessibles depuis la même page."}},
+    {"@type":"Question","name":"Que faire d'une demande reçue sans numéro de téléphone ?","acceptedAnswer":{"@type":"Answer","text":"Répondez par e-mail en demandant un numéro, et proposez de continuer sur WhatsApp. Sans réponse sous quelques jours, la demande est perdue : sans numéro, il n'existe aucun autre canal pour relancer. C'est la raison pour laquelle le téléphone reste le champ à ne jamais retirer d'un formulaire."}}
+  ]
+}
+  </script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a class="logo" href="/" aria-label="ePerformance — accueil">
+      <img class="logo-img-light" src="/assets/img/logo-light.webp"
+           srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+           width="182" height="30" alt="ePerformance" fetchpriority="high">
+      <img class="logo-img-dark" src="/assets/img/logo-dark.webp"
+           srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+           width="188" height="30" alt="" aria-hidden="true">
+    </a>
+
+    <nav class="nav" id="primary-nav" aria-label="Navigation principale">
+      <a href="/">Accueil</a>
+      <a href="/acquisition/">Acquisition</a>
+      <a href="/site-web/" aria-current="page">Site web</a>
+      <a href="/seo/">SEO</a>
+      <a href="/business/">Business</a>
+      <a href="/articles/ia-generative-pme-africaine/">IA</a>
+      <a href="/articles/automatisation-marketing-debuter/">Automatisation</a>
+      <a href="/a-propos/">À propos</a>
+      <a href="https://eperformance.pro" rel="noopener">Site principal</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" data-theme-toggle
+              aria-pressed="false" aria-label="Activer le thème sombre">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+        </svg>
+      </button>
+
+      <a class="btn btn-gold btn-desktop" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false"
+              aria-controls="primary-nav" aria-label="Ouvrir le menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<nav class="breadcrumb container" aria-label="Fil d'Ariane">
+  <ol>
+    <li><a href="/">Accueil</a></li>
+    <li><a href="/site-web/">Site web</a></li>
+    <li aria-current="page">Formulaire de contact</li>
+  </ol>
+</nav>
+
+<main id="main">
+
+
+<section class="article-hero">
+  <div class="container-reading">
+
+    <nav class="article-breadcrumb" aria-label="Fil d'Ariane">
+      <a href="../">Blog</a>
+      <span class="sep">/</span>
+      <a href="/site-web/">Site Web</a>
+      <span class="sep">/</span>
+      <span>Formulaire de contact</span>
+    </nav>
+
+    <span class="article-category">Site Web</span>
+    <h1>Formulaire de contact : pourquoi le vôtre ne <span class="text-gold">reçoit rien</span></h1>
+    <p class="lead">Votre formulaire ne reçoit rien, ou presque ? Le problème vient rarement du trafic. Il vient du nombre de champs, des libellés, de la promesse de réponse, ou d'un formulaire qui ne fonctionne pas du tout. Voici les causes réelles, et comment tester le vôtre.</p>
+
+    <div class="article-meta">
+      <div class="author">
+        <div class="author-avatar">KS</div>
+        <div>
+          <div class="article-author-name">K. STEPHANE</div>
+          <div class="small">Fondateur ePerformance</div>
+        </div>
+      </div>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg> 14 janvier 2027</span>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.6 2.1"/></svg> 12 min de lecture</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section-flush-top">
+  <div class="article-body container-reading">
+
+    <p>Un formulaire de contact qui ne reçoit rien ressemble à un problème de trafic. C'est rarement le cas. Pour arriver sur votre page contact, la personne a déjà fait trois choix : elle a trouvé le site, elle a compris ce que vous vendez, et elle vous a jugé joignable. À ce moment précis, c'est le visiteur le plus motivé de votre site.</p>
+
+    <p>Quand cet effort aboutit à une page blanche et rien d'autre, ce n'est pas la fréquentation qu'il faut interroger, c'est le formulaire. Un formulaire se juge sur une seule chose : le nombre de raisons qu'il donne d'abandonner. Six causes reviennent, et chacune se corrige en une heure.</p>
+
+    <div class="callout">
+      <p><strong>En une phrase.</strong> Un formulaire de contact n'a qu'un travail : permettre de vous rappeler. Tout ce qui ne sert pas ce travail le ralentit.</p>
+    </div>
+
+    <h2>Un formulaire vide ne dit pas que personne ne vient</h2>
+
+    <p>Avant de refaire votre site, vérifiez ce point. La plupart des visiteurs ne vont jamais sur la page contact : ils lisent une page, se disent qu'ils reviendront, et repartent. Ceux qui arrivent au formulaire ont déjà passé le filtre de l'intérêt. Un formulaire reçoit peu, par nature. Mais un formulaire qui ne reçoit rien du tout, avec un trafic réel, n'est pas un désert : c'est une porte fermée.</p>
+
+    <p>Le repère utile n'est pas le nombre de messages, c'est le rapport entre les visites de la page contact et les messages envoyés. Si cent personnes ouvrent votre page contact dans le mois et que trois écrivent, il n'y a rien à réparer. Si cent personnes l'ouvrent et qu'aucune n'écrit, la page contient un obstacle, et il se trouve dans la liste qui suit.</p>
+
+    <h2>Cause 1 : trop de champs</h2>
+
+    <p>Chaque champ ajouté demande une décision. Quel nom je mets, mon prénom seul ou mon nom complet ? Chaque champ demande aussi un effort : quitter WhatsApp pour recopier une adresse e-mail qu'on ouvre deux fois par mois. Et chaque champ ouvre un moment où la personne peut se poser une question, se rappeler qu'elle avait autre chose à faire, et refermer l'onglet.</p>
+
+    <h3>La règle des trois champs</h3>
+
+    <p>Trois champs suffisent : un nom, un numéro de téléphone ou WhatsApp, et ce que la personne cherche. Ce n'est pas une règle de style, c'est une règle de coût : au-delà de trois, chaque champ supplémentaire fait perdre plus de contacts qu'il n'apporte d'informations utilisables.</p>
+
+    <ul>
+      <li><strong>Nom</strong> — ou prénom seul, peu importe : vous aurez le téléphone.</li>
+      <li><strong>Téléphone ou WhatsApp</strong> — l'information qui permet la suite. Localement, c'est aussi l'identifiant que tout le monde consulte vraiment, contrairement à une adresse e-mail personnelle qui peut rester plusieurs jours sans être ouverte.</li>
+      <li><strong>Votre besoin</strong> — un champ libre, accepté tel quel, trois lignes suffisent.</li>
+    </ul>
+
+    <h3>Ce qu'on demande plus tard</h3>
+
+    <p>Le budget, la société, la ville, le volume mensuel : ces informations servent à qualifier une demande, et il est légitime de les vouloir. Elles se demandent dans la conversation qui suit, pas devant le formulaire. Une question posée au bon moment obtient une réponse ; la même question posée trop tôt fait perdre le contact.</p>
+
+    <p>Une exception s'entend : si vous livrez dans une seule ville, vous pouvez vouloir filtrer les demandes hors zone. Cela se règle aussi bien par une phrase d'information au-dessus du formulaire — « livraison à Abidjan uniquement » — que par un champ à remplir. La phrase coûte moins cher.</p>
+
+    <p>Reste le cas de l'e-mail obligatoire. Beaucoup de sites le réclament au même titre que le téléphone, alors qu'il n'apporte rien de plus dans la première heure et qu'il écarte les personnes qui ne lisent pas leur boîte. S'il doit rester, marquez-le comme facultatif.</p>
+
+    <h2>Cause 2 : des libellés qui ne disent rien</h2>
+
+    <p>Le libellé est la question que pose le formulaire. Deux des plus fréquents n'en posent aucune : « Objet » et « Votre message ». Devant une case vide intitulée « Objet », la personne ne sait pas quoi écrire. Doit-elle résumer sa demande, mettre son nom, écrire « demande d'information » ? Ce doute dure trois secondes, et il suffit parfois à faire refermer la page.</p>
+
+    <p>Quelques libellés avant et après valent mieux qu'une méthode :</p>
+
+    <ul>
+      <li>« Objet » devient « Vous cherchez quoi ? ».</li>
+      <li>« Votre message » devient « Dites-nous en trois lignes ce dont vous avez besoin ».</li>
+      <li>« Société » disparaît, ou devient « Société (facultatif) ».</li>
+      <li>« Téléphone » devient « Numéro WhatsApp, pour vous répondre ».</li>
+    </ul>
+
+    <p>Deux détails comptent autant que les mots. Les textes d'indication gris disparaissent dès qu'on tape : ce ne sont pas des libellés, et une personne qui revient sur un champ ne sait plus quoi y mettre. Et les champs obligatoires non signalés font perdre du temps, parce que la contrainte se découvre au moment d'envoyer, sous forme de message d'erreur.</p>
+
+    <p>Un message d'erreur doit dire quoi corriger, et où. « Veuillez saisir un numéro à 10 chiffres » se comprend. « Champ invalide » se devine, mal. Quand le message est en anglais sur un site en français, la personne conclut que le site n'est pas fini.</p>
+
+    <h2>Cause 3 : aucune promesse de réponse</h2>
+
+    <p>La personne a rempli le formulaire, mais elle ne sait pas ce qui se passe ensuite. Est-ce qu'un humain lit, ou est-ce une boîte automatique ? La réponse arrive sous une heure, sous deux jours, ou jamais ? Par écrit, par appel, sur WhatsApp ?</p>
+
+    <p>Sans cette information, deux profils partent ailleurs. Celui qui a besoin d'une réponse rapide ne veut pas parier : il cherche un numéro et appelle. Celui qui préfère l'écrit hésite, se dit qu'il verra plus tard, et referme la page sans envoyer.</p>
+
+    <p>La correction tient en une ligne, placée juste au-dessus du bouton d'envoi : ce que vous recevez, sous quel délai, et par quel canal. « Réponse par WhatsApp ou par appel, en général sous 24 h ouvrées » dit l'essentiel. Le délai annoncé doit être celui que vous tenez même en semaine chargée : un délai plus long tenu vaut mieux qu'un délai court manqué.</p>
+
+    <p>Ajoutez ce que vous ne ferez pas — pas d'inscription à une liste, pas de revente du numéro. La crainte de recevoir des messages publicitaires après un formulaire est réelle, et une phrase suffit à l'écarter.</p>
+
+    <h2>Cause 4 : le formulaire ne fonctionne pas</h2>
+
+    <p>C'est la cause la plus fréquente, et la moins soupçonnée. Le bouton répond, la page affiche « merci », et aucun message n'arrive. Le formulaire est cassé depuis des semaines, parfois des mois, et personne ne l'a remarqué parce que personne ne l'a testé pour de vrai.</p>
+
+    <p>Trois pannes expliquent la plupart des cas. L'adresse de réception contient une faute de frappe, et les messages partent dans une boîte qui n'existe pas. Le site n'a pas de méthode d'envoi disponible : sur un hébergement mutualisé, l'envoi de courrier depuis le site est parfois désactivé, et il faut passer par un service d'envoi dédié. Le filtre anti-spam, enfin, range les notifications dans un dossier que personne n'ouvre.</p>
+
+    <h3>Le test en dix minutes</h3>
+
+    <ol>
+      <li>Ouvrez votre site sur votre propre téléphone, en données mobiles, sans être connecté au wifi du bureau.</li>
+      <li>Remplissez le formulaire avec une adresse e-mail que vous consultez rarement, et un texte reconnaissable.</li>
+      <li>Vérifiez la boîte de réception, puis le dossier des indésirables.</li>
+      <li>Refaites le même test depuis un ordinateur.</li>
+      <li>Si votre site enregistre les demandes, ouvrez le tableau de bord et vérifiez que le message y figure.</li>
+      <li>Demandez à une personne extérieure à l'entreprise de faire le test de son côté.</li>
+    </ol>
+
+    <p>Si le message arrive chez cette personne mais pas chez vous, la panne est dans la réception. S'il n'arrive nulle part, elle est dans l'envoi. Dans les deux cas, le formulaire n'est pas à refaire : il est à réparer.</p>
+
+    <p>Un test fait une fois ne suffit pas. Un formulaire peut fonctionner pendant des mois puis tomber le jour d'une mise à jour ou d'un changement d'hébergeur. Le geste utile : envoyer une vraie demande une fois par mois, pour vérifier que toute la chaîne tient.</p>
+
+    <h2>Cause 5 : aucun accusé de réception</h2>
+
+    <p>Après le clic sur envoyer, ce que voit la personne décide de la suite. Trois situations sont possibles, et deux sont mauvaises.</p>
+
+    <p>La première : la page se recharge et revient au formulaire, vide. La personne ne sait pas si le message est parti. Certaines renvoient trois fois, puis renoncent — vous recevez alors trois fois la même demande, ce qui donne l'impression d'un afflux.</p>
+
+    <p>La deuxième : un message d'erreur rouge s'affiche, sans indiquer quoi corriger. La personne réessaie une fois, puis abandonne en pensant que le site ne marche pas.</p>
+
+    <p>La troisième, la bonne : une confirmation qui dit trois choses. Que le message est bien arrivé, quand la réponse viendra, et par quel canal. C'est aussi le bon endroit pour proposer la suite : un bouton WhatsApp pour ceux qui ne veulent pas attendre, un lien vers vos réalisations pour ceux qui veulent voir avant de parler.</p>
+
+    <p>La confirmation ne doit pas rester vague. « Merci, nous avons bien reçu votre message » ne dit rien sur la suite. « Merci. Nous vous répondons sur WhatsApp au numéro indiqué, en général sous 24 h ouvrées » dit les trois informations utiles, en une phrase.</p>
+
+    <h2>Cause 6 : les messages partent dans les spams</h2>
+
+    <p>Un formulaire qui fonctionne peut donner l'impression du contraire, parce qu'un courrier électronique ne va pas toujours là où on l'attend. Deux courriers sortent d'un formulaire de contact : la notification qui vous est destinée, et la confirmation qui part vers le visiteur. L'un ou l'autre peut finir en indésirables.</p>
+
+    <p>Les signes ne trompent pas. Une personne affirme vous avoir écrit et vous ne trouvez rien. Des demandes arrivent par vagues, puis plus rien pendant quinze jours. Vous découvrez dans le dossier des indésirables de votre messagerie professionnelle une demande vieille de trois semaines, restée sans réponse.</p>
+
+    <p>Les corrections sont techniques, et se demandent à votre prestataire. Les courriers doivent partir d'une adresse liée à votre nom de domaine, et non d'une adresse personnelle utilisée comme expéditeur. Le domaine doit déclarer ses clés d'authentification d'envoi, celles qui prouvent aux messageries que le message n'est pas une usurpation. Et l'objet de la notification doit être explicite : « Nouvelle demande depuis le site » se traite, « Contact » se noie dans la masse.</p>
+
+    <p>Côté visiteur, une phrase dans le formulaire fait la différence : « Si vous ne voyez pas notre réponse, regardez dans vos indésirables. » Elle coûte une ligne, et elle sauve les échanges partis du mauvais côté.</p>
+
+    <p>Reste le cas des demandes reçues sans numéro de téléphone. Deux options : répondre par e-mail pour demander un numéro, ou considérer la demande comme perdue. La première prend du temps, la seconde arrive plus souvent qu'on ne le croit. C'est la raison pour laquelle le téléphone reste le champ à ne jamais retirer.</p>
+
+    <p>Ces corrections se mènent plus facilement avec un second canal, plus direct : <a href="/articles/bouton-whatsapp-site/">le bouton WhatsApp installé sur le site</a>, qui ne dépend ni d'une boîte mail ni d'un filtre anti-spam. Et si vous ne devez retenir qu'un seul geste, testez votre formulaire vous-même avant de chercher ailleurs : les défauts les plus visibles sont décrits dans <a href="/articles/erreurs-qui-font-fuir/">les erreurs qui font fuir un visiteur en dix secondes</a>.</p>
+
+    <div class="cta-block">
+      <h2>Un formulaire qui va jusqu'au bout</h2>
+      <p>La page site web présente ce qui est installé à la livraison : formulaire relié à une notification qui arrive, page de confirmation qui annonce la suite, et bouton WhatsApp à côté pour ceux qui n'attendent pas.</p>
+      <a class="btn btn-gold" href="https://eperformance.pro/site-web.html">Voir la page site web
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <h2>FAQ — Formulaire de contact et demandes perdues</h2>
+
+    <div class="faq-section">
+      <details>
+        <summary>Combien de champs doit avoir un formulaire de contact ?</summary>
+        <p>Trois : un nom, un numéro de téléphone ou WhatsApp, et un champ libre pour décrire le besoin. Chaque champ supplémentaire ajoute une décision à prendre et un moment où la personne peut renoncer. Le budget, la société et la ville se demandent dans la conversation qui suit, quand la personne est déjà engagée.</p>
+      </details>
+
+      <details>
+        <summary>Mon formulaire affiche « message envoyé » mais je ne reçois rien. Pourquoi ?</summary>
+        <p>Trois causes reviennent : une adresse de réception mal orthographiée, un envoi de courrier désactivé par l'hébergeur, ou des notifications classées en indésirables par votre messagerie. Faites le test depuis un téléphone en données mobiles, avec une adresse que vous consultez rarement, et regardez le dossier des indésirables avant d'accuser le formulaire.</p>
+      </details>
+
+      <details>
+        <summary>Faut-il demander l'adresse e-mail dans un formulaire de contact ?</summary>
+        <p>Pas en champ obligatoire. Le numéro de téléphone suffit pour répondre, et beaucoup de personnes consultent leur messagerie personnelle rarement. Si vous voulez une adresse e-mail, marquez le champ comme facultatif : ceux qui l'utilisent la laisseront, les autres ne seront pas bloqués.</p>
+      </details>
+
+      <details>
+        <summary>Comment savoir si les messages partent dans les spams ?</summary>
+        <p>Un signal simple : des personnes affirment vous avoir écrit et vous ne trouvez rien, puis vous découvrez leurs messages dans le dossier des indésirables. Vérifiez aussi que les notifications partent d'une adresse liée à votre nom de domaine, et non d'une adresse personnelle. Les clés d'authentification d'envoi du domaine se contrôlent avec votre prestataire, en une seule intervention.</p>
+      </details>
+
+      <details>
+        <summary>Un formulaire sert-il encore quand on a WhatsApp ?</summary>
+        <p>Oui, parce que les deux canaux ne touchent pas les mêmes personnes au même moment. Le formulaire convient à ceux qui écrivent depuis un ordinateur ou qui préparent une demande détaillée, WhatsApp à ceux qui veulent une réponse immédiate. La question n'est pas de choisir, mais de rendre les deux accessibles depuis la même page.</p>
+      </details>
+
+      <details>
+        <summary>Que faire d'une demande reçue sans numéro de téléphone ?</summary>
+        <p>Répondez par e-mail en demandant un numéro, et proposez de continuer sur WhatsApp. Sans réponse sous quelques jours, la demande est perdue : sans numéro, il n'existe aucun autre canal pour relancer. C'est la raison pour laquelle le téléphone reste le champ à ne jamais retirer d'un formulaire.</p>
+      </details>
+    </div>
+
+    <div class="tags-row">
+      <a href="/site-web/" class="tag">Site web</a>
+      <a href="/articles/bouton-whatsapp-site/" class="tag">WhatsApp sur le site</a>
+      <a href="/articles/erreurs-qui-font-fuir/" class="tag">Conversion</a>
+    </div>
+
+    <div class="share-row">
+      <span class="small">Partager</span>
+      <a href="#" class="share-btn" onclick="return sharePage('whatsapp')" data-share="whatsapp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.6-4.5A8.4 8.4 0 1 1 8 20.4z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('linkedin')" data-share="linkedin" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('facebook')" data-share="facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('copy')" data-share="copy" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></a>
+    </div>
+
+    <div class="related">
+      <h2>Articles à lire ensuite</h2>
+      <a href="/articles/bouton-whatsapp-site/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">Site Web</span>
+          <h3>Bouton WhatsApp : bien le placer pour qu'on clique</h3>
+          <p class="small">Placement, libellé, message pré-rempli et moment d'apparition.</p>
+        </div>
+      </a>
+      <a href="/articles/erreurs-qui-font-fuir/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">Site Web</span>
+          <h3>Les erreurs qui font fuir un visiteur en dix secondes</h3>
+          <p class="small">Cinq défauts visibles tout de suite, et comment les repérer.</p>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-col">
+        <img class="footer-logo logo-img-light" src="/assets/img/logo-light.webp"
+             srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+             width="152" height="25" alt="ePerformance" loading="lazy">
+        <img class="footer-logo logo-img-dark" src="/assets/img/logo-dark.webp"
+             srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+             width="157" height="25" alt="" aria-hidden="true" loading="lazy">
+        <p class="card-text mt-3" style="max-width:34ch">Stratégie d&#x27;acquisition, IA générative, automatisation et développement web premium. Basé en Côte d&#x27;Ivoire, 100 % en ligne.</p>
+      </div>
+
+      <div class="footer-col">
+        <h2>Services</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/index.html#methode" rel="noopener">stratégie d&#x27;acquisition</a></li>
+          <li><a href="https://eperformance.pro/ia.html" rel="noopener">IA générative</a></li>
+          <li><a href="https://eperformance.pro/automatisation.html" rel="noopener">Automatisation</a></li>
+          <li><a href="https://eperformance.pro/site-web.html" rel="noopener">Création de site web</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Ressources</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/diagnostic_eperformance.html" rel="noopener">Diagnostic gratuit</a></li>
+          <li><a href="https://eperformance.pro/formation.html" rel="noopener">Formations</a></li>
+          <li><a href="https://eperformance.pro/ebook.html" rel="noopener">Ebooks</a></li>
+          <li><a href="https://blog.eperformance.pro/" rel="noopener">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="https://wa.me/2250151170666" rel="noopener">+225 01 51 17 06 66</a></li>
+          <li><a href="mailto:bonjour@eperformance.pro">bonjour@eperformance.pro</a></li>
+          <li><a href="https://api.eperformance.pro/connexion.php" rel="noopener">Espace client</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 ePerformance — par K. Stéphane. Tous droits réservés.</p>
+      <p><a href="https://eperformance.pro/mentions-legales.html">Mentions légales</a> · <a href="https://eperformance.pro/politique-confidentialite.html">Confidentialité</a> · <a href="https://eperformance.pro/cookies.html">Cookies</a> · <a href="https://eperformance.pro/cgv.html">CGV</a></p>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a class="btn btn-gold" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+  <a class="btn btn-wa" href="https://wa.me/2250151170666" style="flex:0 0 auto" rel="noopener">WhatsApp</a>
+</div>
+
+<div class="consent" id="consent-banner" hidden>
+  <div class="consent-inner">
+    <div class="consent-text">
+      <p><strong>Vous choisissez ce que nous mesurons.</strong></p>
+      <p>Nous utilisons des traceurs pour comprendre comment le site est utilisé et pour
+         mesurer nos campagnes. Aucun ne se déclenche avant votre accord.
+         <a href="https://eperformance.pro/politique-confidentialite.html">Politique de confidentialité</a> ·
+         <a href="https://eperformance.pro/cookies.html">En savoir plus</a></p>
+    </div>
+    <div class="consent-actions">
+      <button type="button" class="btn btn-ghost" data-consent="refuse">Tout refuser</button>
+      <button type="button" class="btn btn-outline" data-consent="customize">Paramétrer</button>
+      <button type="button" class="btn btn-gold" data-consent="accept">Tout accepter</button>
+    </div>
+  </div>
+
+  <div class="consent-detail" id="consent-detail" hidden>
+    <fieldset class="fieldset">
+      <legend>Vos préférences</legend>
+
+      <label class="consent-row consent-row-locked">
+        <input type="checkbox" checked disabled>
+        <span>
+          <strong>Nécessaires</strong>
+          <span class="field-hint">Mémorisation de votre choix de thème et de vos préférences.
+            Toujours actifs : le site ne peut pas fonctionner sans.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-analytics">
+        <span>
+          <strong>Mesure d'audience</strong>
+          <span class="field-hint">Google Analytics 4 et Microsoft Clarity. Nous aide à voir
+            quelles pages sont utiles et où les visiteurs abandonnent.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-ads">
+        <span>
+          <strong>Publicité</strong>
+          <span class="field-hint">Meta Pixel. Mesure l'efficacité de nos campagnes
+            Facebook et Instagram.</span>
+        </span>
+      </label>
+    </fieldset>
+
+    <div class="consent-actions">
+      <button type="button" class="btn btn-outline" data-consent="back">Retour</button>
+      <button type="button" class="btn btn-gold" data-consent="save">Enregistrer mes choix</button>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/js/consent.js" defer></script>
+<script src="/assets/js/eperf.js" defer></script>
+<script src="/assets/js/blog.js" defer></script>
+</body>
+</html>

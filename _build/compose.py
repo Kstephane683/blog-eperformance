@@ -175,6 +175,76 @@ PAGES = {
     # ── Les 3 articles ───────────────────────────────────────────────────
     # Pas de hero : le fragment porte son propre en-tête éditorial
     # (.article-hero avec catégorie, <h1>, date, temps de lecture).
+    "articles/site-trop-lent/index.html": {
+        "title": 'Site trop lent : les cinq causes réelles',
+        "description": "Serveur, images, scripts, polices, services tiers : les cinq causes d'un site lent, comment les repérer avec un outil, et dans quel ordre les corriger.",
+        "fragment": "articles-site-trop-lent.html",
+        "nav_active": "site-web",
+        "breadcrumb": [("Site web", "/site-web/"), ("Site trop lent", "/articles/site-trop-lent/")],
+    },
+    "articles/images-site-webp/index.html": {
+        "title": 'Images de site : le format qui divise le poids par dix',
+        "description": "Convertir en WebP, redimensionner à la taille d'affichage, différer le chargement : la méthode pour alléger les images sans casser la mise en page.",
+        "fragment": "articles-images-site-webp.html",
+        "nav_active": "site-web",
+        "breadcrumb": [("Site web", "/site-web/"), ("Images et WebP", "/articles/images-site-webp/")],
+    },
+    "articles/site-mobile-entree-de-gamme/index.html": {
+        "title": 'Rendre son site utilisable sur un téléphone modeste',
+        "description": 'Polices lourdes, animations, formulaires, images, menus : ce qui casse en premier sur un appareil modeste, et comment tester son site sur un vrai téléphone.',
+        "fragment": "articles-site-mobile-entree-de-gamme.html",
+        "nav_active": "site-web",
+        "breadcrumb": [("Site web", "/site-web/"), ("Site sur mobile", "/articles/site-mobile-entree-de-gamme/")],
+    },
+    "articles/formulaire-contact-efficace/index.html": {
+        "title": 'Formulaire de contact : pourquoi le vôtre ne reçoit rien',
+        "description": 'Trop de champs, libellés flous, formulaire cassé, notifications en spam : les six causes qui vident une boîte de réception, et comment tester la vôtre.',
+        "fragment": "articles-formulaire-contact-efficace.html",
+        "nav_active": "site-web",
+        "breadcrumb": [("Site web", "/site-web/"), ("Formulaire de contact", "/articles/formulaire-contact-efficace/")],
+    },
+    "articles/bouton-whatsapp-site/index.html": {
+        "title": "Bouton WhatsApp : bien le placer pour qu'on clique",
+        "description": "Placement, libellé, message pré-rempli, taille et moment d'apparition : les cinq réglages qui décident des clics sur un bouton WhatsApp.",
+        "fragment": "articles-bouton-whatsapp-site.html",
+        "nav_active": "site-web",
+        "breadcrumb": [("Site web", "/site-web/"), ("Bouton WhatsApp", "/articles/bouton-whatsapp-site/")],
+    },
+    "articles/erreurs-qui-font-fuir/index.html": {
+        "title": 'Les erreurs qui font fuir un visiteur en dix secondes',
+        "description": 'Page lente, message incompréhensible, absence de preuve, navigation introuvable, contact invisible : repérer ces cinq défauts, et les corriger.',
+        "fragment": "articles-erreurs-qui-font-fuir.html",
+        "nav_active": "site-web",
+        "breadcrumb": [("Site web", "/site-web/"), ("Erreurs qui font fuir", "/articles/erreurs-qui-font-fuir/")],
+    },
+    "articles/monetiser-sans-ecommerce/index.html": {
+        "title": 'Monétiser un site sans e-commerce',
+        "description": "Rendez-vous, devis, réservation, abonnement, mise en relation, vente sur WhatsApp : six modèles pour faire entrer de l'argent sans boutique.",
+        "fragment": "articles-monetiser-sans-ecommerce.html",
+        "nav_active": "site-web",
+        "breadcrumb": [("Site web", "/site-web/"), ("Monétiser sans boutique", "/articles/monetiser-sans-ecommerce/")],
+    },
+    "articles/refonte-site-quand/index.html": {
+        "title": "Refonte de site : quand c'est nécessaire, quand c'est du luxe",
+        "description": 'Les signaux qui justifient une refonte, ceux qui ne la justifient pas, et les cinq chiffres à relever avant de décider entre réparer et tout refaire.',
+        "fragment": "articles-refonte-site-quand.html",
+        "nav_active": "site-web",
+        "breadcrumb": [("Site web", "/site-web/"), ("Faut-il refaire son site", "/articles/refonte-site-quand/")],
+    },
+    "articles/reprendre-controle-site/index.html": {
+        "title": 'Reprendre le contrôle de son site après un prestataire',
+        "description": 'Domaine, hébergement, administration, mesure, contenus : quoi récupérer, comment le demander par écrit, et les étapes quand le prestataire ne répond plus.',
+        "fragment": "articles-reprendre-controle-site.html",
+        "nav_active": "site-web",
+        "breadcrumb": [("Site web", "/site-web/"), ("Reprendre son site", "/articles/reprendre-controle-site/")],
+    },
+    "articles/fiche-google-business-profile/index.html": {
+        "title": 'Fiche Google Business Profile : la configuration qui compte',
+        "description": "Nom, catégories, description, horaires, zone, photos, attributs, questions, publications, messagerie : ce qu'il faut mettre dans chaque champ.",
+        "fragment": "articles-fiche-google-business-profile.html",
+        "nav_active": "seo",
+        "breadcrumb": [("SEO", "/seo/"), ("Fiche Google Business Profile", "/articles/fiche-google-business-profile/")],
+    },
     "articles/ameliorer-taux-conversion/index.html": {
         "title": 'Améliorer le taux de conversion sans toucher au budget pub',
         "description": 'Cinq fuites du parcours client, du clic à la relance, avec la méthode pour repérer chacune et la correction à appliquer, sans un franc de budget en plus.',

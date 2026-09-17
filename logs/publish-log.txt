@@ -42,3 +42,14 @@
   - Sitemap complété de 10 URL
 
 # État : 44 articles sur 78. Prochain lot : 42 à 51 (Site web).
+2026-09-17T15:35Z | lot 5 | Articles 42 à 51 (fin Site web + ouverture SEO) | OK
+  - 10 articles, 10/10 conformes — 2 251 à 2 399 mots · 10 H2 · 6 FAQ
+  - 0 référence cassée · 0 cible morte · 0 ancre morte · 0 titre hors limite
+  - 42/43 distingués : vue d'ensemble des causes vs mode opératoire sur les images
+  - 49 vs 37 : décision de refonte (aucun montant) vs fourchettes de prix, renvoi
+  - 51 vs guide SEO existant : la fiche champ par champ vs la méthode d'ensemble
+  - lien mort /articles/avis-google/ retiré (article prévu au lot 6)
+  - titre de l'article 49 raccourci (61 → 43 caractères)
+  - Sitemap complété de 10 URL
+
+# État : 54 articles sur 78. Prochain lot : 52 à 61 (SEO).
