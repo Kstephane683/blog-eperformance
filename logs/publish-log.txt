@@ -24,3 +24,11 @@
 
 # État : 21 articles produits sur 78 (15 existants/lots précédents + 10 du lot 2)
 # Prochain lot : articles 22 à 31 (Acquisition)
+2026-09-17T14:05Z | lot 3 | Articles 22 à 31 (Acquisition — publicité et mesure) | OK
+  - 10 articles, 10/10 conformes — 2 240 à 2 393 mots · 10 H2 · 6 FAQ
+  - 0 référence cassée sur 41 pages · 0 cible d'article morte · 0 ancre morte
+  - anti-cannibalisation tenue : l'article 22 complète le guide CAC existant
+    (les coûts oubliés, pas la méthode), renvoi explicite
+  - Sitemap complété de 10 URL
+
+# État : 34 articles sur 78. Prochain lot : 32 à 41.

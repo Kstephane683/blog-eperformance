@@ -1,0 +1,247 @@
+<section class="article-hero">
+  <div class="container-reading">
+
+    <nav class="article-breadcrumb" aria-label="Fil d'Ariane">
+      <a href="../">Blog</a>
+      <span class="sep">/</span>
+      <a href="/acquisition/">Acquisition</a>
+      <span class="sep">/</span>
+      <span>Pixel Meta et CAPI</span>
+    </nav>
+
+    <span class="article-category">Acquisition</span>
+    <h1>Pixel Meta et CAPI : <span class="text-gold">un tracking qui survit à iOS</span></h1>
+    <p class="lead">Votre Pixel compte moins de commandes que votre caisse. Ce n'est pas un bug : iOS et les navigateurs bloquent une partie des signaux envoyés depuis le téléphone du client. Le CAPI les renvoie depuis votre serveur. Voici ce qu'il faut comprendre, ce que vous commandez, et ce que vous vérifiez vous-même.</p>
+
+    <div class="article-meta">
+      <div class="author">
+        <div class="author-avatar">KS</div>
+        <div>
+          <div class="article-author-name">K. STEPHANE</div>
+          <div class="small">Fondateur ePerformance</div>
+        </div>
+      </div>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg> 8 décembre 2026</span>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.6 2.1"/></svg> 12 min de lecture</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section-flush-top">
+  <div class="article-body container-reading">
+
+    <p>Trois commandes tombent dans la journée. Le gestionnaire de publicités en affiche une. Ou l'inverse : dix ventes enregistrées à la caisse, six remontées par le Pixel. L'écart n'est pas une panne. Le Pixel est un morceau de code qui s'exécute dans le navigateur du visiteur. Tout ce qui empêche ce code de s'exécuter empêche l'achat d'être compté.</p>
+
+    <p>Depuis les restrictions d'iOS, et le durcissement progressif des navigateurs, une partie de ces signaux n'arrive plus. La réponse s'appelle Conversions API, ou CAPI : les mêmes événements, envoyés non plus depuis le téléphone du client, mais depuis votre serveur. Vous n'avez pas besoin d'être développeur pour piloter ce chantier. Vous avez besoin de savoir ce que vous commandez, et ce que vous contrôlez.</p>
+
+    <p>Deux voisins complètent celui-ci. Les ventes conclues dans la conversation ont leur propre logique de mesure, traitée dans <a href="/articles/whatsapp-business-conversion/">WhatsApp Business comme canal de conversion</a>. Et si la question du canal n'est pas encore tranchée, commencez par <a href="/articles/meta-ads-ou-google-ads/">Meta Ads ou Google Ads</a> : mesurer juste un canal qu'on aurait pas dû ouvrir ne sert à rien.</p>
+
+    <h2>Pourquoi le Pixel seul perd des conversions</h2>
+
+    <p>Le Pixel fonctionne en trois temps : le navigateur télécharge le script, le script s'exécute, l'information part vers la plateforme. Il suffit qu'un des trois temps manque pour que l'achat disparaisse des statistiques.</p>
+
+    <p>Ce qui manque, en pratique : l'autorisation de suivi refusée quand le téléphone la demande, un navigateur qui limite la durée de vie des cookies, une page fermée avant la fin du chargement, une commande passée trois jours plus tard depuis un autre appareil, un paiement effectué sur un autre téléphone que celui de la navigation.</p>
+
+    <p>La perte n'est pas répartie au hasard. Elle frappe surtout les cycles longs, les paniers élevés et les clients qui comparent avant d'acheter — exactement les acheteurs qui comptent le plus. Une campagne peut donc paraître non rentable alors qu'elle recrute. La conséquence est directe : vous coupez un canal qui fonctionnait.</p>
+
+    <p>Première chose à faire, avant de commander quoi que ce soit : mesurer votre propre écart. Prenez une journée de ventes réelles, caisse, cahier de commandes ou relevés, et comptez les achats. Comparez au nombre d'événements d'achat remontés le même jour dans le gestionnaire d'événements. La différence est votre perte actuelle. Elle se répète sur une semaine avant de conclure.</p>
+
+    <h2>Ce que le CAPI envoie, et d'où il l'envoie</h2>
+
+    <p>Le CAPI est un canal direct entre deux machines : votre serveur d'un côté, les serveurs de la plateforme de l'autre. Au lieu d'attendre qu'un navigateur veuille bien exécuter un script, votre système annonce l'événement lui-même, au moment où il se produit chez vous.</p>
+
+    <p>Le contenu de l'annonce est simple. Ce qui s'est passé, un achat. Quand, à l'heure près. Pour quel montant et dans quelle devise. Et de la part de qui, sous forme d'identifiants transformés de façon irréversible : un courriel ou un numéro de téléphone haché ne se relit pas, il sert uniquement à rattacher l'achat à une personne déjà connue de la plateforme.</p>
+
+    <p>S'y ajoute un identifiant unique par événement. C'est lui qui permet d'éviter le comptage en double quand la même information arrive par deux chemins. Retenez ce point : c'est le détail technique qui décide si vos chiffres sont justes ou doublés.</p>
+
+    <p>Reste à savoir où vit ce serveur. Trois cas de figure existent. Si votre boutique tourne sur une plateforme établie, l'intégration est souvent déjà prévue, il suffit de la brancher. Si vous avez un site sur mesure ou un WordPress, il faut soit un développement, soit un conteneur serveur de gestionnaire de balises. Si vos commandes passent par un outil métier, c'est cet outil qui doit émettre l'événement. La bonne question à poser n'est pas « faites-vous du CAPI ? » mais « par où passent mes événements, et qui peut le montrer à l'écran ? »</p>
+
+    <h2>Ce que cela change dans vos décisions</h2>
+
+    <p>Trois conséquences, dans l'ordre d'importance.</p>
+
+    <p><strong>Vous jugez les campagnes sur un comptage plus complet.</strong> Une partie des achats revient dans le rapport. Des campagnes condamnées trop vite réapparaissent comme rentables, et l'arbitrage budgétaire change de base.</p>
+
+    <p><strong>L'algorithme apprend sur de vrais acheteurs.</strong> L'optimisation se règle sur les événements que vous lui donnez. Si elle ne voit qu'une partie des achats, elle cherche des profils qui ressemblent à cette partie. Envoyez l'achat réel, et la recherche porte sur des clients qui achètent.</p>
+
+    <p><strong>Vos chiffres se rapprochent des vôtres.</strong> Le coût par commande affiché reste une estimation, mais l'écart avec votre comptabilité se réduit. C'est ce qui rend possible un rapprochement mensuel sérieux entre plateforme et caisse, et évite de piloter sur un indicateur qui raconte une autre histoire que votre trésorerie.</p>
+
+    <p>Un quatrième effet, plus discret : la lecture du délai. Un client qui clique le lundi et commande le vendredi sortait jusqu'ici du rapport comme une visite sans suite. Quand l'achat est annoncé par le serveur, il revient au bon endroit, avec la bonne date d'entrée. Vous voyez mieux combien de temps sépare le premier contact de la décision, et donc quelle fenêtre d'attribution choisir : la période pendant laquelle un clic reste crédité d'un achat.</p>
+
+    <p>Une limite, pour être honnête : le CAPI ne crée aucune vente. Il ne répare pas une page qui ne convainc pas, ni une offre mal placée. Un tracking parfait sur un tunnel qui fuit reste un tracking parfait sur un tunnel qui fuit.</p>
+
+    <h2>Pixel et CAPI ensemble, jamais l'un contre l'autre</h2>
+
+    <p>La question revient souvent sous cette forme : « on garde le Pixel ou on le remplace ? ». Ni l'un ni l'autre. Le Pixel continue de remonter ce que le navigateur accepte encore de laisser passer, ce qui reste utile et rapide. Le CAPI couvre ce que le navigateur ne peut plus transmettre.</p>
+
+    <p>Les deux envoient les mêmes événements, marqués par le même identifiant. La plateforme reconnaît le doublon et ne compte qu'une fois. Si l'identifiant manque d'un côté, un achat remonté par les deux chemins compte pour deux. Le sens de l'erreur est dangereux : vous croyez avoir deux fois plus de ventes, vous investissez sur une base fausse.</p>
+
+    <p>Deuxième condition, moins connue : le dispositif doit couvrir tout le parcours, pas seulement l'achat. Un tunnel se mesure étape par étape : consultation de fiche, ajout au panier, ouverture du paiement, achat, et l'action de contact quand votre conversion est une conversation. Un achat seul, sans les étapes qui précèdent, vous dit qu'une campagne vend mais pas où les autres visiteurs s'arrêtent.</p>
+
+    <p>Troisième cas, à part : la vente qui ne passe pas par le site. Commande conclue au téléphone, au comptoir, par virement, ou dans WhatsApp. Là, aucun navigateur n'a rien vu. Seul un événement émis par votre système peut la déclarer, et c'est souvent ce qui manque aux commerces qui vendent pourtant très bien hors ligne. Le sujet est traité en détail dans <a href="/articles/whatsapp-business-conversion/">cet article sur WhatsApp Business</a>.</p>
+
+    <h2>Ce que vous commandez à votre prestataire</h2>
+
+    <p>Vous n'écrirez pas de code, mais vous devez écrire ceci, noir sur blanc, dans la commande.</p>
+
+    <ol>
+      <li><strong>La liste des événements couverts</strong>, nommés un par un, du premier écran jusqu'à l'achat, avec celui du canal de conversation si c'est votre cas.</li>
+      <li><strong>L'endroit où tourne le serveur</strong> : intégration de la plateforme, conteneur serveur, ou développement sur votre site. Une phrase suffit, mais elle doit être dans le devis.</li>
+      <li><strong>La valeur transmise à l'achat</strong> : montant réel, devise réelle, et ce qui se passe pour une commande remboursée ou annulée.</li>
+      <li><strong>La méthode d'identification</strong> : quels identifiants sont envoyés, sous quelle forme transformée, et à quel moment le consentement du client est recueilli.</li>
+      <li><strong>La propriété des accès</strong> : le compte publicitaire, la source de données, les jetons d'accès et les droits d'administration restent à votre nom. Un prestataire qui installe tout sous son propre compte vous laisse sans recours le jour du départ.</li>
+      <li><strong>La documentation</strong> : une note d'une page décrivant ce qui a été branché, avec les identifiants des événements, remise à la livraison.</li>
+      <li><strong>La réversibilité</strong> : ce qu'il faut faire si vous changez de site ou de prestataire, et combien de temps les événements continuent d'arriver.</li>
+    </ol>
+
+    <p>Un devis qui ne parle que de « l'installation du Pixel » ne répond pas à la question. Demandez le détail des événements, la source serveur, et le nom de la personne qui répondra si un achat manque dans le rapport. Un prestataire sérieux accepte de mettre ces trois points par écrit. C'est un signe plus fiable que n'importe quel argument commercial.</p>
+
+    <h2>Cinq vérifications que vous faites vous-même</h2>
+
+    <p>Aucune de ces vérifications ne demande de compétence technique. Elles demandent trente minutes et l'accès aux comptes.</p>
+
+    <ol>
+      <li><strong>La source de chaque événement.</strong> Dans le gestionnaire d'événements, un événement correctement branché indique d'où il vient : navigateur, serveur, ou les deux. Si tout indique navigateur, le volet serveur n'existe pas, quelle que soit la promesse du devis.</li>
+      <li><strong>Le rapprochement du jour.</strong> Comptez les achats réels d'une journée, comparez au nombre d'événements d'achat. Refaites l'opération une semaine plus tard. C'est ce chiffre, et lui seul, qui dira si le dispositif progresse.</li>
+      <li><strong>La commande de test.</strong> Passez une commande réelle, à un montant symbolique, et chronométrez l'apparition de l'événement. Vous verrez en même temps si le montant transmis est le bon et si la devise est correcte.</li>
+      <li><strong>L'absence de doublon.</strong> Reprenez le même test deux jours plus tard. Un achat compté deux fois est plus grave qu'un achat manquant, parce qu'il vous fait dépenser sur une illusion.</li>
+      <li><strong>La cohérence de la valeur.</strong> Un événement d'achat sans montant, ou à zéro, envoie l'algorithme chercher les personnes qui achètent le moins cher. Vérifiez la valeur sur trois commandes de niveaux différents.</li>
+    </ol>
+
+    <p>Ces cinq contrôles se notent dans un tableau, une ligne par mois : date, nombre d'achats réels, nombre d'événements, écart. Trois lignes suffisent pour voir si la qualité du suivi se dégrade. C'est aussi la pièce à montrer à votre prestataire quand un chiffre paraît étrange, plutôt qu'une impression.</p>
+
+    <h2>Les erreurs qui rendent le dispositif inutile</h2>
+
+    <p>La plus fréquente : lancer la mise en place technique sans jamais rapprocher les chiffres de la plateforme et ceux de la caisse. Un dispositif qu'on ne vérifie pas dérive en quelques semaines, et personne ne s'en aperçoit parce que le tableau de bord reste beau.</p>
+
+    <p>Vient ensuite la valeur mal renseignée. Un événement d'achat sans montant, une devise approximative, un montant hors livraison : dans les trois cas, l'optimisation travaille sur un objectif qui n'est pas votre chiffre d'affaires. Le détail est visible dans les rapports, encore faut-il le regarder.</p>
+
+    <p>Troisième erreur : envoyer des identifiants sans cadre. Ce qui part, dans quel but, et sur quelle base le client a accepté. Ce n'est pas un sujet de développeur, c'est un sujet de patron, et votre prestataire doit pouvoir répondre à la question sans hésiter.</p>
+
+    <p>Quatrième erreur : traiter la déduplication comme un détail de fin de chantier. Elle se teste, elle se vérifie, et elle se contrôle après chaque modification du site. Une refonte de page peut casser un branchement que personne n'a documenté.</p>
+
+    <p>Dernière erreur, plus politique que technique : attendre du tracking qu'il règle un problème d'offre. Si le taux de conversion de votre page est faible, aucun signal envoyé depuis un serveur ne le corrigera. Réglez d'abord ce qui se passe sur la page, ensuite la mesure.</p>
+
+    <div class="cta-block">
+      <h2>Votre tracking dit-il la vérité ?</h2>
+      <p>Le diagnostic gratuit reprend vos chiffres et calcule votre CAC réel, votre LTV et votre Payback en cinq minutes. Vous voyez ce que la plateforme ne compte pas.</p>
+      <a class="btn btn-gold" href="https://eperformance.pro/diagnostic_eperformance.html">Faire mon diagnostic gratuit
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <h2>FAQ — Ce qu'on me demande sur le Pixel et le CAPI</h2>
+
+    <div class="faq-section">
+      <details>
+        <summary>Le CAPI remplace-t-il le Pixel ?</summary>
+        <p>Non. Le Pixel remonte ce que le navigateur laisse encore passer, et le CAPI couvre le reste depuis votre serveur. Les deux envoient les mêmes événements avec un identifiant commun, et la plateforme n'en compte qu'un. Garder le Pixel seul laisse un trou ; passer au CAPI seul fait perdre les signaux navigateur.</p>
+      </details>
+
+      <details>
+        <summary>Faut-il un développeur pour mettre le CAPI en place ?</summary>
+        <p>Non, mais quelqu'un doit accéder à votre site ou à votre plateforme de vente. Selon votre configuration, il s'agit d'une intégration déjà prévue à activer, d'un conteneur serveur à installer, ou d'un développement sur mesure. Votre rôle n'est pas de coder : il est de savoir laquelle de ces trois options vous avez, et de garder les accès.</p>
+      </details>
+
+      <details>
+        <summary>Comment savoir si mon tracking perd des ventes aujourd'hui ?</summary>
+        <p>Prenez une journée de ventes réelles : caisse, cahier de commandes, relevés ou conversations. Comptez les achats, puis comparez au nombre d'événements d'achat remontés le même jour dans le gestionnaire. L'écart est votre perte actuelle. Répétez sur une semaine avant de conclure.</p>
+      </details>
+
+      <details>
+        <summary>Est-ce que j'envoie les données de mes clients à la plateforme ?</summary>
+        <p>Vous envoyez des événements, pas un fichier client. Les identifiants comme le courriel ou le téléphone sont transformés de façon irréversible avant l'envoi, et servent uniquement à rattacher un achat à une campagne. Le cadre dépend de votre activité et des règles applicables : demandez par écrit ce qui est envoyé, et dans quel but.</p>
+      </details>
+
+      <details>
+        <summary>Combien de temps prend une mise en place complète ?</summary>
+        <p>Quelques jours de travail, pas quelques heures. Il faut brancher la source, définir chaque événement, passer une commande de test, puis contrôler la déduplication sur deux ou trois jours de ventes. La durée dépend surtout de l'accès à votre site et du nombre d'étapes à couvrir.</p>
+      </details>
+
+      <details>
+        <summary>Et si mes ventes se concluent sans site web ?</summary>
+        <p>Le principe reste valable si un outil de votre côté peut annoncer la commande : plateforme de boutique, logiciel de caisse, outil de suivi. Si tout se conclut à la main dans la conversation, le premier chantier n'est pas le tracking mais la tenue d'un registre de commandes fiable, avec un numéro par client.</p>
+      </details>
+    </div>
+
+    <div class="tags-row">
+      <a href="/acquisition/" class="tag">Acquisition</a>
+      <a href="/articles/meta-ads-ou-google-ads/" class="tag">Meta Ads</a>
+      <a href="/articles/whatsapp-business-conversion/" class="tag">WhatsApp</a>
+    </div>
+
+    <div class="share-row">
+      <span class="small">Partager</span>
+      <a href="#" class="share-btn" onclick="return sharePage('whatsapp')" data-share="whatsapp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.6-4.5A8.4 8.4 0 1 1 8 20.4z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('linkedin')" data-share="linkedin" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('facebook')" data-share="facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('copy')" data-share="copy" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></a>
+    </div>
+
+    <div class="related">
+      <h2>Articles à lire ensuite</h2>
+      <a href="/articles/whatsapp-business-conversion/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">Acquisition</span>
+          <h3>WhatsApp Business : le canal de conversion sous-estimé</h3>
+          <p class="small">Catalogue, réponses rapides et suivi des commandes : mesurer ce que la conversation rapporte.</p>
+        </div>
+      </a>
+      <a href="/articles/meta-ads-ou-google-ads/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">Acquisition</span>
+          <h3>Meta Ads ou Google Ads : lequel choisir selon votre activité</h3>
+          <p class="small">Décider sur l'intention d'achat, pas sur la préférence de canal.</p>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Pixel Meta et CAPI : un tracking qui survit à iOS",
+  "description":"Pourquoi le Pixel seul perd des conversions depuis iOS, ce que le CAPI envoie côté serveur, et ce que vous devez commander et vérifier vous-même.",
+  "image":"https://blog.eperformance.pro/assets/img/og-image.jpg",
+  "datePublished":"2026-12-08T09:00:00+00:00",
+  "dateModified":"2026-12-08T09:00:00+00:00",
+  "inLanguage":"fr-CI",
+  "wordCount":2353,
+  "articleSection":"Acquisition",
+  "keywords":["pixel meta capi","conversions api","tracking ios","pixel facebook","suivi conversions","Côte d'Ivoire","Abidjan"],
+  "author":{"@type":"Person","name":"K. STEPHANE","jobTitle":"Fondateur ePerformance","url":"https://blog.eperformance.pro/a-propos/"},
+  "publisher":{"@type":"Organization","name":"ePerformance","logo":{"@type":"ImageObject","url":"https://eperformance.pro/assets/img/logo-light.webp"}},
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.eperformance.pro/articles/pixel-meta-capi/"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Blog","item":"https://blog.eperformance.pro/"},
+    {"@type":"ListItem","position":2,"name":"Acquisition","item":"https://blog.eperformance.pro/acquisition/"},
+    {"@type":"ListItem","position":3,"name":"Pixel Meta et CAPI : un tracking qui survit à iOS","item":"https://blog.eperformance.pro/articles/pixel-meta-capi/"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Le CAPI remplace-t-il le Pixel ?","acceptedAnswer":{"@type":"Answer","text":"Non. Le Pixel remonte ce que le navigateur laisse encore passer, et le CAPI couvre le reste depuis votre serveur. Les deux envoient les mêmes événements avec un identifiant commun, et la plateforme n'en compte qu'un. Garder le Pixel seul laisse un trou ; passer au CAPI seul fait perdre les signaux navigateur."}},
+    {"@type":"Question","name":"Faut-il un développeur pour mettre le CAPI en place ?","acceptedAnswer":{"@type":"Answer","text":"Non, mais quelqu'un doit accéder à votre site ou à votre plateforme de vente. Selon votre configuration, il s'agit d'une intégration déjà prévue à activer, d'un conteneur serveur à installer, ou d'un développement sur mesure. Votre rôle n'est pas de coder : il est de savoir laquelle de ces trois options vous avez, et de garder les accès."}},
+    {"@type":"Question","name":"Comment savoir si mon tracking perd des ventes aujourd'hui ?","acceptedAnswer":{"@type":"Answer","text":"Prenez une journée de ventes réelles : caisse, cahier de commandes, relevés ou conversations. Comptez les achats, puis comparez au nombre d'événements d'achat remontés le même jour dans le gestionnaire. L'écart est votre perte actuelle. Répétez sur une semaine avant de conclure."}},
+    {"@type":"Question","name":"Est-ce que j'envoie les données de mes clients à la plateforme ?","acceptedAnswer":{"@type":"Answer","text":"Vous envoyez des événements, pas un fichier client. Les identifiants comme le courriel ou le téléphone sont transformés de façon irréversible avant l'envoi, et servent uniquement à rattacher un achat à une campagne. Le cadre dépend de votre activité et des règles applicables : demandez par écrit ce qui est envoyé, et dans quel but."}},
+    {"@type":"Question","name":"Combien de temps prend une mise en place complète ?","acceptedAnswer":{"@type":"Answer","text":"Quelques jours de travail, pas quelques heures. Il faut brancher la source, définir chaque événement, passer une commande de test, puis contrôler la déduplication sur deux ou trois jours de ventes. La durée dépend surtout de l'accès à votre site et du nombre d'étapes à couvrir."}},
+    {"@type":"Question","name":"Et si mes ventes se concluent sans site web ?","acceptedAnswer":{"@type":"Answer","text":"Le principe reste valable si un outil de votre côté peut annoncer la commande : plateforme de boutique, logiciel de caisse, outil de suivi. Si tout se conclut à la main dans la conversation, le premier chantier n'est pas le tracking mais la tenue d'un registre de commandes fiable, avec un numéro par client."}}
+  ]
+}
+</script>

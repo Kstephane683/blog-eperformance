@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+(function(){try{var t=localStorage.getItem('eperf-theme');
+if(t!=='dark'&&t!=='light'){t='light';}
+document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+  <title>Budget publicitaire : combien prévoir pour commencer</title>
+  <meta name="description" content="Partir du CAC cible plutôt que d&#x27;un budget arbitraire : méthode en quatre lignes, seuil minimum pour tester, budget de test et budget d&#x27;échelle.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://blog.eperformance.pro/articles/budget-publicitaire-debuter/index.html">
+  <meta name="theme-color" content="#fdfcfa">
+  <meta name="author" content="K. Stéphane">
+
+  <!-- Icônes -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="icon" href="/assets/img/favicon-16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ePerformance">
+  <meta property="og:locale" content="fr_CI">
+  <meta property="og:title" content="Budget publicitaire : combien prévoir pour commencer">
+  <meta property="og:description" content="Partir du CAC cible plutôt que d&#x27;un budget arbitraire : méthode en quatre lignes, seuil minimum pour tester, budget de test et budget d&#x27;échelle.">
+  <meta property="og:url" content="https://blog.eperformance.pro/articles/budget-publicitaire-debuter/index.html">
+  <meta property="og:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ePerformance — ePerformance">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Budget publicitaire : combien prévoir pour commencer">
+  <meta name="twitter:description" content="Partir du CAC cible plutôt que d&#x27;un budget arbitraire : méthode en quatre lignes, seuil minimum pour tester, budget de test et budget d&#x27;échelle.">
+  <meta name="twitter:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta name="twitter:creator" content="@eperformancepro">
+
+  <!-- Polices : préconnexion, préchargement des deux polices critiques,
+       puis chargement non bloquant de la feuille complète -->
+  <!-- Polices : auto-hébergées, déclarées dans eperf.css.
+       On précharge les deux graisses du premier écran pour que le
+       texte soit peint dans la bonne police dès le premier rendu. -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/cormorant-garamond-700.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/dm-sans-400.woff2">
+
+  <!-- Design system : la MEME feuille que le site, a l'identique. -->
+  <link rel="stylesheet" href="/assets/css/eperf.css">
+  <!-- Composants editoriaux du blog : corps d'article, largeur de
+       lecture, cartes d'article. Ils consomment les jetons d'eperf.css
+       et ne redefinissent aucune couleur. -->
+  <link rel="stylesheet" href="/assets/css/blog.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://blog.eperformance.pro/#organization",
+      "name": "ePerformance",
+      "alternateName": "ePerformance par K. Stéphane",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "founder": {
+        "@type": "Person",
+        "@id": "https://blog.eperformance.pro/#founder",
+        "name": "K. Stéphane",
+        "jobTitle": "Fondateur, stratège acquisition",
+        "url": "https://blog.eperformance.pro/kstephane.html"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Côte d'Ivoire"
+        },
+        {
+          "@type": "Country",
+          "name": "Burkina Faso"
+        },
+        {
+          "@type": "Place",
+          "name": "Afrique de l'Ouest"
+        }
+      ],
+      "knowsLanguage": "fr",
+      "sameAs": [
+        "https://blog.eperformance.pro/"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://blog.eperformance.pro/#localbusiness",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "parentOrganization": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Abidjan",
+        "addressCountry": "CI"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Côte d'Ivoire"
+      },
+      "priceRange": "100000-350000 XOF",
+      "currenciesAccepted": "XOF",
+      "paymentAccepted": "Orange Money, Wave, MTN MoMo, Moov Money, Visa, Mastercard",
+      "availableLanguage": "fr"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://blog.eperformance.pro/#website",
+      "url": "https://blog.eperformance.pro",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "publisher": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://blog.eperformance.pro/articles/budget-publicitaire-debuter/index.html#webpage",
+      "url": "https://blog.eperformance.pro/articles/budget-publicitaire-debuter/index.html",
+      "name": "Budget publicitaire : combien prévoir pour commencer",
+      "description": "Partir du CAC cible plutôt que d'un budget arbitraire : méthode en quatre lignes, seuil minimum pour tester, budget de test et budget d'échelle.",
+      "isPartOf": {
+        "@id": "https://blog.eperformance.pro/#website"
+      },
+      "about": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://blog.eperformance.pro/articles/budget-publicitaire-debuter/index.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://blog.eperformance.pro/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Acquisition",
+          "item": "https://blog.eperformance.pro/acquisition/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Budget publicitaire",
+          "item": "https://blog.eperformance.pro/articles/budget-publicitaire-debuter/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Budget publicitaire : combien prévoir pour commencer",
+  "description":"Partir du CAC cible plutôt que d'un budget arbitraire : méthode en quatre lignes, seuil minimum pour tester, budget de test et budget d'échelle.",
+  "image":"https://blog.eperformance.pro/assets/img/og-image.jpg",
+  "datePublished":"2026-12-15T09:00:00+00:00",
+  "dateModified":"2026-12-15T09:00:00+00:00",
+  "inLanguage":"fr-CI",
+  "wordCount":2269,
+  "articleSection":"Acquisition",
+  "keywords":["budget publicité en ligne","budget pub Côte d'Ivoire","cac cible","premier budget publicitaire","seuil de test publicité","Abidjan"],
+  "author":{"@type":"Person","name":"K. STEPHANE","jobTitle":"Fondateur ePerformance","url":"https://blog.eperformance.pro/a-propos/"},
+  "publisher":{"@type":"Organization","name":"ePerformance","logo":{"@type":"ImageObject","url":"https://eperformance.pro/assets/img/logo-light.webp"}},
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.eperformance.pro/articles/budget-publicitaire-debuter/"}
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Blog","item":"https://blog.eperformance.pro/"},
+    {"@type":"ListItem","position":2,"name":"Acquisition","item":"https://blog.eperformance.pro/acquisition/"},
+    {"@type":"ListItem","position":3,"name":"Budget publicitaire : combien prévoir pour commencer","item":"https://blog.eperformance.pro/articles/budget-publicitaire-debuter/"}
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Combien faut-il prévoir pour commencer, en FCFA ?","acceptedAnswer":{"@type":"Answer","text":"Aucun montant ne vaut pour tout le monde, parce que le bon chiffre dépend de votre marge et de ce que vous acceptez de payer par client. La méthode donne la réponse en quatre lignes : marge par client, part consacrée à l'acquisition, plafond de CAC, puis nombre de clients visés."}},
+    {"@type":"Question","name":"Peut-on commencer avec un très petit budget ?","acceptedAnswer":{"@type":"Answer","text":"On peut toujours dépenser peu, mais un budget très bas ne produit pas assez de conversions pour décider quoi que ce soit. Mieux vaut un test court et suffisamment doté pendant trois semaines qu'un budget minuscule étalé sur six mois. La différence n'est pas la somme totale, c'est le nombre d'événements qu'elle permet d'obtenir."}},
+    {"@type":"Question","name":"Faut-il augmenter le budget dès que les résultats sont bons ?","acceptedAnswer":{"@type":"Answer","text":"Non, pas immédiatement. Une bonne semaine peut venir d'un facteur extérieur : un jour férié, une publication qui a circulé, une offre plus attractive que prévu. Attendez que le coût par client se maintienne deux à trois semaines, puis augmentez par paliers de 20 à 30 %, en vérifiant le coût après chaque palier."}},
+    {"@type":"Question","name":"Combien de temps faut-il tester avant de juger ?","acceptedAnswer":{"@type":"Answer","text":"Trois à quatre semaines, et un volume minimum de conversions atteint. En dessous, vous regardez surtout la phase d'apprentissage de la plateforme. Fixez le nombre de conversions nécessaires avant de lancer, par exemple quinze à vingt."}},
+    {"@type":"Question","name":"Le budget doit-il inclure les visuels et les textes des annonces ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Produire des visuels et des textes demande du temps ou de l'argent, et une campagne qui tourne en consomme régulièrement. Ces dépenses font partie du coût d'acquisition : les ignorer revient à calculer un CAC plus bas que la réalité, et donc à fixer un plafond trop généreux."}},
+    {"@type":"Question","name":"Que faire si le budget est épuisé avant la fin du mois ?","acceptedAnswer":{"@type":"Answer","text":"Vérifiez d'abord le réglage : un budget quotidien peut être dépassé certains jours, jusqu'à un plafond fixé par la plateforme, ce qui décale la fin du mois. Si le dépassement vient plutôt d'un bon rythme de ventes, comparez le coût par client au plafond avant d'augmenter quoi que ce soit. Si le coût dépasse le plafond, c'est la campagne qu'il faut revoir."}}
+  ]
+}
+  </script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a class="logo" href="/" aria-label="ePerformance — accueil">
+      <img class="logo-img-light" src="/assets/img/logo-light.webp"
+           srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+           width="182" height="30" alt="ePerformance" fetchpriority="high">
+      <img class="logo-img-dark" src="/assets/img/logo-dark.webp"
+           srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+           width="188" height="30" alt="" aria-hidden="true">
+    </a>
+
+    <nav class="nav" id="primary-nav" aria-label="Navigation principale">
+      <a href="/">Accueil</a>
+      <a href="/acquisition/" aria-current="page">Acquisition</a>
+      <a href="/site-web/">Site web</a>
+      <a href="/seo/">SEO</a>
+      <a href="/business/">Business</a>
+      <a href="/articles/ia-generative-pme-africaine/">IA</a>
+      <a href="/articles/automatisation-marketing-debuter/">Automatisation</a>
+      <a href="/a-propos/">À propos</a>
+      <a href="https://eperformance.pro" rel="noopener">Site principal</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" data-theme-toggle
+              aria-pressed="false" aria-label="Activer le thème sombre">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+        </svg>
+      </button>
+
+      <a class="btn btn-gold btn-desktop" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false"
+              aria-controls="primary-nav" aria-label="Ouvrir le menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<nav class="breadcrumb container" aria-label="Fil d'Ariane">
+  <ol>
+    <li><a href="/">Accueil</a></li>
+    <li><a href="/acquisition/">Acquisition</a></li>
+    <li aria-current="page">Budget publicitaire</li>
+  </ol>
+</nav>
+
+<main id="main">
+
+
+<section class="article-hero">
+  <div class="container-reading">
+
+    <nav class="article-breadcrumb" aria-label="Fil d'Ariane">
+      <a href="../">Blog</a>
+      <span class="sep">/</span>
+      <a href="/acquisition/">Acquisition</a>
+      <span class="sep">/</span>
+      <span>Budget publicitaire</span>
+    </nav>
+
+    <span class="article-category">Acquisition</span>
+    <h1>Budget publicitaire : <span class="text-gold">combien prévoir pour commencer</span></h1>
+    <p class="lead">Un budget publicitaire ne se choisit pas, il se calcule. On part de ce que vous pouvez payer pour acquérir un client, on regarde combien de clients vous voulez, et le montant apparaît. Voici la méthode, le seuil en dessous duquel un test n'apprend rien, et les erreurs de départ les plus coûteuses.</p>
+
+    <div class="article-meta">
+      <div class="author">
+        <div class="author-avatar">KS</div>
+        <div>
+          <div class="article-author-name">K. STEPHANE</div>
+          <div class="small">Fondateur ePerformance</div>
+        </div>
+      </div>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg> 15 décembre 2026</span>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.6 2.1"/></svg> 12 min de lecture</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section-flush-top">
+  <div class="article-body container-reading">
+
+    <p>« Je peux mettre 200 000 FCFA par mois, est-ce assez ? » La question part d'une bonne intention et d'une mauvaise base. Un budget choisi parce qu'il tombe rond, ou parce qu'il ne fait pas peur, ne dit rien de ce qu'il va produire. Il ne dit pas combien de clients il permet d'acheter, ni s'il est suffisant pour apprendre quoi que ce soit.</p>
+
+    <p>La bonne question est inverse : combien je peux payer pour acquérir un client, combien de clients je veux ce mois-ci, et donc quel budget en découle. Une fois ces trois réponses posées, le montant n'est plus une opinion, c'est une multiplication.</p>
+
+    <p>Deux articles donnent les briques du calcul. La valeur d'un client dans le temps se mesure avec <a href="/articles/calculer-ltv/">la méthode de calcul de la LTV</a>. Et le coût réel d'acquisition, une fois toutes les dépenses comptées, est détaillé dans <a href="/articles/cinq-couts-cac-oublies/">les cinq coûts que votre CAC oublie</a>. Ici, on assemble : de la valeur au budget.</p>
+
+    <h2>On part du CAC cible, pas d'un budget</h2>
+
+    <p>Le CAC cible est le montant maximum que vous acceptez de payer pour obtenir un client, sans abîmer votre marge. C'est un plafond, pas un objectif. Tant qu'il n'est pas écrit, toutes les décisions de budget se prennent à l'intuition, et l'intuition en publicité se trompe presque toujours dans le même sens : elle dépense trop pour des clients qui rapportent trop peu.</p>
+
+    <p>Pourquoi le plafond se pose sur la marge et non sur le chiffre d'affaires ? Parce que la publicité se paie avec de l'argent, pas avec un pourcentage. Un client qui dépense 60 000 FCFA chez vous ne vous laisse pas 60 000 FCFA : il laisse sa marge. Si votre marge brute est de 30 %, ce client a produit 18 000 FCFA. Payer 20 000 FCFA pour l'obtenir fait travailler votre entreprise à perte, même si le chiffre d'affaires progresse et que tout le monde est content au rapport.</p>
+
+    <p>Un deuxième élément entre dans le plafond : la durée. Un client qui rachète pendant quatorze mois vaut plus qu'un client qui achète une fois. Tant que vous ne connaissez pas cette durée chez vous, prenez l'hypothèse basse : la marge du premier achat, moins une réserve pour les retours et le service. Un plafond prudent se révise à la hausse plus facilement qu'un plafond trop optimiste ne se rattrape.</p>
+
+    <h2>Le calcul, en quatre lignes</h2>
+
+    <p>La méthode tient en quatre lignes. Vous les remplissez avec vos chiffres, une fois, puis vous les révisez chaque mois.</p>
+
+    <ol>
+      <li><strong>La marge par client sur la durée.</strong> Prenez la marge du premier achat, puis ajoutez la marge des rachats observés sur une cohorte. C'est la valeur qui finance tout le reste.</li>
+      <li><strong>La part de cette marge que vous acceptez de consacrer à l'acquisition.</strong> Un tiers est un point de départ fréquent, parce qu'il laisse de quoi couvrir les charges fixes et la trésorerie. Une entreprise jeune, sans charges lourdes, peut viser un peu plus haut ; une activité à marge tendue, un peu plus bas.</li>
+      <li><strong>Le plafond de CAC.</strong> Ligne 1 multipliée par la part de la ligne 2. C'est le montant maximum par client.</li>
+      <li><strong>Le budget.</strong> Nombre de nouveaux clients visés dans le mois, multiplié par le plafond. Le budget est un résultat, jamais un point de départ.</li>
+    </ol>
+
+    <p>Exemple arithmétique, avec des montants ronds choisis pour le calcul. Marge cumulée par client : 20 000 FCFA. Part consacrée à l'acquisition : un tiers. Plafond de CAC : environ 6 600 FCFA. Objectif : 25 nouveaux clients dans le mois. Budget qui en découle : 25 × 6 600, soit 165 000 FCFA.</p>
+
+    <p>Deux lectures de ce chiffre. D'abord, c'est un plafond : si votre coût par client constaté est de 4 000 FCFA, vous paierez 100 000 FCFA pour les mêmes 25 clients, et la différence reste dans votre caisse. Ensuite, il se recalcule : si la marge réelle par client baisse, le plafond baisse, et le budget avec lui. Un budget qui ne bouge pas quand la marge bouge est un budget qui vous échappe.</p>
+
+    <h2>Le seuil en dessous duquel un test n'apprend rien</h2>
+
+    <p>Il existe un montant en dessous duquel la publicité ne produit pas de résultat exploitable, non parce que la plateforme le refuse, mais parce que vous n'obtiendrez pas assez d'événements pour décider.</p>
+
+    <p>La règle est simple à poser : pour juger un test, il faut un nombre minimum de conversions, pas un montant minimum de dépense. Fixez ce nombre avant de lancer — quinze à vingt conversions est un ordre de grandeur raisonnable pour une première lecture — puis multipliez par le coût par conversion estimé. Si vous estimez qu'une conversion vous coûte autour de 5 000 FCFA, le test demande un ordre de grandeur de 75 000 à 100 000 FCFA. Vos chiffres réels remplaceront cette estimation dès la première semaine.</p>
+
+    <p>Ce que produit un budget trop petit : deux ou trois conversions par mois, donc aucune conclusion. Vous ne saurez pas si le message accroche, si l'audience est la bonne ou si la page freine. Vous continuerez à dépenser pour ne rien apprendre, et vous finirez par conclure que le canal ne marche pas.</p>
+
+    <p>Fixez aussi la durée en même temps que le montant : trois à quatre semaines, écrites à l'avance. Un test sans date de fin se prolonge jusqu'à ce que la lassitude décide à votre place. Et pendant cette fenêtre, ne changez qu'une chose à la fois, sinon vous ne saurez pas ce qui a produit le résultat.</p>
+
+    <h2>Ce que le budget doit couvrir, au-delà de la plateforme</h2>
+
+    <p>Le montant saisi dans le gestionnaire de publicités n'est pas votre budget d'acquisition. C'est la ligne la plus visible, pas la seule.</p>
+
+    <p>Une campagne correcte demande des visuels et des textes, refaits régulièrement : c'est du temps, ou de l'argent dépensé pour le produire. Elle demande des outils, un suivi des commandes, souvent une page dédiée. Elle produit des retours, des annulations, des frais de livraison, des frais de transaction mobile money, et parfois des remises pour convertir. Tout cela sort de votre marge avant que le client soit rentable. La liste complète est dans <a href="/articles/cinq-couts-cac-oublies/">cet article sur les coûts oubliés du CAC</a>.</p>
+
+    <p>La conséquence pratique : quand vous fixez votre plafond, calculez-le en incluant ces coûts, sinon votre CAC réel dépassera le plafond sans que rien ne vous alerte. Le budget publicitaire à proprement parler est la première ligne d'un tableau, pas le tableau entier.</p>
+
+    <p>Un dernier poste à prévoir, invisible dans le calcul et fatal en pratique : le stock et la trésorerie. Une campagne qui marche fait venir des commandes avant que l'argent des ventes ne rentre. Si le budget publicitaire consomme l'argent destiné à réapprovisionner, la campagne s'arrête au moment précis où elle commençait à fonctionner.</p>
+
+    <h2>Budget de test, puis budget d'échelle</h2>
+
+    <p>Les deux ne se pilotent pas de la même façon.</p>
+
+    <p>Pendant le test : une somme fixée à l'avance, une durée fixée à l'avance, et on ne touche à rien. Pas d'augmentation au premier bon jour, pas de coupure au premier mauvais. La stabilité est ce qui permet à la plateforme d'apprendre, et ce qui rend vos propres conclusions possibles.</p>
+
+    <p>Au moment de passer à l'échelle : on augmente par paliers, pas d'un coup. Un palier de 20 à 30 % toutes les une à deux semaines, en vérifiant après chaque marche que le coût par client tient. Doubler le budget en un jour remet la campagne en apprentissage, avec deux conséquences : le coût par client monte, et la lecture redevient floue pendant plusieurs jours.</p>
+
+    <p>Un mot sur ce qui se passe pendant un palier. Le coût par client monte souvent quelques jours avant de se stabiliser : la campagne explore de nouveau. C'est le moment où l'on coupe par inquiétude, et c'est une erreur. Fixez à l'avance la durée d'observation de chaque palier, par exemple dix jours, et ne jugez rien avant ce terme.</p>
+
+    <p>La règle de sortie, elle aussi, s'écrit à l'avance. Deux périodes consécutives au-dessus du plafond, alors que la page et le suivi ont été vérifiés : vous coupez, vous ne laissez pas courir. Ce qui tue un budget, ce n'est jamais le premier écart, c'est le troisième mois passé à espérer.</p>
+
+    <h2>Pourquoi le chiffre affiché ne décide pas</h2>
+
+    <p>Le rapport le plus consulté, le retour sur dépense publicitaire, compare un chiffre d'affaires à une dépense. Il ne connaît ni votre marge, ni vos frais de livraison, ni les commandes annulées. Un rapport de trois pour un peut très bien cacher une activité qui perd de l'argent, si votre marge est faible et vos frais élevés. Le mécanisme complet est décrit dans <a href="/articles/roas-trompeur/">pourquoi le ROAS affiché ment</a>, et il devrait être lu avant toute augmentation de budget.</p>
+
+    <p>Autre écart, plus courant qu'on ne croit : le nombre de conversions affiché n'est pas le nombre de ventes encaissées. Une commande annulée compte parfois comme une conversion, une vente conclue dans la conversation peut ne pas être comptée du tout. D'où la nécessité d'un rapprochement mensuel : ce que la plateforme annonce d'un côté, ce que votre caisse et vos relevés disent de l'autre.</p>
+
+    <p>Concrètement, tenez un tableau à trois colonnes, une ligne par mois : ce que vous avez dépensé, les conversions annoncées par la plateforme, et les ventes réellement encaissées. Trois lignes suffisent pour voir l'écart se creuser ou se réduire, et pour savoir si une hausse de budget a produit des clients ou seulement des clics.</p>
+
+    <p>C'est ce rapprochement qui réordonne tout : il dit quel budget a réellement produit combien de clients payants, et il permet de recalculer le plafond sur des faits. Un budget piloté sans ce contrôle dérive en deux mois.</p>
+
+    <h2>Trois règles de discipline</h2>
+
+    <p><strong>Écrivez le plafond avant le budget.</strong> Une page suffit : marge par client, part consacrée à l'acquisition, plafond de CAC, budget, durée du test, nombre de clients visés. Cette page est votre référence quand la tentation d'augmenter arrive, et elle arrive toujours après une bonne semaine.</p>
+
+    <p><strong>Ne financez jamais la publicité avec l'argent du stock.</strong> L'argent de la campagne et l'argent des marchandises ne se mélangent pas. Séparez les enveloppes, et gardez une réserve pour tenir un mois de charges fixes en cas de creux. Une campagne arrêtée en urgence coûte plus cher que dix jours de pause réfléchie.</p>
+
+    <p><strong>Revoyez le budget une fois par mois, pas tous les jours.</strong> Chaque mois : rapprochez les ventes réelles, recalculez la marge par client, ajustez le plafond, puis décidez du budget du mois suivant. C'est cette révision calme qui évite les décisions prises le lundi matin, devant un chiffre du week-end qui ne veut rien dire. Et pour connaître votre marge par client, il faut mesurer votre LTV sans vous raconter d'histoires : <a href="/articles/calculer-ltv/">c'est par là que tout commence</a>.</p>
+
+    <div class="cta-block">
+      <h2>Quel budget pouvez-vous vraiment mettre ?</h2>
+      <p>Le diagnostic gratuit reprend vos chiffres et calcule votre CAC, votre LTV et votre Payback en cinq minutes. Vous repartez avec un plafond de CAC chiffré, donc un budget qui tient debout.</p>
+      <a class="btn btn-gold" href="https://eperformance.pro/diagnostic_eperformance.html">Faire mon diagnostic gratuit
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <h2>FAQ — Ce qu'on me demande sur le budget publicitaire</h2>
+
+    <div class="faq-section">
+      <details>
+        <summary>Combien faut-il prévoir pour commencer, en FCFA ?</summary>
+        <p>Aucun montant ne vaut pour tout le monde, parce que le bon chiffre dépend de votre marge et de ce que vous acceptez de payer par client. La méthode donne la réponse en quatre lignes : marge par client, part consacrée à l'acquisition, plafond de CAC, puis nombre de clients visés.</p>
+      </details>
+
+      <details>
+        <summary>Peut-on commencer avec un très petit budget ?</summary>
+        <p>On peut toujours dépenser peu, mais un budget très bas ne produit pas assez de conversions pour décider quoi que ce soit. Mieux vaut un test court et suffisamment doté pendant trois semaines qu'un budget minuscule étalé sur six mois. La différence n'est pas la somme totale, c'est le nombre d'événements qu'elle permet d'obtenir.</p>
+      </details>
+
+      <details>
+        <summary>Faut-il augmenter le budget dès que les résultats sont bons ?</summary>
+        <p>Non, pas immédiatement. Une bonne semaine peut venir d'un facteur extérieur : un jour férié, une publication qui a circulé, une offre plus attractive que prévu. Attendez que le coût par client se maintienne deux à trois semaines, puis augmentez par paliers de 20 à 30 %, en vérifiant le coût après chaque palier.</p>
+      </details>
+
+      <details>
+        <summary>Combien de temps faut-il tester avant de juger ?</summary>
+        <p>Trois à quatre semaines, et un volume minimum de conversions atteint. En dessous, vous regardez surtout la phase d'apprentissage de la plateforme. Fixez le nombre de conversions nécessaires avant de lancer, par exemple quinze à vingt.</p>
+      </details>
+
+      <details>
+        <summary>Le budget doit-il inclure les visuels et les textes des annonces ?</summary>
+        <p>Oui. Produire des visuels et des textes demande du temps ou de l'argent, et une campagne qui tourne en consomme régulièrement. Ces dépenses font partie du coût d'acquisition : les ignorer revient à calculer un CAC plus bas que la réalité, et donc à fixer un plafond trop généreux.</p>
+      </details>
+
+      <details>
+        <summary>Que faire si le budget est épuisé avant la fin du mois ?</summary>
+        <p>Vérifiez d'abord le réglage : un budget quotidien peut être dépassé certains jours, jusqu'à un plafond fixé par la plateforme, ce qui décale la fin du mois. Si le dépassement vient plutôt d'un bon rythme de ventes, comparez le coût par client au plafond avant d'augmenter quoi que ce soit. Si le coût dépasse le plafond, c'est la campagne qu'il faut revoir.</p>
+      </details>
+    </div>
+
+    <div class="tags-row">
+      <a href="/acquisition/" class="tag">Acquisition</a>
+      <a href="/articles/calculer-ltv/" class="tag">LTV</a>
+      <a href="/articles/cinq-couts-cac-oublies/" class="tag">CAC</a>
+    </div>
+
+    <div class="share-row">
+      <span class="small">Partager</span>
+      <a href="#" class="share-btn" onclick="return sharePage('whatsapp')" data-share="whatsapp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.6-4.5A8.4 8.4 0 1 1 8 20.4z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('linkedin')" data-share="linkedin" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('facebook')" data-share="facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('copy')" data-share="copy" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></a>
+    </div>
+
+    <div class="related">
+      <h2>Articles à lire ensuite</h2>
+      <a href="/articles/calculer-ltv/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">Acquisition</span>
+          <h3>Calculer sa LTV sans se raconter d'histoires</h3>
+          <p class="small">La valeur d'un client sur la durée, mesurée sur des achats réels par cohorte.</p>
+        </div>
+      </a>
+      <a href="/articles/roas-trompeur/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">Acquisition</span>
+          <h3>Pourquoi le ROAS affiché ment sur votre rentabilité</h3>
+          <p class="small">Chiffre d'affaires contre marge : la démonstration chiffrée, sur un cas simple.</p>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-col">
+        <img class="footer-logo logo-img-light" src="/assets/img/logo-light.webp"
+             srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+             width="152" height="25" alt="ePerformance" loading="lazy">
+        <img class="footer-logo logo-img-dark" src="/assets/img/logo-dark.webp"
+             srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+             width="157" height="25" alt="" aria-hidden="true" loading="lazy">
+        <p class="card-text mt-3" style="max-width:34ch">Stratégie d&#x27;acquisition, IA générative, automatisation et développement web premium. Basé en Côte d&#x27;Ivoire, 100 % en ligne.</p>
+      </div>
+
+      <div class="footer-col">
+        <h2>Services</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/index.html#methode" rel="noopener">stratégie d&#x27;acquisition</a></li>
+          <li><a href="https://eperformance.pro/ia.html" rel="noopener">IA générative</a></li>
+          <li><a href="https://eperformance.pro/automatisation.html" rel="noopener">Automatisation</a></li>
+          <li><a href="https://eperformance.pro/site-web.html" rel="noopener">Création de site web</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Ressources</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/diagnostic_eperformance.html" rel="noopener">Diagnostic gratuit</a></li>
+          <li><a href="https://eperformance.pro/formation.html" rel="noopener">Formations</a></li>
+          <li><a href="https://eperformance.pro/ebook.html" rel="noopener">Ebooks</a></li>
+          <li><a href="https://blog.eperformance.pro/" rel="noopener">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="https://wa.me/2250151170666" rel="noopener">+225 01 51 17 06 66</a></li>
+          <li><a href="mailto:bonjour@eperformance.pro">bonjour@eperformance.pro</a></li>
+          <li><a href="https://api.eperformance.pro/connexion.php" rel="noopener">Espace client</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 ePerformance — par K. Stéphane. Tous droits réservés.</p>
+      <p><a href="https://eperformance.pro/mentions-legales.html">Mentions légales</a> · <a href="https://eperformance.pro/politique-confidentialite.html">Confidentialité</a> · <a href="https://eperformance.pro/cookies.html">Cookies</a> · <a href="https://eperformance.pro/cgv.html">CGV</a></p>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a class="btn btn-gold" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+  <a class="btn btn-wa" href="https://wa.me/2250151170666" style="flex:0 0 auto" rel="noopener">WhatsApp</a>
+</div>
+
+<div class="consent" id="consent-banner" hidden>
+  <div class="consent-inner">
+    <div class="consent-text">
+      <p><strong>Vous choisissez ce que nous mesurons.</strong></p>
+      <p>Nous utilisons des traceurs pour comprendre comment le site est utilisé et pour
+         mesurer nos campagnes. Aucun ne se déclenche avant votre accord.
+         <a href="https://eperformance.pro/politique-confidentialite.html">Politique de confidentialité</a> ·
+         <a href="https://eperformance.pro/cookies.html">En savoir plus</a></p>
+    </div>
+    <div class="consent-actions">
+      <button type="button" class="btn btn-ghost" data-consent="refuse">Tout refuser</button>
+      <button type="button" class="btn btn-outline" data-consent="customize">Paramétrer</button>
+      <button type="button" class="btn btn-gold" data-consent="accept">Tout accepter</button>
+    </div>
+  </div>
+
+  <div class="consent-detail" id="consent-detail" hidden>
+    <fieldset class="fieldset">
+      <legend>Vos préférences</legend>
+
+      <label class="consent-row consent-row-locked">
+        <input type="checkbox" checked disabled>
+        <span>
+          <strong>Nécessaires</strong>
+          <span class="field-hint">Mémorisation de votre choix de thème et de vos préférences.
+            Toujours actifs : le site ne peut pas fonctionner sans.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-analytics">
+        <span>
+          <strong>Mesure d'audience</strong>
+          <span class="field-hint">Google Analytics 4 et Microsoft Clarity. Nous aide à voir
+            quelles pages sont utiles et où les visiteurs abandonnent.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-ads">
+        <span>
+          <strong>Publicité</strong>
+          <span class="field-hint">Meta Pixel. Mesure l'efficacité de nos campagnes
+            Facebook et Instagram.</span>
+        </span>
+      </label>
+    </fieldset>
+
+    <div class="consent-actions">
+      <button type="button" class="btn btn-outline" data-consent="back">Retour</button>
+      <button type="button" class="btn btn-gold" data-consent="save">Enregistrer mes choix</button>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/js/consent.js" defer></script>
+<script src="/assets/js/eperf.js" defer></script>
+<script src="/assets/js/blog.js" defer></script>
+</body>
+</html>

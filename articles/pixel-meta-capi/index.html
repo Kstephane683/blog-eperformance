@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+(function(){try{var t=localStorage.getItem('eperf-theme');
+if(t!=='dark'&&t!=='light'){t='light';}
+document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+  <title>Pixel Meta et CAPI : un tracking qui survit à iOS</title>
+  <meta name="description" content="Pourquoi le Pixel seul perd des conversions depuis iOS, ce que le CAPI envoie côté serveur, et ce que vous devez commander et vérifier vous-même.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://blog.eperformance.pro/articles/pixel-meta-capi/index.html">
+  <meta name="theme-color" content="#fdfcfa">
+  <meta name="author" content="K. Stéphane">
+
+  <!-- Icônes -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="icon" href="/assets/img/favicon-16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ePerformance">
+  <meta property="og:locale" content="fr_CI">
+  <meta property="og:title" content="Pixel Meta et CAPI : un tracking qui survit à iOS">
+  <meta property="og:description" content="Pourquoi le Pixel seul perd des conversions depuis iOS, ce que le CAPI envoie côté serveur, et ce que vous devez commander et vérifier vous-même.">
+  <meta property="og:url" content="https://blog.eperformance.pro/articles/pixel-meta-capi/index.html">
+  <meta property="og:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ePerformance — ePerformance">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pixel Meta et CAPI : un tracking qui survit à iOS">
+  <meta name="twitter:description" content="Pourquoi le Pixel seul perd des conversions depuis iOS, ce que le CAPI envoie côté serveur, et ce que vous devez commander et vérifier vous-même.">
+  <meta name="twitter:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta name="twitter:creator" content="@eperformancepro">
+
+  <!-- Polices : préconnexion, préchargement des deux polices critiques,
+       puis chargement non bloquant de la feuille complète -->
+  <!-- Polices : auto-hébergées, déclarées dans eperf.css.
+       On précharge les deux graisses du premier écran pour que le
+       texte soit peint dans la bonne police dès le premier rendu. -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/cormorant-garamond-700.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/dm-sans-400.woff2">
+
+  <!-- Design system : la MEME feuille que le site, a l'identique. -->
+  <link rel="stylesheet" href="/assets/css/eperf.css">
+  <!-- Composants editoriaux du blog : corps d'article, largeur de
+       lecture, cartes d'article. Ils consomment les jetons d'eperf.css
+       et ne redefinissent aucune couleur. -->
+  <link rel="stylesheet" href="/assets/css/blog.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://blog.eperformance.pro/#organization",
+      "name": "ePerformance",
+      "alternateName": "ePerformance par K. Stéphane",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "founder": {
+        "@type": "Person",
+        "@id": "https://blog.eperformance.pro/#founder",
+        "name": "K. Stéphane",
+        "jobTitle": "Fondateur, stratège acquisition",
+        "url": "https://blog.eperformance.pro/kstephane.html"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Côte d'Ivoire"
+        },
+        {
+          "@type": "Country",
+          "name": "Burkina Faso"
+        },
+        {
+          "@type": "Place",
+          "name": "Afrique de l'Ouest"
+        }
+      ],
+      "knowsLanguage": "fr",
+      "sameAs": [
+        "https://blog.eperformance.pro/"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://blog.eperformance.pro/#localbusiness",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "parentOrganization": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Abidjan",
+        "addressCountry": "CI"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Côte d'Ivoire"
+      },
+      "priceRange": "100000-350000 XOF",
+      "currenciesAccepted": "XOF",
+      "paymentAccepted": "Orange Money, Wave, MTN MoMo, Moov Money, Visa, Mastercard",
+      "availableLanguage": "fr"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://blog.eperformance.pro/#website",
+      "url": "https://blog.eperformance.pro",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "publisher": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://blog.eperformance.pro/articles/pixel-meta-capi/index.html#webpage",
+      "url": "https://blog.eperformance.pro/articles/pixel-meta-capi/index.html",
+      "name": "Pixel Meta et CAPI : un tracking qui survit à iOS",
+      "description": "Pourquoi le Pixel seul perd des conversions depuis iOS, ce que le CAPI envoie côté serveur, et ce que vous devez commander et vérifier vous-même.",
+      "isPartOf": {
+        "@id": "https://blog.eperformance.pro/#website"
+      },
+      "about": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://blog.eperformance.pro/articles/pixel-meta-capi/index.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://blog.eperformance.pro/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Acquisition",
+          "item": "https://blog.eperformance.pro/acquisition/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Pixel et CAPI",
+          "item": "https://blog.eperformance.pro/articles/pixel-meta-capi/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Pixel Meta et CAPI : un tracking qui survit à iOS",
+  "description":"Pourquoi le Pixel seul perd des conversions depuis iOS, ce que le CAPI envoie côté serveur, et ce que vous devez commander et vérifier vous-même.",
+  "image":"https://blog.eperformance.pro/assets/img/og-image.jpg",
+  "datePublished":"2026-12-08T09:00:00+00:00",
+  "dateModified":"2026-12-08T09:00:00+00:00",
+  "inLanguage":"fr-CI",
+  "wordCount":2353,
+  "articleSection":"Acquisition",
+  "keywords":["pixel meta capi","conversions api","tracking ios","pixel facebook","suivi conversions","Côte d'Ivoire","Abidjan"],
+  "author":{"@type":"Person","name":"K. STEPHANE","jobTitle":"Fondateur ePerformance","url":"https://blog.eperformance.pro/a-propos/"},
+  "publisher":{"@type":"Organization","name":"ePerformance","logo":{"@type":"ImageObject","url":"https://eperformance.pro/assets/img/logo-light.webp"}},
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.eperformance.pro/articles/pixel-meta-capi/"}
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Blog","item":"https://blog.eperformance.pro/"},
+    {"@type":"ListItem","position":2,"name":"Acquisition","item":"https://blog.eperformance.pro/acquisition/"},
+    {"@type":"ListItem","position":3,"name":"Pixel Meta et CAPI : un tracking qui survit à iOS","item":"https://blog.eperformance.pro/articles/pixel-meta-capi/"}
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Le CAPI remplace-t-il le Pixel ?","acceptedAnswer":{"@type":"Answer","text":"Non. Le Pixel remonte ce que le navigateur laisse encore passer, et le CAPI couvre le reste depuis votre serveur. Les deux envoient les mêmes événements avec un identifiant commun, et la plateforme n'en compte qu'un. Garder le Pixel seul laisse un trou ; passer au CAPI seul fait perdre les signaux navigateur."}},
+    {"@type":"Question","name":"Faut-il un développeur pour mettre le CAPI en place ?","acceptedAnswer":{"@type":"Answer","text":"Non, mais quelqu'un doit accéder à votre site ou à votre plateforme de vente. Selon votre configuration, il s'agit d'une intégration déjà prévue à activer, d'un conteneur serveur à installer, ou d'un développement sur mesure. Votre rôle n'est pas de coder : il est de savoir laquelle de ces trois options vous avez, et de garder les accès."}},
+    {"@type":"Question","name":"Comment savoir si mon tracking perd des ventes aujourd'hui ?","acceptedAnswer":{"@type":"Answer","text":"Prenez une journée de ventes réelles : caisse, cahier de commandes, relevés ou conversations. Comptez les achats, puis comparez au nombre d'événements d'achat remontés le même jour dans le gestionnaire. L'écart est votre perte actuelle. Répétez sur une semaine avant de conclure."}},
+    {"@type":"Question","name":"Est-ce que j'envoie les données de mes clients à la plateforme ?","acceptedAnswer":{"@type":"Answer","text":"Vous envoyez des événements, pas un fichier client. Les identifiants comme le courriel ou le téléphone sont transformés de façon irréversible avant l'envoi, et servent uniquement à rattacher un achat à une campagne. Le cadre dépend de votre activité et des règles applicables : demandez par écrit ce qui est envoyé, et dans quel but."}},
+    {"@type":"Question","name":"Combien de temps prend une mise en place complète ?","acceptedAnswer":{"@type":"Answer","text":"Quelques jours de travail, pas quelques heures. Il faut brancher la source, définir chaque événement, passer une commande de test, puis contrôler la déduplication sur deux ou trois jours de ventes. La durée dépend surtout de l'accès à votre site et du nombre d'étapes à couvrir."}},
+    {"@type":"Question","name":"Et si mes ventes se concluent sans site web ?","acceptedAnswer":{"@type":"Answer","text":"Le principe reste valable si un outil de votre côté peut annoncer la commande : plateforme de boutique, logiciel de caisse, outil de suivi. Si tout se conclut à la main dans la conversation, le premier chantier n'est pas le tracking mais la tenue d'un registre de commandes fiable, avec un numéro par client."}}
+  ]
+}
+  </script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a class="logo" href="/" aria-label="ePerformance — accueil">
+      <img class="logo-img-light" src="/assets/img/logo-light.webp"
+           srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+           width="182" height="30" alt="ePerformance" fetchpriority="high">
+      <img class="logo-img-dark" src="/assets/img/logo-dark.webp"
+           srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+           width="188" height="30" alt="" aria-hidden="true">
+    </a>
+
+    <nav class="nav" id="primary-nav" aria-label="Navigation principale">
+      <a href="/">Accueil</a>
+      <a href="/acquisition/" aria-current="page">Acquisition</a>
+      <a href="/site-web/">Site web</a>
+      <a href="/seo/">SEO</a>
+      <a href="/business/">Business</a>
+      <a href="/articles/ia-generative-pme-africaine/">IA</a>
+      <a href="/articles/automatisation-marketing-debuter/">Automatisation</a>
+      <a href="/a-propos/">À propos</a>
+      <a href="https://eperformance.pro" rel="noopener">Site principal</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" data-theme-toggle
+              aria-pressed="false" aria-label="Activer le thème sombre">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+        </svg>
+      </button>
+
+      <a class="btn btn-gold btn-desktop" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false"
+              aria-controls="primary-nav" aria-label="Ouvrir le menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<nav class="breadcrumb container" aria-label="Fil d'Ariane">
+  <ol>
+    <li><a href="/">Accueil</a></li>
+    <li><a href="/acquisition/">Acquisition</a></li>
+    <li aria-current="page">Pixel et CAPI</li>
+  </ol>
+</nav>
+
+<main id="main">
+
+
+<section class="article-hero">
+  <div class="container-reading">
+
+    <nav class="article-breadcrumb" aria-label="Fil d'Ariane">
+      <a href="../">Blog</a>
+      <span class="sep">/</span>
+      <a href="/acquisition/">Acquisition</a>
+      <span class="sep">/</span>
+      <span>Pixel Meta et CAPI</span>
+    </nav>
+
+    <span class="article-category">Acquisition</span>
+    <h1>Pixel Meta et CAPI : <span class="text-gold">un tracking qui survit à iOS</span></h1>
+    <p class="lead">Votre Pixel compte moins de commandes que votre caisse. Ce n'est pas un bug : iOS et les navigateurs bloquent une partie des signaux envoyés depuis le téléphone du client. Le CAPI les renvoie depuis votre serveur. Voici ce qu'il faut comprendre, ce que vous commandez, et ce que vous vérifiez vous-même.</p>
+
+    <div class="article-meta">
+      <div class="author">
+        <div class="author-avatar">KS</div>
+        <div>
+          <div class="article-author-name">K. STEPHANE</div>
+          <div class="small">Fondateur ePerformance</div>
+        </div>
+      </div>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg> 8 décembre 2026</span>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.6 2.1"/></svg> 12 min de lecture</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section-flush-top">
+  <div class="article-body container-reading">
+
+    <p>Trois commandes tombent dans la journée. Le gestionnaire de publicités en affiche une. Ou l'inverse : dix ventes enregistrées à la caisse, six remontées par le Pixel. L'écart n'est pas une panne. Le Pixel est un morceau de code qui s'exécute dans le navigateur du visiteur. Tout ce qui empêche ce code de s'exécuter empêche l'achat d'être compté.</p>
+
+    <p>Depuis les restrictions d'iOS, et le durcissement progressif des navigateurs, une partie de ces signaux n'arrive plus. La réponse s'appelle Conversions API, ou CAPI : les mêmes événements, envoyés non plus depuis le téléphone du client, mais depuis votre serveur. Vous n'avez pas besoin d'être développeur pour piloter ce chantier. Vous avez besoin de savoir ce que vous commandez, et ce que vous contrôlez.</p>
+
+    <p>Deux voisins complètent celui-ci. Les ventes conclues dans la conversation ont leur propre logique de mesure, traitée dans <a href="/articles/whatsapp-business-conversion/">WhatsApp Business comme canal de conversion</a>. Et si la question du canal n'est pas encore tranchée, commencez par <a href="/articles/meta-ads-ou-google-ads/">Meta Ads ou Google Ads</a> : mesurer juste un canal qu'on aurait pas dû ouvrir ne sert à rien.</p>
+
+    <h2>Pourquoi le Pixel seul perd des conversions</h2>
+
+    <p>Le Pixel fonctionne en trois temps : le navigateur télécharge le script, le script s'exécute, l'information part vers la plateforme. Il suffit qu'un des trois temps manque pour que l'achat disparaisse des statistiques.</p>
+
+    <p>Ce qui manque, en pratique : l'autorisation de suivi refusée quand le téléphone la demande, un navigateur qui limite la durée de vie des cookies, une page fermée avant la fin du chargement, une commande passée trois jours plus tard depuis un autre appareil, un paiement effectué sur un autre téléphone que celui de la navigation.</p>
+
+    <p>La perte n'est pas répartie au hasard. Elle frappe surtout les cycles longs, les paniers élevés et les clients qui comparent avant d'acheter — exactement les acheteurs qui comptent le plus. Une campagne peut donc paraître non rentable alors qu'elle recrute. La conséquence est directe : vous coupez un canal qui fonctionnait.</p>
+
+    <p>Première chose à faire, avant de commander quoi que ce soit : mesurer votre propre écart. Prenez une journée de ventes réelles, caisse, cahier de commandes ou relevés, et comptez les achats. Comparez au nombre d'événements d'achat remontés le même jour dans le gestionnaire d'événements. La différence est votre perte actuelle. Elle se répète sur une semaine avant de conclure.</p>
+
+    <h2>Ce que le CAPI envoie, et d'où il l'envoie</h2>
+
+    <p>Le CAPI est un canal direct entre deux machines : votre serveur d'un côté, les serveurs de la plateforme de l'autre. Au lieu d'attendre qu'un navigateur veuille bien exécuter un script, votre système annonce l'événement lui-même, au moment où il se produit chez vous.</p>
+
+    <p>Le contenu de l'annonce est simple. Ce qui s'est passé, un achat. Quand, à l'heure près. Pour quel montant et dans quelle devise. Et de la part de qui, sous forme d'identifiants transformés de façon irréversible : un courriel ou un numéro de téléphone haché ne se relit pas, il sert uniquement à rattacher l'achat à une personne déjà connue de la plateforme.</p>
+
+    <p>S'y ajoute un identifiant unique par événement. C'est lui qui permet d'éviter le comptage en double quand la même information arrive par deux chemins. Retenez ce point : c'est le détail technique qui décide si vos chiffres sont justes ou doublés.</p>
+
+    <p>Reste à savoir où vit ce serveur. Trois cas de figure existent. Si votre boutique tourne sur une plateforme établie, l'intégration est souvent déjà prévue, il suffit de la brancher. Si vous avez un site sur mesure ou un WordPress, il faut soit un développement, soit un conteneur serveur de gestionnaire de balises. Si vos commandes passent par un outil métier, c'est cet outil qui doit émettre l'événement. La bonne question à poser n'est pas « faites-vous du CAPI ? » mais « par où passent mes événements, et qui peut le montrer à l'écran ? »</p>
+
+    <h2>Ce que cela change dans vos décisions</h2>
+
+    <p>Trois conséquences, dans l'ordre d'importance.</p>
+
+    <p><strong>Vous jugez les campagnes sur un comptage plus complet.</strong> Une partie des achats revient dans le rapport. Des campagnes condamnées trop vite réapparaissent comme rentables, et l'arbitrage budgétaire change de base.</p>
+
+    <p><strong>L'algorithme apprend sur de vrais acheteurs.</strong> L'optimisation se règle sur les événements que vous lui donnez. Si elle ne voit qu'une partie des achats, elle cherche des profils qui ressemblent à cette partie. Envoyez l'achat réel, et la recherche porte sur des clients qui achètent.</p>
+
+    <p><strong>Vos chiffres se rapprochent des vôtres.</strong> Le coût par commande affiché reste une estimation, mais l'écart avec votre comptabilité se réduit. C'est ce qui rend possible un rapprochement mensuel sérieux entre plateforme et caisse, et évite de piloter sur un indicateur qui raconte une autre histoire que votre trésorerie.</p>
+
+    <p>Un quatrième effet, plus discret : la lecture du délai. Un client qui clique le lundi et commande le vendredi sortait jusqu'ici du rapport comme une visite sans suite. Quand l'achat est annoncé par le serveur, il revient au bon endroit, avec la bonne date d'entrée. Vous voyez mieux combien de temps sépare le premier contact de la décision, et donc quelle fenêtre d'attribution choisir : la période pendant laquelle un clic reste crédité d'un achat.</p>
+
+    <p>Une limite, pour être honnête : le CAPI ne crée aucune vente. Il ne répare pas une page qui ne convainc pas, ni une offre mal placée. Un tracking parfait sur un tunnel qui fuit reste un tracking parfait sur un tunnel qui fuit.</p>
+
+    <h2>Pixel et CAPI ensemble, jamais l'un contre l'autre</h2>
+
+    <p>La question revient souvent sous cette forme : « on garde le Pixel ou on le remplace ? ». Ni l'un ni l'autre. Le Pixel continue de remonter ce que le navigateur accepte encore de laisser passer, ce qui reste utile et rapide. Le CAPI couvre ce que le navigateur ne peut plus transmettre.</p>
+
+    <p>Les deux envoient les mêmes événements, marqués par le même identifiant. La plateforme reconnaît le doublon et ne compte qu'une fois. Si l'identifiant manque d'un côté, un achat remonté par les deux chemins compte pour deux. Le sens de l'erreur est dangereux : vous croyez avoir deux fois plus de ventes, vous investissez sur une base fausse.</p>
+
+    <p>Deuxième condition, moins connue : le dispositif doit couvrir tout le parcours, pas seulement l'achat. Un tunnel se mesure étape par étape : consultation de fiche, ajout au panier, ouverture du paiement, achat, et l'action de contact quand votre conversion est une conversation. Un achat seul, sans les étapes qui précèdent, vous dit qu'une campagne vend mais pas où les autres visiteurs s'arrêtent.</p>
+
+    <p>Troisième cas, à part : la vente qui ne passe pas par le site. Commande conclue au téléphone, au comptoir, par virement, ou dans WhatsApp. Là, aucun navigateur n'a rien vu. Seul un événement émis par votre système peut la déclarer, et c'est souvent ce qui manque aux commerces qui vendent pourtant très bien hors ligne. Le sujet est traité en détail dans <a href="/articles/whatsapp-business-conversion/">cet article sur WhatsApp Business</a>.</p>
+
+    <h2>Ce que vous commandez à votre prestataire</h2>
+
+    <p>Vous n'écrirez pas de code, mais vous devez écrire ceci, noir sur blanc, dans la commande.</p>
+
+    <ol>
+      <li><strong>La liste des événements couverts</strong>, nommés un par un, du premier écran jusqu'à l'achat, avec celui du canal de conversation si c'est votre cas.</li>
+      <li><strong>L'endroit où tourne le serveur</strong> : intégration de la plateforme, conteneur serveur, ou développement sur votre site. Une phrase suffit, mais elle doit être dans le devis.</li>
+      <li><strong>La valeur transmise à l'achat</strong> : montant réel, devise réelle, et ce qui se passe pour une commande remboursée ou annulée.</li>
+      <li><strong>La méthode d'identification</strong> : quels identifiants sont envoyés, sous quelle forme transformée, et à quel moment le consentement du client est recueilli.</li>
+      <li><strong>La propriété des accès</strong> : le compte publicitaire, la source de données, les jetons d'accès et les droits d'administration restent à votre nom. Un prestataire qui installe tout sous son propre compte vous laisse sans recours le jour du départ.</li>
+      <li><strong>La documentation</strong> : une note d'une page décrivant ce qui a été branché, avec les identifiants des événements, remise à la livraison.</li>
+      <li><strong>La réversibilité</strong> : ce qu'il faut faire si vous changez de site ou de prestataire, et combien de temps les événements continuent d'arriver.</li>
+    </ol>
+
+    <p>Un devis qui ne parle que de « l'installation du Pixel » ne répond pas à la question. Demandez le détail des événements, la source serveur, et le nom de la personne qui répondra si un achat manque dans le rapport. Un prestataire sérieux accepte de mettre ces trois points par écrit. C'est un signe plus fiable que n'importe quel argument commercial.</p>
+
+    <h2>Cinq vérifications que vous faites vous-même</h2>
+
+    <p>Aucune de ces vérifications ne demande de compétence technique. Elles demandent trente minutes et l'accès aux comptes.</p>
+
+    <ol>
+      <li><strong>La source de chaque événement.</strong> Dans le gestionnaire d'événements, un événement correctement branché indique d'où il vient : navigateur, serveur, ou les deux. Si tout indique navigateur, le volet serveur n'existe pas, quelle que soit la promesse du devis.</li>
+      <li><strong>Le rapprochement du jour.</strong> Comptez les achats réels d'une journée, comparez au nombre d'événements d'achat. Refaites l'opération une semaine plus tard. C'est ce chiffre, et lui seul, qui dira si le dispositif progresse.</li>
+      <li><strong>La commande de test.</strong> Passez une commande réelle, à un montant symbolique, et chronométrez l'apparition de l'événement. Vous verrez en même temps si le montant transmis est le bon et si la devise est correcte.</li>
+      <li><strong>L'absence de doublon.</strong> Reprenez le même test deux jours plus tard. Un achat compté deux fois est plus grave qu'un achat manquant, parce qu'il vous fait dépenser sur une illusion.</li>
+      <li><strong>La cohérence de la valeur.</strong> Un événement d'achat sans montant, ou à zéro, envoie l'algorithme chercher les personnes qui achètent le moins cher. Vérifiez la valeur sur trois commandes de niveaux différents.</li>
+    </ol>
+
+    <p>Ces cinq contrôles se notent dans un tableau, une ligne par mois : date, nombre d'achats réels, nombre d'événements, écart. Trois lignes suffisent pour voir si la qualité du suivi se dégrade. C'est aussi la pièce à montrer à votre prestataire quand un chiffre paraît étrange, plutôt qu'une impression.</p>
+
+    <h2>Les erreurs qui rendent le dispositif inutile</h2>
+
+    <p>La plus fréquente : lancer la mise en place technique sans jamais rapprocher les chiffres de la plateforme et ceux de la caisse. Un dispositif qu'on ne vérifie pas dérive en quelques semaines, et personne ne s'en aperçoit parce que le tableau de bord reste beau.</p>
+
+    <p>Vient ensuite la valeur mal renseignée. Un événement d'achat sans montant, une devise approximative, un montant hors livraison : dans les trois cas, l'optimisation travaille sur un objectif qui n'est pas votre chiffre d'affaires. Le détail est visible dans les rapports, encore faut-il le regarder.</p>
+
+    <p>Troisième erreur : envoyer des identifiants sans cadre. Ce qui part, dans quel but, et sur quelle base le client a accepté. Ce n'est pas un sujet de développeur, c'est un sujet de patron, et votre prestataire doit pouvoir répondre à la question sans hésiter.</p>
+
+    <p>Quatrième erreur : traiter la déduplication comme un détail de fin de chantier. Elle se teste, elle se vérifie, et elle se contrôle après chaque modification du site. Une refonte de page peut casser un branchement que personne n'a documenté.</p>
+
+    <p>Dernière erreur, plus politique que technique : attendre du tracking qu'il règle un problème d'offre. Si le taux de conversion de votre page est faible, aucun signal envoyé depuis un serveur ne le corrigera. Réglez d'abord ce qui se passe sur la page, ensuite la mesure.</p>
+
+    <div class="cta-block">
+      <h2>Votre tracking dit-il la vérité ?</h2>
+      <p>Le diagnostic gratuit reprend vos chiffres et calcule votre CAC réel, votre LTV et votre Payback en cinq minutes. Vous voyez ce que la plateforme ne compte pas.</p>
+      <a class="btn btn-gold" href="https://eperformance.pro/diagnostic_eperformance.html">Faire mon diagnostic gratuit
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <h2>FAQ — Ce qu'on me demande sur le Pixel et le CAPI</h2>
+
+    <div class="faq-section">
+      <details>
+        <summary>Le CAPI remplace-t-il le Pixel ?</summary>
+        <p>Non. Le Pixel remonte ce que le navigateur laisse encore passer, et le CAPI couvre le reste depuis votre serveur. Les deux envoient les mêmes événements avec un identifiant commun, et la plateforme n'en compte qu'un. Garder le Pixel seul laisse un trou ; passer au CAPI seul fait perdre les signaux navigateur.</p>
+      </details>
+
+      <details>
+        <summary>Faut-il un développeur pour mettre le CAPI en place ?</summary>
+        <p>Non, mais quelqu'un doit accéder à votre site ou à votre plateforme de vente. Selon votre configuration, il s'agit d'une intégration déjà prévue à activer, d'un conteneur serveur à installer, ou d'un développement sur mesure. Votre rôle n'est pas de coder : il est de savoir laquelle de ces trois options vous avez, et de garder les accès.</p>
+      </details>
+
+      <details>
+        <summary>Comment savoir si mon tracking perd des ventes aujourd'hui ?</summary>
+        <p>Prenez une journée de ventes réelles : caisse, cahier de commandes, relevés ou conversations. Comptez les achats, puis comparez au nombre d'événements d'achat remontés le même jour dans le gestionnaire. L'écart est votre perte actuelle. Répétez sur une semaine avant de conclure.</p>
+      </details>
+
+      <details>
+        <summary>Est-ce que j'envoie les données de mes clients à la plateforme ?</summary>
+        <p>Vous envoyez des événements, pas un fichier client. Les identifiants comme le courriel ou le téléphone sont transformés de façon irréversible avant l'envoi, et servent uniquement à rattacher un achat à une campagne. Le cadre dépend de votre activité et des règles applicables : demandez par écrit ce qui est envoyé, et dans quel but.</p>
+      </details>
+
+      <details>
+        <summary>Combien de temps prend une mise en place complète ?</summary>
+        <p>Quelques jours de travail, pas quelques heures. Il faut brancher la source, définir chaque événement, passer une commande de test, puis contrôler la déduplication sur deux ou trois jours de ventes. La durée dépend surtout de l'accès à votre site et du nombre d'étapes à couvrir.</p>
+      </details>
+
+      <details>
+        <summary>Et si mes ventes se concluent sans site web ?</summary>
+        <p>Le principe reste valable si un outil de votre côté peut annoncer la commande : plateforme de boutique, logiciel de caisse, outil de suivi. Si tout se conclut à la main dans la conversation, le premier chantier n'est pas le tracking mais la tenue d'un registre de commandes fiable, avec un numéro par client.</p>
+      </details>
+    </div>
+
+    <div class="tags-row">
+      <a href="/acquisition/" class="tag">Acquisition</a>
+      <a href="/articles/meta-ads-ou-google-ads/" class="tag">Meta Ads</a>
+      <a href="/articles/whatsapp-business-conversion/" class="tag">WhatsApp</a>
+    </div>
+
+    <div class="share-row">
+      <span class="small">Partager</span>
+      <a href="#" class="share-btn" onclick="return sharePage('whatsapp')" data-share="whatsapp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.6-4.5A8.4 8.4 0 1 1 8 20.4z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('linkedin')" data-share="linkedin" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('facebook')" data-share="facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('copy')" data-share="copy" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></a>
+    </div>
+
+    <div class="related">
+      <h2>Articles à lire ensuite</h2>
+      <a href="/articles/whatsapp-business-conversion/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">Acquisition</span>
+          <h3>WhatsApp Business : le canal de conversion sous-estimé</h3>
+          <p class="small">Catalogue, réponses rapides et suivi des commandes : mesurer ce que la conversation rapporte.</p>
+        </div>
+      </a>
+      <a href="/articles/meta-ads-ou-google-ads/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">Acquisition</span>
+          <h3>Meta Ads ou Google Ads : lequel choisir selon votre activité</h3>
+          <p class="small">Décider sur l'intention d'achat, pas sur la préférence de canal.</p>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-col">
+        <img class="footer-logo logo-img-light" src="/assets/img/logo-light.webp"
+             srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+             width="152" height="25" alt="ePerformance" loading="lazy">
+        <img class="footer-logo logo-img-dark" src="/assets/img/logo-dark.webp"
+             srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+             width="157" height="25" alt="" aria-hidden="true" loading="lazy">
+        <p class="card-text mt-3" style="max-width:34ch">Stratégie d&#x27;acquisition, IA générative, automatisation et développement web premium. Basé en Côte d&#x27;Ivoire, 100 % en ligne.</p>
+      </div>
+
+      <div class="footer-col">
+        <h2>Services</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/index.html#methode" rel="noopener">stratégie d&#x27;acquisition</a></li>
+          <li><a href="https://eperformance.pro/ia.html" rel="noopener">IA générative</a></li>
+          <li><a href="https://eperformance.pro/automatisation.html" rel="noopener">Automatisation</a></li>
+          <li><a href="https://eperformance.pro/site-web.html" rel="noopener">Création de site web</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Ressources</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/diagnostic_eperformance.html" rel="noopener">Diagnostic gratuit</a></li>
+          <li><a href="https://eperformance.pro/formation.html" rel="noopener">Formations</a></li>
+          <li><a href="https://eperformance.pro/ebook.html" rel="noopener">Ebooks</a></li>
+          <li><a href="https://blog.eperformance.pro/" rel="noopener">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="https://wa.me/2250151170666" rel="noopener">+225 01 51 17 06 66</a></li>
+          <li><a href="mailto:bonjour@eperformance.pro">bonjour@eperformance.pro</a></li>
+          <li><a href="https://api.eperformance.pro/connexion.php" rel="noopener">Espace client</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 ePerformance — par K. Stéphane. Tous droits réservés.</p>
+      <p><a href="https://eperformance.pro/mentions-legales.html">Mentions légales</a> · <a href="https://eperformance.pro/politique-confidentialite.html">Confidentialité</a> · <a href="https://eperformance.pro/cookies.html">Cookies</a> · <a href="https://eperformance.pro/cgv.html">CGV</a></p>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a class="btn btn-gold" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+  <a class="btn btn-wa" href="https://wa.me/2250151170666" style="flex:0 0 auto" rel="noopener">WhatsApp</a>
+</div>
+
+<div class="consent" id="consent-banner" hidden>
+  <div class="consent-inner">
+    <div class="consent-text">
+      <p><strong>Vous choisissez ce que nous mesurons.</strong></p>
+      <p>Nous utilisons des traceurs pour comprendre comment le site est utilisé et pour
+         mesurer nos campagnes. Aucun ne se déclenche avant votre accord.
+         <a href="https://eperformance.pro/politique-confidentialite.html">Politique de confidentialité</a> ·
+         <a href="https://eperformance.pro/cookies.html">En savoir plus</a></p>
+    </div>
+    <div class="consent-actions">
+      <button type="button" class="btn btn-ghost" data-consent="refuse">Tout refuser</button>
+      <button type="button" class="btn btn-outline" data-consent="customize">Paramétrer</button>
+      <button type="button" class="btn btn-gold" data-consent="accept">Tout accepter</button>
+    </div>
+  </div>
+
+  <div class="consent-detail" id="consent-detail" hidden>
+    <fieldset class="fieldset">
+      <legend>Vos préférences</legend>
+
+      <label class="consent-row consent-row-locked">
+        <input type="checkbox" checked disabled>
+        <span>
+          <strong>Nécessaires</strong>
+          <span class="field-hint">Mémorisation de votre choix de thème et de vos préférences.
+            Toujours actifs : le site ne peut pas fonctionner sans.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-analytics">
+        <span>
+          <strong>Mesure d'audience</strong>
+          <span class="field-hint">Google Analytics 4 et Microsoft Clarity. Nous aide à voir
+            quelles pages sont utiles et où les visiteurs abandonnent.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-ads">
+        <span>
+          <strong>Publicité</strong>
+          <span class="field-hint">Meta Pixel. Mesure l'efficacité de nos campagnes
+            Facebook et Instagram.</span>
+        </span>
+      </label>
+    </fieldset>
+
+    <div class="consent-actions">
+      <button type="button" class="btn btn-outline" data-consent="back">Retour</button>
+      <button type="button" class="btn btn-gold" data-consent="save">Enregistrer mes choix</button>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/js/consent.js" defer></script>
+<script src="/assets/js/eperf.js" defer></script>
+<script src="/assets/js/blog.js" defer></script>
+</body>
+</html>

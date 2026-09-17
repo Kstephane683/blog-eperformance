@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+(function(){try{var t=localStorage.getItem('eperf-theme');
+if(t!=='dark'&&t!=='light'){t='light';}
+document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+  <title>Pourquoi le ROAS affiché ment sur votre rentabilité</title>
+  <meta name="description" content="Un ROAS de 4 peut cacher un mois déficitaire : marchandise, livraison, frais mobile money, colis refusés et temps déduits, chiffres à l&#x27;appui.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://blog.eperformance.pro/articles/roas-trompeur/index.html">
+  <meta name="theme-color" content="#fdfcfa">
+  <meta name="author" content="K. Stéphane">
+
+  <!-- Icônes -->
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+  <link rel="icon" href="/assets/img/favicon-16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ePerformance">
+  <meta property="og:locale" content="fr_CI">
+  <meta property="og:title" content="Pourquoi le ROAS affiché ment sur votre rentabilité">
+  <meta property="og:description" content="Un ROAS de 4 peut cacher un mois déficitaire : marchandise, livraison, frais mobile money, colis refusés et temps déduits, chiffres à l&#x27;appui.">
+  <meta property="og:url" content="https://blog.eperformance.pro/articles/roas-trompeur/index.html">
+  <meta property="og:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ePerformance — ePerformance">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pourquoi le ROAS affiché ment sur votre rentabilité">
+  <meta name="twitter:description" content="Un ROAS de 4 peut cacher un mois déficitaire : marchandise, livraison, frais mobile money, colis refusés et temps déduits, chiffres à l&#x27;appui.">
+  <meta name="twitter:image" content="https://blog.eperformance.pro/assets/img/og-image.jpg">
+  <meta name="twitter:creator" content="@eperformancepro">
+
+  <!-- Polices : préconnexion, préchargement des deux polices critiques,
+       puis chargement non bloquant de la feuille complète -->
+  <!-- Polices : auto-hébergées, déclarées dans eperf.css.
+       On précharge les deux graisses du premier écran pour que le
+       texte soit peint dans la bonne police dès le premier rendu. -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/cormorant-garamond-700.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/dm-sans-400.woff2">
+
+  <!-- Design system : la MEME feuille que le site, a l'identique. -->
+  <link rel="stylesheet" href="/assets/css/eperf.css">
+  <!-- Composants editoriaux du blog : corps d'article, largeur de
+       lecture, cartes d'article. Ils consomment les jetons d'eperf.css
+       et ne redefinissent aucune couleur. -->
+  <link rel="stylesheet" href="/assets/css/blog.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://blog.eperformance.pro/#organization",
+      "name": "ePerformance",
+      "alternateName": "ePerformance par K. Stéphane",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "founder": {
+        "@type": "Person",
+        "@id": "https://blog.eperformance.pro/#founder",
+        "name": "K. Stéphane",
+        "jobTitle": "Fondateur, stratège acquisition",
+        "url": "https://blog.eperformance.pro/kstephane.html"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Côte d'Ivoire"
+        },
+        {
+          "@type": "Country",
+          "name": "Burkina Faso"
+        },
+        {
+          "@type": "Place",
+          "name": "Afrique de l'Ouest"
+        }
+      ],
+      "knowsLanguage": "fr",
+      "sameAs": [
+        "https://blog.eperformance.pro/"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://blog.eperformance.pro/#localbusiness",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "url": "https://blog.eperformance.pro",
+      "email": "bonjour@eperformance.pro",
+      "telephone": "+2250151170666",
+      "parentOrganization": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Abidjan",
+        "addressCountry": "CI"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Côte d'Ivoire"
+      },
+      "priceRange": "100000-350000 XOF",
+      "currenciesAccepted": "XOF",
+      "paymentAccepted": "Orange Money, Wave, MTN MoMo, Moov Money, Visa, Mastercard",
+      "availableLanguage": "fr"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://blog.eperformance.pro/#website",
+      "url": "https://blog.eperformance.pro",
+      "name": "ePerformance",
+      "description": "Stratégie d'acquisition, IA générative, automatisation et développement web premium. Basé en Côte d'Ivoire, 100 % en ligne.",
+      "publisher": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://blog.eperformance.pro/articles/roas-trompeur/index.html#webpage",
+      "url": "https://blog.eperformance.pro/articles/roas-trompeur/index.html",
+      "name": "Pourquoi le ROAS affiché ment sur votre rentabilité",
+      "description": "Un ROAS de 4 peut cacher un mois déficitaire : marchandise, livraison, frais mobile money, colis refusés et temps déduits, chiffres à l'appui.",
+      "isPartOf": {
+        "@id": "https://blog.eperformance.pro/#website"
+      },
+      "about": {
+        "@id": "https://blog.eperformance.pro/#organization"
+      },
+      "inLanguage": "fr-CI"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://blog.eperformance.pro/articles/roas-trompeur/index.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://blog.eperformance.pro/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Acquisition",
+          "item": "https://blog.eperformance.pro/acquisition/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Le ROAS qui trompe",
+          "item": "https://blog.eperformance.pro/articles/roas-trompeur/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Pourquoi le ROAS affiché ment sur votre rentabilité",
+  "description":"Un ROAS de 4 peut cacher un mois déficitaire : marchandise, livraison, frais mobile money, colis refusés et temps déduits, chiffres à l'appui.",
+  "image":"https://blog.eperformance.pro/assets/img/og-image.jpg",
+  "datePublished":"2026-11-26T09:00:00+00:00",
+  "dateModified":"2026-11-26T09:00:00+00:00",
+  "inLanguage":"fr-CI",
+  "wordCount":2256,
+  "articleSection":"Acquisition",
+  "keywords":["roas réel","roas trompeur","roas marge","marge nette publicité","roas d'équilibre","Côte d'Ivoire","Abidjan"],
+  "author":{"@type":"Person","name":"K. STEPHANE","jobTitle":"Fondateur ePerformance","url":"https://blog.eperformance.pro/a-propos/"},
+  "publisher":{"@type":"Organization","name":"ePerformance","logo":{"@type":"ImageObject","url":"https://eperformance.pro/assets/img/logo-light.webp"}},
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.eperformance.pro/articles/roas-trompeur/"}
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Blog","item":"https://blog.eperformance.pro/"},
+    {"@type":"ListItem","position":2,"name":"Acquisition","item":"https://blog.eperformance.pro/acquisition/"},
+    {"@type":"ListItem","position":3,"name":"Pourquoi le ROAS affiché ment sur votre rentabilité","item":"https://blog.eperformance.pro/articles/roas-trompeur/"}
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Qu'est-ce que le ROAS, exactement ?","acceptedAnswer":{"@type":"Answer","text":"Le ROAS divise le chiffre d'affaires attribué à une campagne par la dépense publicitaire. Un ROAS de 4 signifie quatre francs de chiffre d'affaires attribué pour un franc dépensé. C'est un rapport de chiffre d'affaires, jamais un rapport de marge."}},
+    {"@type":"Question","name":"Pourquoi un ROAS de 4 peut-il cacher un mois déficitaire ?","acceptedAnswer":{"@type":"Answer","text":"Parce qu'il ne déduit ni la marchandise, ni la livraison, ni les frais de transaction, ni le temps de travail, ni les colis refusés. Dans l'exemple de cet article, ces coûts dépassent la marge brute du mois de 61 400 FCFA. Le ROAS reste bon et le mois reste négatif."}},
+    {"@type":"Question","name":"Quel ROAS viser pour être rentable ?","acceptedAnswer":{"@type":"Answer","text":"Il n'existe pas de valeur universelle : le seuil dépend de votre marge et de vos coûts de distribution, jamais d'une moyenne de marché. Dans l'exemple, avec 35 % de marge brute et les coûts décrits, l'équilibre se situe autour de 5,2. Recalculez le vôtre à partir de la marge laissée par une commande et des charges du mois à couvrir."}},
+    {"@type":"Question","name":"Le ROAS affiché est-il faux ?","acceptedAnswer":{"@type":"Answer","text":"Non, il est partiel. Il mesure ce que la plateforme peut voir : le chiffre d'affaires qu'elle estime avoir contribué à générer. Ce qui est faux, c'est de le lire comme un résultat financier, alors qu'il ignore tout ce qui se passe en dehors de son périmètre."}},
+    {"@type":"Question","name":"Faut-il couper une campagne dont le ROAS est inférieur à 3 ?","acceptedAnswer":{"@type":"Answer","text":"Pas automatiquement, et pas sur ce seul chiffre. Vérifiez d'abord votre marge brute et votre taux de colis refusés, puis comparez le résultat à votre ROAS d'équilibre. Une campagne peut être sous 3 et rentable sur une activité à forte marge, ou au-dessus de 4 et déficitaire sur un commerce à faible marge."}},
+    {"@type":"Question","name":"Comment suivre sa marge nette sans logiciel de gestion ?","acceptedAnswer":{"@type":"Answer","text":"Avec le cahier de commandes et cinq lignes de coûts : marchandise, livraison, frais de transaction, colis refusés, temps. Une fois par mois, vous divisez la marge brute du mois moins ces charges par le nombre de clients encaissés. Ce chiffre par client suffit à décider d'un budget."}}
+  ]
+}
+  </script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a class="logo" href="/" aria-label="ePerformance — accueil">
+      <img class="logo-img-light" src="/assets/img/logo-light.webp"
+           srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+           width="182" height="30" alt="ePerformance" fetchpriority="high">
+      <img class="logo-img-dark" src="/assets/img/logo-dark.webp"
+           srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+           width="188" height="30" alt="" aria-hidden="true">
+    </a>
+
+    <nav class="nav" id="primary-nav" aria-label="Navigation principale">
+      <a href="/">Accueil</a>
+      <a href="/acquisition/" aria-current="page">Acquisition</a>
+      <a href="/site-web/">Site web</a>
+      <a href="/seo/">SEO</a>
+      <a href="/business/">Business</a>
+      <a href="/articles/ia-generative-pme-africaine/">IA</a>
+      <a href="/articles/automatisation-marketing-debuter/">Automatisation</a>
+      <a href="/a-propos/">À propos</a>
+      <a href="https://eperformance.pro" rel="noopener">Site principal</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" data-theme-toggle
+              aria-pressed="false" aria-label="Activer le thème sombre">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+        </svg>
+      </button>
+
+      <a class="btn btn-gold btn-desktop" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false"
+              aria-controls="primary-nav" aria-label="Ouvrir le menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<nav class="breadcrumb container" aria-label="Fil d'Ariane">
+  <ol>
+    <li><a href="/">Accueil</a></li>
+    <li><a href="/acquisition/">Acquisition</a></li>
+    <li aria-current="page">Le ROAS qui trompe</li>
+  </ol>
+</nav>
+
+<main id="main">
+
+
+<section class="article-hero">
+  <div class="container-reading">
+
+    <nav class="article-breadcrumb" aria-label="Fil d'Ariane">
+      <a href="../">Blog</a>
+      <span class="sep">/</span>
+      <a href="/acquisition/">Acquisition</a>
+      <span class="sep">/</span>
+      <span>Le ROAS trompeur</span>
+    </nav>
+
+    <span class="article-category">Acquisition</span>
+    <h1>Pourquoi le ROAS affiché <span class="text-gold">ment sur votre rentabilité</span></h1>
+    <p class="lead">Un ROAS de 4 fait plaisir à lire. Il ne dit rien de ce qui reste dans votre caisse, parce qu'il s'arrête avant la marchandise, la livraison, les frais mobile money et votre temps. Démonstration chiffrée : un mois peut finir en déficit avec un ROAS flatteur.</p>
+
+    <div class="article-meta">
+      <div class="author">
+        <div class="author-avatar">KS</div>
+        <div>
+          <div class="article-author-name">K. STEPHANE</div>
+          <div class="small">Fondateur ePerformance</div>
+        </div>
+      </div>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg> 26 novembre 2026</span>
+      <span class="meta-sep">·</span>
+      <span><svg class="icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.6 2.1"/></svg> 12 min de lecture</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section-flush-top">
+  <div class="article-body container-reading">
+
+    <p>Le ROAS est le chiffre le plus regardé de la publicité en ligne, et le plus mal lu. Il divise le chiffre d'affaires attribué à une campagne par la dépense publicitaire. Un ROAS de 4 veut dire que chaque franc dépensé a ramené quatre francs de chiffre d'affaires dans le rapport de la plateforme.</p>
+
+    <p>Le chiffre n'est pas faux. Il est partiel, et on le lit comme s'il était complet. Deux angles morts suffisent à faire basculer une décision : le chiffre d'affaires attribué n'est pas de l'argent encaissé, et le chiffre d'affaires n'est pas de la marge.</p>
+
+    <p>Cet article ne traite pas la méthode de calcul du ROAS. Il traite une seule question, avec des chiffres : comment un mois peut afficher un ROAS de 4 et finir en déficit. Les coûts oubliés dans le calcul sont détaillés séparément dans <a href="/articles/cinq-couts-cac-oublies/">les cinq coûts que votre CAC oublie</a> ; ici, on les déduit un par un, jusqu'au résultat.</p>
+
+    <h2>Ce que le ROAS affiché mesure, et ce qu'il ne voit pas</h2>
+
+    <p>Le ROAS affiché est calculé par la plateforme, dans son périmètre. Il compare ce qu'elle estime avoir ramené à ce que vous avez dépensé chez elle. Il ne connaît ni votre fournisseur, ni votre livreur, ni votre compte Orange Money.</p>
+
+    <p>Trois exclusions, toujours les mêmes. Le chiffre d'affaires attribué est une estimation : une part des commandes réelles n'est pas comptée, une part des commandes comptées serait arrivée sans publicité. Les coûts de production et de distribution ne sont pas déduits : ils n'existent pas dans son périmètre. Enfin, le ROAS ne dit rien de votre marge : avec 15 % de marge, un ROAS de 4 ne couvre pas les mêmes charges qu'avec 60 %.</p>
+
+    <p>Il en découle une règle de lecture simple. Un ROAS affiché se juge à l'intérieur de votre activité : votre marge, vos coûts de distribution, votre taux de colis refusés. Un même ROAS de 4 peut être confortable pour une activité de services et mortel pour un commerce de détail à faible marge.</p>
+
+    <p><strong>Un mot sur la marge, avant de déduire.</strong> Tout le calcul qui suit repose sur la marge laissée par une commande. Le coût de la marchandise ne se limite pas au produit fini : ajoutez l'emballage, les frais d'importation éventuels, les pertes et les remises accordées. Une marge brute estimée à 35 % de mémoire se révèle souvent plus faible une fois les promos et les invendus comptés. C'est la marge réelle, pas celle de l'intuition, qui doit entrer dans le calcul.</p>
+
+    <h2>L'exemple : un ROAS de 4 sur un mois</h2>
+
+    <p>Exemple arithmétique, volontairement rond, sans lien avec un client particulier. Une boutique vend un produit à 20 000 FCFA. Sur le mois, elle a dépensé 200 000 FCFA de publicité et le gestionnaire affiche un ROAS de 4,0.</p>
+
+    <ul>
+      <li>Chiffre d'affaires attribué : 200 000 × 4 = <strong>800 000 FCFA</strong></li>
+      <li>Panier moyen : <strong>20 000 FCFA</strong></li>
+      <li>Commandes attribuées par la plateforme : 800 000 ÷ 20 000 = <strong>40 commandes</strong></li>
+    </ul>
+
+    <p>Le gestionnaire s'arrête là. On va continuer, avec les chiffres de la même boutique.</p>
+
+    <p>Un point de méthode avant de manipuler ces chiffres. Le ROAS affiché se lit par campagne, pas seulement en global. Une campagne à 1,8 et une autre à 6 donnent un 4 d'ensemble qui masque complètement la première. Si vous ne faites qu'un seul arbitrage ce mois-ci, faites-le à ce niveau : c'est le seul où l'action est possible, en déplaçant le budget plutôt qu'en l'augmentant.</p>
+
+    <h2>Ligne par ligne : ce qu'il faut déduire</h2>
+
+    <p>Six informations complètent le tableau, toutes vérifiables dans vos documents : le coût d'achat de la marchandise, le taux de colis refusés, la livraison, les frais mobile money, votre temps de travail, et ce que les clients paient pour être livrés.</p>
+
+    <table>
+      <thead>
+        <tr><th>Poste</th><th>Calcul</th><th>Montant</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Clients qui paient</strong></td><td>40 commandes, 10 % de refus</td><td>36 clients</td></tr>
+        <tr><td><strong>Chiffre d'affaires encaissé</strong></td><td>36 × 20 000</td><td>720 000 FCFA</td></tr>
+        <tr><td><strong>Coût de la marchandise</strong></td><td>36 × 13 000</td><td>468 000 FCFA</td></tr>
+        <tr><td><strong>Marge brute</strong></td><td>720 000 − 468 000</td><td>252 000 FCFA</td></tr>
+        <tr><td><strong>Budget publicitaire</strong></td><td>relevé du mois</td><td>200 000 FCFA</td></tr>
+        <tr><td><strong>Frais de transaction</strong></td><td>2 % de 720 000</td><td>14 400 FCFA</td></tr>
+        <tr><td><strong>Livraison non couverte</strong></td><td>36 × 500 (coût 1 500, facturé 1 000)</td><td>18 000 FCFA</td></tr>
+        <tr><td><strong>Colis refusés</strong></td><td>4 × 1 500 de transport</td><td>6 000 FCFA</td></tr>
+        <tr><td><strong>Temps de traitement</strong></td><td>25 heures × 3 000</td><td>75 000 FCFA</td></tr>
+        <tr><td><strong>Total des charges</strong></td><td>200 000 + 14 400 + 18 000 + 6 000 + 75 000</td><td>313 400 FCFA</td></tr>
+        <tr><td><strong>Résultat du mois</strong></td><td>252 000 − 313 400</td><td>−61 400 FCFA</td></tr>
+      </tbody>
+    </table>
+
+    <p>Chaque ligne de ce tableau vient d'un document que vous avez déjà : la facture du fournisseur, le bordereau du livreur, le relevé mobile money, votre agenda. Aucune n'est une hypothèse, à l'exception du taux horaire de votre temps, qu'il faut fixer une fois pour toutes.</p>
+
+    <p>Les colis refusés comptent deux fois dans ce tableau, et c'est volontaire. Ils réduisent d'abord le chiffre d'affaires encaissé : quatre ventes attribuées ne rentrent pas d'argent. Ils ajoutent ensuite une charge, parce que le transport se paie pour un aller et un retour, plus les appels passés pour comprendre le motif. Un point de taux de refus gagné vaut souvent plus qu'un point de budget publicitaire économisé, pour la raison qu'il agit sur les deux lignes à la fois.</p>
+
+    <h2>Le verdict : une marge nette négative</h2>
+
+    <p>La boutique a affiché un ROAS de 4,0 et termine le mois à −61 400 FCFA. Rapporté aux clients encaissés, cela fait <strong>−1 706 FCFA par client</strong> : chaque nouvelle commande livrée a creusé le déficit du mois.</p>
+
+    <p>Deux chiffres intermédiaires expliquent l'écart. Le ROAS calculé sur l'argent réellement encaissé vaut 720 000 ÷ 200 000, soit 3,6, et non 4,0 : les quatre colis refusés étaient comptés comme des ventes. Et la marge brute ne couvre le budget publicitaire que 1,26 fois : elle est presque entièrement absorbée par la publicité, avant même de payer la livraison, les frais et les heures de travail.</p>
+
+    <p>Ajoutez les abonnements d'outils affectés à l'acquisition, une ligne de 15 000 FCFA dans le même exemple, et le mois finit à −76 400 FCFA. Le ROAS affiché, lui, n'a pas bougé d'un dixième.</p>
+
+    <h2>Le ROAS d'équilibre, calculé à l'envers</h2>
+
+    <p>Plutôt que de chercher un ROAS idéal dans un article, calculez celui de votre activité. La démarche tient en trois étapes, et elle se fait à la main.</p>
+
+    <p><strong>Première étape : ce que laisse chaque commande attribuée.</strong> Ici, 90 % des commandes sont livrées et payées, chacune laisse 7 000 FCFA de marge brute. Retirez la livraison non couverte (450 FCFA en moyenne par commande attribuée), les frais de transaction (360 FCFA), et le transport des colis refusés (150 FCFA). Il reste <strong>5 340 FCFA</strong> par commande, avant de payer la publicité.</p>
+
+    <p><strong>Deuxième étape : ce qu'il faut couvrir.</strong> Le budget publicitaire, 200 000 FCFA, plus le temps de traitement, 75 000 FCFA. Ce temps est une charge du mois, pas une charge par commande : les vingt-cinq heures ont été travaillées que vous ayez reçu quarante ou cinquante commandes. Total à couvrir : <strong>275 000 FCFA</strong>.</p>
+
+    <p><strong>Troisième étape : la division.</strong> 275 000 ÷ 5 340 = 51,5. Il fallait donc environ <strong>52 commandes attribuées</strong> pour atteindre l'équilibre, soit un chiffre d'affaires attribué de 1 040 000 FCFA, soit encore un <strong>ROAS affiché de 5,2</strong>. Le mois a produit 40 commandes. L'écart, douze commandes, représente 240 000 FCFA de chiffre d'affaires attribué.</p>
+
+    <p>Deux enseignements. D'abord, votre ROAS d'équilibre n'est pas un standard : il se déduit de votre marge et de vos coûts. Ensuite, l'écart entre 4,0 et 5,2 n'est pas une opinion sur la qualité de la campagne. C'est le montant qui manquait pour ne pas perdre d'argent.</p>
+
+    <h2>Trois corrections, chiffrées</h2>
+
+    <p>Reprenons le mois déficitaire et appliquons trois corrections, chacune isolément. Aucune ne touche au budget publicitaire.</p>
+
+    <table>
+      <thead>
+        <tr><th>Correction</th><th>Effet sur le mois</th><th>Résultat</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Ramener les refus de 10 % à 5 %</strong></td><td>+15 200 FCFA</td><td>−46 200 FCFA</td></tr>
+        <tr><td><strong>Facturer la livraison à son coût réel</strong></td><td>+18 000 FCFA</td><td>−43 400 FCFA</td></tr>
+        <tr><td><strong>Relever le prix de 1 000 FCFA</strong></td><td>+35 280 FCFA</td><td>−26 120 FCFA</td></tr>
+        <tr><td><strong>Les trois ensemble</strong></td><td>—</td><td>environ +10 000 FCFA</td></tr>
+      </tbody>
+    </table>
+
+    <p>Les trois corrections appliquées ensemble font passer le mois de −61 400 à environ +10 000 FCFA, sans un franc de publicité supplémentaire. Le total n'est pas la somme exacte des trois lignes, parce qu'elles se combinent entre elles : moins de refus, c'est aussi moins de frais de transaction sur les commandes refusées.</p>
+
+    <p>Comment les obtenir, concrètement. Le taux de refus baisse en rappelant chaque commande avant de l'expédier, en annonçant un délai réaliste et en confirmant le prix : un colis refusé coûte plus cher qu'un appel. La livraison facturée à son coût réel est une décision tarifaire, à annoncer clairement sur la fiche produit et dans la conversation. La hausse de prix, à condition que le volume tienne, se vérifie sur deux semaines avant d'être généralisée. Le ROAS affiché, lui, reste à 4,0 dans les trois cas.</p>
+
+    <h2>Ce que ça change dans la lecture de vos rapports</h2>
+
+    <p>Le ROAS n'est pas à jeter. C'est un indicateur de la plateforme, utile pour comparer deux campagnes entre elles, à objectif et à fenêtre d'attribution identiques. Il devient trompeur dès qu'il sert à décider d'un budget, parce qu'il ne connaît ni votre marge, ni vos coûts de distribution.</p>
+
+    <p>Trois habitudes remplacent la lecture naïve. Calculez votre ROAS d'équilibre, avec votre marge et vos coûts, et écrivez-le à côté de vos campagnes. Suivez en parallèle le ROAS affiché et le ROAS encaissé, l'écart entre les deux mesurant vos colis refusés. Et ramenez toujours la question au même point : combien me laisse un client, une fois tout payé. C'est le seul chiffre qui autorise une augmentation de budget.</p>
+
+    <p>Le suivi tient sur une ligne par mois : le ROAS affiché, le ROAS encaissé, la marge nette par client. Trois chiffres, notés le même jour, dans le même ordre, douze fois par an. C'est la tendance qui décide. Un ROAS affiché stable avec une marge nette qui se dégrade signale une hausse des refus ou des coûts de distribution. Un ROAS qui baisse sans que la marge bouge indique au contraire une campagne plus chère mais mieux ciblée. Les deux situations se corrigent à l'opposé l'une de l'autre, et ce tableau vous dit laquelle des deux corrections appliquer.</p>
+
+    <p>Pour situer ce résultat sur l'échelle de votre activité, deux repères complètent ce calcul. Le <a href="/articles/ratio-ltv-cac/">ratio LTV:CAC</a> dit si la relation client finance sa propre acquisition, et la lecture des <a href="/articles/lire-statistiques-meta-ads/">six chiffres du gestionnaire</a> dit si vous regardez les bonnes colonnes pour le suivre. La déduction, elle, reste toujours la même : du chiffre d'affaires attribué à la marge nette, il y a un chemin que personne ne fera à votre place.</p>
+
+    <div class="cta-block">
+      <h2>Votre ROAS laisse-t-il quelque chose dans la caisse ?</h2>
+      <p>Le diagnostic gratuit calcule votre marge nette par client à partir de vos chiffres, et vous donne votre ROAS d'équilibre. Cinq minutes, résultat immédiat.</p>
+      <a class="btn btn-gold" href="https://eperformance.pro/diagnostic_eperformance.html">Faire mon diagnostic gratuit
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <h2>FAQ — Ce qu'on me demande sur le ROAS</h2>
+
+    <div class="faq-section">
+      <details>
+        <summary>Qu'est-ce que le ROAS, exactement ?</summary>
+        <p>Le ROAS divise le chiffre d'affaires attribué à une campagne par la dépense publicitaire. Un ROAS de 4 signifie quatre francs de chiffre d'affaires attribué pour un franc dépensé. C'est un rapport de chiffre d'affaires, jamais un rapport de marge.</p>
+      </details>
+
+      <details>
+        <summary>Pourquoi un ROAS de 4 peut-il cacher un mois déficitaire ?</summary>
+        <p>Parce qu'il ne déduit ni la marchandise, ni la livraison, ni les frais de transaction, ni le temps de travail, ni les colis refusés. Dans l'exemple de cet article, ces coûts dépassent la marge brute du mois de 61 400 FCFA. Le ROAS reste bon et le mois reste négatif.</p>
+      </details>
+
+      <details>
+        <summary>Quel ROAS viser pour être rentable ?</summary>
+        <p>Il n'existe pas de valeur universelle : le seuil dépend de votre marge et de vos coûts de distribution, jamais d'une moyenne de marché. Dans l'exemple, avec 35 % de marge brute et les coûts décrits, l'équilibre se situe autour de 5,2. Recalculez le vôtre à partir de la marge laissée par une commande et des charges du mois à couvrir.</p>
+      </details>
+
+      <details>
+        <summary>Le ROAS affiché est-il faux ?</summary>
+        <p>Non, il est partiel. Il mesure ce que la plateforme peut voir : le chiffre d'affaires qu'elle estime avoir contribué à générer. Ce qui est faux, c'est de le lire comme un résultat financier, alors qu'il ignore tout ce qui se passe en dehors de son périmètre.</p>
+      </details>
+
+      <details>
+        <summary>Faut-il couper une campagne dont le ROAS est inférieur à 3 ?</summary>
+        <p>Pas automatiquement, et pas sur ce seul chiffre. Vérifiez d'abord votre marge brute et votre taux de colis refusés, puis comparez le résultat à votre ROAS d'équilibre. Une campagne peut être sous 3 et rentable sur une activité à forte marge, ou au-dessus de 4 et déficitaire sur un commerce à faible marge.</p>
+      </details>
+
+      <details>
+        <summary>Comment suivre sa marge nette sans logiciel de gestion ?</summary>
+        <p>Avec le cahier de commandes et cinq lignes de coûts : marchandise, livraison, frais de transaction, colis refusés, temps. Une fois par mois, vous divisez la marge brute du mois moins ces charges par le nombre de clients encaissés. Ce chiffre par client suffit à décider d'un budget.</p>
+      </details>
+    </div>
+
+    <div class="tags-row">
+      <a href="/acquisition/" class="tag">Acquisition</a>
+      <a href="/articles/cinq-couts-cac-oublies/" class="tag">CAC</a>
+      <a href="/articles/ratio-ltv-cac/" class="tag">Rentabilité</a>
+    </div>
+
+    <div class="share-row">
+      <span class="small">Partager</span>
+      <a href="#" class="share-btn" onclick="return sharePage('whatsapp')" data-share="whatsapp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.6-4.5A8.4 8.4 0 1 1 8 20.4z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('linkedin')" data-share="linkedin" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('facebook')" data-share="facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+      <a href="#" class="share-btn" onclick="return sharePage('copy')" data-share="copy" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></a>
+    </div>
+
+    <div class="related">
+      <h2>Articles à lire ensuite</h2>
+      <a href="/articles/cinq-couts-cac-oublies/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">Acquisition</span>
+          <h3>Les cinq coûts que votre CAC oublie</h3>
+          <p class="small">Temps, frais mobile money, colis refusés, livraison, outils : comment les repérer et les chiffrer.</p>
+        </div>
+      </a>
+      <a href="/articles/ratio-ltv-cac/" class="article-card">
+        <div class="article-card-body">
+          <span class="article-category">Acquisition</span>
+          <h3>Ratio LTV:CAC : quel seuil viser vraiment</h3>
+          <p class="small">Le 3:1 est un point de départ, pas une loi. Comment lire le ratio selon votre situation.</p>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-col">
+        <img class="footer-logo logo-img-light" src="/assets/img/logo-light.webp"
+             srcset="/assets/img/logo-light.webp 1x, /assets/img/logo-light@2x.webp 2x"
+             width="152" height="25" alt="ePerformance" loading="lazy">
+        <img class="footer-logo logo-img-dark" src="/assets/img/logo-dark.webp"
+             srcset="/assets/img/logo-dark.webp 1x, /assets/img/logo-dark@2x.webp 2x"
+             width="157" height="25" alt="" aria-hidden="true" loading="lazy">
+        <p class="card-text mt-3" style="max-width:34ch">Stratégie d&#x27;acquisition, IA générative, automatisation et développement web premium. Basé en Côte d&#x27;Ivoire, 100 % en ligne.</p>
+      </div>
+
+      <div class="footer-col">
+        <h2>Services</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/index.html#methode" rel="noopener">stratégie d&#x27;acquisition</a></li>
+          <li><a href="https://eperformance.pro/ia.html" rel="noopener">IA générative</a></li>
+          <li><a href="https://eperformance.pro/automatisation.html" rel="noopener">Automatisation</a></li>
+          <li><a href="https://eperformance.pro/site-web.html" rel="noopener">Création de site web</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Ressources</h2>
+        <ul>
+          <li><a href="https://eperformance.pro/diagnostic_eperformance.html" rel="noopener">Diagnostic gratuit</a></li>
+          <li><a href="https://eperformance.pro/formation.html" rel="noopener">Formations</a></li>
+          <li><a href="https://eperformance.pro/ebook.html" rel="noopener">Ebooks</a></li>
+          <li><a href="https://blog.eperformance.pro/" rel="noopener">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="https://wa.me/2250151170666" rel="noopener">+225 01 51 17 06 66</a></li>
+          <li><a href="mailto:bonjour@eperformance.pro">bonjour@eperformance.pro</a></li>
+          <li><a href="https://api.eperformance.pro/connexion.php" rel="noopener">Espace client</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 ePerformance — par K. Stéphane. Tous droits réservés.</p>
+      <p><a href="https://eperformance.pro/mentions-legales.html">Mentions légales</a> · <a href="https://eperformance.pro/politique-confidentialite.html">Confidentialité</a> · <a href="https://eperformance.pro/cookies.html">Cookies</a> · <a href="https://eperformance.pro/cgv.html">CGV</a></p>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a class="btn btn-gold" href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic gratuit</a>
+  <a class="btn btn-wa" href="https://wa.me/2250151170666" style="flex:0 0 auto" rel="noopener">WhatsApp</a>
+</div>
+
+<div class="consent" id="consent-banner" hidden>
+  <div class="consent-inner">
+    <div class="consent-text">
+      <p><strong>Vous choisissez ce que nous mesurons.</strong></p>
+      <p>Nous utilisons des traceurs pour comprendre comment le site est utilisé et pour
+         mesurer nos campagnes. Aucun ne se déclenche avant votre accord.
+         <a href="https://eperformance.pro/politique-confidentialite.html">Politique de confidentialité</a> ·
+         <a href="https://eperformance.pro/cookies.html">En savoir plus</a></p>
+    </div>
+    <div class="consent-actions">
+      <button type="button" class="btn btn-ghost" data-consent="refuse">Tout refuser</button>
+      <button type="button" class="btn btn-outline" data-consent="customize">Paramétrer</button>
+      <button type="button" class="btn btn-gold" data-consent="accept">Tout accepter</button>
+    </div>
+  </div>
+
+  <div class="consent-detail" id="consent-detail" hidden>
+    <fieldset class="fieldset">
+      <legend>Vos préférences</legend>
+
+      <label class="consent-row consent-row-locked">
+        <input type="checkbox" checked disabled>
+        <span>
+          <strong>Nécessaires</strong>
+          <span class="field-hint">Mémorisation de votre choix de thème et de vos préférences.
+            Toujours actifs : le site ne peut pas fonctionner sans.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-analytics">
+        <span>
+          <strong>Mesure d'audience</strong>
+          <span class="field-hint">Google Analytics 4 et Microsoft Clarity. Nous aide à voir
+            quelles pages sont utiles et où les visiteurs abandonnent.</span>
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="consent-ads">
+        <span>
+          <strong>Publicité</strong>
+          <span class="field-hint">Meta Pixel. Mesure l'efficacité de nos campagnes
+            Facebook et Instagram.</span>
+        </span>
+      </label>
+    </fieldset>
+
+    <div class="consent-actions">
+      <button type="button" class="btn btn-outline" data-consent="back">Retour</button>
+      <button type="button" class="btn btn-gold" data-consent="save">Enregistrer mes choix</button>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/js/consent.js" defer></script>
+<script src="/assets/js/eperf.js" defer></script>
+<script src="/assets/js/blog.js" defer></script>
+</body>
+</html>

@@ -175,6 +175,76 @@ PAGES = {
     # ── Les 3 articles ───────────────────────────────────────────────────
     # Pas de hero : le fragment porte son propre en-tête éditorial
     # (.article-hero avec catégorie, <h1>, date, temps de lecture).
+    "articles/cinq-couts-cac-oublies/index.html": {
+        "title": 'Les cinq coûts que votre CAC oublie',
+        "description": 'Les cinq coûts absents de votre CAC : temps de traitement, frais mobile money, colis refusés, livraison, outils. Comment les repérer et les chiffrer.',
+        "fragment": "articles-cinq-couts-cac-oublies.html",
+        "nav_active": "acquisition",
+        "breadcrumb": [("Acquisition", "/acquisition/"), ("Les coûts oubliés du CAC", "/articles/cinq-couts-cac-oublies/")],
+    },
+    "articles/lire-statistiques-meta-ads/index.html": {
+        "title": 'Lire ses statistiques Meta sans se noyer',
+        "description": 'Six chiffres suffisent pour lire un gestionnaire de publicités : dépense, résultats, coût par résultat, CTR, CPM, fréquence. Ceux à ignorer, et pourquoi.',
+        "fragment": "articles-lire-statistiques-meta-ads.html",
+        "nav_active": "acquisition",
+        "breadcrumb": [("Acquisition", "/acquisition/"), ("Lire ses statistiques Meta", "/articles/lire-statistiques-meta-ads/")],
+    },
+    "articles/roas-trompeur/index.html": {
+        "title": 'Pourquoi le ROAS affiché ment sur votre rentabilité',
+        "description": "Un ROAS de 4 peut cacher un mois déficitaire : marchandise, livraison, frais mobile money, colis refusés et temps déduits, chiffres à l'appui.",
+        "fragment": "articles-roas-trompeur.html",
+        "nav_active": "acquisition",
+        "breadcrumb": [("Acquisition", "/acquisition/"), ("Le ROAS qui trompe", "/articles/roas-trompeur/")],
+    },
+    "articles/ciblage-meta-2026/index.html": {
+        "title": "Cibler ou laisser l'algorithme travailler en 2026",
+        "description": 'Andromeda change la donne : le ciblage manuel fin perd son intérêt. Structure de campagne, rôle de la créa, qualité du signal, habitudes à abandonner.',
+        "fragment": "articles-ciblage-meta-2026.html",
+        "nav_active": "acquisition",
+        "breadcrumb": [("Acquisition", "/acquisition/"), ("Ciblage Meta en 2026", "/articles/ciblage-meta-2026/")],
+    },
+    "articles/creas-publicitaires-afrique/index.html": {
+        "title": "Créas publicitaires qui fonctionnent en Afrique de l'Ouest",
+        "description": 'Trois formats efficaces localement, ce qui échoue, et les critères de production : format, durée, taille du texte, poids du fichier, lisibilité sur petit écran.',
+        "fragment": "articles-creas-publicitaires-afrique.html",
+        "nav_active": "acquisition",
+        "breadcrumb": [("Acquisition", "/acquisition/"), ("Créas qui fonctionnent", "/articles/creas-publicitaires-afrique/")],
+    },
+    "articles/whatsapp-business-conversion/index.html": {
+        "title": 'WhatsApp Business : le canal de conversion sous-estimé',
+        "description": "Catalogue, réponses rapides, message d'accueil, étiquettes : la structure qui transforme une conversation WhatsApp en commande, et ses limites.",
+        "fragment": "articles-whatsapp-business-conversion.html",
+        "nav_active": "acquisition",
+        "breadcrumb": [("Acquisition", "/acquisition/"), ("WhatsApp Business", "/articles/whatsapp-business-conversion/")],
+    },
+    "articles/pixel-meta-capi/index.html": {
+        "title": 'Pixel Meta et CAPI : un tracking qui survit à iOS',
+        "description": 'Pourquoi le Pixel seul perd des conversions depuis iOS, ce que le CAPI envoie côté serveur, et ce que vous devez commander et vérifier vous-même.',
+        "fragment": "articles-pixel-meta-capi.html",
+        "nav_active": "acquisition",
+        "breadcrumb": [("Acquisition", "/acquisition/"), ("Pixel et CAPI", "/articles/pixel-meta-capi/")],
+    },
+    "articles/meta-ads-ou-google-ads/index.html": {
+        "title": 'Meta Ads ou Google Ads : lequel choisir',
+        "description": "Meta interrompt, Google répond. Grille de décision par activité, ordre d'ouverture des deux canaux et vérifications avant d'engager un budget.",
+        "fragment": "articles-meta-ads-ou-google-ads.html",
+        "nav_active": "acquisition",
+        "breadcrumb": [("Acquisition", "/acquisition/"), ("Meta ou Google Ads", "/articles/meta-ads-ou-google-ads/")],
+    },
+    "articles/google-ads-quand/index.html": {
+        "title": 'Google Ads : quand cela vaut vraiment la peine',
+        "description": "Trois conditions à réunir avant de dépenser sur Google Ads : une demande de recherche existante, une page qui convertit, un budget qui sort de l'apprentissage.",
+        "fragment": "articles-google-ads-quand.html",
+        "nav_active": "acquisition",
+        "breadcrumb": [("Acquisition", "/acquisition/"), ("Google Ads : quand", "/articles/google-ads-quand/")],
+    },
+    "articles/budget-publicitaire-debuter/index.html": {
+        "title": 'Budget publicitaire : combien prévoir pour commencer',
+        "description": "Partir du CAC cible plutôt que d'un budget arbitraire : méthode en quatre lignes, seuil minimum pour tester, budget de test et budget d'échelle.",
+        "fragment": "articles-budget-publicitaire-debuter.html",
+        "nav_active": "acquisition",
+        "breadcrumb": [("Acquisition", "/acquisition/"), ("Budget publicitaire", "/articles/budget-publicitaire-debuter/")],
+    },
     "articles/capturer-qualifier-demandes/index.html": {
         "title": 'Capturer et qualifier ses demandes entrantes',
         "description": "Le parcours d'une demande entrante, étape par étape : accusé de réception, trois questions de qualification, fiche créée, bonne personne prévenue.",
