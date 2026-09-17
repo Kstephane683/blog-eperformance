@@ -13,3 +13,7 @@ node_modules/
 # Build artefacts (au cas où)
 dist/
 .tmp/
+
+# Artefacts Python (compose.py, injecter_illustrations.py)
+__pycache__/
+*.pyc

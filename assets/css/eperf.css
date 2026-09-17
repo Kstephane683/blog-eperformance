@@ -757,6 +757,33 @@
   }
   .card-icon svg { width: 21px; height: 21px; }
 
+  /* --- Illustration de carte ------------------------------------------- */
+  /* Un instrument de mesure, pas un dessin : voir ADR-0003. Le conteneur
+     porte la couleur de base, donc currentColor suit le thème ; la trame
+     des tracés utilise --border. Aucune couleur nouvelle n'est introduite,
+     et aucune animation : l'illustration est statique par décision. */
+  .card-figure {
+    display: block;
+    margin: 0 0 18px;
+    color: var(--gold);
+  }
+
+  .card-figure-svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    /* Sur une carte large, l'instrument garde sa taille de lecture : le
+       viewBox est mis à l'échelle et centré, jamais étiré. */
+    max-height: 180px;
+  }
+
+  /* Variante bandeau : cartes compactes (formules, article, pilier), où
+     l'icône est conservée. Le bandeau occupe la largeur de la carte et
+     ramène l'illustration à sa taille de lecture — un ornement de section,
+     pas une vignette. */
+  .card-figure--bandeau { margin-bottom: 16px; }
+  .card-figure--bandeau .card-figure-svg { max-height: 96px; }
+
   .card-num {
     font-family: var(--police-titres);
     font-size: 0.875rem;
