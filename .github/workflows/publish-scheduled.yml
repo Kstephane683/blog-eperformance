@@ -66,6 +66,13 @@ jobs:
         run: |
           python3 scripts/verify-articles.py | tail -3
 
+      - name: Régénérer l'index du chatbot (onglets Aide et Actualités)
+        if: steps.publication.outputs.publie == 'true'
+        run: |
+          # L'index est la source publique des onglets Aide/Actualités du widget.
+          # Sans cette étape, le chatbot servirait la liste de la veille.
+          python3 _build/generer_index_chatbot.py | tail -3
+
       - name: Committer et pousser
         if: steps.publication.outputs.publie == 'true' && inputs.dry_run != true
         run: |
