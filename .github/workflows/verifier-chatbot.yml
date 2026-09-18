@@ -1,0 +1,24 @@
+name: Contrôle du chatbot Mia (blog)
+
+# Le chatbot Mia est injecté par le générateur (_build/compose.py).
+# Ce contrôle échoue si le bloc SDK disparaît d'une page ou du générateur.
+# Contexte : le 18/09/2026 un commit l'a retiré de 14 pages sur 16 → le
+# chatbot a disparu du site en production sans alerte. Ce workflow est
+# l'alerte.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  verifier:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Vérifier la présence du bloc SDK chatbot
+        run: python3 scripts/verifier-chatbot.py

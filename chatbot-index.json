@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-09-18T00:30:38Z",
+  "genere_le": "2026-09-18T10:40:16Z",
   "source": "https://blog.eperformance.pro/",
   "collections": [
     {
@@ -33,81 +33,6 @@
   ],
   "articles": [
     {
-      "slug": "ia-service-client-nuit",
-      "titre": "IA et service client : répondre la nuit sans recruter",
-      "description": "Un message envoyé à 22h reste sans réponse, et le client achète ailleurs le matin. Les trois niveaux d'automatisation du service client, ce que chacun couvre, et le calcul qui tranche entre recruter et automatiser.",
-      "collection": "ia-generative",
-      "collection_titre": "IA générative",
-      "date": "2026-10-14T09:00:00+00:00",
-      "url": "https://blog.eperformance.pro/articles/ia-service-client-nuit/",
-      "tags": [
-        "ia service client pme",
-        "chatbot whatsapp",
-        "support automatique"
-      ],
-      "image": null
-    },
-    {
-      "slug": "rediger-fiches-produits-ia",
-      "titre": "Rédiger ses fiches produits avec l'IA sans perdre sa voix",
-      "description": "La méthode en quatre étapes pour produire des fiches produits utiles avec un outil génératif : matière brute, fiche de voix, lot de dix, relecture en trois passages.",
-      "collection": "ia-generative",
-      "collection_titre": "IA générative",
-      "date": "2026-10-13T09:00:00+00:00",
-      "url": "https://blog.eperformance.pro/articles/rediger-fiches-produits-ia/",
-      "tags": [
-        "rédiger fiche produit IA",
-        "IA contenu ecommerce",
-        "contenu produit automatique"
-      ],
-      "image": null
-    },
-    {
-      "slug": "chatbot-ia-repondre-site",
-      "titre": "IA conversationnelle : ce qu'elle peut vraiment répondre sur votre site",
-      "description": "La mécanique d'un agent conversationnel depuis vos propres données : six fichiers sources, trajet d'une question, ce qu'il ne peut pas répondre et le moment où il passe la main à un humain.",
-      "collection": "ia-generative",
-      "collection_titre": "IA générative",
-      "date": "2026-10-08T09:00:00+00:00",
-      "url": "https://blog.eperformance.pro/articles/chatbot-ia-repondre-site/",
-      "tags": [
-        "chatbot IA site web",
-        "IA service client",
-        "agent conversationnel"
-      ],
-      "image": null
-    },
-    {
-      "slug": "cinq-taches-ia-entreprise",
-      "titre": "Cinq tâches que l'IA fait mieux que vous dans votre entreprise",
-      "description": "Cinq tâches classées par temps gagné mesurable : ce qu'elles remplacent, le temps avant, le temps après et ce qu'elles produisent. Ordres de grandeur et méthode de mesure.",
-      "collection": "ia-generative",
-      "collection_titre": "IA générative",
-      "date": "2026-10-07T09:00:00+00:00",
-      "url": "https://blog.eperformance.pro/articles/cinq-taches-ia-entreprise/",
-      "tags": [
-        "IA pour entreprise",
-        "automatiser avec IA",
-        "IA petite entreprise"
-      ],
-      "image": null
-    },
-    {
-      "slug": "ia-generative-pme-africaine",
-      "titre": "Qu'est-ce que l'IA générative pour une PME africaine, concrètement",
-      "description": "L'IA générative n'a de valeur que si elle sort quelque chose que vous pouvez vendre, publier ou décider. Trois tâches qu'elle fait mieux que vous, et trois qu'elle ne fera jamais.",
-      "collection": "ia-generative",
-      "collection_titre": "IA générative",
-      "date": "2026-10-06T09:00:00+00:00",
-      "url": "https://blog.eperformance.pro/articles/ia-generative-pme-africaine/",
-      "tags": [
-        "IA générative",
-        "PME Afrique",
-        "intelligence artificielle entreprise"
-      ],
-      "image": null
-    },
-    {
       "slug": "seo-local-abidjan-guide",
       "titre": "SEO local à Abidjan : apparaître sur Google quand vos clients vous cherchent",
       "description": "46 % des recherches Google ont une intention locale. Si votre entreprise n'apparaît pas dans le pack local à Abidjan, vous laissez des clients sur la table. Voici le guide complet.",
@@ -134,6 +59,81 @@
         "site web professionnel Abidjan",
         "création site web Côte d'Ivoire",
         "SEO local Abidjan"
+      ],
+      "image": null
+    },
+    {
+      "slug": "ia-service-client-nuit",
+      "titre": "IA et service client : répondre la nuit sans recruter",
+      "description": "Un message envoyé à 22h reste sans réponse, et le client achète ailleurs le matin. Les trois niveaux d'automatisation du service client, ce que chacun couvre, et le calcul qui tranche entre recruter et automatiser.",
+      "collection": "ia-generative",
+      "collection_titre": "IA générative",
+      "date": "2026-09-18T12:00:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/ia-service-client-nuit/",
+      "tags": [
+        "ia service client pme",
+        "chatbot whatsapp",
+        "support automatique"
+      ],
+      "image": null
+    },
+    {
+      "slug": "rediger-fiches-produits-ia",
+      "titre": "Rédiger ses fiches produits avec l'IA sans perdre sa voix",
+      "description": "La méthode en quatre étapes pour produire des fiches produits utiles avec un outil génératif : matière brute, fiche de voix, lot de dix, relecture en trois passages.",
+      "collection": "ia-generative",
+      "collection_titre": "IA générative",
+      "date": "2026-09-18T11:30:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/rediger-fiches-produits-ia/",
+      "tags": [
+        "rédiger fiche produit IA",
+        "IA contenu ecommerce",
+        "contenu produit automatique"
+      ],
+      "image": null
+    },
+    {
+      "slug": "chatbot-ia-repondre-site",
+      "titre": "IA conversationnelle : ce qu'elle peut vraiment répondre sur votre site",
+      "description": "La mécanique d'un agent conversationnel depuis vos propres données : six fichiers sources, trajet d'une question, ce qu'il ne peut pas répondre et le moment où il passe la main à un humain.",
+      "collection": "ia-generative",
+      "collection_titre": "IA générative",
+      "date": "2026-09-18T11:00:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/chatbot-ia-repondre-site/",
+      "tags": [
+        "chatbot IA site web",
+        "IA service client",
+        "agent conversationnel"
+      ],
+      "image": null
+    },
+    {
+      "slug": "cinq-taches-ia-entreprise",
+      "titre": "Cinq tâches que l'IA fait mieux que vous dans votre entreprise",
+      "description": "Cinq tâches classées par temps gagné mesurable : ce qu'elles remplacent, le temps avant, le temps après et ce qu'elles produisent. Ordres de grandeur et méthode de mesure.",
+      "collection": "ia-generative",
+      "collection_titre": "IA générative",
+      "date": "2026-09-18T10:30:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/cinq-taches-ia-entreprise/",
+      "tags": [
+        "IA pour entreprise",
+        "automatiser avec IA",
+        "IA petite entreprise"
+      ],
+      "image": null
+    },
+    {
+      "slug": "ia-generative-pme-africaine",
+      "titre": "Qu'est-ce que l'IA générative pour une PME africaine, concrètement",
+      "description": "L'IA générative n'a de valeur que si elle sort quelque chose que vous pouvez vendre, publier ou décider. Trois tâches qu'elle fait mieux que vous, et trois qu'elle ne fera jamais.",
+      "collection": "ia-generative",
+      "collection_titre": "IA générative",
+      "date": "2026-09-18T10:00:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/ia-generative-pme-africaine/",
+      "tags": [
+        "IA générative",
+        "PME Afrique",
+        "intelligence artificielle entreprise"
       ],
       "image": null
     },
