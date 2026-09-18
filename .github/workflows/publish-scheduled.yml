@@ -9,6 +9,11 @@ on:
     # 10h00 UTC = 10h00 à Abidjan (UTC+0). Les articles du jour portent des
     # heures de 10h00 à 12h00, mais c'est la DATE qui décide de la parution.
     - cron: '0 10 * * *'
+    # Second passage, quatre heures plus tard. GitHub décale les crons en période
+    # de charge — le 18 septembre 2026, celui de 10h00 n'était pas parti à 10h40.
+    # Le script est idempotent : si le premier passage a fait le travail,
+    # celui-ci ne republie rien, sort en code 1 et ne produit aucun commit.
+    - cron: '0 14 * * *'
   workflow_dispatch:
     inputs:
       date:
