@@ -80,6 +80,12 @@ def main() -> int:
 
     print(f"✅ Contrôle chatbot : {total}/{total} page(s) avec SDK "
           f"+ générateur conforme")
+    print()
+    print("📋 RAPPEL DE COORDINATION")
+    print("   Ce dépôt partage le design system et le chatbot du site.")
+    print("   Le document de coordination canonique est dans le dépôt du site :")
+    print("   OX6A/site-eperformance/COORDINATION-AGENTS.md")
+    print("   → le lire avant toute tâche touchant le layout ou les jetons.")
     return 0
 
 
