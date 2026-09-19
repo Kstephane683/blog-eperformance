@@ -45,35 +45,35 @@
       "slug": "ia-analyse-rapports-publicitaires",
       "date": "2026-09-19",
       "heure": "10:00",
-      "published": false
+      "published": true
     },
     {
       "numero": 7,
       "slug": "ia-preparation-commerciale",
       "date": "2026-09-19",
       "heure": "10:30",
-      "published": false
+      "published": true
     },
     {
       "numero": 8,
       "slug": "ia-limites-business",
       "date": "2026-09-19",
       "heure": "11:00",
-      "published": false
+      "published": true
     },
     {
       "numero": 9,
       "slug": "ia-donnees-confidentialite",
       "date": "2026-09-19",
       "heure": "11:30",
-      "published": false
+      "published": true
     },
     {
       "numero": 10,
       "slug": "automatisation-marketing-debuter",
       "date": "2026-09-19",
       "heure": "12:00",
-      "published": false
+      "published": true
     },
     {
       "numero": 11,

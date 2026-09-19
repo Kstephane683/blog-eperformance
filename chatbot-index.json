@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-09-18T10:40:16Z",
+  "genere_le": "2026-09-19T13:41:05Z",
   "source": "https://blog.eperformance.pro/",
   "collections": [
     {
@@ -7,13 +7,20 @@
       "titre": "IA générative",
       "slogan": null,
       "url": null,
-      "nombre": 5
+      "nombre": 9
     },
     {
       "slug": "acquisition",
       "titre": "Acquisition",
       "slogan": "Piloter par les chiffres réels, pas par les impressions.",
       "url": "https://blog.eperformance.pro/acquisition/",
+      "nombre": 1
+    },
+    {
+      "slug": "automatisation",
+      "titre": "Automatisation",
+      "slogan": null,
+      "url": null,
       "nombre": 1
     },
     {
@@ -33,32 +40,77 @@
   ],
   "articles": [
     {
-      "slug": "seo-local-abidjan-guide",
-      "titre": "SEO local à Abidjan : apparaître sur Google quand vos clients vous cherchent",
-      "description": "46 % des recherches Google ont une intention locale. Si votre entreprise n'apparaît pas dans le pack local à Abidjan, vous laissez des clients sur la table. Voici le guide complet.",
-      "collection": "seo",
-      "collection_titre": "SEO",
-      "date": "2026-09-30T09:00:00+00:00",
-      "url": "https://blog.eperformance.pro/articles/seo-local-abidjan-guide/",
+      "slug": "automatisation-marketing-debuter",
+      "titre": "Automatisation marketing : par où commencer quand tout est manuel",
+      "description": "Commencer par la tâche qui coûte le plus d'heures, pas par la plus spectaculaire : comment la repérer, la mesurer, la traiter, et éviter l'automatisation qui coûte plus qu'elle ne rapporte.",
+      "collection": "automatisation",
+      "collection_titre": "Automatisation",
+      "date": "2026-09-19T12:00:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/automatisation-marketing-debuter/",
       "tags": [
-        "SEO local Abidjan",
-        "Google Business Profile",
-        "pack local Google"
+        "automatisation marketing pme",
+        "workflow entreprise",
+        "relance automatique"
       ],
       "image": null
     },
     {
-      "slug": "site-web-professionnel-abidjan-guide",
-      "titre": "Site web professionnel à Abidjan : 7 critères SEO pour bien choisir le sien en 2026",
-      "description": "Vous voulez un site web professionnel à Abidjan ? Avant de signer, vérifiez ces 7 critères SEO et conversion. Sinon, vous risquez de payer pour un site que personne ne verra sur Google.",
-      "collection": "site-web",
-      "collection_titre": "Site Web",
-      "date": "2026-09-23T09:00:00+00:00",
-      "url": "https://blog.eperformance.pro/articles/site-web-professionnel-abidjan-guide/",
+      "slug": "ia-donnees-confidentialite",
+      "titre": "Vos données et l'IA : ce qui sort, ce qui reste",
+      "description": "Le trajet d'une donnée confiée à un outil en ligne : ce qui quitte votre entreprise, ce qui reste local, ce qui peut être réutilisé, et les vérifications à faire avant d'envoyer un fichier client.",
+      "collection": "ia-generative",
+      "collection_titre": "IA générative",
+      "date": "2026-09-19T11:30:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/ia-donnees-confidentialite/",
       "tags": [
-        "site web professionnel Abidjan",
-        "création site web Côte d'Ivoire",
-        "SEO local Abidjan"
+        "ia confidentialité données",
+        "données entreprise ia",
+        "liste clients ia"
+      ],
+      "image": null
+    },
+    {
+      "slug": "ia-limites-business",
+      "titre": "Ce que l'IA ne sait pas faire dans votre business",
+      "description": "L'IA générative ne connaît ni votre marge, ni votre trésorerie, ni votre capacité de production. Quatre informations qu'elle n'aura jamais, et la méthode pour décider sans elle.",
+      "collection": "ia-generative",
+      "collection_titre": "IA générative",
+      "date": "2026-09-19T11:00:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/ia-limites-business/",
+      "tags": [
+        "limites ia entreprise",
+        "ia erreurs",
+        "ia marge"
+      ],
+      "image": null
+    },
+    {
+      "slug": "ia-preparation-commerciale",
+      "titre": "IA et préparation commerciale : structurer une offre en une heure",
+      "description": "Problème du client, périmètre, livrables, délais, prix, conditions : comment l'IA met en forme vos notes de rendez-vous en une heure, et ce qui doit rester de votre main.",
+      "collection": "ia-generative",
+      "collection_titre": "IA générative",
+      "date": "2026-09-19T10:30:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/ia-preparation-commerciale/",
+      "tags": [
+        "ia proposition commerciale",
+        "ia devis",
+        "structurer son offre"
+      ],
+      "image": null
+    },
+    {
+      "slug": "ia-analyse-rapports-publicitaires",
+      "titre": "Utiliser l'IA pour analyser ses rapports publicitaires",
+      "description": "De l'export brut au diagnostic : préparer le fichier, poser les bonnes questions, comparer ce qui est comparable, et vérifier les totaux avant de décider.",
+      "collection": "ia-generative",
+      "collection_titre": "IA générative",
+      "date": "2026-09-19T10:00:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/ia-analyse-rapports-publicitaires/",
+      "tags": [
+        "analyser rapport meta ads ia",
+        "ia analyse données",
+        "lire ses statistiques"
       ],
       "image": null
     },
@@ -134,6 +186,36 @@
         "IA générative",
         "PME Afrique",
         "intelligence artificielle entreprise"
+      ],
+      "image": null
+    },
+    {
+      "slug": "site-web-professionnel-abidjan-guide",
+      "titre": "Site web professionnel à Abidjan : 7 critères SEO pour bien choisir le sien en 2026",
+      "description": "Vous voulez un site web professionnel à Abidjan ? Avant de signer, vérifiez ces 7 critères SEO et conversion. Sinon, vous risquez de payer pour un site que personne ne verra sur Google.",
+      "collection": "site-web",
+      "collection_titre": "Site Web",
+      "date": "2026-09-16T09:00:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/site-web-professionnel-abidjan-guide/",
+      "tags": [
+        "site web professionnel Abidjan",
+        "création site web Côte d'Ivoire",
+        "SEO local Abidjan"
+      ],
+      "image": null
+    },
+    {
+      "slug": "seo-local-abidjan-guide",
+      "titre": "SEO local à Abidjan : apparaître sur Google quand vos clients vous cherchent",
+      "description": "46 % des recherches Google ont une intention locale. Si votre entreprise n'apparaît pas dans le pack local à Abidjan, vous laissez des clients sur la table. Voici le guide complet.",
+      "collection": "seo",
+      "collection_titre": "SEO",
+      "date": "2026-09-16T09:00:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/seo-local-abidjan-guide/",
+      "tags": [
+        "SEO local Abidjan",
+        "Google Business Profile",
+        "pack local Google"
       ],
       "image": null
     },
