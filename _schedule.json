@@ -80,35 +80,35 @@
       "slug": "n8n-afrique-ouest",
       "date": "2026-09-20",
       "heure": "10:00",
-      "published": false
+      "published": true
     },
     {
       "numero": 12,
       "slug": "capturer-qualifier-demandes",
       "date": "2026-09-20",
       "heure": "10:30",
-      "published": false
+      "published": true
     },
     {
       "numero": 13,
       "slug": "relance-client-automatique",
       "date": "2026-09-20",
       "heure": "11:00",
-      "published": false
+      "published": true
     },
     {
       "numero": 14,
       "slug": "reporting-automatise",
       "date": "2026-09-20",
       "heure": "11:30",
-      "published": false
+      "published": true
     },
     {
       "numero": 15,
       "slug": "synchroniser-outils-commerciaux",
       "date": "2026-09-20",
       "heure": "12:00",
-      "published": false
+      "published": true
     },
     {
       "numero": 16,

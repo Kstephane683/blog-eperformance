@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-09-19T13:41:05Z",
+  "genere_le": "2026-09-20T13:56:37Z",
   "source": "https://blog.eperformance.pro/",
   "collections": [
     {
@@ -10,17 +10,17 @@
       "nombre": 9
     },
     {
-      "slug": "acquisition",
-      "titre": "Acquisition",
-      "slogan": "Piloter par les chiffres réels, pas par les impressions.",
-      "url": "https://blog.eperformance.pro/acquisition/",
-      "nombre": 1
-    },
-    {
       "slug": "automatisation",
       "titre": "Automatisation",
       "slogan": null,
       "url": null,
+      "nombre": 6
+    },
+    {
+      "slug": "acquisition",
+      "titre": "Acquisition",
+      "slogan": "Piloter par les chiffres réels, pas par les impressions.",
+      "url": "https://blog.eperformance.pro/acquisition/",
       "nombre": 1
     },
     {
@@ -39,6 +39,81 @@
     }
   ],
   "articles": [
+    {
+      "slug": "synchroniser-outils-commerciaux",
+      "titre": "Synchroniser son site, WhatsApp et son suivi commercial",
+      "description": "Un seul statut par contact, partagé entre le site, WhatsApp et le suivi commercial : la mécanique de synchronisation, les règles à écrire et les pièges du numéro de téléphone.",
+      "collection": "automatisation",
+      "collection_titre": "Automatisation",
+      "date": "2026-09-20T12:00:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/synchroniser-outils-commerciaux/",
+      "tags": [
+        "synchronisation whatsapp site web",
+        "suivi commercial",
+        "statut contact"
+      ],
+      "image": null
+    },
+    {
+      "slug": "reporting-automatise",
+      "titre": "Un reporting qui se remplit tout seul chaque mois",
+      "description": "Quelles données collecter, d'où elles viennent, à quelle fréquence : le reporting mensuel qui se construit seul, et les contrôles qui empêchent un document faux d'arriver à l'heure.",
+      "collection": "automatisation",
+      "collection_titre": "Automatisation",
+      "date": "2026-09-20T11:30:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/reporting-automatise/",
+      "tags": [
+        "reporting automatisé",
+        "tableau de bord pme",
+        "coût par acquisition"
+      ],
+      "image": null
+    },
+    {
+      "slug": "relance-client-automatique",
+      "titre": "Relancer un prospect sans y penser : la séquence qui se déclenche seule",
+      "description": "La séquence de relance J+1, J+3, J+7, ses conditions d'arrêt immédiat, et la façon d'écrire un message qui obtient une réponse plutôt qu'un silence.",
+      "collection": "automatisation",
+      "collection_titre": "Automatisation",
+      "date": "2026-09-20T11:00:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/relance-client-automatique/",
+      "tags": [
+        "relance automatique prospect",
+        "séquence de relance",
+        "relance devis"
+      ],
+      "image": null
+    },
+    {
+      "slug": "capturer-qualifier-demandes",
+      "titre": "Capturer et qualifier ses demandes entrantes automatiquement",
+      "description": "Le parcours complet d'une demande entrante : accusé de réception en une minute, trois questions de qualification, fiche créée, doublon détecté et bonne personne prévenue.",
+      "collection": "automatisation",
+      "collection_titre": "Automatisation",
+      "date": "2026-09-20T10:30:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/capturer-qualifier-demandes/",
+      "tags": [
+        "capture des demandes",
+        "qualification des prospects",
+        "whatsapp business api"
+      ],
+      "image": null
+    },
+    {
+      "slug": "n8n-afrique-ouest",
+      "titre": "n8n : pourquoi cet outil plutôt qu'un autre en Afrique de l'Ouest",
+      "description": "Auto-hébergement, absence de facture à l'exécution, réversibilité : ce que le choix de n8n change concrètement en Afrique de l'Ouest, et les cinq cas où ce n'est pas le bon outil.",
+      "collection": "automatisation",
+      "collection_titre": "Automatisation",
+      "date": "2026-09-20T10:00:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/n8n-afrique-ouest/",
+      "tags": [
+        "n8n",
+        "n8n côte d'ivoire",
+        "outil automatisation"
+      ],
+      "image": null
+    },
     {
       "slug": "automatisation-marketing-debuter",
       "titre": "Automatisation marketing : par où commencer quand tout est manuel",
