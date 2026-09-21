@@ -115,35 +115,35 @@
       "slug": "cout-automatisation",
       "date": "2026-09-21",
       "heure": "10:00",
-      "published": false
+      "published": true
     },
     {
       "numero": 17,
       "slug": "automatisation-dependance",
       "date": "2026-09-21",
       "heure": "10:30",
-      "published": false
+      "published": true
     },
     {
       "numero": 18,
       "slug": "erreurs-automatisation",
       "date": "2026-09-21",
       "heure": "11:00",
-      "published": false
+      "published": true
     },
     {
       "numero": 19,
       "slug": "calculer-ltv",
       "date": "2026-09-21",
       "heure": "11:30",
-      "published": false
+      "published": true
     },
     {
       "numero": 20,
       "slug": "payback-period",
       "date": "2026-09-21",
       "heure": "12:00",
-      "published": false
+      "published": true
     },
     {
       "numero": 21,

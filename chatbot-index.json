@@ -1,7 +1,14 @@
 {
-  "genere_le": "2026-09-20T13:56:37Z",
+  "genere_le": "2026-09-21T16:11:38Z",
   "source": "https://blog.eperformance.pro/",
   "collections": [
+    {
+      "slug": "automatisation",
+      "titre": "Automatisation",
+      "slogan": null,
+      "url": null,
+      "nombre": 9
+    },
     {
       "slug": "ia-generative",
       "titre": "IA générative",
@@ -10,18 +17,11 @@
       "nombre": 9
     },
     {
-      "slug": "automatisation",
-      "titre": "Automatisation",
-      "slogan": null,
-      "url": null,
-      "nombre": 6
-    },
-    {
       "slug": "acquisition",
       "titre": "Acquisition",
       "slogan": "Piloter par les chiffres réels, pas par les impressions.",
       "url": "https://blog.eperformance.pro/acquisition/",
-      "nombre": 1
+      "nombre": 3
     },
     {
       "slug": "seo",
@@ -39,6 +39,81 @@
     }
   ],
   "articles": [
+    {
+      "slug": "payback-period",
+      "titre": "Payback period : le ratio qui tue les trésoreries",
+      "description": "Le payback period mesure le délai de récupération du CAC. Calcul, cible des 90 jours, exemple chiffré sur six mois, et cinq leviers pour le raccourcir.",
+      "collection": "acquisition",
+      "collection_titre": "Acquisition",
+      "date": "2026-09-21T12:00:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/payback-period/",
+      "tags": [
+        "payback period",
+        "délai de récupération",
+        "payback cac"
+      ],
+      "image": null
+    },
+    {
+      "slug": "calculer-ltv",
+      "titre": "Calculer sa LTV sans se raconter d'histoires",
+      "description": "La LTV se calcule sur des achats réels. Méthode par cohorte, taux de rachat, erreurs qui gonflent le chiffre, et décisions publicitaires qui en découlent.",
+      "collection": "acquisition",
+      "collection_titre": "Acquisition",
+      "date": "2026-09-21T11:30:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/calculer-ltv/",
+      "tags": [
+        "calculer ltv",
+        "valeur vie client",
+        "ltv cac"
+      ],
+      "image": null
+    },
+    {
+      "slug": "erreurs-automatisation",
+      "titre": "Trois automatisations à ne pas faire",
+      "description": "Relancer des prospects mal qualifiés, construire un workflow pour cinq demandes par mois, répondre automatiquement à une réclamation : trois chantiers à refuser, et ce qu'il faut faire à la place.",
+      "collection": "automatisation",
+      "collection_titre": "Automatisation",
+      "date": "2026-09-21T11:00:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/erreurs-automatisation/",
+      "tags": [
+        "erreurs automatisation",
+        "prospects mal qualifiés",
+        "volume minimum"
+      ],
+      "image": null
+    },
+    {
+      "slug": "automatisation-dependance",
+      "titre": "Automatiser sans se rendre dépendant d'un prestataire",
+      "description": "Accès, propriété des workflows, documentation, réversibilité : ce qui doit rester chez vous, les signes d'une dépendance qui se referme et les clauses à exiger dans le contrat.",
+      "collection": "automatisation",
+      "collection_titre": "Automatisation",
+      "date": "2026-09-21T10:30:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/automatisation-dependance/",
+      "tags": [
+        "dépendance prestataire",
+        "réversibilité automatisation",
+        "propriété des workflows"
+      ],
+      "image": null
+    },
+    {
+      "slug": "cout-automatisation",
+      "titre": "Combien coûte une automatisation, et combien rapporte-t-elle",
+      "description": "Les cinq postes de coût d'une automatisation, la mise en place comptée en jours de travail et la division qui donne le seuil de rentabilité en mois, avec un exemple chiffré.",
+      "collection": "automatisation",
+      "collection_titre": "Automatisation",
+      "date": "2026-09-21T10:00:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/cout-automatisation/",
+      "tags": [
+        "coût automatisation",
+        "rentabilité automatisation",
+        "seuil de rentabilité"
+      ],
+      "image": null
+    },
     {
       "slug": "synchroniser-outils-commerciaux",
       "titre": "Synchroniser son site, WhatsApp et son suivi commercial",
