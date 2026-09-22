@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-09-21T16:11:38Z",
+  "genere_le": "2026-09-22T14:19:43Z",
   "source": "https://blog.eperformance.pro/",
   "collections": [
     {
@@ -21,7 +21,7 @@
       "titre": "Acquisition",
       "slogan": "Piloter par les chiffres réels, pas par les impressions.",
       "url": "https://blog.eperformance.pro/acquisition/",
-      "nombre": 3
+      "nombre": 8
     },
     {
       "slug": "seo",
@@ -39,6 +39,81 @@
     }
   ],
   "articles": [
+    {
+      "slug": "lire-statistiques-meta-ads",
+      "titre": "Lire ses statistiques Meta sans se noyer",
+      "description": "Six chiffres suffisent pour piloter vos campagnes Meta : dépense, résultats, coût par résultat, CTR, CPM, fréquence. Où les lire, et quels chiffres ignorer.",
+      "collection": "acquisition",
+      "collection_titre": "Acquisition",
+      "date": "2026-09-22T12:00:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/lire-statistiques-meta-ads/",
+      "tags": [
+        "lire statistiques meta ads",
+        "comprendre gestionnaire publicités",
+        "cout par resultat"
+      ],
+      "image": null
+    },
+    {
+      "slug": "roas-trompeur",
+      "titre": "Pourquoi le ROAS affiché ment sur votre rentabilité",
+      "description": "Un ROAS de 4 peut cacher un mois déficitaire : marchandise, livraison, frais mobile money, colis refusés et temps déduits, chiffres à l'appui.",
+      "collection": "acquisition",
+      "collection_titre": "Acquisition",
+      "date": "2026-09-22T11:30:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/roas-trompeur/",
+      "tags": [
+        "roas réel",
+        "roas trompeur",
+        "roas marge"
+      ],
+      "image": null
+    },
+    {
+      "slug": "cinq-couts-cac-oublies",
+      "titre": "Les cinq coûts que votre CAC oublie",
+      "description": "Temps de traitement, frais mobile money, colis refusés, livraison, outils : les cinq coûts absents du coût d'acquisition, comment les repérer et les chiffrer.",
+      "collection": "acquisition",
+      "collection_titre": "Acquisition",
+      "date": "2026-09-22T11:00:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/cinq-couts-cac-oublies/",
+      "tags": [
+        "calculer cac réel",
+        "coût d'acquisition incomplet",
+        "coûts cachés publicité"
+      ],
+      "image": null
+    },
+    {
+      "slug": "marge-nette-acquisition",
+      "titre": "Marge nette d'acquisition : le chiffre qui dit vrai",
+      "description": "Publicité, marchandise, emballage, livraison, commission et retours déduits un par un : ce qui reste vraiment sur chaque vente, exemple chiffré en FCFA.",
+      "collection": "acquisition",
+      "collection_titre": "Acquisition",
+      "date": "2026-09-22T10:30:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/marge-nette-acquisition/",
+      "tags": [
+        "marge nette acquisition",
+        "marge réelle pub",
+        "rentabilité réelle"
+      ],
+      "image": null
+    },
+    {
+      "slug": "ratio-ltv-cac",
+      "titre": "Ratio LTV:CAC : quel seuil viser vraiment",
+      "description": "Le 3:1 est un point de départ, pas une loi. Comment calculer le ratio en marge, lire le résultat par zone, et décider d'augmenter ou de corriger.",
+      "collection": "acquisition",
+      "collection_titre": "Acquisition",
+      "date": "2026-09-22T10:00:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/ratio-ltv-cac/",
+      "tags": [
+        "ratio ltv cac",
+        "ltv cac 3:1",
+        "rentabilité publicité"
+      ],
+      "image": null
+    },
     {
       "slug": "payback-period",
       "titre": "Payback period : le ratio qui tue les trésoreries",
