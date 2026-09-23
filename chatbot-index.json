@@ -1,7 +1,14 @@
 {
-  "genere_le": "2026-09-22T14:19:43Z",
+  "genere_le": "2026-09-23T14:39:56Z",
   "source": "https://blog.eperformance.pro/",
   "collections": [
+    {
+      "slug": "acquisition",
+      "titre": "Acquisition",
+      "slogan": "Piloter par les chiffres réels, pas par les impressions.",
+      "url": "https://blog.eperformance.pro/acquisition/",
+      "nombre": 13
+    },
     {
       "slug": "automatisation",
       "titre": "Automatisation",
@@ -15,13 +22,6 @@
       "slogan": null,
       "url": null,
       "nombre": 9
-    },
-    {
-      "slug": "acquisition",
-      "titre": "Acquisition",
-      "slogan": "Piloter par les chiffres réels, pas par les impressions.",
-      "url": "https://blog.eperformance.pro/acquisition/",
-      "nombre": 8
     },
     {
       "slug": "seo",
@@ -39,6 +39,81 @@
     }
   ],
   "articles": [
+    {
+      "slug": "meta-ads-ou-google-ads",
+      "titre": "Meta Ads ou Google Ads : lequel choisir",
+      "description": "Meta interrompt, Google répond. Grille de décision par activité, ordre d'ouverture des deux canaux et vérifications avant d'engager un budget.",
+      "collection": "acquisition",
+      "collection_titre": "Acquisition",
+      "date": "2026-09-23T12:00:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/meta-ads-ou-google-ads/",
+      "tags": [
+        "meta ads ou google ads",
+        "comparatif publicité en ligne",
+        "intention d'achat"
+      ],
+      "image": null
+    },
+    {
+      "slug": "pixel-meta-capi",
+      "titre": "Pixel Meta et CAPI : un tracking qui survit à iOS",
+      "description": "Pourquoi le Pixel seul perd des conversions depuis iOS, ce que le CAPI envoie côté serveur, et ce que vous devez commander et vérifier vous-même.",
+      "collection": "acquisition",
+      "collection_titre": "Acquisition",
+      "date": "2026-09-23T11:30:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/pixel-meta-capi/",
+      "tags": [
+        "pixel meta capi",
+        "conversions api",
+        "tracking ios"
+      ],
+      "image": null
+    },
+    {
+      "slug": "whatsapp-business-conversion",
+      "titre": "WhatsApp Business : le canal de conversion sous-estimé",
+      "description": "Catalogue, réponses rapides, message d'accueil, étiquettes : la structure qui transforme une conversation WhatsApp en commande, et ses limites.",
+      "collection": "acquisition",
+      "collection_titre": "Acquisition",
+      "date": "2026-09-23T11:00:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/whatsapp-business-conversion/",
+      "tags": [
+        "whatsapp business",
+        "vendre sur whatsapp",
+        "catalogue whatsapp business"
+      ],
+      "image": null
+    },
+    {
+      "slug": "creas-publicitaires-afrique",
+      "titre": "Créas publicitaires qui fonctionnent en Afrique de l'Ouest",
+      "description": "Trois formats efficaces localement, ce qui échoue, et les critères de production : format, durée, taille du texte, poids du fichier, lisibilité sur petit écran.",
+      "collection": "acquisition",
+      "collection_titre": "Acquisition",
+      "date": "2026-09-23T10:30:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/creas-publicitaires-afrique/",
+      "tags": [
+        "créa publicitaire facebook",
+        "visuel pub afrique",
+        "creative ads"
+      ],
+      "image": null
+    },
+    {
+      "slug": "ciblage-meta-2026",
+      "titre": "Cibler ou laisser l'algorithme travailler en 2026",
+      "description": "Andromeda change la donne : le ciblage manuel fin perd son intérêt. Structure de campagne, rôle de la créa, qualité du signal, et les habitudes à abandonner.",
+      "collection": "acquisition",
+      "collection_titre": "Acquisition",
+      "date": "2026-09-23T10:00:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/ciblage-meta-2026/",
+      "tags": [
+        "ciblage meta ads 2026",
+        "andromeda ciblage",
+        "audience meta"
+      ],
+      "image": null
+    },
     {
       "slug": "lire-statistiques-meta-ads",
       "titre": "Lire ses statistiques Meta sans se noyer",
