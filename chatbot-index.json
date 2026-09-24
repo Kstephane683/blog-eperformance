@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-09-23T14:39:56Z",
+  "genere_le": "2026-09-24T14:37:26Z",
   "source": "https://blog.eperformance.pro/",
   "collections": [
     {
@@ -7,7 +7,7 @@
       "titre": "Acquisition",
       "slogan": "Piloter par les chiffres réels, pas par les impressions.",
       "url": "https://blog.eperformance.pro/acquisition/",
-      "nombre": 13
+      "nombre": 18
     },
     {
       "slug": "automatisation",
@@ -39,6 +39,81 @@
     }
   ],
   "articles": [
+    {
+      "slug": "cac-par-segment",
+      "titre": "Segments clients : arrêter de calculer un CAC moyen",
+      "description": "Segmenter par canal, produit, type de client et zone. La méthode de calcul du CAC par segment, avec un exemple où un segment en finance un autre.",
+      "collection": "acquisition",
+      "collection_titre": "Acquisition",
+      "date": "2026-09-24T12:00:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/cac-par-segment/",
+      "tags": [
+        "cac par segment",
+        "segment clients",
+        "cac moyen"
+      ],
+      "image": null
+    },
+    {
+      "slug": "ameliorer-taux-conversion",
+      "titre": "Améliorer le taux de conversion sans toucher au budget pub",
+      "description": "Cinq fuites du parcours client, du clic à la relance, avec la méthode pour repérer chacune et la correction à appliquer, sans un franc de budget en plus.",
+      "collection": "acquisition",
+      "collection_titre": "Acquisition",
+      "date": "2026-09-24T11:30:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/ameliorer-taux-conversion/",
+      "tags": [
+        "taux de conversion",
+        "optimiser conversion",
+        "tunnel de conversion"
+      ],
+      "image": null
+    },
+    {
+      "slug": "boost-publication",
+      "titre": "Le boost de publication est-il encore utile",
+      "description": "Ce que le boost d'une publication fait, ce qu'il ne mesure pas, les cas où il rend service et le test simple pour savoir s'il a rapporté quelque chose.",
+      "collection": "acquisition",
+      "collection_titre": "Acquisition",
+      "date": "2026-09-24T11:00:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/boost-publication/",
+      "tags": [
+        "booster publication facebook",
+        "coup de boost",
+        "sponsoriser"
+      ],
+      "image": null
+    },
+    {
+      "slug": "budget-publicitaire-debuter",
+      "titre": "Budget publicitaire : combien prévoir pour commencer",
+      "description": "Partir du CAC cible plutôt que d'un budget arbitraire : méthode en quatre lignes, seuil minimum pour tester, budget de test et budget d'échelle.",
+      "collection": "acquisition",
+      "collection_titre": "Acquisition",
+      "date": "2026-09-24T10:30:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/budget-publicitaire-debuter/",
+      "tags": [
+        "budget publicité en ligne",
+        "budget pub Côte d'Ivoire",
+        "cac cible"
+      ],
+      "image": null
+    },
+    {
+      "slug": "google-ads-quand",
+      "titre": "Google Ads : quand cela vaut vraiment la peine",
+      "description": "Trois conditions à réunir avant de dépenser sur Google Ads : une demande de recherche existante, une page qui convertit, un budget qui sort de l'apprentissage.",
+      "collection": "acquisition",
+      "collection_titre": "Acquisition",
+      "date": "2026-09-24T10:00:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/google-ads-quand/",
+      "tags": [
+        "google ads pme",
+        "search ads",
+        "publicité google"
+      ],
+      "image": null
+    },
     {
       "slug": "meta-ads-ou-google-ads",
       "titre": "Meta Ads ou Google Ads : lequel choisir",
