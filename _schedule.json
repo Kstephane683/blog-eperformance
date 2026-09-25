@@ -255,35 +255,35 @@
       "slug": "test-ab-methode",
       "date": "2026-09-25",
       "heure": "10:00",
-      "published": false
+      "published": true
     },
     {
       "numero": 37,
       "slug": "fidelisation-ltv",
       "date": "2026-09-25",
       "heure": "10:30",
-      "published": false
+      "published": true
     },
     {
       "numero": 38,
       "slug": "upsell-vente-complementaire",
       "date": "2026-09-25",
       "heure": "11:00",
-      "published": false
+      "published": true
     },
     {
       "numero": 39,
       "slug": "prix-site-web-cote-ivoire",
       "date": "2026-09-25",
       "heure": "11:30",
-      "published": false
+      "published": true
     },
     {
       "numero": 40,
       "slug": "vitrine-ou-ecommerce",
       "date": "2026-09-25",
       "heure": "12:00",
-      "published": false
+      "published": true
     },
     {
       "numero": 41,

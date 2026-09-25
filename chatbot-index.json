@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-09-24T14:37:26Z",
+  "genere_le": "2026-09-25T14:59:04Z",
   "source": "https://blog.eperformance.pro/",
   "collections": [
     {
@@ -7,7 +7,7 @@
       "titre": "Acquisition",
       "slogan": "Piloter par les chiffres réels, pas par les impressions.",
       "url": "https://blog.eperformance.pro/acquisition/",
-      "nombre": 18
+      "nombre": 21
     },
     {
       "slug": "automatisation",
@@ -24,21 +24,96 @@
       "nombre": 9
     },
     {
+      "slug": "site-web",
+      "titre": "Site Web",
+      "slogan": "Un site web qui travaille pour vous.",
+      "url": "https://blog.eperformance.pro/site-web/",
+      "nombre": 3
+    },
+    {
       "slug": "seo",
       "titre": "SEO",
       "slogan": "Apparaître quand vos clients vous cherchent.",
       "url": "https://blog.eperformance.pro/seo/",
       "nombre": 1
-    },
-    {
-      "slug": "site-web",
-      "titre": "Site Web",
-      "slogan": "Un site web qui travaille pour vous.",
-      "url": "https://blog.eperformance.pro/site-web/",
-      "nombre": 1
     }
   ],
   "articles": [
+    {
+      "slug": "vitrine-ou-ecommerce",
+      "titre": "Site vitrine, e-commerce ou les deux : comment décider",
+      "description": "Vos clients achètent-ils après avoir vu, ou après avoir demandé ? Grille de décision par activité, et coût caché d'un e-commerce qu'on n'utilise pas.",
+      "collection": "site-web",
+      "collection_titre": "Site Web",
+      "date": "2026-09-25T12:00:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/vitrine-ou-ecommerce/",
+      "tags": [
+        "site vitrine ou ecommerce",
+        "type de site web",
+        "choisir son site"
+      ],
+      "image": null
+    },
+    {
+      "slug": "prix-site-web-cote-ivoire",
+      "titre": "Combien coûte un site web professionnel en Côte d'Ivoire ?",
+      "description": "Fourchettes observées sur le marché ivoirien, sept éléments qui font monter un devis, et comment lire une proposition de site web avant de signer.",
+      "collection": "site-web",
+      "collection_titre": "Site Web",
+      "date": "2026-09-25T11:30:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/prix-site-web-cote-ivoire/",
+      "tags": [
+        "prix site web Côte d'Ivoire",
+        "coût site web Abidjan",
+        "devis site internet"
+      ],
+      "image": null
+    },
+    {
+      "slug": "upsell-vente-complementaire",
+      "titre": "Upsell et vente complémentaire : la méthode simple",
+      "description": "Le complément à la commande, la montée en gamme, le réassort programmé : trois mécaniques testables pour faire monter le panier moyen.",
+      "collection": "acquisition",
+      "collection_titre": "Acquisition",
+      "date": "2026-09-25T11:00:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/upsell-vente-complementaire/",
+      "tags": [
+        "upsell",
+        "vente complémentaire",
+        "cross-sell"
+      ],
+      "image": null
+    },
+    {
+      "slug": "fidelisation-ltv",
+      "titre": "Fidélisation : le levier de LTV le plus rentable",
+      "description": "Faire revenir un client coûte moins cher que d'en acquérir un nouveau. Quatre mécaniques de fidélisation testables, et ce qu'elles déplacent sur votre LTV.",
+      "collection": "acquisition",
+      "collection_titre": "Acquisition",
+      "date": "2026-09-25T10:30:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/fidelisation-ltv/",
+      "tags": [
+        "fidélisation client",
+        "ltv",
+        "valeur vie client"
+      ],
+      "image": null
+    },
+    {
+      "slug": "test-ab-methode",
+      "titre": "Test A/B : la méthode minimale pour décider",
+      "description": "Ce qui se teste en une semaine, ce qui ne se teste pas sans volume, comment fixer la durée et lire un résultat. La version minimale, sans outil payant.",
+      "collection": "acquisition",
+      "collection_titre": "Acquisition",
+      "date": "2026-09-25T10:00:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/test-ab-methode/",
+      "tags": [
+        "test ab",
+        "test a/b",
+        "optimiser page de vente"
+      ],
+      "image": null
+    },
     {
       "slug": "cac-par-segment",
       "titre": "Segments clients : arrêter de calculer un CAC moyen",
