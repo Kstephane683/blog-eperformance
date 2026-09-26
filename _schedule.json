@@ -290,35 +290,35 @@
       "slug": "wordpress-shopify-sur-mesure",
       "date": "2026-09-26",
       "heure": "10:00",
-      "published": false
+      "published": true
     },
     {
       "numero": 42,
       "slug": "questions-prestataire-site-web",
       "date": "2026-09-26",
       "heure": "10:30",
-      "published": false
+      "published": true
     },
     {
       "numero": 43,
       "slug": "domaine-hebergement-propriete",
       "date": "2026-09-26",
       "heure": "11:00",
-      "published": false
+      "published": true
     },
     {
       "numero": 44,
       "slug": "site-trop-lent",
       "date": "2026-09-26",
       "heure": "11:30",
-      "published": false
+      "published": true
     },
     {
       "numero": 45,
       "slug": "images-site-webp",
       "date": "2026-09-26",
       "heure": "12:00",
-      "published": false
+      "published": true
     },
     {
       "numero": 46,
