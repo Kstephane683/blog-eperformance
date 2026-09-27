@@ -325,35 +325,35 @@
       "slug": "site-mobile-entree-de-gamme",
       "date": "2026-09-27",
       "heure": "10:00",
-      "published": false
+      "published": true
     },
     {
       "numero": 47,
       "slug": "formulaire-contact-efficace",
       "date": "2026-09-27",
       "heure": "10:30",
-      "published": false
+      "published": true
     },
     {
       "numero": 48,
       "slug": "bouton-whatsapp-site",
       "date": "2026-09-27",
       "heure": "11:00",
-      "published": false
+      "published": true
     },
     {
       "numero": 49,
       "slug": "erreurs-qui-font-fuir",
       "date": "2026-09-27",
       "heure": "11:30",
-      "published": false
+      "published": true
     },
     {
       "numero": 50,
       "slug": "monetiser-sans-ecommerce",
       "date": "2026-09-27",
       "heure": "12:00",
-      "published": false
+      "published": true
     },
     {
       "numero": 51,
