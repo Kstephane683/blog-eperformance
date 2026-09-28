@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-09-27T14:59:11Z",
+  "genere_le": "2026-09-28T17:56:58Z",
   "source": "https://blog.eperformance.pro/",
   "collections": [
     {
@@ -14,7 +14,7 @@
       "titre": "Site Web",
       "slogan": "Un site web qui travaille pour vous.",
       "url": "https://blog.eperformance.pro/site-web/",
-      "nombre": 13
+      "nombre": 15
     },
     {
       "slug": "automatisation",
@@ -35,10 +35,85 @@
       "titre": "SEO",
       "slogan": "Apparaître quand vos clients vous cherchent.",
       "url": "https://blog.eperformance.pro/seo/",
-      "nombre": 1
+      "nombre": 4
     }
   ],
   "articles": [
+    {
+      "slug": "pack-local-ouagadougou",
+      "titre": "Être visible dans le pack local Google à Ouagadougou",
+      "description": "Secteurs, quartiers, repères et point sur la carte : comment configurer sa fiche Google et suivre ce qui amène des appels à Ouagadougou.",
+      "collection": "seo",
+      "collection_titre": "SEO",
+      "date": "2026-09-28T12:00:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/pack-local-ouagadougou/",
+      "tags": [
+        "pack local ouagadougou",
+        "seo local burkina",
+        "référencement ouagadougou"
+      ],
+      "image": null
+    },
+    {
+      "slug": "avis-google-sans-forcer",
+      "titre": "Avis Google : comment en obtenir sans forcer",
+      "description": "Quand demander un avis, quel lien envoyer, quoi écrire, comment répondre à un avis négatif et ce qui fait suspendre une fiche.",
+      "collection": "seo",
+      "collection_titre": "SEO",
+      "date": "2026-09-28T11:30:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/avis-google-sans-forcer/",
+      "tags": [
+        "obtenir avis google",
+        "réputation locale",
+        "avis clients"
+      ],
+      "image": null
+    },
+    {
+      "slug": "fiche-google-business-profile",
+      "titre": "Fiche Google Business Profile : la configuration qui compte",
+      "description": "Nom, catégories, description, horaires, zone, photos, attributs, questions, publications, messagerie : ce qu'il faut mettre dans chaque champ de la fiche.",
+      "collection": "seo",
+      "collection_titre": "SEO",
+      "date": "2026-09-28T11:00:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/fiche-google-business-profile/",
+      "tags": [
+        "fiche Google Business Profile",
+        "Google Business Profile champs",
+        "catégorie principale"
+      ],
+      "image": null
+    },
+    {
+      "slug": "reprendre-controle-site",
+      "titre": "Reprendre le contrôle de son site après un prestataire",
+      "description": "Domaine, hébergement, administration, mesure, contenus : quoi récupérer, comment le demander par écrit, et les étapes quand le prestataire ne répond plus.",
+      "collection": "site-web",
+      "collection_titre": "Site Web",
+      "date": "2026-09-28T10:30:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/reprendre-controle-site/",
+      "tags": [
+        "récupérer accès site web",
+        "changer de prestataire",
+        "remise des accès"
+      ],
+      "image": null
+    },
+    {
+      "slug": "refonte-site-quand",
+      "titre": "Refonte de site : quand c'est nécessaire, quand c'est du luxe",
+      "description": "Les signaux qui justifient une refonte, ceux qui ne la justifient pas, et les cinq chiffres à relever avant de décider entre réparer et tout refaire.",
+      "collection": "site-web",
+      "collection_titre": "Site Web",
+      "date": "2026-09-28T10:00:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/refonte-site-quand/",
+      "tags": [
+        "refonte de site web",
+        "quand refaire son site",
+        "site mobile"
+      ],
+      "image": null
+    },
     {
       "slug": "monetiser-sans-ecommerce",
       "titre": "Monétiser un site sans e-commerce",
