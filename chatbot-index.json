@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-09-28T17:56:58Z",
+  "genere_le": "2026-09-29T16:19:39Z",
   "source": "https://blog.eperformance.pro/",
   "collections": [
     {
@@ -35,10 +35,85 @@
       "titre": "SEO",
       "slogan": "Apparaître quand vos clients vous cherchent.",
       "url": "https://blog.eperformance.pro/seo/",
-      "nombre": 4
+      "nombre": 9
     }
   ],
   "articles": [
+    {
+      "slug": "sitemap-robots-txt",
+      "titre": "Sitemap et robots.txt : les deux fichiers qu'on oublie",
+      "description": "Vérifier en cinq minutes que sitemap.xml et robots.txt sont en place : adresses à tester, commandes curl, erreurs classiques et corrections.",
+      "collection": "seo",
+      "collection_titre": "SEO",
+      "date": "2026-09-29T12:00:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/sitemap-robots-txt/",
+      "tags": [
+        "sitemap robots txt",
+        "indexation google",
+        "fichiers seo"
+      ],
+      "image": null
+    },
+    {
+      "slug": "donnees-structurees-schema-org",
+      "titre": "Données structurées : ce que Google comprend de votre site",
+      "description": "Données structurées : à quoi servent LocalBusiness, Organization, Product, Article, BreadcrumbList ou FAQPage, avec un exemple JSON-LD.",
+      "collection": "seo",
+      "collection_titre": "SEO",
+      "date": "2026-09-29T11:30:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/donnees-structurees-schema-org/",
+      "tags": [
+        "données structurées schema org",
+        "json-ld site",
+        "rich snippets"
+      ],
+      "image": null
+    },
+    {
+      "slug": "balises-title-description",
+      "titre": "Title et description : réécrire pour gagner des clics",
+      "description": "Balise title et meta description : la méthode de réécriture en quatre questions, trois exemples avant/après, et comment vérifier ce que Google affiche.",
+      "collection": "seo",
+      "collection_titre": "SEO",
+      "date": "2026-09-29T11:00:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/balises-title-description/",
+      "tags": [
+        "balise title seo",
+        "meta description",
+        "optimiser title"
+      ],
+      "image": null
+    },
+    {
+      "slug": "seo-local-sans-site-web",
+      "titre": "SEO local pour un commerce sans site web",
+      "description": "Une fiche Google bien tenue ramène des appels et des visites, sans site. Voici ce qu'elle permet vraiment, et le point exact où elle plafonne.",
+      "collection": "seo",
+      "collection_titre": "SEO",
+      "date": "2026-09-29T10:30:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/seo-local-sans-site-web/",
+      "tags": [
+        "seo local sans site",
+        "google maps commerce",
+        "visibilité locale"
+      ],
+      "image": null
+    },
+    {
+      "slug": "annuaires-citations-cote-ivoire",
+      "titre": "Citations, annuaires ivoiriens : où inscrire son entreprise",
+      "description": "Les plateformes à tenir, les familles d'annuaires à couvrir en Côte d'Ivoire, et sept vérifications pour écarter un annuaire sans audience.",
+      "collection": "seo",
+      "collection_titre": "SEO",
+      "date": "2026-09-29T10:00:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/annuaires-citations-cote-ivoire/",
+      "tags": [
+        "annuaire entreprise côte d'ivoire",
+        "citation locale",
+        "inscription annuaire"
+      ],
+      "image": null
+    },
     {
       "slug": "pack-local-ouagadougou",
       "titre": "Être visible dans le pack local Google à Ouagadougou",

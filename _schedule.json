@@ -395,35 +395,35 @@
       "slug": "annuaires-citations-cote-ivoire",
       "date": "2026-09-29",
       "heure": "10:00",
-      "published": false
+      "published": true
     },
     {
       "numero": 57,
       "slug": "seo-local-sans-site-web",
       "date": "2026-09-29",
       "heure": "10:30",
-      "published": false
+      "published": true
     },
     {
       "numero": 58,
       "slug": "balises-title-description",
       "date": "2026-09-29",
       "heure": "11:00",
-      "published": false
+      "published": true
     },
     {
       "numero": 59,
       "slug": "donnees-structurees-schema-org",
       "date": "2026-09-29",
       "heure": "11:30",
-      "published": false
+      "published": true
     },
     {
       "numero": 60,
       "slug": "sitemap-robots-txt",
       "date": "2026-09-29",
       "heure": "12:00",
-      "published": false
+      "published": true
     },
     {
       "numero": 61,
