@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-09-29T16:19:39Z",
+  "genere_le": "2026-09-30T16:15:06Z",
   "source": "https://blog.eperformance.pro/",
   "collections": [
     {
@@ -17,6 +17,13 @@
       "nombre": 15
     },
     {
+      "slug": "seo",
+      "titre": "SEO",
+      "slogan": "Apparaître quand vos clients vous cherchent.",
+      "url": "https://blog.eperformance.pro/seo/",
+      "nombre": 14
+    },
+    {
       "slug": "automatisation",
       "titre": "Automatisation",
       "slogan": null,
@@ -29,16 +36,84 @@
       "slogan": null,
       "url": null,
       "nombre": 9
-    },
-    {
-      "slug": "seo",
-      "titre": "SEO",
-      "slogan": "Apparaître quand vos clients vous cherchent.",
-      "url": "https://blog.eperformance.pro/seo/",
-      "nombre": 9
     }
   ],
   "articles": [
+    {
+      "slug": "netlinking-local",
+      "titre": "Netlinking local : quels liens comptent vraiment",
+      "description": "Partenariats, presse locale, annuaires, associations : les sources de liens classées par rendement réel pour un commerce en Afrique de l'Ouest.",
+      "collection": "seo",
+      "collection_titre": "SEO",
+      "date": "2026-09-30T12:00:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/netlinking-local/",
+      "tags": [
+        "netlinking local",
+        "backlink côte d'ivoire",
+        "autorité domaine"
+      ],
+      "image": null
+    },
+    {
+      "slug": "contenu-duplique",
+      "titre": "Contenu dupliqué : les cas qui pénalisent vraiment",
+      "description": "Vendre le même produit dans dix villes n'est pas un problème. Les quatre cas qui en posent un, ce que Google fait vraiment, et comment poser un canonical.",
+      "collection": "seo",
+      "collection_titre": "SEO",
+      "date": "2026-09-30T11:30:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/contenu-duplique/",
+      "tags": [
+        "contenu dupliqué seo",
+        "duplicate content",
+        "canonical"
+      ],
+      "image": null
+    },
+    {
+      "slug": "llms-txt",
+      "titre": "llms.txt : à quoi ça sert, et si ça sert vraiment",
+      "description": "Le llms.txt se pose à la racine d'un site. Ce qu'il contient, ce qu'il ne fait pas encore, et pourquoi il ne remplace ni robots.txt ni vos pages.",
+      "collection": "seo",
+      "collection_titre": "SEO",
+      "date": "2026-09-30T11:00:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/llms-txt/",
+      "tags": [
+        "llms txt",
+        "fichier llms",
+        "citation ia"
+      ],
+      "image": null
+    },
+    {
+      "slug": "etre-cite-par-chatgpt",
+      "titre": "Être cité par ChatGPT, Claude et Perplexity : la méthode",
+      "description": "Structure de réponse, faits datés et vérifiables, entité cohérente : les conditions pour être cité par ChatGPT, Claude et Perplexity, et comment mesurer.",
+      "collection": "seo",
+      "collection_titre": "SEO",
+      "date": "2026-09-30T10:30:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/etre-cite-par-chatgpt/",
+      "tags": [
+        "être cité par chatgpt",
+        "aeo geo",
+        "visibilité moteurs ia"
+      ],
+      "image": null
+    },
+    {
+      "slug": "erreurs-indexation-google",
+      "titre": "Erreurs d'indexation : pourquoi votre page n'apparaît pas",
+      "description": "Diagnostiquer une page absente de Google avec Search Console : les sept causes par ordre de fréquence, le symptôme exact et la correction.",
+      "collection": "seo",
+      "collection_titre": "SEO",
+      "date": "2026-09-30T10:00:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/erreurs-indexation-google/",
+      "tags": [
+        "page pas indexée google",
+        "indexation",
+        "search console"
+      ],
+      "image": null
+    },
     {
       "slug": "sitemap-robots-txt",
       "titre": "Sitemap et robots.txt : les deux fichiers qu'on oublie",

@@ -430,35 +430,35 @@
       "slug": "erreurs-indexation-google",
       "date": "2026-09-30",
       "heure": "10:00",
-      "published": false
+      "published": true
     },
     {
       "numero": 62,
       "slug": "etre-cite-par-chatgpt",
       "date": "2026-09-30",
       "heure": "10:30",
-      "published": false
+      "published": true
     },
     {
       "numero": 63,
       "slug": "llms-txt",
       "date": "2026-09-30",
       "heure": "11:00",
-      "published": false
+      "published": true
     },
     {
       "numero": 64,
       "slug": "contenu-duplique",
       "date": "2026-09-30",
       "heure": "11:30",
-      "published": false
+      "published": true
     },
     {
       "numero": 65,
       "slug": "netlinking-local",
       "date": "2026-09-30",
       "heure": "12:00",
-      "published": false
+      "published": true
     },
     {
       "numero": 66,
