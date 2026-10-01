@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-09-30T16:15:06Z",
+  "genere_le": "2026-10-01T16:52:23Z",
   "source": "https://blog.eperformance.pro/",
   "collections": [
     {
@@ -10,18 +10,18 @@
       "nombre": 21
     },
     {
+      "slug": "seo",
+      "titre": "SEO",
+      "slogan": "Apparaître quand vos clients vous cherchent.",
+      "url": "https://blog.eperformance.pro/seo/",
+      "nombre": 15
+    },
+    {
       "slug": "site-web",
       "titre": "Site Web",
       "slogan": "Un site web qui travaille pour vous.",
       "url": "https://blog.eperformance.pro/site-web/",
       "nombre": 15
-    },
-    {
-      "slug": "seo",
-      "titre": "SEO",
-      "slogan": "Apparaître quand vos clients vous cherchent.",
-      "url": "https://blog.eperformance.pro/seo/",
-      "nombre": 14
     },
     {
       "slug": "automatisation",
@@ -36,9 +36,91 @@
       "slogan": null,
       "url": null,
       "nombre": 9
+    },
+    {
+      "slug": "business",
+      "titre": "Business",
+      "slogan": "Le modèle économique avant la tactique.",
+      "url": "https://blog.eperformance.pro/business/",
+      "nombre": 4
     }
   ],
   "articles": [
+    {
+      "slug": "tableau-tresorerie",
+      "titre": "Trésorerie : le tableau qui évite le blocage",
+      "description": "Trois colonnes, une ligne par semaine, quinze minutes le lundi : le tableau de trésorerie minimal, avec un exemple chiffré en FCFA sur huit semaines.",
+      "collection": "business",
+      "collection_titre": "Business",
+      "date": "2026-10-01T12:00:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/tableau-tresorerie/",
+      "tags": [
+        "tableau trésorerie pme",
+        "cash flow",
+        "gérer sa trésorerie"
+      ],
+      "image": null
+    },
+    {
+      "slug": "paiement-mobile-money",
+      "titre": "Paiement mobile money : Orange, Wave, MTN et Moov",
+      "description": "Ce qu'un site peut accepter en mobile money : lien de paiement, QR code, formulaire avec confirmation manuelle ou passerelle. Les frictions qui restent.",
+      "collection": "business",
+      "collection_titre": "Business",
+      "date": "2026-10-01T11:30:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/paiement-mobile-money/",
+      "tags": [
+        "paiement mobile money",
+        "orange money api",
+        "wave paiement"
+      ],
+      "image": null
+    },
+    {
+      "slug": "vendre-a-la-diaspora",
+      "titre": "Vendre à la diaspora : ce qui change dans l'achat",
+      "description": "Confiance, paiement en euros, livraison à un tiers, calendrier des fêtes et service après : le parcours d'achat d'un client de la diaspora, étape par étape.",
+      "collection": "business",
+      "collection_titre": "Business",
+      "date": "2026-10-01T11:00:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/vendre-a-la-diaspora/",
+      "tags": [
+        "vendre à la diaspora",
+        "client diaspora",
+        "paiement international"
+      ],
+      "image": null
+    },
+    {
+      "slug": "fixer-ses-prix",
+      "titre": "Fixer ses prix quand on vend en ligne en Afrique de l'Ouest",
+      "description": "Coût de revient réel, marge visée, puis prix affiché : la méthode dans l'ordre, les coûts oubliés du e-commerce et deux exemples chiffrés en FCFA.",
+      "collection": "business",
+      "collection_titre": "Business",
+      "date": "2026-10-01T10:30:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/fixer-ses-prix/",
+      "tags": [
+        "fixer ses prix",
+        "stratégie prix pme",
+        "tarification"
+      ],
+      "image": null
+    },
+    {
+      "slug": "mesurer-son-seo",
+      "titre": "Mesurer son SEO sans y passer ses journées",
+      "description": "Quatre indicateurs, une lecture par mois, quinze minutes : impressions, clics, position sur les requêtes qui comptent, pages indexées.",
+      "collection": "seo",
+      "collection_titre": "SEO",
+      "date": "2026-10-01T10:00:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/mesurer-son-seo/",
+      "tags": [
+        "mesurer seo",
+        "kpi seo",
+        "search console pme"
+      ],
+      "image": null
+    },
     {
       "slug": "netlinking-local",
       "titre": "Netlinking local : quels liens comptent vraiment",
