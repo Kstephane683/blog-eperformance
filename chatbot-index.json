@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-10-01T16:52:23Z",
+  "genere_le": "2026-10-02T16:05:13Z",
   "source": "https://blog.eperformance.pro/",
   "collections": [
     {
@@ -31,21 +31,96 @@
       "nombre": 9
     },
     {
+      "slug": "business",
+      "titre": "Business",
+      "slogan": "Le modèle économique avant la tactique.",
+      "url": "https://blog.eperformance.pro/business/",
+      "nombre": 9
+    },
+    {
       "slug": "ia-generative",
       "titre": "IA générative",
       "slogan": null,
       "url": null,
       "nombre": 9
-    },
-    {
-      "slug": "business",
-      "titre": "Business",
-      "slogan": "Le modèle économique avant la tactique.",
-      "url": "https://blog.eperformance.pro/business/",
-      "nombre": 4
     }
   ],
   "articles": [
+    {
+      "slug": "structure-de-couts",
+      "titre": "Structure de coûts : où part votre argent",
+      "description": "Coûts fixes, coûts variables, cas ambigus, seuil de rentabilité et décisions : la carte des charges d'une petite structure, avec un exemple chiffré.",
+      "collection": "business",
+      "collection_titre": "Business",
+      "date": "2026-10-02T12:00:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/structure-de-couts/",
+      "tags": [
+        "structure de coûts pme",
+        "charges entreprise",
+        "marge réelle"
+      ],
+      "image": null
+    },
+    {
+      "slug": "se-lancer-au-burkina-faso",
+      "titre": "Se lancer au Burkina Faso : ce qui change",
+      "description": "Ouagadougou et Bobo ne se ressemblent pas, les portefeuilles mobiles ne sont pas les mêmes, la route fixe le délai : ce qui change quand on arrive d'Abidjan.",
+      "collection": "business",
+      "collection_titre": "Business",
+      "date": "2026-10-02T11:30:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/se-lancer-au-burkina-faso/",
+      "tags": [
+        "entreprendre au burkina faso",
+        "marché burkinabè",
+        "business ouagadougou"
+      ],
+      "image": null
+    },
+    {
+      "slug": "choisir-statut-entreprise",
+      "titre": "Choisir son statut d'entreprise en Côte d'Ivoire",
+      "description": "Ce que le statut change pour la publicité, les paiements et la séparation du patrimoine — et ce qu'il ne change pas, pour décider sur des faits.",
+      "collection": "business",
+      "collection_titre": "Business",
+      "date": "2026-10-02T11:00:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/choisir-statut-entreprise/",
+      "tags": [
+        "statut entreprise côte d'ivoire",
+        "créer son entreprise ci",
+        "forme juridique"
+      ],
+      "image": null
+    },
+    {
+      "slug": "emprunter-ou-autofinancer",
+      "titre": "Emprunter ou autofinancer sa croissance",
+      "description": "L'autofinancement coûte la lenteur, l'emprunt coûte les intérêts et la date fixe. Comparaison des deux coûts réels, fonds de roulement compris.",
+      "collection": "business",
+      "collection_titre": "Business",
+      "date": "2026-10-02T10:30:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/emprunter-ou-autofinancer/",
+      "tags": [
+        "autofinancer sa croissance",
+        "crédit pme",
+        "financement"
+      ],
+      "image": null
+    },
+    {
+      "slug": "delai-paiement-client",
+      "titre": "Délai de paiement client : comment ne plus le subir",
+      "description": "Conditions écrites, acompte, facturation immédiate, relance programmée : l'ordre des défenses contre les retards de paiement, avec les textes à copier.",
+      "collection": "business",
+      "collection_titre": "Business",
+      "date": "2026-10-02T10:00:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/delai-paiement-client/",
+      "tags": [
+        "délai paiement client",
+        "impayé client",
+        "relance facture"
+      ],
+      "image": null
+    },
     {
       "slug": "tableau-tresorerie",
       "titre": "Trésorerie : le tableau qui évite le blocage",

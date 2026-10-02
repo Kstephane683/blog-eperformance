@@ -500,35 +500,35 @@
       "slug": "delai-paiement-client",
       "date": "2026-10-02",
       "heure": "10:00",
-      "published": false
+      "published": true
     },
     {
       "numero": 72,
       "slug": "emprunter-ou-autofinancer",
       "date": "2026-10-02",
       "heure": "10:30",
-      "published": false
+      "published": true
     },
     {
       "numero": 73,
       "slug": "choisir-statut-entreprise",
       "date": "2026-10-02",
       "heure": "11:00",
-      "published": false
+      "published": true
     },
     {
       "numero": 74,
       "slug": "se-lancer-au-burkina-faso",
       "date": "2026-10-02",
       "heure": "11:30",
-      "published": false
+      "published": true
     },
     {
       "numero": 75,
       "slug": "structure-de-couts",
       "date": "2026-10-02",
       "heure": "12:00",
-      "published": false
+      "published": true
     },
     {
       "numero": 76,
