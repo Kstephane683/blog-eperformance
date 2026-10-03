@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-10-02T16:05:13Z",
+  "genere_le": "2026-10-03T14:33:33Z",
   "source": "https://blog.eperformance.pro/",
   "collections": [
     {
@@ -24,17 +24,17 @@
       "nombre": 15
     },
     {
-      "slug": "automatisation",
-      "titre": "Automatisation",
-      "slogan": null,
-      "url": null,
-      "nombre": 9
-    },
-    {
       "slug": "business",
       "titre": "Business",
       "slogan": "Le modèle économique avant la tactique.",
       "url": "https://blog.eperformance.pro/business/",
+      "nombre": 12
+    },
+    {
+      "slug": "automatisation",
+      "titre": "Automatisation",
+      "slogan": null,
+      "url": null,
       "nombre": 9
     },
     {
@@ -46,6 +46,51 @@
     }
   ],
   "articles": [
+    {
+      "slug": "decider-avec-des-chiffres",
+      "titre": "Décider avec des chiffres plutôt qu'au ressenti",
+      "description": "La boucle mesure, décision, action : pourquoi le chiffre manque au moment de décider, et la routine d'une heure par mois qui rend les décisions défendables.",
+      "collection": "business",
+      "collection_titre": "Business",
+      "date": "2026-10-03T11:00:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/decider-avec-des-chiffres/",
+      "tags": [
+        "décider avec des données",
+        "pilotage pme",
+        "décision data"
+      ],
+      "image": null
+    },
+    {
+      "slug": "deleguer-sans-perdre-le-controle",
+      "titre": "Déléguer sans perdre le contrôle",
+      "description": "Ce qui se délègue, ce qui ne se délègue pas, la procédure écrite en cinq questions et le contrôle par échantillon qui laisse travailler.",
+      "collection": "business",
+      "collection_titre": "Business",
+      "date": "2026-10-03T10:30:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/deleguer-sans-perdre-le-controle/",
+      "tags": [
+        "déléguer en entreprise",
+        "management pme",
+        "confier des tâches"
+      ],
+      "image": null
+    },
+    {
+      "slug": "externaliser-ou-recruter",
+      "titre": "Externaliser ou recruter : décider avec des chiffres",
+      "description": "Salaire demandé contre facture : ce que chaque option coûte vraiment sur douze mois, et pourquoi le volume décide du résultat.",
+      "collection": "business",
+      "collection_titre": "Business",
+      "date": "2026-10-03T10:00:00+00:00",
+      "url": "https://blog.eperformance.pro/articles/externaliser-ou-recruter/",
+      "tags": [
+        "externaliser ou recruter",
+        "sous-traitance pme",
+        "recrutement"
+      ],
+      "image": null
+    },
     {
       "slug": "structure-de-couts",
       "titre": "Structure de coûts : où part votre argent",

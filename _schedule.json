@@ -535,21 +535,21 @@
       "slug": "externaliser-ou-recruter",
       "date": "2026-10-03",
       "heure": "10:00",
-      "published": false
+      "published": true
     },
     {
       "numero": 77,
       "slug": "deleguer-sans-perdre-le-controle",
       "date": "2026-10-03",
       "heure": "10:30",
-      "published": false
+      "published": true
     },
     {
       "numero": 78,
       "slug": "decider-avec-des-chiffres",
       "date": "2026-10-03",
       "heure": "11:00",
-      "published": false
+      "published": true
     },
     {
       "numero": null,
