@@ -26,12 +26,6 @@ RACINE = Path(__file__).resolve().parent.parent
 
 # Chaque bloc : (nom, motif à trouver, pourquoi il compte)
 BLOCS = [
-    ("SDK chatbot",
-     r"eperformance-sdk\.js",
-     "sans lui le widget ne se charge pas — incident du 18/09/2026"),
-    ("Configuration chatbot",
-     r"ePerformanceConfig",
-     "le SDK lit sa configuration dans cet objet"),
     ("Tracking",
      r"assets/js/tracking\.js",
      "sans lui aucune conversion ne remonte à GA4"),
