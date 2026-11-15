@@ -904,7 +904,12 @@ def header(active=""):
     </a>
 
     <nav class="nav" id="primary-nav" aria-label="Navigation principale">
-{nav}
+      <a href="/">Accueil</a>
+      <a href="https://eperformance.pro/diagnostic_eperformance.html">Diagnostic</a>
+      <a href="/acquisition/">Acquisition</a>
+      <a href="https://eperformance.pro/cas-client-mlm.html">Cas client</a>
+      <a href="/a-propos/">À propos</a>
+      <a href="https://eperformance.pro" rel="noopener">Site principal</a>
     </nav>
 
     <div class="header-actions">
