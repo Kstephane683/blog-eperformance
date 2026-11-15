@@ -807,7 +807,8 @@ def head(page_key, meta):
     """Construit le <head> complet pour une page."""
     title = html.escape(meta["title"])
     desc = html.escape(meta.get("description", SITE_DESC), quote=True)
-    canonical = f"{BASE_URL}/{page_key}" if page_key != "index.html" else f"{BASE_URL}/"
+    canonical_key = page_key[:-10] if page_key.endswith("index.html") else page_key
+    canonical = f"{BASE_URL}/{canonical_key}" if canonical_key else f"{BASE_URL}/"
     og_type = "website"
 
     robots = ('<meta name="robots" content="noindex,follow">'
@@ -1065,7 +1066,8 @@ CONSENT_BANNER = """<div class="consent" id="consent-banner" hidden>
 # ---------------------------------------------------------------------------
 
 def site_graph(page_key, meta):
-    canonical = f"{BASE_URL}/{page_key}" if page_key != "index.html" else f"{BASE_URL}/"
+    canonical_key = page_key[:-10] if page_key.endswith("index.html") else page_key
+    canonical = f"{BASE_URL}/{canonical_key}" if canonical_key else f"{BASE_URL}/"
 
     org = {
         "@type": "Organization",
